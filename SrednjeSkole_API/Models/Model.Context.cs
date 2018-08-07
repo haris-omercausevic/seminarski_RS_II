@@ -12,6 +12,8 @@ namespace SrednjeSkole_API.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class SrednjeSkoleEntities : DbContext
     {
@@ -30,7 +32,6 @@ namespace SrednjeSkole_API.Models
         public virtual DbSet<Izostanci> Izostanci { get; set; }
         public virtual DbSet<Korisnici> Korisnici { get; set; }
         public virtual DbSet<KorisniciUloge> KorisniciUloge { get; set; }
-        public virtual DbSet<KorisnikKontakt> KorisnikKontakt { get; set; }
         public virtual DbSet<Materijali> Materijali { get; set; }
         public virtual DbSet<Obavijesti> Obavijesti { get; set; }
         public virtual DbSet<Predaje> Predaje { get; set; }
@@ -43,5 +44,10 @@ namespace SrednjeSkole_API.Models
         public virtual DbSet<UceniciOcjene> UceniciOcjene { get; set; }
         public virtual DbSet<UceniciRazredi> UceniciRazredi { get; set; }
         public virtual DbSet<Uloge> Uloge { get; set; }
+    
+        public virtual ObjectResult<Korisnici_Result> ssp_Korisnici_SelectAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Korisnici_Result>("ssp_Korisnici_SelectAll");
+        }
     }
 }

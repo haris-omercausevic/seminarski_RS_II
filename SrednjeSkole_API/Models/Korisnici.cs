@@ -34,12 +34,16 @@ namespace SrednjeSkole_API.Models
         public string MjestoRodjenja { get; set; }
         public string JMBG { get; set; }
         public string Prebivaliste { get; set; }
+        public string Email { get; set; }
+        public string Telefon { get; set; }
+        public string Grad { get; set; }
+        public string Adresa { get; set; }
+        public string Opstina { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AutorizacijskiToken> AutorizacijskiToken { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KorisniciUloge> KorisniciUloge { get; set; }
-        public virtual KorisnikKontakt KorisnikKontakt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Obavijesti> Obavijesti { get; set; }
     }

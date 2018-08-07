@@ -10,7 +10,6 @@
         <EntityTypeShape EntityType="SrednjeSkoleModel.Izostanci" Width="1.5" PointX="7.5" PointY="21.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SrednjeSkoleModel.Korisnici" Width="1.5" PointX="0.75" PointY="16" IsExpanded="true" />
         <EntityTypeShape EntityType="SrednjeSkoleModel.KorisniciUloge" Width="1.5" PointX="6" PointY="17.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SrednjeSkoleModel.KorisnikKontakt" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
         <EntityTypeShape EntityType="SrednjeSkoleModel.Materijali" Width="1.5" PointX="5.25" PointY="25.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SrednjeSkoleModel.Nastavnici" Width="1.5" PointX="3" PointY="21.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SrednjeSkoleModel.Obavijesti" Width="1.5" PointX="3" PointY="24.75" IsExpanded="true" />
@@ -31,7 +30,6 @@
         <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_UceniciCasovi_dbo_Casovi_CasId" ManuallyRouted="false" />
         <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_Izostanci_dbo_Ucenici_UcenikId" ManuallyRouted="false" />
         <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_KorisniciUloge_dbo_Korisnici_KorisnikID" ManuallyRouted="false" />
-        <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_KorisnikKontakt_dbo_Korisnici_KorisnikKontaktId" ManuallyRouted="false" />
         <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_Obavijesti_dbo_Korisnici_KorisnikId" ManuallyRouted="false" />
         <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_KorisniciUloge_dbo_Uloge_UlogaID" ManuallyRouted="false" />
         <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_Materijali_dbo_Nastavnici_NastavnikId" ManuallyRouted="false" />

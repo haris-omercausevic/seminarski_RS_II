@@ -10,17 +10,14 @@
 namespace SrednjeSkole_API.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class KorisnikKontakt
+    public partial class Korisnici_Result
     {
-        public int KorisnikKontaktId { get; set; }
+        public int Id { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public string KorisnickoIme { get; set; }
         public string Email { get; set; }
-        public string Telefon { get; set; }
-        public string Adresa { get; set; }
-        public string Grad { get; set; }
-        public string Opstina { get; set; }
-    
-        public virtual Korisnici Korisnici { get; set; }
+        public string Uloga { get; set; }
     }
 }
