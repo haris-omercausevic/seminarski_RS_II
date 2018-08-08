@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.imeInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,6 +48,8 @@
             this.jmbgInput = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.datumRodjenjaInput = new System.Windows.Forms.DateTimePicker();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -207,6 +210,10 @@
             this.datumRodjenjaInput.Size = new System.Drawing.Size(200, 20);
             this.datumRodjenjaInput.TabIndex = 6;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // AddKorisnik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,6 +241,7 @@
             this.Name = "AddKorisnik";
             this.Text = "AddKorisnik";
             this.Load += new System.EventHandler(this.AddKorisnik_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,6 +269,5 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker datumRodjenjaInput;
         private System.Windows.Forms.ErrorProvider errorProvider;
-
     }
 }

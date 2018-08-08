@@ -51,17 +51,24 @@ namespace SrednjeSkole_UI.Users
             };
             k.LozinkaSalt = UIHelper.GenerateSalt();
             k.LozinkaHash = UIHelper.GenerateHash(k.LozinkaSalt, lozinkaInput.Text);
+
             k.Uloge = ulogeList.CheckedItems.Cast<Uloge>().ToList();
 
-
             HttpResponseMessage response = korisniciService.PostResponse(k);
-            if(response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
-                MessageBox.Show("Korisnik uspješno dodan!");
+                MessageBox.Show(Messages.add_usr_succ, Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else
             {
-                MessageBox.Show("Error code: " + response.StatusCode + "Message: " + response.ReasonPhrase);
+                string msg = response.ReasonPhrase;
+
+                if (!String.IsNullOrEmpty(Messages.ResourceManager.GetString(response.ReasonPhrase)))
+                    msg = Messages.ResourceManager.GetString(response.ReasonPhrase);
+
+                MessageBox.Show("Error Code" +
+                response.StatusCode + " : Message - " + msg);
             }
         }
 
