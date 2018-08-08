@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace SrednjeSkole_UI
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private WebAPIHelper korisniciService = new WebAPIHelper("http://localhost:64818", "api/Korisnici");
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
