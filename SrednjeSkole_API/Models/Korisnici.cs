@@ -30,7 +30,7 @@ namespace SrednjeSkole_API.Models
         public string LozinkaSalt { get; set; }
         public bool Aktivan { get; set; }
         public string Spol { get; set; }
-        public System.DateTime DatumRodjenja { get; set; }
+        public Nullable<System.DateTime> DatumRodjenja { get; set; }
         public string MjestoRodjenja { get; set; }
         public string JMBG { get; set; }
         public string Prebivaliste { get; set; }

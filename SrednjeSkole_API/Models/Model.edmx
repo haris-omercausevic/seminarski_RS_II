@@ -47,7 +47,7 @@
           <Property Name="LozinkaSalt" Type="nvarchar(max)" />
           <Property Name="Aktivan" Type="bit" Nullable="false" />
           <Property Name="Spol" Type="nvarchar(max)" />
-          <Property Name="DatumRodjenja" Type="datetime" Nullable="false" />
+          <Property Name="DatumRodjenja" Type="datetime" />
           <Property Name="MjestoRodjenja" Type="nvarchar(max)" />
           <Property Name="JMBG" Type="nvarchar" MaxLength="13" />
           <Property Name="Prebivaliste" Type="nvarchar(max)" />
@@ -748,7 +748,7 @@
           <Property Name="LozinkaSalt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Aktivan" Type="Boolean" Nullable="false" />
           <Property Name="Spol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DatumRodjenja" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DatumRodjenja" Type="DateTime" Precision="3" />
           <Property Name="MjestoRodjenja" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
           <Property Name="Prebivaliste" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />

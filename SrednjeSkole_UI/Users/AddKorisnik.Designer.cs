@@ -82,7 +82,7 @@
             this.prezimeInput.Location = new System.Drawing.Point(100, 38);
             this.prezimeInput.Name = "prezimeInput";
             this.prezimeInput.Size = new System.Drawing.Size(197, 20);
-            this.prezimeInput.TabIndex = 1;
+            this.prezimeInput.TabIndex = 2;
             // 
             // label3
             // 
@@ -98,7 +98,7 @@
             this.emailInput.Location = new System.Drawing.Point(100, 64);
             this.emailInput.Name = "emailInput";
             this.emailInput.Size = new System.Drawing.Size(197, 20);
-            this.emailInput.TabIndex = 1;
+            this.emailInput.TabIndex = 3;
             // 
             // label4
             // 
@@ -123,7 +123,7 @@
             this.korisnickoImeInput.Location = new System.Drawing.Point(99, 191);
             this.korisnickoImeInput.Name = "korisnickoImeInput";
             this.korisnickoImeInput.Size = new System.Drawing.Size(197, 20);
-            this.korisnickoImeInput.TabIndex = 1;
+            this.korisnickoImeInput.TabIndex = 7;
             // 
             // label6
             // 
@@ -140,7 +140,7 @@
             this.lozinkaInput.Name = "lozinkaInput";
             this.lozinkaInput.PasswordChar = '*';
             this.lozinkaInput.Size = new System.Drawing.Size(197, 20);
-            this.lozinkaInput.TabIndex = 1;
+            this.lozinkaInput.TabIndex = 8;
             // 
             // label7
             // 
@@ -157,14 +157,14 @@
             this.telefonInput.Mask = "(999) 000-000";
             this.telefonInput.Name = "telefonInput";
             this.telefonInput.Size = new System.Drawing.Size(197, 20);
-            this.telefonInput.TabIndex = 3;
+            this.telefonInput.TabIndex = 4;
             // 
             // dodajBtn
             // 
             this.dodajBtn.Location = new System.Drawing.Point(222, 366);
             this.dodajBtn.Name = "dodajBtn";
             this.dodajBtn.Size = new System.Drawing.Size(75, 23);
-            this.dodajBtn.TabIndex = 4;
+            this.dodajBtn.TabIndex = 10;
             this.dodajBtn.Text = "Dodaj";
             this.dodajBtn.UseVisualStyleBackColor = true;
             this.dodajBtn.Click += new System.EventHandler(this.dodajBtn_Click);
@@ -175,7 +175,7 @@
             this.ulogeList.Location = new System.Drawing.Point(99, 246);
             this.ulogeList.Name = "ulogeList";
             this.ulogeList.Size = new System.Drawing.Size(120, 94);
-            this.ulogeList.TabIndex = 5;
+            this.ulogeList.TabIndex = 9;
             // 
             // label8
             // 
@@ -192,7 +192,7 @@
             this.jmbgInput.MaxLength = 13;
             this.jmbgInput.Name = "jmbgInput";
             this.jmbgInput.Size = new System.Drawing.Size(197, 20);
-            this.jmbgInput.TabIndex = 1;
+            this.jmbgInput.TabIndex = 5;
             // 
             // label9
             // 
@@ -239,7 +239,7 @@
             this.Controls.Add(this.imeInput);
             this.Controls.Add(this.label1);
             this.Name = "AddKorisnik";
-            this.Text = "AddKorisnik";
+            this.Text = "Dodaj korisnika";
             this.Load += new System.EventHandler(this.AddKorisnik_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
