@@ -16,7 +16,7 @@ namespace SrednjeSkole_UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Users.AddKorisnik());
+            Application.Run(new MainForm());
         }
     }
 }

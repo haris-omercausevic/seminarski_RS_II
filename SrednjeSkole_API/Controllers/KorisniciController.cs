@@ -10,20 +10,15 @@ using System.Web.Http.Description;
 
 namespace SrednjeSkole_API.Controllers
 {
+    [RoutePrefix("api/Korisnici")]
     public class KorisniciController : ApiController
     {
         private SrednjeSkoleEntities db = new SrednjeSkoleEntities(false);
 
+
         //GET api/Korisnici/id
-
-        [HttpGet]
-        public List<Korisnici_Result> GetKorisnici()
-        {
-            return db.ssp_Korisnici_SelectAll().ToList();
-        }
-
-        [HttpGet]
         [ResponseType(typeof(Korisnici))]
+        [Route("api/Korisnici/{id}")]
         public IHttpActionResult GetKorisnici(int id)
         {
             Korisnici k = db.Korisnici.Find(id);
@@ -33,12 +28,11 @@ namespace SrednjeSkole_API.Controllers
 
             return Ok(k);
         }
-        //GET api/Korisnici/Pretraga
+        //GET api/korisnici/pretraga?ime=haris&prezime=omercausevic&ulogaId=4
         [HttpGet]
-        [Route("api/Korisnici/Pretraga/{name?}")]
-        public List<Korisnici_Result> Pretraga(string ime = null, string prezime = null, string email = null, int? ulogaId = null)
+        public List<Korisnici_Result> Pretraga(string ime = "", string prezime = "", int? ulogaId = null)
         {
-            return db.ssp_Korisnici_Pretraga(ime,prezime,email,ulogaId).ToList();
+            return db.ssp_Korisnici_Pretraga(ime,prezime,ulogaId).ToList();
         }
 
 

@@ -546,7 +546,6 @@
         <Function Name="ssp_Korisnici_Pretraga" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Ime" Type="nvarchar" Mode="In" />
           <Parameter Name="Prezime" Type="nvarchar" Mode="In" />
-          <Parameter Name="Email" Type="nvarchar" Mode="In" />
           <Parameter Name="UlogaID" Type="int" Mode="In" />
         </Function>
         <Function Name="ssp_Korisnici_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -1374,7 +1373,6 @@
           <FunctionImport Name="ssp_Korisnici_Pretraga" ReturnType="Collection(SrednjeSkoleModel.Korisnici_Result)">
             <Parameter Name="Ime" Mode="In" Type="String" />
             <Parameter Name="Prezime" Mode="In" Type="String" />
-            <Parameter Name="Email" Mode="In" Type="String" />
             <Parameter Name="UlogaID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ssp_Korisnici_Update">

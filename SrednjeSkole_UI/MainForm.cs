@@ -23,5 +23,12 @@ namespace SrednjeSkole_UI
         {
 
         }
+
+        private void korisniciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Users.IndexForm f = new Users.IndexForm();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

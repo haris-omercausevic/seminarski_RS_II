@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 using System.Net.Http;
 using SrednjeSkole_API.Models;
+using ModernHttpClient;
 
 namespace SrednjeSkole_UI.Util
 {
     public class WebAPIHelper
     {
-        public HttpClient client { get; set; }
+        public static HttpClient client { get; set; }
         public string route { get; set; }
 
         public WebAPIHelper(string uri, string route)
         {
-            client = new HttpClient();
+            client = new HttpClient(new NativeMessageHandler());
             client.BaseAddress = new Uri(uri);
             this.route = route;
         }
@@ -27,7 +28,7 @@ namespace SrednjeSkole_UI.Util
         public HttpResponseMessage GetActionResponse(string action, string parameter = "")
         {
             return client.GetAsync(route + "/" + action + "/" + parameter).Result;
-        }
+        }       
 
         public HttpResponseMessage PostResponse(Object newObj)
         {
