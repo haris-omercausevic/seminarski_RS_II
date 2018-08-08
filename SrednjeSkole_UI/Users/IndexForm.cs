@@ -24,15 +24,32 @@ namespace SrednjeSkole_UI.Users
         public IndexForm()
         {
             InitializeComponent();
+            korisniciGrid.AutoGenerateColumns = false;
+
         }
 
         private void IndexForm_Load(object sender, EventArgs e)
         {
+            HttpResponseMessage response = ulogeService.GetResponse();
+
+            if (response.IsSuccessStatusCode)
+            {
+                ulogaCmb.DataSource = response.Content.ReadAsAsync<List<Uloge>>().Result;
+                ulogaCmb.DisplayMember = "Naziv";
+                ulogaCmb.ValueMember = "UlogaId";
+                //ulogeList.ClearSelected();
+            }
             BindGrid();
+
         }
         private void BindGrid()
         {
-            HttpResponseMessage response = korisniciService.GetActionResponse("Pretraga", imeInput.Text + "&prezime=" + prezimeInput.Text + "&ulogaId=" + ulogaCmb.SelectedItem.ToString());
+            Uloge temp2 = ulogaCmb.SelectedItem as Uloge;
+            string uloga = "";
+            if (temp2 != null)
+                uloga = temp2.UlogaId.ToString();
+
+            HttpResponseMessage response = korisniciService.GetResponse("Pretraga?ime="+ imeInput.Text + "&prezime=" + prezimeInput.Text + "&ulogaId=" + uloga);
                 //client.GetAsync(Global.KorisniciRoute + "/" + "Pretraga" + "?" + "ime=" + k.Ime + "&prezime=" + k.Prezime + "&ulogaId=" + k.UlogaId).Result;
 
             if (response.IsSuccessStatusCode)
@@ -57,13 +74,18 @@ namespace SrednjeSkole_UI.Users
         private void noviKorisnikBtn_Click(object sender, EventArgs e)
         {
             AddKorisnik frm = new AddKorisnik();
-            frm.ShowDialog();
-            BindGrid();
+            if(frm.ShowDialog() == DialogResult.OK)
+            {
+                BindGrid();
+            }
+            
         }
 
         private void izmijeniBtn_Click(object sender, EventArgs e)
         {
-            
+            EditKorisnik frm = new EditKorisnik(Convert.ToInt32(korisniciGrid.SelectedRows[0].Cells[0].Value));
+            frm.ShowDialog();
+            BindGrid();
         }
     }
 }

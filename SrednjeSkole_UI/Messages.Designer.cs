@@ -61,15 +61,6 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uspješno ste dodali podatke o proizvodu..
-        /// </summary>
-        internal static string add_product_succ {
-            get {
-                return ResourceManager.GetString("add_product_succ", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Uspješno ste dodali podatke o korisniku..
         /// </summary>
         internal static string add_usr_succ {
@@ -133,6 +124,24 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to JMBG mora imati 13 karaktera..
+        /// </summary>
+        internal static string jmbg_err {
+            get {
+                return ResourceManager.GetString("jmbg_err", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno unesite JMBG!.
+        /// </summary>
+        internal static string jmbg_req {
+            get {
+                return ResourceManager.GetString("jmbg_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Obavezno unesite prezime!.
         /// </summary>
         internal static string lname_err {
@@ -183,15 +192,6 @@ namespace SrednjeSkole_UI {
         internal static string pass_req {
             get {
                 return ResourceManager.GetString("pass_req", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Potrebno je da odaberete sliku dimenzija većih od.
-        /// </summary>
-        internal static string picture_war {
-            get {
-                return ResourceManager.GetString("picture_war", resourceCulture);
             }
         }
         

@@ -67,6 +67,7 @@
             this.imeInput.Name = "imeInput";
             this.imeInput.Size = new System.Drawing.Size(197, 20);
             this.imeInput.TabIndex = 1;
+            this.imeInput.Validating += new System.ComponentModel.CancelEventHandler(this.imeInput_Validating);
             // 
             // label2
             // 
@@ -83,6 +84,7 @@
             this.prezimeInput.Name = "prezimeInput";
             this.prezimeInput.Size = new System.Drawing.Size(197, 20);
             this.prezimeInput.TabIndex = 2;
+            this.prezimeInput.Validating += new System.ComponentModel.CancelEventHandler(this.prezimeInput_Validating);
             // 
             // label3
             // 
@@ -99,6 +101,7 @@
             this.emailInput.Name = "emailInput";
             this.emailInput.Size = new System.Drawing.Size(197, 20);
             this.emailInput.TabIndex = 3;
+            this.emailInput.Validating += new System.ComponentModel.CancelEventHandler(this.emailInput_Validating);
             // 
             // label4
             // 
@@ -124,6 +127,7 @@
             this.korisnickoImeInput.Name = "korisnickoImeInput";
             this.korisnickoImeInput.Size = new System.Drawing.Size(197, 20);
             this.korisnickoImeInput.TabIndex = 7;
+            this.korisnickoImeInput.Validating += new System.ComponentModel.CancelEventHandler(this.korisnickoImeInput_Validating);
             // 
             // label6
             // 
@@ -141,6 +145,7 @@
             this.lozinkaInput.PasswordChar = '*';
             this.lozinkaInput.Size = new System.Drawing.Size(197, 20);
             this.lozinkaInput.TabIndex = 8;
+            this.lozinkaInput.Validating += new System.ComponentModel.CancelEventHandler(this.lozinkaInput_Validating);
             // 
             // label7
             // 
@@ -176,6 +181,7 @@
             this.ulogeList.Name = "ulogeList";
             this.ulogeList.Size = new System.Drawing.Size(120, 94);
             this.ulogeList.TabIndex = 9;
+            this.ulogeList.Validating += new System.ComponentModel.CancelEventHandler(this.ulogeList_Validating);
             // 
             // label8
             // 
@@ -193,6 +199,7 @@
             this.jmbgInput.Name = "jmbgInput";
             this.jmbgInput.Size = new System.Drawing.Size(197, 20);
             this.jmbgInput.TabIndex = 5;
+            this.jmbgInput.Validating += new System.ComponentModel.CancelEventHandler(this.jmbgInput_Validating);
             // 
             // label9
             // 
@@ -205,6 +212,7 @@
             // 
             // datumRodjenjaInput
             // 
+            this.datumRodjenjaInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datumRodjenjaInput.Location = new System.Drawing.Point(100, 145);
             this.datumRodjenjaInput.Name = "datumRodjenjaInput";
             this.datumRodjenjaInput.Size = new System.Drawing.Size(200, 20);

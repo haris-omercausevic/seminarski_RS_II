@@ -1,4 +1,5 @@
 ﻿using SrednjeSkole_API.Models;
+using SrednjeSkole_API.Util;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core;
@@ -38,7 +39,7 @@ namespace SrednjeSkole_API.Controllers
 
         // POST api/Korisnici
         [ResponseType(typeof(Korisnici))]
-        //[ExceptionFilter]
+        [ExceptionFilter]
         public IHttpActionResult PostKorisnici(Korisnici k)
         {
             if (!ModelState.IsValid)
@@ -77,8 +78,18 @@ namespace SrednjeSkole_API.Controllers
             if (id != k.Id)
                 return BadRequest();
 
-            db.ssp_Korisnici_Update(id, k.Ime, k.Prezime, k.Email,
-                k.Telefon, k.KorisnickoIme, k.LozinkaSalt, k.LozinkaHash, k.Aktivan, k.JMBG, k.DatumRodjenja);
+            try
+            {
+                db.ssp_Korisnici_Update(id, k.Ime, k.Prezime, k.Email,
+                        k.Telefon, k.KorisnickoIme, k.LozinkaSalt, k.LozinkaHash, k.Aktivan, k.JMBG, k.DatumRodjenja);
+            }
+            catch (EntityException ex)
+            {
+
+                if (ex.InnerException != null)
+                    throw CreateHttpExceptionMessage(Util.ExceptionHandler.HandleException(ex),
+                                                     HttpStatusCode.Conflict);
+            }
 
             return StatusCode(HttpStatusCode.NoContent);
         }

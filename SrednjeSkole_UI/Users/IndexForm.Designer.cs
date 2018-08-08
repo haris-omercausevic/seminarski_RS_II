@@ -38,6 +38,12 @@
             this.noviKorisnikBtn = new System.Windows.Forms.Button();
             this.izmijeniBtn = new System.Windows.Forms.Button();
             this.korisniciGrid = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KorisnickoIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Uloga = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.korisniciGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +77,7 @@
             this.prezimeInput.Location = new System.Drawing.Point(212, 22);
             this.prezimeInput.Name = "prezimeInput";
             this.prezimeInput.Size = new System.Drawing.Size(100, 20);
-            this.prezimeInput.TabIndex = 1;
+            this.prezimeInput.TabIndex = 2;
             // 
             // ulogaCmb
             // 
@@ -79,7 +85,7 @@
             this.ulogaCmb.Location = new System.Drawing.Point(362, 22);
             this.ulogaCmb.Name = "ulogaCmb";
             this.ulogaCmb.Size = new System.Drawing.Size(121, 21);
-            this.ulogaCmb.TabIndex = 2;
+            this.ulogaCmb.TabIndex = 3;
             // 
             // label3
             // 
@@ -105,7 +111,7 @@
             this.noviKorisnikBtn.Location = new System.Drawing.Point(627, 22);
             this.noviKorisnikBtn.Name = "noviKorisnikBtn";
             this.noviKorisnikBtn.Size = new System.Drawing.Size(96, 23);
-            this.noviKorisnikBtn.TabIndex = 4;
+            this.noviKorisnikBtn.TabIndex = 5;
             this.noviKorisnikBtn.Text = "Novi korisnik";
             this.noviKorisnikBtn.UseVisualStyleBackColor = true;
             this.noviKorisnikBtn.Click += new System.EventHandler(this.noviKorisnikBtn_Click);
@@ -115,7 +121,7 @@
             this.izmijeniBtn.Location = new System.Drawing.Point(769, 22);
             this.izmijeniBtn.Name = "izmijeniBtn";
             this.izmijeniBtn.Size = new System.Drawing.Size(96, 23);
-            this.izmijeniBtn.TabIndex = 4;
+            this.izmijeniBtn.TabIndex = 6;
             this.izmijeniBtn.Text = "Izmijeni korisnika";
             this.izmijeniBtn.UseVisualStyleBackColor = true;
             this.izmijeniBtn.Click += new System.EventHandler(this.izmijeniBtn_Click);
@@ -125,6 +131,13 @@
             this.korisniciGrid.AllowUserToAddRows = false;
             this.korisniciGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.korisniciGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.korisniciGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Ime,
+            this.Prezime,
+            this.KorisnickoIme,
+            this.Email,
+            this.Uloga});
             this.korisniciGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.korisniciGrid.Location = new System.Drawing.Point(0, 86);
             this.korisniciGrid.Name = "korisniciGrid";
@@ -132,6 +145,49 @@
             this.korisniciGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.korisniciGrid.Size = new System.Drawing.Size(911, 364);
             this.korisniciGrid.TabIndex = 7;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // Ime
+            // 
+            this.Ime.DataPropertyName = "Ime";
+            this.Ime.HeaderText = "Ime";
+            this.Ime.Name = "Ime";
+            this.Ime.ReadOnly = true;
+            // 
+            // Prezime
+            // 
+            this.Prezime.DataPropertyName = "Prezime";
+            this.Prezime.HeaderText = "Prezime";
+            this.Prezime.Name = "Prezime";
+            this.Prezime.ReadOnly = true;
+            // 
+            // KorisnickoIme
+            // 
+            this.KorisnickoIme.DataPropertyName = "KorisnickoIme";
+            this.KorisnickoIme.HeaderText = "Korisničko ime";
+            this.KorisnickoIme.Name = "KorisnickoIme";
+            this.KorisnickoIme.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // Uloga
+            // 
+            this.Uloga.DataPropertyName = "Uloga";
+            this.Uloga.HeaderText = "Uloga";
+            this.Uloga.Name = "Uloga";
+            this.Uloga.ReadOnly = true;
             // 
             // IndexForm
             // 
@@ -172,5 +228,11 @@
         private System.Windows.Forms.Button noviKorisnikBtn;
         private System.Windows.Forms.Button izmijeniBtn;
         private System.Windows.Forms.DataGridView korisniciGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Prezime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KorisnickoIme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Uloga;
     }
 }

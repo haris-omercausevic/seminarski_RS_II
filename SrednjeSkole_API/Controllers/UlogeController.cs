@@ -12,7 +12,7 @@ namespace SrednjeSkole_API.Controllers
 {
     public class UlogeController : ApiController
     {
-        private SrednjeSkoleEntities db = new SrednjeSkoleEntities();
+        private SrednjeSkoleEntities db = new SrednjeSkoleEntities(false);
 
         //api/Uloge
         public List<Uloge> GetUloge()

@@ -566,6 +566,9 @@
           <Parameter Name="KorisnikId" Type="int" Mode="In" />
           <Parameter Name="UlogaId" Type="int" Mode="In" />
         </Function>
+        <Function Name="ssp_KorisniciUloge_Remove" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KorisnikId" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="SrednjeSkoleModelStoreContainer">
           <EntitySet Name="AutorizacijskiToken" EntityType="Self.AutorizacijskiToken" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Casovi" EntityType="Self.Casovi" Schema="dbo" store:Type="Tables" />
@@ -1392,6 +1395,9 @@
             <Parameter Name="KorisnikId" Mode="In" Type="Int32" />
             <Parameter Name="UlogaId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="ssp_KorisniciUloge_Remove">
+            <Parameter Name="KorisnikId" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1648,6 +1654,7 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ssp_Korisnici_Update" FunctionName="SrednjeSkoleModel.Store.ssp_Korisnici_Update" />
           <FunctionImportMapping FunctionImportName="ssp_KorisniciUloge_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_KorisniciUloge_Insert" />
+          <FunctionImportMapping FunctionImportName="ssp_KorisniciUloge_Remove" FunctionName="SrednjeSkoleModel.Store.ssp_KorisniciUloge_Remove" />
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

@@ -169,5 +169,14 @@ namespace SrednjeSkole_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_KorisniciUloge_Insert", korisnikIdParameter, ulogaIdParameter);
         }
+    
+        public virtual int ssp_KorisniciUloge_Remove(Nullable<int> korisnikId)
+        {
+            var korisnikIdParameter = korisnikId.HasValue ?
+                new ObjectParameter("KorisnikId", korisnikId) :
+                new ObjectParameter("KorisnikId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_KorisniciUloge_Remove", korisnikIdParameter);
+        }
     }
 }

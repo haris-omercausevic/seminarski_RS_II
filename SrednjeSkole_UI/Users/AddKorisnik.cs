@@ -24,6 +24,7 @@ namespace SrednjeSkole_UI.Users
         public AddKorisnik()
         {
             InitializeComponent();
+            this.AutoValidate = AutoValidate.Disable;
         }
 
         private void AddKorisnik_Load(object sender, EventArgs e)
@@ -40,35 +41,39 @@ namespace SrednjeSkole_UI.Users
 
         private void dodajBtn_Click(object sender, EventArgs e)
         {
-            Korisnici k = new Korisnici
+            if (this.ValidateChildren())
             {
-                Ime = imeInput.Text,
-                Prezime = prezimeInput.Text,
-                Email = emailInput.Text,
-                Telefon = telefonInput.Text,
-                KorisnickoIme = korisnickoImeInput.Text,
-                Aktivan = true
-            };
-            k.LozinkaSalt = UIHelper.GenerateSalt();
-            k.LozinkaHash = UIHelper.GenerateHash(k.LozinkaSalt, lozinkaInput.Text);
+                Korisnici k = new Korisnici
+                {
+                    Ime = imeInput.Text,
+                    Prezime = prezimeInput.Text,
+                    Email = emailInput.Text,
+                    Telefon = telefonInput.Text,
+                    KorisnickoIme = korisnickoImeInput.Text,
+                    Aktivan = true
+                };
+                k.LozinkaSalt = UIHelper.GenerateSalt();
+                k.LozinkaHash = UIHelper.GenerateHash(k.LozinkaSalt, lozinkaInput.Text);
 
-            k.Uloge = ulogeList.CheckedItems.Cast<Uloge>().ToList();
+                k.Uloge = ulogeList.CheckedItems.Cast<Uloge>().ToList();
 
-            HttpResponseMessage response = korisniciService.PostResponse(k);
-            if (response.IsSuccessStatusCode)
-            {
-                MessageBox.Show(Messages.add_usr_succ, Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
-            else
-            {
-                string msg = response.ReasonPhrase;
+                HttpResponseMessage response = korisniciService.PostResponse(k);
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show(Messages.add_usr_succ, Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
+                else
+                {
+                    string msg = response.ReasonPhrase;
 
-                if (!String.IsNullOrEmpty(Messages.ResourceManager.GetString(response.ReasonPhrase)))
-                    msg = Messages.ResourceManager.GetString(response.ReasonPhrase);
+                    if (!String.IsNullOrEmpty(Messages.ResourceManager.GetString(response.ReasonPhrase)))
+                        msg = Messages.ResourceManager.GetString(response.ReasonPhrase);
 
-                MessageBox.Show("Error Code" +
-                response.StatusCode + " : Message - " + msg);
+                    MessageBox.Show("Error Code" +
+                    response.StatusCode + " : Message - " + msg);
+                }
             }
         }
 
@@ -95,6 +100,10 @@ namespace SrednjeSkole_UI.Users
                 e.Cancel = true;
                 errorProvider.SetError(prezimeInput, Messages.lname_err);
             }
+            else
+            {
+                errorProvider.SetError(prezimeInput, "");
+            }
         }
 
         private void emailInput_Validating(object sender, CancelEventArgs e)
@@ -117,6 +126,23 @@ namespace SrednjeSkole_UI.Users
                     e.Cancel = true;
                     errorProvider.SetError(emailInput, Messages.email_err);
                 }
+            }
+        }
+        private void jmbgInput_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(jmbgInput.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(prezimeInput, Messages.jmbg_req);
+            }
+            else if(jmbgInput.TextLength != 13)
+            {
+                e.Cancel = true;
+                errorProvider.SetError(prezimeInput, Messages.jmbg_err);
+            }
+            else
+            {
+                errorProvider.SetError(jmbgInput, "");
             }
         }
 
@@ -151,7 +177,6 @@ namespace SrednjeSkole_UI.Users
             else
                 errorProvider.SetError(lozinkaInput, null);
         }
-
         private void ulogeList_Validating(object sender, CancelEventArgs e)
         {
             if (ulogeList.CheckedItems.Count == 0)
@@ -163,7 +188,11 @@ namespace SrednjeSkole_UI.Users
                 errorProvider.SetError(ulogeList, null);
         }
 
+
+
+
         #endregion
 
+      
     }
 }
