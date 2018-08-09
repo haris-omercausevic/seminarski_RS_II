@@ -133,12 +133,12 @@ namespace SrednjeSkole_UI.Users
             if (String.IsNullOrEmpty(jmbgInput.Text))
             {
                 e.Cancel = true;
-                errorProvider.SetError(prezimeInput, Messages.jmbg_req);
+                errorProvider.SetError(jmbgInput, Messages.jmbg_req);
             }
-            else if(jmbgInput.TextLength != 13)
+            else if(jmbgInput.Text.Trim().Length != 13)
             {
                 e.Cancel = true;
-                errorProvider.SetError(prezimeInput, Messages.jmbg_err);
+                errorProvider.SetError(jmbgInput, Messages.jmbg_err);
             }
             else
             {
@@ -187,12 +187,30 @@ namespace SrednjeSkole_UI.Users
             else
                 errorProvider.SetError(ulogeList, null);
         }
-
-
+        private void datumRodjenjaInput_Validating(object sender, CancelEventArgs e)
+        {
+            int now = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
+            int dob = int.Parse(datumRodjenjaInput.Value.ToString("yyyyMMdd"));
+            int age = (now - dob) / 10000;
+            if (age < 14)
+            {
+                e.Cancel = true;
+                errorProvider.SetError(datumRodjenjaInput, Messages.datum_err14);
+            }
+            else if (age > 20)
+            {
+                e.Cancel = true;
+                errorProvider.SetError(datumRodjenjaInput, Messages.datum_err20);
+            }
+            else
+            {
+                errorProvider.SetError(datumRodjenjaInput, null);
+            }
+        }
 
 
         #endregion
 
-      
+
     }
 }

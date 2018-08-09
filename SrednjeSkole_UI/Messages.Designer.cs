@@ -70,6 +70,24 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Osobe mlađe od 14 godina se ne mogu upisati u srednju školu..
+        /// </summary>
+        internal static string datum_err14 {
+            get {
+                return ResourceManager.GetString("datum_err14", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Osobe starije od 20 godina se ne mogu upisati u srednju školu..
+        /// </summary>
+        internal static string datum_err20 {
+            get {
+                return ResourceManager.GetString("datum_err20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uspješno ste izmijenili podatke o korisniku..
         /// </summary>
         internal static string edit_usr_succ {

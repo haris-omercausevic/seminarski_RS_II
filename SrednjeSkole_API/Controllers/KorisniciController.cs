@@ -18,9 +18,10 @@ namespace SrednjeSkole_API.Controllers
 
 
         //GET api/Korisnici/id
+        [HttpGet]
+        [Route("ById/{id}")]        
         [ResponseType(typeof(Korisnici))]
-        [Route("api/Korisnici/{id}")]
-        public IHttpActionResult GetKorisnici(int id)
+        public IHttpActionResult GetById(int id)
         {
             Korisnici k = db.Korisnici.Find(id);
 
@@ -31,11 +32,11 @@ namespace SrednjeSkole_API.Controllers
         }
         //GET api/korisnici/pretraga?ime=haris&prezime=omercausevic&ulogaId=4
         [HttpGet]
+        //[ActionName("Pretraga")]
         public List<Korisnici_Result> Pretraga(string ime = "", string prezime = "", int? ulogaId = null)
         {
             return db.ssp_Korisnici_Pretraga(ime,prezime,ulogaId).ToList();
         }
-
 
         // POST api/Korisnici
         [ResponseType(typeof(Korisnici))]
@@ -82,6 +83,11 @@ namespace SrednjeSkole_API.Controllers
             {
                 db.ssp_Korisnici_Update(id, k.Ime, k.Prezime, k.Email,
                         k.Telefon, k.KorisnickoIme, k.LozinkaSalt, k.LozinkaHash, k.Aktivan, k.JMBG, k.DatumRodjenja);
+                db.ssp_KorisniciUloge_Remove(k.Id);
+                foreach (var item in k.Uloge)
+                {
+                    db.ssp_KorisniciUloge_Insert(k.Id, item.UlogaId);
+                }
             }
             catch (EntityException ex)
             {

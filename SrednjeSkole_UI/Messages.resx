@@ -120,6 +120,12 @@
   <data name="add_usr_succ" xml:space="preserve">
     <value>Uspješno ste dodali podatke o korisniku.</value>
   </data>
+  <data name="datum_err14" xml:space="preserve">
+    <value>Osobe mlađe od 14 godina se ne mogu upisati u srednju školu.</value>
+  </data>
+  <data name="datum_err20" xml:space="preserve">
+    <value>Osobe starije od 20 godina se ne mogu upisati u srednju školu.</value>
+  </data>
   <data name="edit_usr_succ" xml:space="preserve">
     <value>Uspješno ste izmijenili podatke o korisniku.</value>
   </data>

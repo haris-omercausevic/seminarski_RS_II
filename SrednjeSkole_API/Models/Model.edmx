@@ -40,22 +40,22 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Ime" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Prezime" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="KorisnickoIme" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prezime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KorisnickoIme" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LozinkaHash" Type="nvarchar(max)" />
           <Property Name="LozinkaSalt" Type="nvarchar(max)" />
           <Property Name="Aktivan" Type="bit" Nullable="false" />
           <Property Name="Spol" Type="nvarchar(max)" />
           <Property Name="DatumRodjenja" Type="datetime" />
-          <Property Name="MjestoRodjenja" Type="nvarchar(max)" />
+          <Property Name="MjestoRodjenja" Type="nvarchar" MaxLength="50" />
           <Property Name="JMBG" Type="nvarchar" MaxLength="13" />
-          <Property Name="Prebivaliste" Type="nvarchar(max)" />
-          <Property Name="Email" Type="nvarchar(max)" />
-          <Property Name="Telefon" Type="nvarchar(max)" />
-          <Property Name="Adresa" Type="nvarchar(max)" />
-          <Property Name="Grad" Type="nvarchar(max)" />
-          <Property Name="Opstina" Type="nvarchar(max)" />
+          <Property Name="Prebivaliste" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="30" />
+          <Property Name="Adresa" Type="nvarchar" MaxLength="100" />
+          <Property Name="Grad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Opstina" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Korisnici_Nastavnici">
           <Key>
@@ -743,25 +743,25 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Ime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Prezime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="KorisnickoIme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KorisnickoIme" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LozinkaHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LozinkaSalt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Aktivan" Type="Boolean" Nullable="false" />
           <Property Name="Spol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DatumRodjenja" Type="DateTime" Precision="3" />
-          <Property Name="MjestoRodjenja" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MjestoRodjenja" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
-          <Property Name="Prebivaliste" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Prebivaliste" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AutorizacijskiToken" Relationship="Self.FK_dbo_AutorizacijskiToken_dbo_Korisnici_KorisnikId" FromRole="Korisnici" ToRole="AutorizacijskiToken" />
           <NavigationProperty Name="KorisniciUloge" Relationship="Self.FK_dbo_KorisniciUloge_dbo_Korisnici_KorisnikID" FromRole="Korisnici" ToRole="KorisniciUloge" />
           <NavigationProperty Name="Obavijesti" Relationship="Self.FK_dbo_Obavijesti_dbo_Korisnici_KorisnikId" FromRole="Korisnici" ToRole="Obavijesti" />
-          <Property Name="Email" Type="String" Unicode="true" FixedLength="false" MaxLength="Max" />
-          <Property Name="Telefon" Type="String" Unicode="true" FixedLength="false" MaxLength="Max" />
-          <Property Name="Grad" Type="String" Unicode="true" FixedLength="false" MaxLength="Max" />
-          <Property Name="Adresa" Type="String" Unicode="true" FixedLength="false" MaxLength="Max" />
-          <Property Name="Opstina" Type="String" Unicode="true" FixedLength="false" MaxLength="Max" />
+          <Property Name="Email" Type="String" Unicode="true" FixedLength="false" MaxLength="50" />
+          <Property Name="Telefon" Type="String" Unicode="true" FixedLength="false" MaxLength="30" />
+          <Property Name="Grad" Type="String" Unicode="true" FixedLength="false" MaxLength="50" />
+          <Property Name="Adresa" Type="String" Unicode="true" FixedLength="false" MaxLength="100" />
+          <Property Name="Opstina" Type="String" Unicode="true" FixedLength="false" MaxLength="50" />
           </EntityType>
         <EntityType Name="KorisniciUloge">
           <Key>
@@ -1396,7 +1396,7 @@
             <Parameter Name="UlogaId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ssp_KorisniciUloge_Remove">
-            <Parameter Name="KorisnikId" Mode="In" Type="Int32" />
+          <Parameter Name="KorisnikId" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">

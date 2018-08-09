@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.datumRodjenjaInput = new System.Windows.Forms.DateTimePicker();
             this.ulogeList = new System.Windows.Forms.CheckedListBox();
             this.sacuvajBtn = new System.Windows.Forms.Button();
@@ -47,6 +48,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.imeInput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // datumRodjenjaInput
@@ -65,7 +68,6 @@
             this.ulogeList.Name = "ulogeList";
             this.ulogeList.Size = new System.Drawing.Size(120, 94);
             this.ulogeList.TabIndex = 28;
-            this.ulogeList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ulogeList_ItemCheck);
             this.ulogeList.Validating += new System.ComponentModel.CancelEventHandler(this.ulogeList_Validating);
             // 
             // sacuvajBtn
@@ -146,6 +148,7 @@
             this.lozinkaInput.PasswordChar = '*';
             this.lozinkaInput.Size = new System.Drawing.Size(197, 20);
             this.lozinkaInput.TabIndex = 27;
+            this.lozinkaInput.Validating += new System.ComponentModel.CancelEventHandler(this.lozinkaInput_Validating);
             // 
             // label6
             // 
@@ -216,6 +219,10 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Ime:";
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // EditKorisnik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,7 +249,7 @@
             this.Controls.Add(this.label1);
             this.Name = "EditKorisnik";
             this.Text = "EditKorisnik";
-            this.Load += new System.EventHandler(this.EditKorisnik_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,5 +276,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox imeInput;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

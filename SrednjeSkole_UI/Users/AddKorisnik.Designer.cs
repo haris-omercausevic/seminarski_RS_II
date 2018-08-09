@@ -217,6 +217,7 @@
             this.datumRodjenjaInput.Name = "datumRodjenjaInput";
             this.datumRodjenjaInput.Size = new System.Drawing.Size(200, 20);
             this.datumRodjenjaInput.TabIndex = 6;
+            this.datumRodjenjaInput.Validating += new System.ComponentModel.CancelEventHandler(this.datumRodjenjaInput_Validating);
             // 
             // errorProvider
             // 
