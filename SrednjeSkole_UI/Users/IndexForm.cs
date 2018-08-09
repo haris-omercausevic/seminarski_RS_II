@@ -55,7 +55,7 @@ namespace SrednjeSkole_UI.Users
 
             if (response.IsSuccessStatusCode)
             {
-                List<Korisnici_Result> korisnici = response.Content.ReadAsAsync<List<Korisnici_Result>>().Result;
+                List<KorisniciPretraga_Result> korisnici = response.Content.ReadAsAsync<List<KorisniciPretraga_Result>>().Result;
                 korisniciGrid.DataSource = korisnici;
                 korisniciGrid.ClearSelection();
             }
@@ -84,14 +84,14 @@ namespace SrednjeSkole_UI.Users
 
         private void izmijeniBtn_Click(object sender, EventArgs e)
         {
-            List<string> temp = korisniciGrid.SelectedRows[0].Cells[5].Value.ToString().Split(',').ToList();
-            for (int i = 1; i < temp.Count; i++)
-            {
-                temp[i] = temp[i].Replace(" ", "");
-            }
+            //List<string> temp = korisniciGrid.SelectedRows[0].Cells[5].Value.ToString().Split(',').ToList();
+            //for (int i = 1; i < temp.Count; i++)
+            //{
+            //    temp[i] = temp[i].Replace(" ", "");
+            //}
             //List<Uloge> returnList = JsonConvert.DeserializeObject<List<Uloge>>(korisniciGrid.SelectedRows[0].Cells[5].Value.ToString());   
 
-            EditKorisnik frm = new EditKorisnik(Convert.ToInt32(korisniciGrid.SelectedRows[0].Cells[0].Value), temp);
+            EditKorisnik frm = new EditKorisnik(Convert.ToInt32(korisniciGrid.SelectedRows[0].Cells[0].Value));
             frm.ShowDialog();
             BindGrid();
         }

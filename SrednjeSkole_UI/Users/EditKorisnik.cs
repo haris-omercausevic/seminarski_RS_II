@@ -22,7 +22,7 @@ namespace SrednjeSkole_UI.Users
         private WebAPIHelper ulogeService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.UlogeRoute);
         private Korisnici k { get; set; }
         private List<Uloge> sveUloge { get; set; }
-        public EditKorisnik(int korisnikId, List<string> trenutneUloge)
+        public EditKorisnik(int korisnikId)
         {
             InitializeComponent();
             HttpResponseMessage response = korisniciService.GetActionResponse("ById",korisnikId.ToString());
@@ -32,13 +32,31 @@ namespace SrednjeSkole_UI.Users
                 k = null;
             else if (response.IsSuccessStatusCode)
             {
-                k = response.Content.ReadAsAsync<Korisnici>().Result;
-                k.Uloge = new List<Uloge>();
-                foreach (var item in trenutneUloge)
+                Korisnici_Result temp = response.Content.ReadAsAsync<Korisnici_Result>().Result;
+                k = new Korisnici
                 {
-                    HttpResponseMessage response2 = ulogeService.GetResponse(item);                                        
+                    Id = temp.Id,
+                    Ime = temp.Ime,
+                    Prezime = temp.Ime,
+                    Telefon = temp.Telefon,
+                    Email = temp.Email,
+                    KorisnickoIme = temp.KorisnickoIme,
+                    DatumRodjenja = temp.DatumRodjenja,
+                    JMBG = temp.JMBG,
+                    Uloge = new List<Uloge>()                    
+                };
+                foreach (var item in temp.Uloga.Split(',').ToList())
+                {
+                    HttpResponseMessage response2 = ulogeService.GetResponse(item);
                     k.Uloge.Add(response2.Content.ReadAsAsync<List<Uloge>>().Result[0]);
                 }
+
+                //k.Uloge = new List<Uloge>();
+                //foreach (var item in trenutneUloge)
+                //{
+                //    HttpResponseMessage response2 = ulogeService.GetResponse(item);                                        
+                //    k.Uloge.Add(response2.Content.ReadAsAsync<List<Uloge>>().Result[0]);
+                //}
                 FillForm();
             }
         }
@@ -58,7 +76,9 @@ namespace SrednjeSkole_UI.Users
             telefonInput.Text = k.Telefon;
             emailInput.Text = k.Email;
             korisnickoImeInput.Text = k.KorisnickoIme;
-            datumRodjenjaInput.Value = k.DatumRodjenja??DateTime.Now;
+            if(k.DatumRodjenja != null)
+                datumRodjenjaInput.Value = k.DatumRodjenja.Value.Date;
+            jmbgInput.Text = k.JMBG;
             
             for (int i = 0; i < sveUloge.Count; i++)
             {
@@ -76,10 +96,9 @@ namespace SrednjeSkole_UI.Users
                 k.Prezime = prezimeInput.Text;
                 k.Telefon = telefonInput.Text;
                 k.Email = emailInput.Text;
-                k.JMBG = jmbgInput.Text;
-                k.DatumRodjenja = datumRodjenjaInput.Value;
-
+                k.JMBG = jmbgInput.Text;                
                 k.KorisnickoIme = korisnickoImeInput.Text;
+                k.DatumRodjenja = Convert.ToDateTime(datumRodjenjaInput.Value.ToString("yyyy-MM-dd HH:mm:ss.fff"));
 
 
                 if (lozinkaInput.Text != String.Empty)

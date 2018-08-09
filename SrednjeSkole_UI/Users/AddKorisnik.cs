@@ -50,11 +50,12 @@ namespace SrednjeSkole_UI.Users
                     Email = emailInput.Text,
                     Telefon = telefonInput.Text,
                     KorisnickoIme = korisnickoImeInput.Text,
-                    Aktivan = true
-                };
+                    Aktivan = true,
+                    JMBG = jmbgInput.Text,
+                    DatumRodjenja = Convert.ToDateTime(datumRodjenjaInput.Value.ToString("yyyy-MM-dd HH:mm:ss.fff"))
+            };
                 k.LozinkaSalt = UIHelper.GenerateSalt();
                 k.LozinkaHash = UIHelper.GenerateHash(k.LozinkaSalt, lozinkaInput.Text);
-
                 k.Uloge = ulogeList.CheckedItems.Cast<Uloge>().ToList();
 
                 HttpResponseMessage response = korisniciService.PostResponse(k);

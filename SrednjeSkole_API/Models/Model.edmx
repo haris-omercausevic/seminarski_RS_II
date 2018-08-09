@@ -532,6 +532,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ssp_Korisnici_GetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="korisnikId" Type="int" Mode="In" />
+        </Function>
         <Function Name="ssp_Korisnici_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Ime" Type="nvarchar" Mode="In" />
           <Parameter Name="Prezime" Type="nvarchar" Mode="In" />
@@ -1373,7 +1376,7 @@
             <Parameter Name="JMBG" Mode="In" Type="String" />
             <Parameter Name="DatumRodjenja" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="ssp_Korisnici_Pretraga" ReturnType="Collection(SrednjeSkoleModel.Korisnici_Result)">
+          <FunctionImport Name="ssp_Korisnici_Pretraga" ReturnType="Collection(SrednjeSkoleModel.KorisniciPretraga_Result)">
             <Parameter Name="Ime" Mode="In" Type="String" />
             <Parameter Name="Prezime" Mode="In" Type="String" />
             <Parameter Name="UlogaID" Mode="In" Type="Int32" />
@@ -1398,13 +1401,27 @@
           <FunctionImport Name="ssp_KorisniciUloge_Remove">
           <Parameter Name="KorisnikId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="ssp_Korisnici_GetById" ReturnType="Collection(SrednjeSkoleModel.Korisnici_Result)">
+          <Parameter Name="korisnikId" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
-          <Property Type="String" Name="Ime" Nullable="false" />
-          <Property Type="String" Name="Prezime" Nullable="false" />
-          <Property Type="String" Name="KorisnickoIme" Nullable="false" />
-          <Property Type="String" Name="Email" Nullable="true" />
+          <Property Type="String" Name="Ime" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Prezime" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="KorisnickoIme" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Uloga" Nullable="true" />
+          <Property Type="DateTime" Name="DatumRodjenja" Nullable="true" Precision="23" />
+          <Property Type="String" Name="JMBG" Nullable="true" MaxLength="13" />
+          <Property Type="String" Name="Telefon" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="KorisniciPretraga_Result" >
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Ime" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Prezime" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="KorisnickoIme" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Uloga" Nullable="true" />
         </ComplexType>
       </Schema>
@@ -1642,7 +1659,7 @@
           <FunctionImportMapping FunctionImportName="ssp_Korisnici_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_Korisnici_Insert" />
           <FunctionImportMapping FunctionImportName="ssp_Korisnici_Pretraga" FunctionName="SrednjeSkoleModel.Store.ssp_Korisnici_Pretraga">
           <ResultMapping>
-              <ComplexTypeMapping TypeName="SrednjeSkoleModel.Korisnici_Result">
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.KorisniciPretraga_Result">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Ime" ColumnName="Ime" />
                 <ScalarProperty Name="Prezime" ColumnName="Prezime" />
@@ -1655,6 +1672,21 @@
           <FunctionImportMapping FunctionImportName="ssp_Korisnici_Update" FunctionName="SrednjeSkoleModel.Store.ssp_Korisnici_Update" />
           <FunctionImportMapping FunctionImportName="ssp_KorisniciUloge_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_KorisniciUloge_Insert" />
           <FunctionImportMapping FunctionImportName="ssp_KorisniciUloge_Remove" FunctionName="SrednjeSkoleModel.Store.ssp_KorisniciUloge_Remove" />
+          <FunctionImportMapping FunctionImportName="ssp_Korisnici_GetById" FunctionName="SrednjeSkoleModel.Store.ssp_Korisnici_GetById">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.Korisnici_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Uloga" ColumnName="Uloga" />
+                <ScalarProperty Name="DatumRodjenja" ColumnName="DatumRodjenja" />
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

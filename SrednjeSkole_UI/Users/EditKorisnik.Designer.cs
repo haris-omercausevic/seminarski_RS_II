@@ -227,7 +227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 423);
+            this.ClientSize = new System.Drawing.Size(328, 551);
             this.Controls.Add(this.datumRodjenjaInput);
             this.Controls.Add(this.ulogeList);
             this.Controls.Add(this.sacuvajBtn);

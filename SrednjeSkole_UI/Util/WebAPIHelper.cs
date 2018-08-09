@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using SrednjeSkole_API.Models;
 using ModernHttpClient;
+using Newtonsoft.Json;
 
 namespace SrednjeSkole_UI.Util
 {
@@ -32,12 +33,14 @@ namespace SrednjeSkole_UI.Util
 
         public HttpResponseMessage PostResponse(Object newObj)
         {
-            return client.PostAsJsonAsync(route, newObj).Result;
+            StringContent jsonObject = new StringContent(JsonConvert.SerializeObject(newObj), Encoding.UTF8, "application/json");
+            return client.PostAsync(route, jsonObject).Result;
         }
 
         public HttpResponseMessage PutResponse(int id, Object existingObj)
         {
-            return client.PutAsJsonAsync(route + "/" + id, existingObj).Result;
+            StringContent jsonObject = new StringContent(JsonConvert.SerializeObject(existingObj), Encoding.UTF8, "application/json");
+            return client.PutAsync(route + "/" + id, jsonObject).Result;
         }
     }
 }

@@ -121,6 +121,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KorisniciExtension.cs" />
+    <Compile Include="Models\KorisniciPretraga_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\KorisniciUloge.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

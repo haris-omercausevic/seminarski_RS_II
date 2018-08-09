@@ -91,7 +91,7 @@ namespace SrednjeSkole_API.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("ssp_Korisnici_Insert", imeParameter, prezimeParameter, emailParameter, telefonParameter, korisnickoImeParameter, lozinkaSaltParameter, lozinkaHashParameter, jMBGParameter, datumRodjenjaParameter);
         }
     
-        public virtual ObjectResult<Korisnici_Result> ssp_Korisnici_Pretraga(string ime, string prezime, Nullable<int> ulogaID)
+        public virtual ObjectResult<KorisniciPretraga_Result> ssp_Korisnici_Pretraga(string ime, string prezime, Nullable<int> ulogaID)
         {
             var imeParameter = ime != null ?
                 new ObjectParameter("Ime", ime) :
@@ -105,7 +105,7 @@ namespace SrednjeSkole_API.Models
                 new ObjectParameter("UlogaID", ulogaID) :
                 new ObjectParameter("UlogaID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Korisnici_Result>("ssp_Korisnici_Pretraga", imeParameter, prezimeParameter, ulogaIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KorisniciPretraga_Result>("ssp_Korisnici_Pretraga", imeParameter, prezimeParameter, ulogaIDParameter);
         }
     
         public virtual int ssp_Korisnici_Update(Nullable<int> korisnikID, string ime, string prezime, string email, string telefon, string korisnickoIme, string lozinkaSalt, string lozinkaHash, Nullable<bool> aktivan, string jMBG, Nullable<System.DateTime> datumRodjenja)
@@ -177,6 +177,15 @@ namespace SrednjeSkole_API.Models
                 new ObjectParameter("KorisnikId", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_KorisniciUloge_Remove", korisnikIdParameter);
+        }
+    
+        public virtual ObjectResult<Korisnici_Result> ssp_Korisnici_GetById(Nullable<int> korisnikId)
+        {
+            var korisnikIdParameter = korisnikId.HasValue ?
+                new ObjectParameter("korisnikId", korisnikId) :
+                new ObjectParameter("korisnikId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Korisnici_Result>("ssp_Korisnici_GetById", korisnikIdParameter);
         }
     }
 }

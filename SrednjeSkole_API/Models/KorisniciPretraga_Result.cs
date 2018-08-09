@@ -11,7 +11,7 @@ namespace SrednjeSkole_API.Models
 {
     using System;
     
-    public partial class Korisnici_Result
+    public partial class KorisniciPretraga_Result
     {
         public int Id { get; set; }
         public string Ime { get; set; }
@@ -19,8 +19,5 @@ namespace SrednjeSkole_API.Models
         public string KorisnickoIme { get; set; }
         public string Email { get; set; }
         public string Uloga { get; set; }
-        public Nullable<System.DateTime> DatumRodjenja { get; set; }
-        public string JMBG { get; set; }
-        public string Telefon { get; set; }
     }
 }
