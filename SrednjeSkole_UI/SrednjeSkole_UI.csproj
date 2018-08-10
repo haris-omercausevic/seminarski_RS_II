@@ -75,6 +75,12 @@
     <Compile Include="Users\AddKorisnik.Designer.cs">
       <DependentUpon>AddKorisnik.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\AddUcenik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\AddUcenik.Designer.cs">
+      <DependentUpon>AddUcenik.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\EditKorisnik.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,9 +110,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Users\AddKorisnik.resx">
       <DependentUpon>AddKorisnik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\AddUcenik.resx">
+      <DependentUpon>AddUcenik.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\EditKorisnik.resx">
       <DependentUpon>EditKorisnik.cs</DependentUpon>
@@ -133,6 +143,9 @@
       <Project>{5ed83799-c753-451e-987f-9f32f89c3534}</Project>
       <Name>SrednjeSkole_API</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dodaj_sliku.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

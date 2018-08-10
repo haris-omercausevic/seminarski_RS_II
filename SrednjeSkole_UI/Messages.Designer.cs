@@ -88,6 +88,26 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dodaj_sliku {
+            get {
+                object obj = ResourceManager.GetObject("dodaj_sliku", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dodajSilku {
+            get {
+                object obj = ResourceManager.GetObject("dodajSilku", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uspješno ste izmijenili podatke o korisniku..
         /// </summary>
         internal static string edit_usr_succ {

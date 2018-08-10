@@ -25,7 +25,8 @@ namespace SrednjeSkole_UI.Users
         public EditKorisnik(int korisnikId)
         {
             InitializeComponent();
-            HttpResponseMessage response = korisniciService.GetActionResponse("ById",korisnikId.ToString());
+            this.AutoValidate = AutoValidate.Disable;
+            HttpResponseMessage response = korisniciService.GetActionResponse("ById", korisnikId.ToString());
 
 
             if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -43,12 +44,14 @@ namespace SrednjeSkole_UI.Users
                     KorisnickoIme = temp.KorisnickoIme,
                     DatumRodjenja = temp.DatumRodjenja,
                     JMBG = temp.JMBG,
-                    Uloge = new List<Uloge>()                    
+                    Uloge = new List<Uloge>()
                 };
                 foreach (var item in temp.Uloga.Split(',').ToList())
                 {
                     HttpResponseMessage response2 = ulogeService.GetResponse(item);
                     k.Uloge.Add(response2.Content.ReadAsAsync<List<Uloge>>().Result[0]);
+                    //ako je trazena 1 uloga vratiti ce 1 ulogu na poziciji [0]
+                    //ako je poslano null vracaju se sve
                 }
 
                 //k.Uloge = new List<Uloge>();
@@ -60,7 +63,7 @@ namespace SrednjeSkole_UI.Users
                 FillForm();
             }
         }
-       
+
         private void FillForm()
         {
             HttpResponseMessage response = ulogeService.GetResponse();
@@ -76,10 +79,10 @@ namespace SrednjeSkole_UI.Users
             telefonInput.Text = k.Telefon;
             emailInput.Text = k.Email;
             korisnickoImeInput.Text = k.KorisnickoIme;
-            if(k.DatumRodjenja != null)
+            if (k.DatumRodjenja != null)
                 datumRodjenjaInput.Value = k.DatumRodjenja.Value.Date;
             jmbgInput.Text = k.JMBG;
-            
+
             for (int i = 0; i < sveUloge.Count; i++)
             {
                 if (k.Uloge.Any(x => x.UlogaId == sveUloge[i].UlogaId))
@@ -92,37 +95,40 @@ namespace SrednjeSkole_UI.Users
         {
             if (k != null)
             {
-                k.Ime = imeInput.Text;
-                k.Prezime = prezimeInput.Text;
-                k.Telefon = telefonInput.Text;
-                k.Email = emailInput.Text;
-                k.JMBG = jmbgInput.Text;                
-                k.KorisnickoIme = korisnickoImeInput.Text;
-                k.DatumRodjenja = Convert.ToDateTime(datumRodjenjaInput.Value.ToString("yyyy-MM-dd HH:mm:ss.fff"));
-
-
-                if (lozinkaInput.Text != String.Empty)
+                if (this.ValidateChildren())
                 {
-                    k.LozinkaSalt = UIHelper.GenerateSalt();
-                    k.LozinkaHash = UIHelper.GenerateHash(lozinkaInput.Text, k.LozinkaSalt);
-                }
+                    k.Ime = imeInput.Text;
+                    k.Prezime = prezimeInput.Text;
+                    k.Telefon = telefonInput.Text;
+                    k.Email = emailInput.Text;
+                    k.JMBG = jmbgInput.Text;
+                    k.KorisnickoIme = korisnickoImeInput.Text;
+                    k.DatumRodjenja = Convert.ToDateTime(datumRodjenjaInput.Value.ToString("yyyy-MM-dd HH:mm:ss.fff"));
 
-                k.Uloge = ulogeList.CheckedItems.Cast<Uloge>().ToList();
-                HttpResponseMessage response = korisniciService.PutResponse(k.Id, k);
 
-                if (response.IsSuccessStatusCode)
-                {
-                    MessageBox.Show(Messages.edit_usr_succ, Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Error Code" +
-                    response.StatusCode + " : Message - " + response.ReasonPhrase);
+                    if (lozinkaInput.Text != String.Empty)
+                    {
+                        k.LozinkaSalt = UIHelper.GenerateSalt();
+                        k.LozinkaHash = UIHelper.GenerateHash(lozinkaInput.Text, k.LozinkaSalt);
+                    }
+
+                    k.Uloge = ulogeList.CheckedItems.Cast<Uloge>().ToList();
+                    HttpResponseMessage response = korisniciService.PutResponse(k.Id, k);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show(Messages.edit_usr_succ, Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error Code" +
+                        response.StatusCode + " : Message - " + response.ReasonPhrase);
+                    }
                 }
             }
         }
-               
+
 
         private void imeInput_Validating(object sender, CancelEventArgs e)
         {
@@ -198,10 +204,10 @@ namespace SrednjeSkole_UI.Users
             int age = (now - dob) / 10000;
             if (age < 14)
             {
-                    e.Cancel = true;
-                    errorProvider.SetError(datumRodjenjaInput, Messages.datum_err14);
+                e.Cancel = true;
+                errorProvider.SetError(datumRodjenjaInput, Messages.datum_err14);
             }
-            else if(age > 20)
+            else if (age > 20)
             {
                 e.Cancel = true;
                 errorProvider.SetError(datumRodjenjaInput, Messages.datum_err20);

@@ -17,6 +17,10 @@ namespace SrednjeSkole_UI
         public const string UceniciRoute = "api/Ucenici";
         public const string NastavniciRoute = "api/Nastavnici";
         public const string UlogeRoute = "api/Uloge";
+        public const string SmjeroviRoute= "api/Smjerovi";
+        public const string RazrediRoute = "api/Razredi";
+
+
 
         #endregion
     }

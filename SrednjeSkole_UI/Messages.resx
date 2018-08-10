@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="add_usr_succ" xml:space="preserve">
-    <value>Uspješno ste dodali podatke o korisniku.</value>
+  <data name="email_con" xml:space="preserve">
+    <value>Email adresa je zauzeta.</value>
   </data>
   <data name="datum_err14" xml:space="preserve">
     <value>Osobe mlađe od 14 godina se ne mogu upisati u srednju školu.</value>
@@ -126,26 +126,8 @@
   <data name="datum_err20" xml:space="preserve">
     <value>Osobe starije od 20 godina se ne mogu upisati u srednju školu.</value>
   </data>
-  <data name="edit_usr_succ" xml:space="preserve">
-    <value>Uspješno ste izmijenili podatke o korisniku.</value>
-  </data>
-  <data name="email_con" xml:space="preserve">
-    <value>Email adresa je zauzeta.</value>
-  </data>
-  <data name="email_err" xml:space="preserve">
-    <value>E-mail nije u ispravnom formatu.</value>
-  </data>
-  <data name="email_req" xml:space="preserve">
-    <value>Obavezno unesite e-mail!</value>
-  </data>
-  <data name="error" xml:space="preserve">
-    <value>Greška</value>
-  </data>
-  <data name="fname_err" xml:space="preserve">
-    <value>Obavezno unesite ime!</value>
-  </data>
-  <data name="jmbg_err" xml:space="preserve">
-    <value>JMBG mora imati 13 karaktera.</value>
+  <data name="add_usr_succ" xml:space="preserve">
+    <value>Uspješno ste dodali podatke o korisniku.</value>
   </data>
   <data name="jmbg_req" xml:space="preserve">
     <value>Obavezno unesite JMBG!</value>
@@ -153,37 +135,62 @@
   <data name="lname_err" xml:space="preserve">
     <value>Obavezno unesite prezime!</value>
   </data>
-  <data name="login_pass_err" xml:space="preserve">
-    <value>Unijeli ste neispravnu lozinku.</value>
-  </data>
-  <data name="login_user_err" xml:space="preserve">
-    <value>Korisničko ime nije pronađeno ili je vaš nalog neaktivan.</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dodaj_sliku" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dodaj_sliku.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="msg_succ" xml:space="preserve">
     <value>Poruka o uspjehu</value>
   </data>
-  <data name="pass_err" xml:space="preserve">
-    <value>Lozinka treba da sadrži najmanje 6 karaktera (kombinacija slova i brojeva).</value>
-  </data>
-  <data name="pass_req" xml:space="preserve">
-    <value>Obavezno unesite lozinku!</value>
-  </data>
-  <data name="roles_req" xml:space="preserve">
-    <value>Obavezno odaberite najmanje jednu ulogu!</value>
-  </data>
-  <data name="success" xml:space="preserve">
-    <value>Uspjeh</value>
-  </data>
-  <data name="username_con" xml:space="preserve">
-    <value>Korisničko ime je zauzeto.</value>
-  </data>
-  <data name="username_err" xml:space="preserve">
-    <value>Korisničko ime treba da sadrži najmanje 3 karaktera.</value>
+  <data name="email_req" xml:space="preserve">
+    <value>Obavezno unesite e-mail!</value>
   </data>
   <data name="username_req" xml:space="preserve">
     <value>Obavezno unesite korisničko ime!</value>
   </data>
+  <data name="login_pass_err" xml:space="preserve">
+    <value>Unijeli ste neispravnu lozinku.</value>
+  </data>
+  <data name="email_err" xml:space="preserve">
+    <value>E-mail nije u ispravnom formatu.</value>
+  </data>
+  <data name="username_err" xml:space="preserve">
+    <value>Korisničko ime treba da sadrži najmanje 3 karaktera.</value>
+  </data>
+  <data name="edit_usr_succ" xml:space="preserve">
+    <value>Uspješno ste izmijenili podatke o korisniku.</value>
+  </data>
   <data name="warning" xml:space="preserve">
     <value>Upozorenje</value>
+  </data>
+  <data name="username_con" xml:space="preserve">
+    <value>Korisničko ime je zauzeto.</value>
+  </data>
+  <data name="jmbg_err" xml:space="preserve">
+    <value>JMBG mora imati 13 karaktera.</value>
+  </data>
+  <data name="login_user_err" xml:space="preserve">
+    <value>Korisničko ime nije pronađeno ili je vaš nalog neaktivan.</value>
+  </data>
+  <data name="pass_err" xml:space="preserve">
+    <value>Lozinka treba da sadrži najmanje 6 karaktera (kombinacija slova i brojeva).</value>
+  </data>
+  <data name="fname_err" xml:space="preserve">
+    <value>Obavezno unesite ime!</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>Greška</value>
+  </data>
+  <data name="roles_req" xml:space="preserve">
+    <value>Obavezno odaberite najmanje jednu ulogu!</value>
+  </data>
+  <data name="pass_req" xml:space="preserve">
+    <value>Obavezno unesite lozinku!</value>
+  </data>
+  <data name="success" xml:space="preserve">
+    <value>Uspjeh</value>
+  </data>
+  <data name="dodajSilku" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dodajSilku.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
