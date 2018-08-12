@@ -132,7 +132,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 220);
+            this.label6.Location = new System.Drawing.Point(45, 220);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 13);
             this.label6.TabIndex = 0;
@@ -150,7 +150,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 246);
+            this.label7.Location = new System.Drawing.Point(54, 246);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 13);
             this.label7.TabIndex = 0;
@@ -215,7 +215,7 @@
             this.datumRodjenjaInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datumRodjenjaInput.Location = new System.Drawing.Point(100, 145);
             this.datumRodjenjaInput.Name = "datumRodjenjaInput";
-            this.datumRodjenjaInput.Size = new System.Drawing.Size(200, 20);
+            this.datumRodjenjaInput.Size = new System.Drawing.Size(197, 20);
             this.datumRodjenjaInput.TabIndex = 6;
             this.datumRodjenjaInput.Validating += new System.ComponentModel.CancelEventHandler(this.datumRodjenjaInput_Validating);
             // 
@@ -227,7 +227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 401);
+            this.ClientSize = new System.Drawing.Size(332, 401);
             this.Controls.Add(this.datumRodjenjaInput);
             this.Controls.Add(this.ulogeList);
             this.Controls.Add(this.dodajBtn);

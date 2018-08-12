@@ -115,6 +115,4 @@ namespace SrednjeSkole_API.Controllers
             base.Dispose(disposing);
         }
     }
-
-}
 }

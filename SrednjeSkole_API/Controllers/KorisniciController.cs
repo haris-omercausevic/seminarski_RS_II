@@ -24,6 +24,17 @@ namespace SrednjeSkole_API.Controllers
         {
             return db.ssp_Korisnici_GetById(id).FirstOrDefault();            
         }
+        [HttpGet]
+        [Route("ByUsername/{username}")]
+        public IHttpActionResult GetByUserName(string username)
+        {
+            Korisnici k = db.Korisnici.Where(x => x.KorisnickoIme == username).FirstOrDefault();
+            if (k == null)
+                return NotFound();
+
+            return Ok(k);
+        }
+
         //GET api/korisnici/pretraga?ime=haris&prezime=omercausevic&ulogaId=4
         [HttpGet]
         //[ActionName("Pretraga")]

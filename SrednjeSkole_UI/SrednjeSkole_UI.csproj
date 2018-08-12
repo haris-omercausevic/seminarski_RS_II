@@ -55,6 +55,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Evidencije\AddPredmet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Evidencije\AddPredmet.Designer.cs">
+      <DependentUpon>AddPredmet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Evidencije\AddRazred.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Evidencije\AddRazred.Designer.cs">
+      <DependentUpon>AddRazred.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Evidencije\AddSmjer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Evidencije\AddSmjer.Designer.cs">
+      <DependentUpon>AddSmjer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +93,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Users\AddKorisnik.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +124,18 @@
     </Compile>
     <Compile Include="Util\UIHelper.cs" />
     <Compile Include="Util\WebAPIHelper.cs" />
+    <EmbeddedResource Include="Evidencije\AddPredmet.resx">
+      <DependentUpon>AddPredmet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Evidencije\AddRazred.resx">
+      <DependentUpon>AddRazred.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Evidencije\AddSmjer.resx">
+      <DependentUpon>AddSmjer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,14 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Users\AddKorisnik.resx">
       <DependentUpon>AddKorisnik.cs</DependentUpon>
     </EmbeddedResource>

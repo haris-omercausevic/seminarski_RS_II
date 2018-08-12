@@ -308,7 +308,6 @@
             // 
             // imageBox
             // 
-            this.imageBox.Image = global::SrednjeSkole_UI.Properties.Resources.dodajSilku;
             this.imageBox.Location = new System.Drawing.Point(339, 62);
             this.imageBox.Name = "imageBox";
             this.imageBox.Size = new System.Drawing.Size(168, 144);
