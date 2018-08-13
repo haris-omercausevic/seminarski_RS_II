@@ -21,6 +21,7 @@ namespace SrednjeSkole_UI.Evidencije
         public AddPredmet()
         {
             InitializeComponent();
+            this.AutoValidate = AutoValidate.Disable;
         }
 
         private void dodajBtn_Click(object sender, EventArgs e)
@@ -60,6 +61,11 @@ namespace SrednjeSkole_UI.Evidencije
                 e.Cancel = true;
                 errorProvider.SetError(nazivInput, Messages.predmet_naziv_req);
             }
+            else if (String.IsNullOrEmpty(nazivInput.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(nazivInput, Messages.predmet_naziv_req);
+            }
             else
                 errorProvider.SetError(nazivInput, null);
         }
@@ -73,6 +79,11 @@ namespace SrednjeSkole_UI.Evidencije
             }
             else
                 errorProvider.SetError(oznakaInput, null);
+        }
+
+        private void AddPredmet_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -98,6 +98,7 @@
             this.Controls.Add(this.nazivInput);
             this.Name = "AddPredmet";
             this.Text = "Dodaj predmet";
+            this.Load += new System.EventHandler(this.AddPredmet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
