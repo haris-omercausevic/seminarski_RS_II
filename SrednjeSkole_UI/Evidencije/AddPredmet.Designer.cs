@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.nazivInput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.oznakaInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dodajBtn = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // nazivInput
@@ -41,6 +44,7 @@
             this.nazivInput.Name = "nazivInput";
             this.nazivInput.Size = new System.Drawing.Size(136, 20);
             this.nazivInput.TabIndex = 1;
+            this.nazivInput.Validating += new System.ComponentModel.CancelEventHandler(this.nazivInput_Validating);
             // 
             // label1
             // 
@@ -57,6 +61,7 @@
             this.oznakaInput.Name = "oznakaInput";
             this.oznakaInput.Size = new System.Drawing.Size(136, 20);
             this.oznakaInput.TabIndex = 2;
+            this.oznakaInput.Validating += new System.ComponentModel.CancelEventHandler(this.oznakaInput_Validating);
             // 
             // label2
             // 
@@ -67,27 +72,33 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Oznaka:";
             // 
-            // button1
+            // dodajBtn
             // 
-            this.button1.Location = new System.Drawing.Point(174, 80);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Dodaj";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dodajBtn.Location = new System.Drawing.Point(174, 80);
+            this.dodajBtn.Name = "dodajBtn";
+            this.dodajBtn.Size = new System.Drawing.Size(75, 23);
+            this.dodajBtn.TabIndex = 3;
+            this.dodajBtn.Text = "Dodaj";
+            this.dodajBtn.UseVisualStyleBackColor = true;
+            this.dodajBtn.Click += new System.EventHandler(this.dodajBtn_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // AddPredmet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(265, 115);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dodajBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.oznakaInput);
             this.Controls.Add(this.nazivInput);
             this.Name = "AddPredmet";
             this.Text = "Dodaj predmet";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,6 +110,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox oznakaInput;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button dodajBtn;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

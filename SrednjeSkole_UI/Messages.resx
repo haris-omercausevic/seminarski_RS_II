@@ -148,9 +148,6 @@
   <data name="username_req" xml:space="preserve">
     <value>Obavezno unesite korisničko ime!</value>
   </data>
-  <data name="login_pass_err" xml:space="preserve">
-    <value>Unijeli ste neispravnu lozinku.</value>
-  </data>
   <data name="email_err" xml:space="preserve">
     <value>E-mail nije u ispravnom formatu.</value>
   </data>
@@ -163,14 +160,8 @@
   <data name="warning" xml:space="preserve">
     <value>Upozorenje</value>
   </data>
-  <data name="username_con" xml:space="preserve">
-    <value>Korisničko ime je zauzeto.</value>
-  </data>
   <data name="jmbg_err" xml:space="preserve">
     <value>JMBG mora imati 13 karaktera.</value>
-  </data>
-  <data name="login_user_err" xml:space="preserve">
-    <value>Korisničko ime nije pronađeno ili je vaš nalog neaktivan.</value>
   </data>
   <data name="pass_err" xml:space="preserve">
     <value>Lozinka treba da sadrži najmanje 6 karaktera (kombinacija slova i brojeva).</value>
@@ -190,7 +181,19 @@
   <data name="success" xml:space="preserve">
     <value>Uspjeh</value>
   </data>
-  <data name="dodaj_sliku" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\dodaj_sliku.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="add_predmet_succ" xml:space="preserve">
+    <value>Uspješno ste dodali predmet.</value>
+  </data>
+  <data name="predmet_naziv_err" xml:space="preserve">
+    <value>Predmet sa unesenim nazivom već postoji !</value>
+  </data>
+  <data name="predmet_oznaka_err" xml:space="preserve">
+    <value>Predmet sa unesenom oznakom već postoji !</value>
+  </data>
+  <data name="predmet_naziv_req" xml:space="preserve">
+    <value>Obavezno unesite naziv predmeta !</value>
+  </data>
+  <data name="predmet_oznaka_req" xml:space="preserve">
+    <value>Obavezno unesite oznaku predmeta !</value>
   </data>
 </root>

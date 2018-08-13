@@ -61,6 +61,15 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Uspješno ste dodali predmet..
+        /// </summary>
+        internal static string add_predmet_succ {
+            get {
+                return ResourceManager.GetString("add_predmet_succ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uspješno ste dodali podatke o korisniku..
         /// </summary>
         internal static string add_usr_succ {
@@ -179,24 +188,6 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unijeli ste neispravnu lozinku..
-        /// </summary>
-        internal static string login_pass_err {
-            get {
-                return ResourceManager.GetString("login_pass_err", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Korisničko ime nije pronađeno ili je vaš nalog neaktivan..
-        /// </summary>
-        internal static string login_user_err {
-            get {
-                return ResourceManager.GetString("login_user_err", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Poruka o uspjehu.
         /// </summary>
         internal static string msg_succ {
@@ -224,6 +215,42 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Predmet sa unesenim nazivom već postoji !.
+        /// </summary>
+        internal static string predmet_naziv_err {
+            get {
+                return ResourceManager.GetString("predmet_naziv_err", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno unesite naziv predmeta !.
+        /// </summary>
+        internal static string predmet_naziv_req {
+            get {
+                return ResourceManager.GetString("predmet_naziv_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Predmet sa unesenom oznakom već postoji !.
+        /// </summary>
+        internal static string predmet_oznaka_err {
+            get {
+                return ResourceManager.GetString("predmet_oznaka_err", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno unesite oznaku predmeta !.
+        /// </summary>
+        internal static string predmet_oznaka_req {
+            get {
+                return ResourceManager.GetString("predmet_oznaka_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Obavezno odaberite najmanje jednu ulogu!.
         /// </summary>
         internal static string roles_req {
@@ -238,15 +265,6 @@ namespace SrednjeSkole_UI {
         internal static string success {
             get {
                 return ResourceManager.GetString("success", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Korisničko ime je zauzeto..
-        /// </summary>
-        internal static string username_con {
-            get {
-                return ResourceManager.GetString("username_con", resourceCulture);
             }
         }
         
