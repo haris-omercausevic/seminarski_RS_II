@@ -40,6 +40,7 @@
             this.skolskaGodinaCmb = new System.Windows.Forms.ComboBox();
             this.predmetiAddBtn = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.skolskaGodinaAddBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,6 +79,7 @@
             this.opisInput.Name = "opisInput";
             this.opisInput.Size = new System.Drawing.Size(136, 71);
             this.opisInput.TabIndex = 3;
+            this.opisInput.Validating += new System.ComponentModel.CancelEventHandler(this.opisInput_Validating);
             // 
             // nazivInput
             // 
@@ -85,6 +87,7 @@
             this.nazivInput.Name = "nazivInput";
             this.nazivInput.Size = new System.Drawing.Size(136, 20);
             this.nazivInput.TabIndex = 4;
+            this.nazivInput.Validating += new System.ComponentModel.CancelEventHandler(this.nazivInput_Validating);
             // 
             // predmetiList
             // 
@@ -93,6 +96,7 @@
             this.predmetiList.Name = "predmetiList";
             this.predmetiList.Size = new System.Drawing.Size(136, 94);
             this.predmetiList.TabIndex = 8;
+            this.predmetiList.Validating += new System.ComponentModel.CancelEventHandler(this.predmetiList_Validating);
             // 
             // label3
             // 
@@ -119,6 +123,7 @@
             this.skolskaGodinaCmb.Name = "skolskaGodinaCmb";
             this.skolskaGodinaCmb.Size = new System.Drawing.Size(136, 21);
             this.skolskaGodinaCmb.TabIndex = 9;
+            this.skolskaGodinaCmb.Validating += new System.ComponentModel.CancelEventHandler(this.skolskaGodinaCmb_Validating);
             // 
             // predmetiAddBtn
             // 
@@ -134,11 +139,22 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // skolskaGodinaAddBtn
+            // 
+            this.skolskaGodinaAddBtn.Location = new System.Drawing.Point(233, 128);
+            this.skolskaGodinaAddBtn.Name = "skolskaGodinaAddBtn";
+            this.skolskaGodinaAddBtn.Size = new System.Drawing.Size(28, 23);
+            this.skolskaGodinaAddBtn.TabIndex = 15;
+            this.skolskaGodinaAddBtn.Text = "+";
+            this.skolskaGodinaAddBtn.UseVisualStyleBackColor = true;
+            this.skolskaGodinaAddBtn.Click += new System.EventHandler(this.skolskaGodinaAddBtn_Click);
+            // 
             // AddSmjer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(279, 331);
+            this.Controls.Add(this.skolskaGodinaAddBtn);
             this.Controls.Add(this.predmetiAddBtn);
             this.Controls.Add(this.skolskaGodinaCmb);
             this.Controls.Add(this.predmetiList);
@@ -171,5 +187,6 @@
         private System.Windows.Forms.ComboBox skolskaGodinaCmb;
         private System.Windows.Forms.Button predmetiAddBtn;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button skolskaGodinaAddBtn;
     }
 }

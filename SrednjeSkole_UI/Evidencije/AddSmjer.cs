@@ -24,6 +24,7 @@ namespace SrednjeSkole_UI.Evidencije
         public AddSmjer()
         {
             InitializeComponent();
+            this.AutoValidate = AutoValidate.Disable;
         }
 
         private void AddSmjer_Load(object sender, EventArgs e)
@@ -68,7 +69,7 @@ namespace SrednjeSkole_UI.Evidencije
                 {
                     Naziv = nazivInput.Text.Trim(),
                     Opis = opisInput.Text,
-                    SkolskaGodinaId = Convert.ToInt32(temp2.SkolskaGodinaId)
+                    SkolskaGodinaId = Convert.ToInt32(skolskaGodinaId)
                 };
 
                 s.Predmeti = predmetiList.CheckedItems.Cast<Predmeti>().ToList();
@@ -92,11 +93,70 @@ namespace SrednjeSkole_UI.Evidencije
             AddPredmet f2 = new AddPredmet();
             f2.Show();
             f2.FormClosing += new FormClosingEventHandler(AddPredmet_FormClosing);
+        }       
+
+        private void skolskaGodinaAddBtn_Click(object sender, EventArgs e)
+        {
+            AddSkolskaGodina f2 = new AddSkolskaGodina();
+            f2.Show();
+            f2.FormClosing += new FormClosingEventHandler(AddSkolskaGodina_FormClosing);
         }
 
-        public void AddPredmet_FormClosing(object sender, EventArgs e)
+        private void AddPredmet_FormClosing(object sender, EventArgs e)
         {
             BindPredmeti();
+        }
+        private void AddSkolskaGodina_FormClosing(object sender, EventArgs e)
+        {
+            BindSkolskeGodine();
+        }
+
+        private void nazivInput_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(nazivInput.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(nazivInput, Messages.naziv_req);
+            }
+            else
+            {
+                errorProvider.SetError(nazivInput, null);
+            }
+        }
+
+        private void opisInput_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(opisInput.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(opisInput, Messages.opis_req);
+            }
+            else
+            {
+                errorProvider.SetError(opisInput, null);
+            }
+        }
+
+        private void skolskaGodinaCmb_Validating(object sender, CancelEventArgs e)
+        {
+            if (skolskaGodinaCmb.SelectedValue.ToString() == "")
+            {
+                e.Cancel = true;
+                errorProvider.SetError(skolskaGodinaCmb, Messages.skGod_req);
+            }
+            else
+                errorProvider.SetError(skolskaGodinaCmb, null);
+        }
+
+        private void predmetiList_Validating(object sender, CancelEventArgs e)
+        {
+            if (predmetiList.CheckedItems.Count == 0)
+            {
+                e.Cancel = true;
+                errorProvider.SetError(predmetiList, Messages.smjer_predmet_req);
+            }
+            else
+                errorProvider.SetError(predmetiList, null);
         }
     }
 }

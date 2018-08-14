@@ -63,6 +63,7 @@
             this.razredInput.Name = "razredInput";
             this.razredInput.Size = new System.Drawing.Size(136, 20);
             this.razredInput.TabIndex = 7;
+            this.razredInput.Validating += new System.ComponentModel.CancelEventHandler(this.razredInput_Validating);
             // 
             // odjeljenjeInput
             // 
@@ -71,6 +72,7 @@
             this.odjeljenjeInput.Name = "odjeljenjeInput";
             this.odjeljenjeInput.Size = new System.Drawing.Size(136, 20);
             this.odjeljenjeInput.TabIndex = 7;
+            this.odjeljenjeInput.Validating += new System.ComponentModel.CancelEventHandler(this.odjeljenjeInput_Validating);
             // 
             // label2
             // 
@@ -88,6 +90,7 @@
             this.skolskaGodinaCmb.Name = "skolskaGodinaCmb";
             this.skolskaGodinaCmb.Size = new System.Drawing.Size(136, 21);
             this.skolskaGodinaCmb.TabIndex = 11;
+            this.skolskaGodinaCmb.Validating += new System.ComponentModel.CancelEventHandler(this.skolskaGodinaCmb_Validating);
             // 
             // label4
             // 
@@ -114,6 +117,7 @@
             this.smjerCmb.Name = "smjerCmb";
             this.smjerCmb.Size = new System.Drawing.Size(136, 21);
             this.smjerCmb.TabIndex = 11;
+            this.smjerCmb.Validating += new System.ComponentModel.CancelEventHandler(this.smjerCmb_Validating);
             // 
             // label5
             // 
@@ -131,6 +135,7 @@
             this.razrednikCmb.Name = "razrednikCmb";
             this.razrednikCmb.Size = new System.Drawing.Size(136, 21);
             this.razrednikCmb.TabIndex = 11;
+            this.razrednikCmb.Validating += new System.ComponentModel.CancelEventHandler(this.razrednikCmb_Validating);
             // 
             // dodajBtn
             // 
@@ -197,6 +202,7 @@
             this.Controls.Add(this.razredInput);
             this.Name = "AddRazred";
             this.Text = "AddRazred";
+            this.Load += new System.EventHandler(this.AddRazred_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -190,10 +190,46 @@
   <data name="predmet_oznaka_req" xml:space="preserve">
     <value>Obavezno unesite oznaku predmeta !</value>
   </data>
-  <data name="predmet_razred_req" xml:space="preserve">
-    <value />
-  </data>
   <data name="add_smjer_succ" xml:space="preserve">
     <value>Uspješno ste dodali podatke o smjeru.</value>
+  </data>
+  <data name="add_nastavnik_succ" xml:space="preserve">
+    <value>Uspješno ste dodali podatke o nastavniku.</value>
+  </data>
+  <data name="add_razred_succ" xml:space="preserve">
+    <value>Uspješno ste dodali razred.</value>
+  </data>
+  <data name="add_ucenik_succ" xml:space="preserve">
+    <value>Uspješno ste dodali podatke o učeniku.</value>
+  </data>
+  <data name="add_skGod_succ" xml:space="preserve">
+    <value>Uspješno ste dodali novu školsku godinu.</value>
+  </data>
+  <data name="add_razredBroj_req" xml:space="preserve">
+    <value>Obavezno unesite razred (brojčano) !</value>
+  </data>
+  <data name="add_razredOdjeljenje_req" xml:space="preserve">
+    <value>Obavezno unesite odjeljenje (1 slovo) !</value>
+  </data>
+  <data name="add_razredRazrednik_req" xml:space="preserve">
+    <value>Obavezno odaberite razrednika !</value>
+  </data>
+  <data name="add_skGod_req" xml:space="preserve">
+    <value>Obavezno unesite školsku godinu !</value>
+  </data>
+  <data name="naziv_req" xml:space="preserve">
+    <value>Obavezno unesite naziv !</value>
+  </data>
+  <data name="opis_req" xml:space="preserve">
+    <value>Obavezno unesite opis !</value>
+  </data>
+  <data name="skGod_req" xml:space="preserve">
+    <value>Obavezno odaberite školsku godinu !</value>
+  </data>
+  <data name="smjer_predmet_req" xml:space="preserve">
+    <value>Obavezno odaberite predmete koji se slušaju na smjeru !</value>
+  </data>
+  <data name="smjer_req" xml:space="preserve">
+    <value>Obavezno odaberite smjer !</value>
   </data>
 </root>

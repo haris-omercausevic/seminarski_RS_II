@@ -573,6 +573,14 @@
         <Function Name="ssp_KorisniciUloge_Remove" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KorisnikId" Type="int" Mode="In" />
         </Function>
+        <Function Name="ssp_Razredi_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RazredBrojcano" Type="int" Mode="In" />
+          <Parameter Name="Odjeljenje" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Oznaka" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="SkolskaGodinaId" Type="int" Mode="In" />
+          <Parameter Name="NastavnikId" Type="int" Mode="In" />
+          <Parameter Name="SmjerId" Type="int" Mode="In" />
+        </Function>
         <Function Name="ssp_Smjerovi_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Naziv" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="Opis" Type="nvarchar(max)" Mode="In" />
@@ -1426,6 +1434,14 @@
             <Parameter Name="PredmetId" Mode="In" Type="Int32" />
             <Parameter Name="BrojCasova" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="ssp_Razredi_Insert" ReturnType="Collection(Decimal)">
+            <Parameter Name="RazredBrojcano" Mode="In" Type="Int32" />
+            <Parameter Name="Odjeljenje" Mode="In" Type="String" />
+            <Parameter Name="Oznaka" Mode="In" Type="String" />
+            <Parameter Name="SkolskaGodinaId" Mode="In" Type="Int32" />
+            <Parameter Name="NastavnikId" Mode="In" Type="Int32" />
+            <Parameter Name="SmjerId" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1712,6 +1728,7 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ssp_Smjerovi_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_Smjerovi_Insert" />
           <FunctionImportMapping FunctionImportName="ssp_SmjerPredmet_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_SmjerPredmet_Insert" />
+          <FunctionImportMapping FunctionImportName="ssp_Razredi_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_Razredi_Insert" />
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
@@ -71,17 +72,26 @@ namespace SrednjeSkole_API.Controllers
 
         // POST: api/Razredi
         [ResponseType(typeof(Razredi))]
-        public IHttpActionResult PostRazredi(Razredi razredi)
+        public IHttpActionResult PostRazredi(Razredi r)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Razredi.Add(razredi);
-            db.SaveChanges();
+            try
+            {
+                r.RazredId = Convert.ToInt32(db.ssp_Razredi_Insert(r.RazredBrojcano,r.Odjeljenje,r.Oznaka,r.SkolskaGodinaId,r.NastavnikId,r.SmjerId ).FirstOrDefault());
+            }
+            catch (EntityException ex)
+            {
+                if (ex.InnerException != null)
+                    throw CreateHttpExceptionMessage(Util.ExceptionHandler.HandleException(ex),
+                                                     HttpStatusCode.Conflict);
+            }
 
-            return CreatedAtRoute("DefaultApi", new { id = razredi.RazredId }, razredi);
+
+            return CreatedAtRoute("DefaultApi", new { id = r.RazredId }, r);
         }
 
         // DELETE: api/Razredi/5
@@ -106,6 +116,17 @@ namespace SrednjeSkole_API.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        private HttpResponseException CreateHttpExceptionMessage(string reason, HttpStatusCode code)
+        {
+            HttpResponseMessage msg = new HttpResponseMessage()
+            {
+                ReasonPhrase = reason,
+                StatusCode = code,
+                Content = new StringContent(reason)
+            };
+
+            return new HttpResponseException(msg);
         }
 
         private bool RazrediExists(int id)

@@ -43,8 +43,7 @@ namespace SrednjeSkole_UI.Evidencije
                     Close();
                 }
                 else
-                {
-                    
+                {                    
                     MessageBox.Show("Error Code" +  response.StatusCode + " : Message - " + response.ReasonPhrase);
                 }
             }

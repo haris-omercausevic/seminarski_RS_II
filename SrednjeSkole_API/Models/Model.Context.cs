@@ -221,5 +221,34 @@ namespace SrednjeSkole_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_SmjerPredmet_Insert", smjerIdParameter, predmetIdParameter, brojCasovaParameter);
         }
+    
+        public virtual ObjectResult<Nullable<decimal>> ssp_Razredi_Insert(Nullable<int> razredBrojcano, string odjeljenje, string oznaka, Nullable<int> skolskaGodinaId, Nullable<int> nastavnikId, Nullable<int> smjerId)
+        {
+            var razredBrojcanoParameter = razredBrojcano.HasValue ?
+                new ObjectParameter("RazredBrojcano", razredBrojcano) :
+                new ObjectParameter("RazredBrojcano", typeof(int));
+    
+            var odjeljenjeParameter = odjeljenje != null ?
+                new ObjectParameter("Odjeljenje", odjeljenje) :
+                new ObjectParameter("Odjeljenje", typeof(string));
+    
+            var oznakaParameter = oznaka != null ?
+                new ObjectParameter("Oznaka", oznaka) :
+                new ObjectParameter("Oznaka", typeof(string));
+    
+            var skolskaGodinaIdParameter = skolskaGodinaId.HasValue ?
+                new ObjectParameter("SkolskaGodinaId", skolskaGodinaId) :
+                new ObjectParameter("SkolskaGodinaId", typeof(int));
+    
+            var nastavnikIdParameter = nastavnikId.HasValue ?
+                new ObjectParameter("NastavnikId", nastavnikId) :
+                new ObjectParameter("NastavnikId", typeof(int));
+    
+            var smjerIdParameter = smjerId.HasValue ?
+                new ObjectParameter("SmjerId", smjerId) :
+                new ObjectParameter("SmjerId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("ssp_Razredi_Insert", razredBrojcanoParameter, odjeljenjeParameter, oznakaParameter, skolskaGodinaIdParameter, nastavnikIdParameter, smjerIdParameter);
+        }
     }
 }

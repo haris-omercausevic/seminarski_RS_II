@@ -61,6 +61,15 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Uspješno ste dodali podatke o nastavniku..
+        /// </summary>
+        internal static string add_nastavnik_succ {
+            get {
+                return ResourceManager.GetString("add_nastavnik_succ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uspješno ste dodali predmet..
         /// </summary>
         internal static string add_predmet_succ {
@@ -70,11 +79,74 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Uspješno ste dodali razred..
+        /// </summary>
+        internal static string add_razred_succ {
+            get {
+                return ResourceManager.GetString("add_razred_succ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno unesite razred (brojčano) !.
+        /// </summary>
+        internal static string add_razredBroj_req {
+            get {
+                return ResourceManager.GetString("add_razredBroj_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno unesite odjeljenje (1 slovo) !.
+        /// </summary>
+        internal static string add_razredOdjeljenje_req {
+            get {
+                return ResourceManager.GetString("add_razredOdjeljenje_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno odaberite razrednika !.
+        /// </summary>
+        internal static string add_razredRazrednik_req {
+            get {
+                return ResourceManager.GetString("add_razredRazrednik_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno unesite školsku godinu !.
+        /// </summary>
+        internal static string add_skGod_req {
+            get {
+                return ResourceManager.GetString("add_skGod_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uspješno ste dodali novu školsku godinu..
+        /// </summary>
+        internal static string add_skGod_succ {
+            get {
+                return ResourceManager.GetString("add_skGod_succ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uspješno ste dodali podatke o smjeru..
         /// </summary>
         internal static string add_smjer_succ {
             get {
                 return ResourceManager.GetString("add_smjer_succ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uspješno ste dodali podatke o učeniku..
+        /// </summary>
+        internal static string add_ucenik_succ {
+            get {
+                return ResourceManager.GetString("add_ucenik_succ", resourceCulture);
             }
         }
         
@@ -206,6 +278,24 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Obavezno unesite naziv !.
+        /// </summary>
+        internal static string naziv_req {
+            get {
+                return ResourceManager.GetString("naziv_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno unesite opis !.
+        /// </summary>
+        internal static string opis_req {
+            get {
+                return ResourceManager.GetString("opis_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lozinka treba da sadrži najmanje 6 karaktera (kombinacija slova i brojeva)..
         /// </summary>
         internal static string pass_err {
@@ -242,20 +332,38 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string predmet_razred_req {
-            get {
-                return ResourceManager.GetString("predmet_razred_req", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Obavezno odaberite najmanje jednu ulogu!.
         /// </summary>
         internal static string roles_req {
             get {
                 return ResourceManager.GetString("roles_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno odaberite školsku godinu !.
+        /// </summary>
+        internal static string skGod_req {
+            get {
+                return ResourceManager.GetString("skGod_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno odaberite predmete koji se slušaju na smjeru !.
+        /// </summary>
+        internal static string smjer_predmet_req {
+            get {
+                return ResourceManager.GetString("smjer_predmet_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno odaberite smjer !.
+        /// </summary>
+        internal static string smjer_req {
+            get {
+                return ResourceManager.GetString("smjer_req", resourceCulture);
             }
         }
         

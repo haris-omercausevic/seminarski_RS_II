@@ -134,6 +134,7 @@
     <Compile Include="Users\IndexForm.Designer.cs">
       <DependentUpon>IndexForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Util\ComboBoxItem.cs" />
     <Compile Include="Util\UIHelper.cs" />
     <Compile Include="Util\WebAPIHelper.cs" />
     <EmbeddedResource Include="Evidencije\AddPredmet.resx">
