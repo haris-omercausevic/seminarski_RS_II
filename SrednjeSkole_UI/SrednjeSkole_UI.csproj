@@ -67,6 +67,12 @@
     <Compile Include="Evidencije\AddRazred.Designer.cs">
       <DependentUpon>AddRazred.cs</DependentUpon>
     </Compile>
+    <Compile Include="Evidencije\AddSkolskaGodina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Evidencije\AddSkolskaGodina.Designer.cs">
+      <DependentUpon>AddSkolskaGodina.cs</DependentUpon>
+    </Compile>
     <Compile Include="Evidencije\AddSmjer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,12 @@
     <Compile Include="Users\AddKorisnik.Designer.cs">
       <DependentUpon>AddKorisnik.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\AddNastavnik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\AddNastavnik.Designer.cs">
+      <DependentUpon>AddNastavnik.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\AddUcenik.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +142,9 @@
     <EmbeddedResource Include="Evidencije\AddRazred.resx">
       <DependentUpon>AddRazred.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Evidencije\AddSkolskaGodina.resx">
+      <DependentUpon>AddSkolskaGodina.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Evidencije\AddSmjer.resx">
       <DependentUpon>AddSmjer.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Users\AddKorisnik.resx">
       <DependentUpon>AddKorisnik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\AddNastavnik.resx">
+      <DependentUpon>AddNastavnik.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\AddUcenik.resx">
       <DependentUpon>AddUcenik.cs</DependentUpon>

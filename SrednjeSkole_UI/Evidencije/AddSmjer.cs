@@ -18,6 +18,8 @@ namespace SrednjeSkole_UI.Evidencije
     {
         private WebAPIHelper smjeroviService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.SmjeroviRoute);
         private WebAPIHelper skolskeGodineService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.SkolskeGodineRoute);
+        private WebAPIHelper predmetiService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.PredmetiRoute);
+
 
         public AddSmjer()
         {
@@ -25,6 +27,11 @@ namespace SrednjeSkole_UI.Evidencije
         }
 
         private void AddSmjer_Load(object sender, EventArgs e)
+        {
+            BindSkolskeGodine();
+            BindPredmeti();
+        }
+        public void BindSkolskeGodine()
         {
             HttpResponseMessage response = skolskeGodineService.GetResponse();
 
@@ -34,6 +41,17 @@ namespace SrednjeSkole_UI.Evidencije
                 skolskaGodinaCmb.DisplayMember = "Naziv";
                 skolskaGodinaCmb.ValueMember = "SkolskaGodinaId";
                 skolskaGodinaCmb.SelectedValue = "";
+            }
+        }
+        private void BindPredmeti()
+        {
+            HttpResponseMessage response = predmetiService.GetResponse();
+            if (response.IsSuccessStatusCode)
+            {
+                predmetiList.DataSource = response.Content.ReadAsAsync<List<Predmeti>>().Result;
+                predmetiList.DisplayMember = "Naziv";
+                predmetiList.ValueMember = "PredmetId";
+                predmetiList.ClearSelected();
             }
         }
 
@@ -50,23 +68,35 @@ namespace SrednjeSkole_UI.Evidencije
                 {
                     Naziv = nazivInput.Text.Trim(),
                     Opis = opisInput.Text,
-                    SkolskaGodinaId = Convert.ToInt32(temp2.SkolskaGodinaId)                    
+                    SkolskaGodinaId = Convert.ToInt32(temp2.SkolskaGodinaId)
                 };
 
-                s.Predmeti = predmetiList.CheckedItems.Cast<Predmeti>().ToList();                
+                s.Predmeti = predmetiList.CheckedItems.Cast<Predmeti>().ToList();
 
                 HttpResponseMessage response = smjeroviService.PostResponse(s);
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show(Messages.add_predmet_succ, Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Messages.add_smjer_succ, Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DialogResult = DialogResult.OK;
                     Close();
                 }
                 else
                 {
-
                     MessageBox.Show("Error Code" + response.StatusCode + " : Message - " + response.ReasonPhrase);
                 }
             }
+        }
+
+        private void predmetiAddBtn_Click(object sender, EventArgs e)
+        {
+            AddPredmet f2 = new AddPredmet();
+            f2.Show();
+            f2.FormClosing += new FormClosingEventHandler(AddPredmet_FormClosing);
+        }
+
+        public void AddPredmet_FormClosing(object sender, EventArgs e)
+        {
+            BindPredmeti();
+        }
     }
 }

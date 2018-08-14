@@ -17,11 +17,10 @@ namespace SrednjeSkole_UI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new Evidencije.AddPredmet());
 
-            //LoginForm login = new LoginForm();
-            //if(login.ShowDialog() == DialogResult.OK)
-            //    Application.Run(new MainForm());
+            LoginForm login = new LoginForm();
+            if(login.ShowDialog() == DialogResult.OK)
+                Application.Run(new MainForm());
         }
     }
 }

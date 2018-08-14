@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -22,12 +23,12 @@ namespace SrednjeSkole_API.Controllers
             return db.Uloge.Where(x => x.Naziv.ToLower() == naziv.ToLower() || naziv == null).ToList();
         }
 
-        //[HttpGet]
-        //[Route("api/Uloge/GetByKorisnikId/{id?}")]
-        //public List<Uloge> GetByKorisnikId(string id = null)
-        //{
-        //    return db.Uloge.Where(x => x.Naziv.ToLower() == naziv.ToLower() || naziv == null).ToList();
-        //}
+        [HttpGet]
+        [Route("api/Uloge/GetByKorisnikId/{id}")]
+        public List<Uloge> GetByKorisnikId(int id)
+        {
+            return db.KorisniciUloge.Where(x => x.KorisnikID == id).Include(x => x.Uloge).Select(x => x.Uloge).ToList();
+        }
 
         protected override void Dispose(bool disposing)
         {

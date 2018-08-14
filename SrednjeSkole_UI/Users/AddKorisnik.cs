@@ -13,6 +13,7 @@ using SrednjeSkole_API.Models;
 using SrednjeSkole_UI.Util;
 using System.Net.Http;
 using System.Net.Mail;
+using System.Net;
 
 namespace SrednjeSkole_UI.Users
 {
@@ -64,6 +65,7 @@ namespace SrednjeSkole_UI.Users
                     MessageBox.Show(Messages.add_usr_succ, Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DialogResult = DialogResult.OK;
                     Close();
+                    UIHelper.SendWelcomeMail(k.Email, k.KorisnickoIme, lozinkaInput.Text);
                 }
                 else
                 {

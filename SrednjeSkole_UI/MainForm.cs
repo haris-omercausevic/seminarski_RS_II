@@ -30,5 +30,26 @@ namespace SrednjeSkole_UI
             f.MdiParent = this;
             f.Show();
         }
+
+        private void smjeroviToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Evidencije.AddSmjer f = new Evidencije.AddSmjer();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void predmetiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Evidencije.AddPredmet f = new Evidencije.AddPredmet();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void razrediToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Evidencije.AddRazred f = new Evidencije.AddRazred();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

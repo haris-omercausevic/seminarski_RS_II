@@ -7,7 +7,9 @@ using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +18,6 @@ namespace SrednjeSkole_UI.Users
 {
     public partial class AddUcenik : Form
     {
-        private WebAPIHelper korisniciService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.KorisniciRoute);
         private WebAPIHelper ulogeService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.UlogeRoute);
         private WebAPIHelper uceniciService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.UceniciRoute);
         private WebAPIHelper smjeroviService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.SmjeroviRoute);
@@ -59,9 +60,7 @@ namespace SrednjeSkole_UI.Users
                     GodinaUpisa = DateTime.Now.Year,
                     ImeRoditelja = imeRoditeljaInput.Text,
                     Spol = radioButton1.Checked?"M":"Z",
-                    NazivOsnovneSkole = nazivSkoleInput.Text,
-                    
-
+                    NazivOsnovneSkole = nazivSkoleInput.Text
                 };
                 k.LozinkaSalt = UIHelper.GenerateSalt();
                 k.LozinkaHash = UIHelper.GenerateHash(k.LozinkaSalt, lozinkaInput.Text);
@@ -71,12 +70,14 @@ namespace SrednjeSkole_UI.Users
                 if (response2.IsSuccessStatusCode)
                     k.Uloge.Add(response2?.Content.ReadAsAsync<List<Uloge>>().Result[0]);
 
-                HttpResponseMessage response = korisniciService.PostResponse(k);
+
+                HttpResponseMessage response = uceniciService.PostResponse(k);
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show(Messages.add_usr_succ, Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DialogResult = DialogResult.OK;
                     Close();
+                    UIHelper.SendWelcomeMail(k.Email, k.KorisnickoIme, lozinkaInput.Text);
                 }
                 else
                 {

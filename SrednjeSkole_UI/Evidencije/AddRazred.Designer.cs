@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.razredInput = new System.Windows.Forms.TextBox();
             this.odjeljenjeInput = new System.Windows.Forms.TextBox();
@@ -42,6 +43,8 @@
             this.skolskaGodinaAddBtn = new System.Windows.Forms.Button();
             this.smjerAddBtn = new System.Windows.Forms.Button();
             this.razrednikAddBtn = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -137,6 +140,7 @@
             this.dodajBtn.TabIndex = 12;
             this.dodajBtn.Text = "Dodaj";
             this.dodajBtn.UseVisualStyleBackColor = true;
+            this.dodajBtn.Click += new System.EventHandler(this.dodajBtn_Click);
             // 
             // skolskaGodinaAddBtn
             // 
@@ -146,6 +150,7 @@
             this.skolskaGodinaAddBtn.TabIndex = 13;
             this.skolskaGodinaAddBtn.Text = "+";
             this.skolskaGodinaAddBtn.UseVisualStyleBackColor = true;
+            this.skolskaGodinaAddBtn.Click += new System.EventHandler(this.skolskaGodinaAddBtn_Click);
             // 
             // smjerAddBtn
             // 
@@ -155,6 +160,7 @@
             this.smjerAddBtn.TabIndex = 13;
             this.smjerAddBtn.Text = "+";
             this.smjerAddBtn.UseVisualStyleBackColor = true;
+            this.smjerAddBtn.Click += new System.EventHandler(this.smjerAddBtn_Click);
             // 
             // razrednikAddBtn
             // 
@@ -164,6 +170,11 @@
             this.razrednikAddBtn.TabIndex = 13;
             this.razrednikAddBtn.Text = "+";
             this.razrednikAddBtn.UseVisualStyleBackColor = true;
+            this.razrednikAddBtn.Click += new System.EventHandler(this.razrednikAddBtn_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // AddRazred
             // 
@@ -186,6 +197,7 @@
             this.Controls.Add(this.razredInput);
             this.Name = "AddRazred";
             this.Text = "AddRazred";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,5 +219,6 @@
         private System.Windows.Forms.Button skolskaGodinaAddBtn;
         private System.Windows.Forms.Button smjerAddBtn;
         private System.Windows.Forms.Button razrednikAddBtn;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

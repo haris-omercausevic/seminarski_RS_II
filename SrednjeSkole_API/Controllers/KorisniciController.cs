@@ -2,6 +2,7 @@
 using SrednjeSkole_API.Util;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Core;
 using System.Linq;
 using System.Net;
@@ -28,7 +29,7 @@ namespace SrednjeSkole_API.Controllers
         [Route("ByUsername/{username}")]
         public IHttpActionResult GetByUserName(string username)
         {
-            Korisnici k = db.Korisnici.Where(x => x.KorisnickoIme == username).FirstOrDefault();
+            Korisnici k = db.Korisnici.Where(x => x.KorisnickoIme == username).Include(x => x.KorisniciUloge).FirstOrDefault();
             if (k == null)
                 return NotFound();
 

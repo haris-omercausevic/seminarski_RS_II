@@ -70,6 +70,15 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Uspješno ste dodali podatke o smjeru..
+        /// </summary>
+        internal static string add_smjer_succ {
+            get {
+                return ResourceManager.GetString("add_smjer_succ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uspješno ste dodali podatke o korisniku..
         /// </summary>
         internal static string add_usr_succ {

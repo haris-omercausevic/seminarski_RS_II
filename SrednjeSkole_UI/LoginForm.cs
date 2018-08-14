@@ -17,6 +17,7 @@ namespace SrednjeSkole_UI
     public partial class LoginForm : Form
     {
         private WebAPIHelper korisniciService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.KorisniciRoute);
+        private WebAPIHelper ulogeService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.UlogeRoute);
 
         public LoginForm()
         {
@@ -29,16 +30,32 @@ namespace SrednjeSkole_UI
             if (response.IsSuccessStatusCode)
             {
                 Korisnici k = response.Content.ReadAsAsync<Korisnici>().Result;
+                HttpResponseMessage response2 = ulogeService.GetActionResponse("GetByKorisnikId", k.Id.ToString());
+                k.Uloge = response2.Content.ReadAsAsync<List<Uloge>>().Result;
+
                 if (k.LozinkaHash == UIHelper.GenerateHash(k.LozinkaSalt, lozinkaInput.Text))
                 {
-                    MessageBox.Show("Dobrodošli " + k.Ime + " " + k.Prezime);
-                    Global.prijavljeniKorisnik = k;
-                    DialogResult = DialogResult.OK;
-                    Close();
+                    bool ulogeValidne = false;
+                    foreach (var item in k.Uloge)
+                    {
+                        if (item.Naziv == "SuperAdministrator")
+                            ulogeValidne = true;
+                        else if (item.Naziv == "Administrator")
+                            ulogeValidne = true;
+                    }
+                    if (ulogeValidne == true)
+                    {
+                        MessageBox.Show("Dobrodošli " + k.Ime + " " + k.Prezime);
+                        Global.prijavljeniKorisnik = k;
+                        DialogResult = DialogResult.OK;
+                        Close();
+                    }
+                    else
+                        MessageBox.Show("Nemate pravo pristupa ovom dijelu sistema!", "Upozorenje!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Korisničko ime ili lozinka nisu validni!", "Upozrenje!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Korisničko ime ili lozinka nisu validni!", "Upozorenje!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else

@@ -16,5 +16,28 @@ namespace SrednjeSkole_UI.Evidencije
         {
             InitializeComponent();
         }
+
+        private void dodajBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void skolskaGodinaAddBtn_Click(object sender, EventArgs e)
+        {
+            AddSkolskaGodina f = new AddSkolskaGodina();
+            f.Show();
+        }
+
+        private void smjerAddBtn_Click(object sender, EventArgs e)
+        {
+            AddSmjer f = new AddSmjer();
+            f.Show();
+        }
+
+        private void razrednikAddBtn_Click(object sender, EventArgs e)
+        {
+            Users.AddNastavnik f = new Users.AddNastavnik();
+            f.Show();
+        }
     }
 }

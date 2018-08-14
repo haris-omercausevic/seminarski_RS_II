@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dodajBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,6 +39,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.skolskaGodinaCmb = new System.Windows.Forms.ComboBox();
             this.predmetiAddBtn = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // dodajBtn
@@ -125,6 +128,11 @@
             this.predmetiAddBtn.TabIndex = 14;
             this.predmetiAddBtn.Text = "+";
             this.predmetiAddBtn.UseVisualStyleBackColor = true;
+            this.predmetiAddBtn.Click += new System.EventHandler(this.predmetiAddBtn_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // AddSmjer
             // 
@@ -144,6 +152,7 @@
             this.Name = "AddSmjer";
             this.Text = "AddSmjer";
             this.Load += new System.EventHandler(this.AddSmjer_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +170,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox skolskaGodinaCmb;
         private System.Windows.Forms.Button predmetiAddBtn;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
