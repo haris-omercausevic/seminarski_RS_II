@@ -215,15 +215,6 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Predmet sa unesenim nazivom već postoji !.
-        /// </summary>
-        internal static string predmet_naziv_err {
-            get {
-                return ResourceManager.GetString("predmet_naziv_err", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Obavezno unesite naziv predmeta !.
         /// </summary>
         internal static string predmet_naziv_req {
@@ -233,20 +224,20 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Predmet sa unesenom oznakom već postoji !.
-        /// </summary>
-        internal static string predmet_oznaka_err {
-            get {
-                return ResourceManager.GetString("predmet_oznaka_err", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Obavezno unesite oznaku predmeta !.
         /// </summary>
         internal static string predmet_oznaka_req {
             get {
                 return ResourceManager.GetString("predmet_oznaka_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string predmet_razred_req {
+            get {
+                return ResourceManager.GetString("predmet_razred_req", resourceCulture);
             }
         }
         

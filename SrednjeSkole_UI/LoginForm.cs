@@ -32,6 +32,7 @@ namespace SrednjeSkole_UI
                 if (k.LozinkaHash == UIHelper.GenerateHash(k.LozinkaSalt, lozinkaInput.Text))
                 {
                     MessageBox.Show("Dobrodošli " + k.Ime + " " + k.Prezime);
+                    Global.prijavljeniKorisnik = k;
                     DialogResult = DialogResult.OK;
                     Close();
                 }

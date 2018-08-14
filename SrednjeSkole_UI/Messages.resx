@@ -184,16 +184,13 @@
   <data name="add_predmet_succ" xml:space="preserve">
     <value>Uspješno ste dodali predmet.</value>
   </data>
-  <data name="predmet_naziv_err" xml:space="preserve">
-    <value>Predmet sa unesenim nazivom već postoji !</value>
-  </data>
-  <data name="predmet_oznaka_err" xml:space="preserve">
-    <value>Predmet sa unesenom oznakom već postoji !</value>
-  </data>
   <data name="predmet_naziv_req" xml:space="preserve">
     <value>Obavezno unesite naziv predmeta !</value>
   </data>
   <data name="predmet_oznaka_req" xml:space="preserve">
     <value>Obavezno unesite oznaku predmeta !</value>
+  </data>
+  <data name="predmet_razred_req" xml:space="preserve">
+    <value />
   </data>
 </root>

@@ -187,5 +187,39 @@ namespace SrednjeSkole_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Korisnici_Result>("ssp_Korisnici_GetById", korisnikIdParameter);
         }
+    
+        public virtual ObjectResult<Nullable<decimal>> ssp_Smjerovi_Insert(string naziv, string opis, Nullable<int> skolskaGodinaId)
+        {
+            var nazivParameter = naziv != null ?
+                new ObjectParameter("Naziv", naziv) :
+                new ObjectParameter("Naziv", typeof(string));
+    
+            var opisParameter = opis != null ?
+                new ObjectParameter("Opis", opis) :
+                new ObjectParameter("Opis", typeof(string));
+    
+            var skolskaGodinaIdParameter = skolskaGodinaId.HasValue ?
+                new ObjectParameter("SkolskaGodinaId", skolskaGodinaId) :
+                new ObjectParameter("SkolskaGodinaId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("ssp_Smjerovi_Insert", nazivParameter, opisParameter, skolskaGodinaIdParameter);
+        }
+    
+        public virtual int ssp_SmjerPredmet_Insert(Nullable<int> smjerId, Nullable<int> predmetId, Nullable<int> brojCasova)
+        {
+            var smjerIdParameter = smjerId.HasValue ?
+                new ObjectParameter("SmjerId", smjerId) :
+                new ObjectParameter("SmjerId", typeof(int));
+    
+            var predmetIdParameter = predmetId.HasValue ?
+                new ObjectParameter("PredmetId", predmetId) :
+                new ObjectParameter("PredmetId", typeof(int));
+    
+            var brojCasovaParameter = brojCasova.HasValue ?
+                new ObjectParameter("BrojCasova", brojCasova) :
+                new ObjectParameter("BrojCasova", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_SmjerPredmet_Insert", smjerIdParameter, predmetIdParameter, brojCasovaParameter);
+        }
     }
 }

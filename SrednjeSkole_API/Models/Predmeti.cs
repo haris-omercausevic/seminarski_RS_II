@@ -24,6 +24,7 @@ namespace SrednjeSkole_API.Models
         public int PredmetId { get; set; }
         public string Naziv { get; set; }
         public string Oznaka { get; set; }
+        public int Razred { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Materijali> Materijali { get; set; }

@@ -16,7 +16,7 @@ namespace SrednjeSkole_UI.Evidencije
 {
     public partial class AddPredmet : Form
     {
-        private WebAPIHelper predmetiService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.KorisniciRoute);
+        private WebAPIHelper predmetiService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.PredmetiRoute);
 
         public AddPredmet()
         {
@@ -31,7 +31,8 @@ namespace SrednjeSkole_UI.Evidencije
                 Predmeti p = new Predmeti()
                 {
                     Naziv = nazivInput.Text,
-                    Oznaka = oznakaInput.Text
+                    Oznaka = oznakaInput.Text,
+                    Razred = Convert.ToInt32(razredCmb.SelectedItem)
                 };
 
                 HttpResponseMessage response = predmetiService.PostResponse(p);
@@ -43,13 +44,8 @@ namespace SrednjeSkole_UI.Evidencije
                 }
                 else
                 {
-                    string msg = response.ReasonPhrase;
-
-                    if (!String.IsNullOrEmpty(Messages.ResourceManager.GetString(response.ReasonPhrase)))
-                        msg = Messages.ResourceManager.GetString(response.ReasonPhrase);
-
-                    MessageBox.Show("Error Code" +
-                    response.StatusCode + " : Message - " + msg);
+                    
+                    MessageBox.Show("Error Code" +  response.StatusCode + " : Message - " + response.ReasonPhrase);
                 }
             }
         }
@@ -61,13 +57,10 @@ namespace SrednjeSkole_UI.Evidencije
                 e.Cancel = true;
                 errorProvider.SetError(nazivInput, Messages.predmet_naziv_req);
             }
-            else if (String.IsNullOrEmpty(nazivInput.Text.Trim()))
-            {
-                e.Cancel = true;
-                errorProvider.SetError(nazivInput, Messages.predmet_naziv_req);
-            }
             else
+            {
                 errorProvider.SetError(nazivInput, null);
+            }
         }
 
         private void oznakaInput_Validating(object sender, CancelEventArgs e)
@@ -81,9 +74,15 @@ namespace SrednjeSkole_UI.Evidencije
                 errorProvider.SetError(oznakaInput, null);
         }
 
-        private void AddPredmet_Load(object sender, EventArgs e)
+        private void razredCmb_Validating(object sender, CancelEventArgs e)
         {
-
+            if (String.IsNullOrEmpty(razredCmb.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(razredCmb, Messages.predmet_razred_req);
+            }
+            else
+                errorProvider.SetError(razredCmb, null);
         }
     }
 }

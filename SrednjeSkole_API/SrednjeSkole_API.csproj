@@ -173,6 +173,7 @@
     <Compile Include="Models\Smjerovi.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SmjeroviExtension.cs" />
     <Compile Include="Models\SmjerPredmet.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

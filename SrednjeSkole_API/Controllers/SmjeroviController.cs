@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
@@ -72,17 +73,30 @@ namespace SrednjeSkole_API.Controllers
 
         // POST: api/Smjerovi
         [ResponseType(typeof(Smjerovi))]
-        public IHttpActionResult PostSmjerovi(Smjerovi smjerovi)
+        public IHttpActionResult PostSmjerovi(Smjerovi s)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Smjerovi.Add(smjerovi);
-            db.SaveChanges();
+            try
+            {
+                s.SmjerId = Convert.ToInt32(db.ssp_Smjerovi_Insert(s.Naziv, s.Opis, s.SkolskaGodinaId).FirstOrDefault());
+            }
+            catch (EntityException ex)
+            {
+                if (ex.InnerException != null)
+                    throw CreateHttpExceptionMessage(Util.ExceptionHandler.HandleException(ex),
+                                                     HttpStatusCode.Conflict);
+            }
 
-            return CreatedAtRoute("DefaultApi", new { id = smjerovi.SmjerId }, smjerovi);
+            foreach (var item in s.Predmeti)
+            {
+                db.ssp_SmjerPredmet_Insert(s.SmjerId, item.PredmetId, 0);
+            }          
+
+            return CreatedAtRoute("DefaultApi", new { id = s.SmjerId }, s);
         }
 
         // DELETE: api/Smjerovi/5
@@ -108,6 +122,17 @@ namespace SrednjeSkole_API.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        private HttpResponseException CreateHttpExceptionMessage(string reason, HttpStatusCode code)
+        {
+            HttpResponseMessage msg = new HttpResponseMessage()
+            {
+                ReasonPhrase = reason,
+                StatusCode = code,
+                Content = new StringContent(reason)
+            };
+
+            return new HttpResponseException(msg);
         }
 
         private bool SmjeroviExists(int id)

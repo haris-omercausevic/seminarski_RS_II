@@ -35,6 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dodajBtn = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.razredCmb = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +76,7 @@
             // 
             // dodajBtn
             // 
-            this.dodajBtn.Location = new System.Drawing.Point(174, 80);
+            this.dodajBtn.Location = new System.Drawing.Point(175, 113);
             this.dodajBtn.Name = "dodajBtn";
             this.dodajBtn.Size = new System.Drawing.Size(75, 23);
             this.dodajBtn.TabIndex = 3;
@@ -86,19 +88,43 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // razredCmb
+            // 
+            this.razredCmb.FormattingEnabled = true;
+            this.razredCmb.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
+            this.razredCmb.Location = new System.Drawing.Point(68, 77);
+            this.razredCmb.Name = "razredCmb";
+            this.razredCmb.Size = new System.Drawing.Size(136, 21);
+            this.razredCmb.TabIndex = 4;
+            this.razredCmb.Validating += new System.ComponentModel.CancelEventHandler(this.razredCmb_Validating);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Razred:";
+            // 
             // AddPredmet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(265, 115);
+            this.ClientSize = new System.Drawing.Size(262, 148);
+            this.Controls.Add(this.razredCmb);
             this.Controls.Add(this.dodajBtn);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.oznakaInput);
             this.Controls.Add(this.nazivInput);
             this.Name = "AddPredmet";
             this.Text = "Dodaj predmet";
-            this.Load += new System.EventHandler(this.AddPredmet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -113,5 +139,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button dodajBtn;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.ComboBox razredCmb;
+        private System.Windows.Forms.Label label3;
     }
 }

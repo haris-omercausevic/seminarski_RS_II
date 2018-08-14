@@ -124,6 +124,7 @@
           <Property Name="PredmetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Naziv" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Oznaka" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Razred" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Razredi">
           <Key>
@@ -572,6 +573,16 @@
         <Function Name="ssp_KorisniciUloge_Remove" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KorisnikId" Type="int" Mode="In" />
         </Function>
+        <Function Name="ssp_Smjerovi_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Naziv" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Opis" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="SkolskaGodinaId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ssp_SmjerPredmet_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SmjerId" Type="int" Mode="In" />
+          <Parameter Name="PredmetId" Type="int" Mode="In" />
+          <Parameter Name="BrojCasova" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="SrednjeSkoleModelStoreContainer">
           <EntitySet Name="AutorizacijskiToken" EntityType="Self.AutorizacijskiToken" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Casovi" EntityType="Self.Casovi" Schema="dbo" store:Type="Tables" />
@@ -833,6 +844,7 @@
           <Property Name="Oznaka" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Materijali" Relationship="Self.FK_dbo_Materijali_dbo_Predmeti_PredmetId" FromRole="Predmeti" ToRole="Materijali" />
           <NavigationProperty Name="SmjerPredmet" Relationship="Self.FK_dbo_SmjerPredmet_dbo_Predmeti_PredmetId" FromRole="Predmeti" ToRole="SmjerPredmet" />
+          <Property Name="Razred" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Razredi">
           <Key>
@@ -1404,6 +1416,16 @@
           <FunctionImport Name="ssp_Korisnici_GetById" ReturnType="Collection(SrednjeSkoleModel.Korisnici_Result)">
           <Parameter Name="korisnikId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="ssp_Smjerovi_Insert" ReturnType="Collection(Decimal)">
+            <Parameter Name="Naziv" Mode="In" Type="String" />
+            <Parameter Name="Opis" Mode="In" Type="String" />
+            <Parameter Name="SkolskaGodinaId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ssp_SmjerPredmet_Insert">
+            <Parameter Name="SmjerId" Mode="In" Type="Int32" />
+            <Parameter Name="PredmetId" Mode="In" Type="Int32" />
+            <Parameter Name="BrojCasova" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1551,7 +1573,8 @@
     <EntitySetMapping Name="Predmeti">
       <EntityTypeMapping TypeName="IsTypeOf(SrednjeSkoleModel.Predmeti)">
         <MappingFragment StoreEntitySet="Predmeti">
-          <ScalarProperty Name="PredmetId" ColumnName="PredmetId" />
+          <ScalarProperty Name="Razred" ColumnName="Razred" />
+                <ScalarProperty Name="PredmetId" ColumnName="PredmetId" />
           <ScalarProperty Name="Naziv" ColumnName="Naziv" />
           <ScalarProperty Name="Oznaka" ColumnName="Oznaka" />
         </MappingFragment>
@@ -1687,6 +1710,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ssp_Smjerovi_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_Smjerovi_Insert" />
+          <FunctionImportMapping FunctionImportName="ssp_SmjerPredmet_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_SmjerPredmet_Insert" />
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.dodajBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.oznakaInput = new System.Windows.Forms.TextBox();
+            this.opisInput = new System.Windows.Forms.TextBox();
             this.nazivInput = new System.Windows.Forms.TextBox();
             this.predmetiList = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,14 +40,15 @@
             this.predmetiAddBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // dodajBtn
             // 
-            this.button1.Location = new System.Drawing.Point(186, 290);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Dodaj";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dodajBtn.Location = new System.Drawing.Point(186, 290);
+            this.dodajBtn.Name = "dodajBtn";
+            this.dodajBtn.Size = new System.Drawing.Size(75, 23);
+            this.dodajBtn.TabIndex = 7;
+            this.dodajBtn.Text = "Dodaj";
+            this.dodajBtn.UseVisualStyleBackColor = true;
+            this.dodajBtn.Click += new System.EventHandler(this.dodajBtn_Click);
             // 
             // label2
             // 
@@ -67,13 +68,13 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Naziv:";
             // 
-            // oznakaInput
+            // opisInput
             // 
-            this.oznakaInput.Location = new System.Drawing.Point(91, 48);
-            this.oznakaInput.Multiline = true;
-            this.oznakaInput.Name = "oznakaInput";
-            this.oznakaInput.Size = new System.Drawing.Size(136, 71);
-            this.oznakaInput.TabIndex = 3;
+            this.opisInput.Location = new System.Drawing.Point(91, 48);
+            this.opisInput.Multiline = true;
+            this.opisInput.Name = "opisInput";
+            this.opisInput.Size = new System.Drawing.Size(136, 71);
+            this.opisInput.TabIndex = 3;
             // 
             // nazivInput
             // 
@@ -133,12 +134,12 @@
             this.Controls.Add(this.predmetiAddBtn);
             this.Controls.Add(this.skolskaGodinaCmb);
             this.Controls.Add(this.predmetiList);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dodajBtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.oznakaInput);
+            this.Controls.Add(this.opisInput);
             this.Controls.Add(this.nazivInput);
             this.Name = "AddSmjer";
             this.Text = "AddSmjer";
@@ -150,10 +151,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button dodajBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox oznakaInput;
+        private System.Windows.Forms.TextBox opisInput;
         private System.Windows.Forms.TextBox nazivInput;
         private System.Windows.Forms.CheckedListBox predmetiList;
         private System.Windows.Forms.Label label3;
