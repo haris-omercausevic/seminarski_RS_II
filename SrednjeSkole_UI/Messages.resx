@@ -232,4 +232,10 @@
   <data name="smjer_req" xml:space="preserve">
     <value>Obavezno odaberite smjer !</value>
   </data>
+  <data name="predmet_razred_req" xml:space="preserve">
+    <value>Obavezno unesite razred kojem predmet pripada !</value>
+  </data>
+  <data name="datum_korisnik_err14" xml:space="preserve">
+    <value>Osobe mladje od 14 godina ne mogu biti korisnici aplikacije !</value>
+  </data>
 </root>

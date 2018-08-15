@@ -56,6 +56,5 @@ namespace SrednjeSkole_UI.Evidencije
                 errorProvider.SetError(skolskaGodinaInput, null);
             }
         }
-    }
-    }
+    }    
 }

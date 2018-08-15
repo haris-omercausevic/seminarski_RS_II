@@ -49,7 +49,7 @@
             // skolskaGodinaInput
             // 
             this.skolskaGodinaInput.Location = new System.Drawing.Point(101, 12);
-            this.skolskaGodinaInput.Mask = "0000/0000";
+            this.skolskaGodinaInput.Mask = "0000/00";
             this.skolskaGodinaInput.Name = "skolskaGodinaInput";
             this.skolskaGodinaInput.Size = new System.Drawing.Size(100, 20);
             this.skolskaGodinaInput.TabIndex = 1;

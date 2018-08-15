@@ -198,19 +198,13 @@ namespace SrednjeSkole_UI.Users
             if (age < 14)
             {
                 e.Cancel = true;
-                errorProvider.SetError(datumRodjenjaInput, Messages.datum_err14);
-            }
-            else if (age > 20)
-            {
-                e.Cancel = true;
-                errorProvider.SetError(datumRodjenjaInput, Messages.datum_err20);
-            }
+                errorProvider.SetError(datumRodjenjaInput, Messages.datum_korisnik_err14);
+            }            
             else
             {
                 errorProvider.SetError(datumRodjenjaInput, null);
             }
         }
-
 
         #endregion
 

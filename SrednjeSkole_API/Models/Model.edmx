@@ -573,6 +573,12 @@
         <Function Name="ssp_KorisniciUloge_Remove" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KorisnikId" Type="int" Mode="In" />
         </Function>
+        <Function Name="ssp_Nastavnici_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Zvanje" Type="nvarchar" Mode="In" />
+          <Parameter Name="NaucnaOblast" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="GodinaZaposlenja" Type="int" Mode="In" />
+        </Function>
         <Function Name="ssp_Razredi_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RazredBrojcano" Type="int" Mode="In" />
           <Parameter Name="Odjeljenje" Type="nvarchar(max)" Mode="In" />
@@ -590,6 +596,13 @@
           <Parameter Name="SmjerId" Type="int" Mode="In" />
           <Parameter Name="PredmetId" Type="int" Mode="In" />
           <Parameter Name="BrojCasova" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ssp_Ucenici_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="ImeRoditelja" Type="nvarchar" Mode="In" />
+          <Parameter Name="GodinaUpisa" Type="int" Mode="In" />
+          <Parameter Name="SmjerId" Type="int" Mode="In" />
+          <Parameter Name="NazivOsnovneSkole" Type="nvarchar(max)" Mode="In" />
         </Function>
         <EntityContainer Name="SrednjeSkoleModelStoreContainer">
           <EntitySet Name="AutorizacijskiToken" EntityType="Self.AutorizacijskiToken" Schema="dbo" store:Type="Tables" />
@@ -1442,6 +1455,19 @@
             <Parameter Name="NastavnikId" Mode="In" Type="Int32" />
             <Parameter Name="SmjerId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="ssp_Nastavnici_Insert">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Zvanje" Mode="In" Type="String" />
+            <Parameter Name="NaucnaOblast" Mode="In" Type="String" />
+            <Parameter Name="GodinaZaposlenja" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ssp_Ucenici_Insert">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="ImeRoditelja" Mode="In" Type="String" />
+            <Parameter Name="GodinaUpisa" Mode="In" Type="Int32" />
+            <Parameter Name="SmjerId" Mode="In" Type="Int32" />
+            <Parameter Name="NazivOsnovneSkole" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1729,6 +1755,8 @@
           <FunctionImportMapping FunctionImportName="ssp_Smjerovi_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_Smjerovi_Insert" />
           <FunctionImportMapping FunctionImportName="ssp_SmjerPredmet_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_SmjerPredmet_Insert" />
           <FunctionImportMapping FunctionImportName="ssp_Razredi_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_Razredi_Insert" />
+          <FunctionImportMapping FunctionImportName="ssp_Nastavnici_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_Nastavnici_Insert" />
+          <FunctionImportMapping FunctionImportName="ssp_Ucenici_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_Ucenici_Insert" />
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

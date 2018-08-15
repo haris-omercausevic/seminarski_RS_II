@@ -51,5 +51,19 @@ namespace SrednjeSkole_UI
             f.MdiParent = this;
             f.Show();
         }
+
+        private void uceniciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Users.AddUcenik f = new Users.AddUcenik();
+            //f.MdiParent = this;
+            f.Show();
+        }
+
+        private void nastavniciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Users.AddNastavnik f = new Users.AddNastavnik();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

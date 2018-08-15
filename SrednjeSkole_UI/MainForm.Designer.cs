@@ -32,13 +32,13 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.korisniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uceniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nastavniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.evidencijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smjeroviToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.predmetiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.razrediToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.uceniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nastavniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,20 @@
             this.korisniciToolStripMenuItem.Text = "Korisnici";
             this.korisniciToolStripMenuItem.Click += new System.EventHandler(this.korisniciToolStripMenuItem_Click);
             // 
+            // uceniciToolStripMenuItem
+            // 
+            this.uceniciToolStripMenuItem.Name = "uceniciToolStripMenuItem";
+            this.uceniciToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uceniciToolStripMenuItem.Text = "Ucenici";
+            this.uceniciToolStripMenuItem.Click += new System.EventHandler(this.uceniciToolStripMenuItem_Click);
+            // 
+            // nastavniciToolStripMenuItem
+            // 
+            this.nastavniciToolStripMenuItem.Name = "nastavniciToolStripMenuItem";
+            this.nastavniciToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nastavniciToolStripMenuItem.Text = "Nastavnici";
+            this.nastavniciToolStripMenuItem.Click += new System.EventHandler(this.nastavniciToolStripMenuItem_Click);
+            // 
             // evidencijaToolStripMenuItem
             // 
             this.evidencijaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -83,21 +97,21 @@
             // smjeroviToolStripMenuItem
             // 
             this.smjeroviToolStripMenuItem.Name = "smjeroviToolStripMenuItem";
-            this.smjeroviToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.smjeroviToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.smjeroviToolStripMenuItem.Text = "Smjerovi";
             this.smjeroviToolStripMenuItem.Click += new System.EventHandler(this.smjeroviToolStripMenuItem_Click);
             // 
             // predmetiToolStripMenuItem
             // 
             this.predmetiToolStripMenuItem.Name = "predmetiToolStripMenuItem";
-            this.predmetiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.predmetiToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.predmetiToolStripMenuItem.Text = "Predmeti";
             this.predmetiToolStripMenuItem.Click += new System.EventHandler(this.predmetiToolStripMenuItem_Click);
             // 
             // razrediToolStripMenuItem
             // 
             this.razrediToolStripMenuItem.Name = "razrediToolStripMenuItem";
-            this.razrediToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.razrediToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.razrediToolStripMenuItem.Text = "Razredi";
             this.razrediToolStripMenuItem.Click += new System.EventHandler(this.razrediToolStripMenuItem_Click);
             // 
@@ -105,18 +119,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // uceniciToolStripMenuItem
-            // 
-            this.uceniciToolStripMenuItem.Name = "uceniciToolStripMenuItem";
-            this.uceniciToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.uceniciToolStripMenuItem.Text = "Ucenici";
-            // 
-            // nastavniciToolStripMenuItem
-            // 
-            this.nastavniciToolStripMenuItem.Name = "nastavniciToolStripMenuItem";
-            this.nastavniciToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.nastavniciToolStripMenuItem.Text = "Nastavnici";
             // 
             // MainForm
             // 

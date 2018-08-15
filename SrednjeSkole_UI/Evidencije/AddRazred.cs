@@ -189,7 +189,7 @@ namespace SrednjeSkole_UI.Evidencije
 
         private void skolskaGodinaCmb_Validating(object sender, CancelEventArgs e)
         {
-            if (skolskaGodinaCmb.SelectedValue.ToString() == "")
+            if (String.IsNullOrEmpty(skolskaGodinaCmb.Text))
             {
                 e.Cancel = true;
                 errorProvider.SetError(skolskaGodinaCmb, Messages.skGod_req);
@@ -200,7 +200,7 @@ namespace SrednjeSkole_UI.Evidencije
 
         private void smjerCmb_Validating(object sender, CancelEventArgs e)
         {
-            if (smjerCmb.SelectedValue.ToString() == "")
+            if (String.IsNullOrEmpty(smjerCmb.Text))
             {
                 e.Cancel = true;
                 errorProvider.SetError(smjerCmb, Messages.smjer_req);
@@ -211,7 +211,7 @@ namespace SrednjeSkole_UI.Evidencije
 
         private void razrednikCmb_Validating(object sender, CancelEventArgs e)
         {
-            if (razrednikCmb.SelectedValue.ToString() == "")
+            if (String.IsNullOrEmpty(razrednikCmb.Text))
             {
                 e.Cancel = true;
                 errorProvider.SetError(razrednikCmb, Messages.add_razredRazrednik_req);

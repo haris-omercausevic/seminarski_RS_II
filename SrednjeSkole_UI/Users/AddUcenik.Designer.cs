@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.datumRodjenjaInput = new System.Windows.Forms.DateTimePicker();
             this.dodajBtn = new System.Windows.Forms.Button();
             this.telefonInput = new System.Windows.Forms.MaskedTextBox();
@@ -59,7 +60,11 @@
             this.imageBox = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.nazivSkoleInput = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.smjerAddBtn = new System.Windows.Forms.Button();
+            this.razredAddBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // datumRodjenjaInput
@@ -69,6 +74,7 @@
             this.datumRodjenjaInput.Name = "datumRodjenjaInput";
             this.datumRodjenjaInput.Size = new System.Drawing.Size(140, 20);
             this.datumRodjenjaInput.TabIndex = 25;
+            this.datumRodjenjaInput.Validating += new System.ComponentModel.CancelEventHandler(this.datumRodjenjaInput_Validating);
             // 
             // dodajBtn
             // 
@@ -87,6 +93,7 @@
             this.telefonInput.Name = "telefonInput";
             this.telefonInput.Size = new System.Drawing.Size(140, 20);
             this.telefonInput.TabIndex = 23;
+            this.telefonInput.Validating += new System.ComponentModel.CancelEventHandler(this.telefonInput_Validating);
             // 
             // jmbgInput
             // 
@@ -95,6 +102,7 @@
             this.jmbgInput.Name = "jmbgInput";
             this.jmbgInput.Size = new System.Drawing.Size(140, 20);
             this.jmbgInput.TabIndex = 24;
+            this.jmbgInput.Validating += new System.ComponentModel.CancelEventHandler(this.jmbgInput_Validating);
             // 
             // label9
             // 
@@ -111,6 +119,7 @@
             this.emailInput.Name = "emailInput";
             this.emailInput.Size = new System.Drawing.Size(140, 20);
             this.emailInput.TabIndex = 22;
+            this.emailInput.Validating += new System.ComponentModel.CancelEventHandler(this.emailInput_Validating);
             // 
             // label8
             // 
@@ -137,6 +146,7 @@
             this.lozinkaInput.PasswordChar = '*';
             this.lozinkaInput.Size = new System.Drawing.Size(140, 20);
             this.lozinkaInput.TabIndex = 27;
+            this.lozinkaInput.Validating += new System.ComponentModel.CancelEventHandler(this.lozinkaInput_Validating);
             // 
             // label6
             // 
@@ -153,6 +163,7 @@
             this.korisnickoImeInput.Name = "korisnickoImeInput";
             this.korisnickoImeInput.Size = new System.Drawing.Size(140, 20);
             this.korisnickoImeInput.TabIndex = 26;
+            this.korisnickoImeInput.Validating += new System.ComponentModel.CancelEventHandler(this.korisnickoImeInput_Validating);
             // 
             // label5
             // 
@@ -178,6 +189,7 @@
             this.prezimeInput.Name = "prezimeInput";
             this.prezimeInput.Size = new System.Drawing.Size(140, 20);
             this.prezimeInput.TabIndex = 21;
+            this.prezimeInput.Validating += new System.ComponentModel.CancelEventHandler(this.prezimeInput_Validating);
             // 
             // label2
             // 
@@ -194,6 +206,7 @@
             this.imeInput.Name = "imeInput";
             this.imeInput.Size = new System.Drawing.Size(140, 20);
             this.imeInput.TabIndex = 20;
+            this.imeInput.Validating += new System.ComponentModel.CancelEventHandler(this.imeInput_Validating);
             // 
             // label1
             // 
@@ -220,6 +233,7 @@
             this.imeRoditeljaInput.Name = "imeRoditeljaInput";
             this.imeRoditeljaInput.Size = new System.Drawing.Size(140, 20);
             this.imeRoditeljaInput.TabIndex = 20;
+            this.imeRoditeljaInput.Validating += new System.ComponentModel.CancelEventHandler(this.imeRoditeljaInput_Validating);
             // 
             // label11
             // 
@@ -237,6 +251,7 @@
             this.adresaInput.Name = "adresaInput";
             this.adresaInput.Size = new System.Drawing.Size(140, 20);
             this.adresaInput.TabIndex = 20;
+            this.adresaInput.Validating += new System.ComponentModel.CancelEventHandler(this.adresaInput_Validating);
             // 
             // radioButton1
             // 
@@ -277,6 +292,7 @@
             this.smjerCmb.Name = "smjerCmb";
             this.smjerCmb.Size = new System.Drawing.Size(121, 21);
             this.smjerCmb.TabIndex = 31;
+            this.smjerCmb.Validating += new System.ComponentModel.CancelEventHandler(this.smjerCmb_Validating);
             // 
             // label13
             // 
@@ -305,6 +321,7 @@
             this.razredCmb.Name = "razredCmb";
             this.razredCmb.Size = new System.Drawing.Size(121, 21);
             this.razredCmb.TabIndex = 31;
+            this.razredCmb.Validating += new System.ComponentModel.CancelEventHandler(this.razredCmb_Validating);
             // 
             // imageBox
             // 
@@ -331,12 +348,39 @@
             this.nazivSkoleInput.Name = "nazivSkoleInput";
             this.nazivSkoleInput.Size = new System.Drawing.Size(139, 20);
             this.nazivSkoleInput.TabIndex = 20;
+            this.nazivSkoleInput.Validating += new System.ComponentModel.CancelEventHandler(this.nazivSkoleInput_Validating);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // smjerAddBtn
+            // 
+            this.smjerAddBtn.Location = new System.Drawing.Point(515, 243);
+            this.smjerAddBtn.Name = "smjerAddBtn";
+            this.smjerAddBtn.Size = new System.Drawing.Size(28, 23);
+            this.smjerAddBtn.TabIndex = 33;
+            this.smjerAddBtn.Text = "+";
+            this.smjerAddBtn.UseVisualStyleBackColor = true;
+            this.smjerAddBtn.Click += new System.EventHandler(this.smjerAddBtn_Click);
+            // 
+            // razredAddBtn
+            // 
+            this.razredAddBtn.Location = new System.Drawing.Point(515, 271);
+            this.razredAddBtn.Name = "razredAddBtn";
+            this.razredAddBtn.Size = new System.Drawing.Size(28, 23);
+            this.razredAddBtn.TabIndex = 34;
+            this.razredAddBtn.Text = "+";
+            this.razredAddBtn.UseVisualStyleBackColor = true;
+            this.razredAddBtn.Click += new System.EventHandler(this.razredAddBtn_Click);
             // 
             // AddUcenik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 423);
+            this.Controls.Add(this.razredAddBtn);
+            this.Controls.Add(this.smjerAddBtn);
             this.Controls.Add(this.imageBox);
             this.Controls.Add(this.razredCmb);
             this.Controls.Add(this.smjerCmb);
@@ -372,6 +416,7 @@
             this.Text = "AddUcenik";
             this.Load += new System.EventHandler(this.AddUcenik_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -410,5 +455,8 @@
         private System.Windows.Forms.PictureBox imageBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox nazivSkoleInput;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button razredAddBtn;
+        private System.Windows.Forms.Button smjerAddBtn;
     }
 }

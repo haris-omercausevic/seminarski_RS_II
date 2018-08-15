@@ -178,6 +178,15 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Osobe mladje od 14 godina ne mogu biti korisnici aplikacije !.
+        /// </summary>
+        internal static string datum_korisnik_err14 {
+            get {
+                return ResourceManager.GetString("datum_korisnik_err14", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap dodaj_sliku {
@@ -328,6 +337,15 @@ namespace SrednjeSkole_UI {
         internal static string predmet_oznaka_req {
             get {
                 return ResourceManager.GetString("predmet_oznaka_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno unesite razred kojem predmet pripada !.
+        /// </summary>
+        internal static string predmet_razred_req {
+            get {
+                return ResourceManager.GetString("predmet_razred_req", resourceCulture);
             }
         }
         

@@ -106,6 +106,7 @@
     <Compile Include="Controllers\KorisniciController.cs" />
     <Compile Include="Controllers\PredmetiController.cs" />
     <Compile Include="Controllers\RazrediController.cs" />
+    <Compile Include="Controllers\SkolskeGodineController.cs" />
     <Compile Include="Controllers\SmjeroviController.cs" />
     <Compile Include="Controllers\UceniciController.cs" />
     <Compile Include="Controllers\UlogeController.cs" />

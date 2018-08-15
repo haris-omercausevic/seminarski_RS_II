@@ -139,7 +139,7 @@ namespace SrednjeSkole_UI.Evidencije
 
         private void skolskaGodinaCmb_Validating(object sender, CancelEventArgs e)
         {
-            if (skolskaGodinaCmb.SelectedValue.ToString() == "")
+            if (String.IsNullOrEmpty(skolskaGodinaCmb.Text))
             {
                 e.Cancel = true;
                 errorProvider.SetError(skolskaGodinaCmb, Messages.skGod_req);

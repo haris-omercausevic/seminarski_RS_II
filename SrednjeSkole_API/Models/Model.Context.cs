@@ -250,5 +250,51 @@ namespace SrednjeSkole_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("ssp_Razredi_Insert", razredBrojcanoParameter, odjeljenjeParameter, oznakaParameter, skolskaGodinaIdParameter, nastavnikIdParameter, smjerIdParameter);
         }
+    
+        public virtual int ssp_Nastavnici_Insert(Nullable<int> id, string zvanje, string naucnaOblast, Nullable<int> godinaZaposlenja)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var zvanjeParameter = zvanje != null ?
+                new ObjectParameter("Zvanje", zvanje) :
+                new ObjectParameter("Zvanje", typeof(string));
+    
+            var naucnaOblastParameter = naucnaOblast != null ?
+                new ObjectParameter("NaucnaOblast", naucnaOblast) :
+                new ObjectParameter("NaucnaOblast", typeof(string));
+    
+            var godinaZaposlenjaParameter = godinaZaposlenja.HasValue ?
+                new ObjectParameter("GodinaZaposlenja", godinaZaposlenja) :
+                new ObjectParameter("GodinaZaposlenja", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_Nastavnici_Insert", idParameter, zvanjeParameter, naucnaOblastParameter, godinaZaposlenjaParameter);
+        }
+    
+        public virtual int ssp_Ucenici_Insert(Nullable<int> id, string imeRoditelja, Nullable<int> godinaUpisa, Nullable<int> smjerId, string nazivOsnovneSkole)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var imeRoditeljaParameter = imeRoditelja != null ?
+                new ObjectParameter("ImeRoditelja", imeRoditelja) :
+                new ObjectParameter("ImeRoditelja", typeof(string));
+    
+            var godinaUpisaParameter = godinaUpisa.HasValue ?
+                new ObjectParameter("GodinaUpisa", godinaUpisa) :
+                new ObjectParameter("GodinaUpisa", typeof(int));
+    
+            var smjerIdParameter = smjerId.HasValue ?
+                new ObjectParameter("SmjerId", smjerId) :
+                new ObjectParameter("SmjerId", typeof(int));
+    
+            var nazivOsnovneSkoleParameter = nazivOsnovneSkole != null ?
+                new ObjectParameter("NazivOsnovneSkole", nazivOsnovneSkole) :
+                new ObjectParameter("NazivOsnovneSkole", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_Ucenici_Insert", idParameter, imeRoditeljaParameter, godinaUpisaParameter, smjerIdParameter, nazivOsnovneSkoleParameter);
+        }
     }
 }

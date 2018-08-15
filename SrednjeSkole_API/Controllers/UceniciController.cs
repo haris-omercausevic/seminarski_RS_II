@@ -44,7 +44,8 @@ namespace SrednjeSkole_API.Controllers
             {
                 k.Id = Convert.ToInt32(db.ssp_Korisnici_Insert(k.Ime, k.Prezime, k.Email,
                        k.Telefon, k.KorisnickoIme, k.LozinkaSalt, k.LozinkaHash, k.JMBG, k.DatumRodjenja.Value.Date).FirstOrDefault());
-                //dodati jos za ucenika sto fali
+
+                db.ssp_Ucenici_Insert(k.Id, k.ImeRoditelja, k.GodinaUpisa, k.SmjerId, k.NazivOsnovneSkole);
             }
             catch (EntityException ex)
             {
@@ -75,12 +76,7 @@ namespace SrednjeSkole_API.Controllers
             try
             {
                 db.ssp_Korisnici_Update(id, k.Ime, k.Prezime, k.Email,
-                        k.Telefon, k.KorisnickoIme, k.LozinkaSalt, k.LozinkaHash, k.Aktivan, k.JMBG, k.DatumRodjenja.Value.Date);
-                db.ssp_KorisniciUloge_Remove(k.Id);
-                foreach (var item in k.Uloge)
-                {
-                    db.ssp_KorisniciUloge_Insert(k.Id, item.UlogaId);
-                }
+                        k.Telefon, k.KorisnickoIme, k.LozinkaSalt, k.LozinkaHash, k.Aktivan, k.JMBG, k.DatumRodjenja.Value.Date);                
             }
             catch (EntityException ex)
             {
