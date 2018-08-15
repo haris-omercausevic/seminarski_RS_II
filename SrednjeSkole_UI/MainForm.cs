@@ -55,7 +55,7 @@ namespace SrednjeSkole_UI
         private void uceniciToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Users.AddUcenik f = new Users.AddUcenik();
-            //f.MdiParent = this;
+            f.MdiParent = this;
             f.Show();
         }
 

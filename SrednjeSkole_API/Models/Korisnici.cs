@@ -39,6 +39,8 @@ namespace SrednjeSkole_API.Models
         public string Grad { get; set; }
         public string Adresa { get; set; }
         public string Opstina { get; set; }
+        public byte[] Slika { get; set; }
+        public byte[] SlikaThumb { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AutorizacijskiToken> AutorizacijskiToken { get; set; }

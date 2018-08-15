@@ -32,7 +32,7 @@ namespace SrednjeSkole_UI.Evidencije
             BindSkolskeGodine();
             BindPredmeti();
         }
-        public void BindSkolskeGodine()
+        private void BindSkolskeGodine()
         {
             HttpResponseMessage response = skolskeGodineService.GetResponse();
 

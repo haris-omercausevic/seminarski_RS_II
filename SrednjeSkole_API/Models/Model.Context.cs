@@ -50,7 +50,7 @@ namespace SrednjeSkole_API.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Korisnici_Result>("ssp_Korisnici_SelectAll");
         }
     
-        public virtual ObjectResult<Nullable<decimal>> ssp_Korisnici_Insert(string ime, string prezime, string email, string telefon, string korisnickoIme, string lozinkaSalt, string lozinkaHash, string jMBG, Nullable<System.DateTime> datumRodjenja)
+        public virtual ObjectResult<Nullable<decimal>> ssp_Korisnici_Insert(string ime, string prezime, string email, string telefon, string korisnickoIme, string lozinkaSalt, string lozinkaHash, string jMBG, Nullable<System.DateTime> datumRodjenja, byte[] slika, byte[] slikaThumb)
         {
             var imeParameter = ime != null ?
                 new ObjectParameter("Ime", ime) :
@@ -88,7 +88,15 @@ namespace SrednjeSkole_API.Models
                 new ObjectParameter("DatumRodjenja", datumRodjenja) :
                 new ObjectParameter("DatumRodjenja", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("ssp_Korisnici_Insert", imeParameter, prezimeParameter, emailParameter, telefonParameter, korisnickoImeParameter, lozinkaSaltParameter, lozinkaHashParameter, jMBGParameter, datumRodjenjaParameter);
+            var slikaParameter = slika != null ?
+                new ObjectParameter("Slika", slika) :
+                new ObjectParameter("Slika", typeof(byte[]));
+    
+            var slikaThumbParameter = slikaThumb != null ?
+                new ObjectParameter("SlikaThumb", slikaThumb) :
+                new ObjectParameter("SlikaThumb", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("ssp_Korisnici_Insert", imeParameter, prezimeParameter, emailParameter, telefonParameter, korisnickoImeParameter, lozinkaSaltParameter, lozinkaHashParameter, jMBGParameter, datumRodjenjaParameter, slikaParameter, slikaThumbParameter);
         }
     
         public virtual ObjectResult<KorisniciPretraga_Result> ssp_Korisnici_Pretraga(string ime, string prezime, Nullable<int> ulogaID)

@@ -323,6 +323,15 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Potrebno je da odaberete sliku dimenzija većih od.
+        /// </summary>
+        internal static string picture_war {
+            get {
+                return ResourceManager.GetString("picture_war", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Obavezno unesite naziv predmeta !.
         /// </summary>
         internal static string predmet_naziv_req {

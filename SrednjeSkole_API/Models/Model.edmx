@@ -56,6 +56,8 @@
           <Property Name="Adresa" Type="nvarchar" MaxLength="100" />
           <Property Name="Grad" Type="nvarchar" MaxLength="50" />
           <Property Name="Opstina" Type="nvarchar" MaxLength="50" />
+          <Property Name="Slika" Type="varbinary(max)" />
+          <Property Name="SlikaThumb" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Korisnici_Nastavnici">
           <Key>
@@ -546,6 +548,8 @@
           <Parameter Name="LozinkaHash" Type="nvarchar" Mode="In" />
           <Parameter Name="JMBG" Type="nvarchar" Mode="In" />
           <Parameter Name="DatumRodjenja" Type="datetime" Mode="In" />
+          <Parameter Name="Slika" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="SlikaThumb" Type="varbinary(max)" Mode="In" />
         </Function>
         <Function Name="ssp_Korisnici_Pretraga" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Ime" Type="nvarchar" Mode="In" />
@@ -797,6 +801,8 @@
           <Property Name="Grad" Type="String" Unicode="true" FixedLength="false" MaxLength="50" />
           <Property Name="Adresa" Type="String" Unicode="true" FixedLength="false" MaxLength="100" />
           <Property Name="Opstina" Type="String" Unicode="true" FixedLength="false" MaxLength="50" />
+          <Property Name="Slika" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="SlikaThumb" Type="Binary" MaxLength="Max" FixedLength="false" />
           </EntityType>
         <EntityType Name="KorisniciUloge">
           <Key>
@@ -1408,6 +1414,8 @@
             <Parameter Name="LozinkaHash" Mode="In" Type="String" />
             <Parameter Name="JMBG" Mode="In" Type="String" />
             <Parameter Name="DatumRodjenja" Mode="In" Type="DateTime" />
+            <Parameter Name="Slika" Mode="In" Type="Binary" />
+            <Parameter Name="SlikaThumb" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="ssp_Korisnici_Pretraga" ReturnType="Collection(SrednjeSkoleModel.KorisniciPretraga_Result)">
             <Parameter Name="Ime" Mode="In" Type="String" />
@@ -1530,6 +1538,8 @@
     <EntitySetMapping Name="Korisnici">
       <EntityTypeMapping TypeName="IsTypeOf(SrednjeSkoleModel.Korisnici)">
         <MappingFragment StoreEntitySet="Korisnici">
+                <ScalarProperty Name="SlikaThumb" ColumnName="SlikaThumb" />
+                <ScalarProperty Name="Slika" ColumnName="Slika" />
                 <ScalarProperty Name="Opstina" ColumnName="Opstina" />
                 <ScalarProperty Name="Grad" ColumnName="Grad" />
                 <ScalarProperty Name="Adresa" ColumnName="Adresa" />

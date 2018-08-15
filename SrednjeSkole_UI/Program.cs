@@ -16,8 +16,7 @@ namespace SrednjeSkole_UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-
+            
             LoginForm login = new LoginForm();
             if(login.ShowDialog() == DialogResult.OK)
                 Application.Run(new MainForm());

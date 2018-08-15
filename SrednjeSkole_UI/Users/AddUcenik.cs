@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -22,7 +23,7 @@ namespace SrednjeSkole_UI.Users
         private WebAPIHelper uceniciService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.UceniciRoute);
         private WebAPIHelper smjeroviService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.SmjeroviRoute);
         private WebAPIHelper razrediService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.RazrediRoute);
-
+        private Ucenici k = new Ucenici();
 
 
         public AddUcenik()
@@ -47,7 +48,6 @@ namespace SrednjeSkole_UI.Users
                 smjerCmb.SelectedValue = "";
             }
         }
-
         private void BindRazredi()
         {
             HttpResponseMessage response = razrediService.GetResponse();
@@ -62,22 +62,20 @@ namespace SrednjeSkole_UI.Users
         {
             if (this.ValidateChildren())
             {
-                Ucenici k = new Ucenici
-                {
-                    Ime = imeInput.Text,
-                    Prezime = prezimeInput.Text,
-                    Email = emailInput.Text,
-                    Telefon = telefonInput.Text,
-                    KorisnickoIme = korisnickoImeInput.Text,
-                    Aktivan = true,
-                    JMBG = jmbgInput.Text,
-                    DatumRodjenja = Convert.ToDateTime(datumRodjenjaInput.Value.ToString("yyyy-MM-dd HH:mm:ss.fff")),
-                    Adresa = adresaInput.Text,
-                    GodinaUpisa = DateTime.Now.Year,
-                    ImeRoditelja = imeRoditeljaInput.Text,
-                    Spol = radioButton1.Checked?"M":"Z",
-                    NazivOsnovneSkole = nazivSkoleInput.Text
-                };
+                k.Ime = imeInput.Text;
+                k.Prezime = prezimeInput.Text;
+                k.Email = emailInput.Text;
+                k.Telefon = telefonInput.Text;
+                k.KorisnickoIme = korisnickoImeInput.Text;
+                k.Aktivan = true;
+                k.JMBG = jmbgInput.Text;
+                k.DatumRodjenja = Convert.ToDateTime(datumRodjenjaInput.Value.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+                k.Adresa = adresaInput.Text;
+                k.GodinaUpisa = DateTime.Now.Year;
+                k.ImeRoditelja = imeRoditeljaInput.Text;
+                k.Spol = radioButton1.Checked ? "M" : "Z";
+                k.NazivOsnovneSkole = nazivSkoleInput.Text;
+
                 k.LozinkaSalt = UIHelper.GenerateSalt();
                 k.LozinkaHash = UIHelper.GenerateHash(k.LozinkaSalt, lozinkaInput.Text);
 
@@ -179,7 +177,15 @@ namespace SrednjeSkole_UI.Users
 
         private void telefonInput_Validating(object sender, CancelEventArgs e)
         {
-
+            if (String.IsNullOrEmpty(telefonInput.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(telefonInput, Messages.lname_err);
+            }
+            else
+            {
+                errorProvider.SetError(telefonInput, "");
+            }
         }
 
         private void datumRodjenjaInput_Validating(object sender, CancelEventArgs e)
@@ -205,17 +211,41 @@ namespace SrednjeSkole_UI.Users
 
         private void imeRoditeljaInput_Validating(object sender, CancelEventArgs e)
         {
-
+            if (String.IsNullOrEmpty(imeRoditeljaInput.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(imeRoditeljaInput, Messages.lname_err);
+            }
+            else
+            {
+                errorProvider.SetError(imeRoditeljaInput, "");
+            }
         }
 
         private void adresaInput_Validating(object sender, CancelEventArgs e)
         {
-
+            if (String.IsNullOrEmpty(adresaInput.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(adresaInput, Messages.lname_err);
+            }
+            else
+            {
+                errorProvider.SetError(adresaInput, "");
+            }
         }
 
         private void nazivSkoleInput_Validating(object sender, CancelEventArgs e)
         {
-
+            if (String.IsNullOrEmpty(nazivSkoleInput.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(nazivSkoleInput, Messages.lname_err);
+            }
+            else
+            {
+                errorProvider.SetError(nazivSkoleInput, "");
+            }
         }
 
         private void korisnickoImeInput_Validating(object sender, CancelEventArgs e)
@@ -252,12 +282,28 @@ namespace SrednjeSkole_UI.Users
 
         private void smjerCmb_Validating(object sender, CancelEventArgs e)
         {
-
+            if (String.IsNullOrEmpty(smjerCmb.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(smjerCmb, Messages.lname_err);
+            }
+            else
+            {
+                errorProvider.SetError(smjerCmb, "");
+            }
         }
 
         private void razredCmb_Validating(object sender, CancelEventArgs e)
         {
-
+            if (String.IsNullOrEmpty(razredCmb.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(razredCmb, Messages.lname_err);
+            }
+            else
+            {
+                errorProvider.SetError(razredCmb, "");
+            }
         }
         #endregion
 
@@ -282,6 +328,61 @@ namespace SrednjeSkole_UI.Users
         {
             BindRazredi();
         }
-        
+
+        private void dodajSlikuBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                openFileDialog.ShowDialog();
+                slikaInput.Text = openFileDialog.FileName;
+
+                k.Slika = File.ReadAllBytes(slikaInput.Text);
+                Image orgImage = Image.FromFile(slikaInput.Text);
+
+                int resizedImgWidth = Convert.ToInt32(ConfigurationManager.AppSettings["resizedImgWidth"]);
+                int resizedImgHeight = Convert.ToInt32(ConfigurationManager.AppSettings["resizedImgHeight"]);
+                int croppedImgWidth = Convert.ToInt32(ConfigurationManager.AppSettings["croppedImgWidth"]);
+                int croppedImgHeight = Convert.ToInt32(ConfigurationManager.AppSettings["croppedImgHeight"]);
+
+                if (orgImage.Width > resizedImgWidth)
+                {
+                    Image resizedImg = UIHelper.ResizeImage(orgImage, new Size(resizedImgWidth, resizedImgHeight));
+
+                    if (resizedImg.Width > croppedImgWidth && resizedImg.Height > croppedImgHeight)
+                    {
+                        int croppedXPosition = (resizedImg.Width - croppedImgWidth) / 2;
+                        int croppedYPosition = (resizedImg.Height - croppedImgHeight) / 2;
+
+                        Image croppedImg = UIHelper.CropImage(resizedImg, new Rectangle(croppedXPosition, croppedYPosition, croppedImgWidth, croppedImgHeight));
+                        pictureBox.Image = croppedImg;
+
+                        MemoryStream ms = new MemoryStream();
+                        croppedImg.Save(ms, orgImage.RawFormat);
+
+                        k.SlikaThumb = ms.ToArray();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show(Messages.picture_war + " " + resizedImgWidth + "x" + resizedImgHeight + ".", Messages.warning,
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        k = null;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                k.Slika = null;
+                k.SlikaThumb = null;
+                slikaInput.Text = null;
+                pictureBox.Image = null;
+            }
+        }
+
+        private void nazivSkoleInput_TextChanged(object sender, EventArgs e)
+        {
+            BindSmjerovi();
+            BindRazredi();
+        }
     }
 }

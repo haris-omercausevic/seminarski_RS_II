@@ -238,4 +238,7 @@
   <data name="datum_korisnik_err14" xml:space="preserve">
     <value>Osobe mladje od 14 godina ne mogu biti korisnici aplikacije !</value>
   </data>
+  <data name="picture_war" xml:space="preserve">
+    <value>Potrebno je da odaberete sliku dimenzija većih od</value>
+  </data>
 </root>
