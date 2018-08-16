@@ -28,106 +28,149 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.korisniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uceniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nastavniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.evidencijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.smjeroviToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.predmetiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.razrediToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menuStrip1.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.colorBox4 = new System.Windows.Forms.PictureBox();
+            this.colorBox2 = new System.Windows.Forms.PictureBox();
+            this.colorBox3 = new System.Windows.Forms.PictureBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.colorBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colorBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colorBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // colorBox4
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.evidencijaToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(642, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.colorBox4.BackColor = System.Drawing.Color.Aqua;
+            this.colorBox4.Location = new System.Drawing.Point(456, 231);
+            this.colorBox4.Name = "colorBox4";
+            this.colorBox4.Size = new System.Drawing.Size(456, 231);
+            this.colorBox4.TabIndex = 6;
+            this.colorBox4.TabStop = false;
+            this.colorBox4.Click += new System.EventHandler(this.colorBox4_Click);
             // 
-            // fileToolStripMenuItem
+            // colorBox2
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.korisniciToolStripMenuItem,
-            this.uceniciToolStripMenuItem,
-            this.nastavniciToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.colorBox2.BackColor = System.Drawing.Color.Lime;
+            this.colorBox2.Location = new System.Drawing.Point(456, 0);
+            this.colorBox2.Name = "colorBox2";
+            this.colorBox2.Size = new System.Drawing.Size(456, 231);
+            this.colorBox2.TabIndex = 4;
+            this.colorBox2.TabStop = false;
             // 
-            // korisniciToolStripMenuItem
+            // colorBox3
             // 
-            this.korisniciToolStripMenuItem.Name = "korisniciToolStripMenuItem";
-            this.korisniciToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.korisniciToolStripMenuItem.Text = "Korisnici";
-            this.korisniciToolStripMenuItem.Click += new System.EventHandler(this.korisniciToolStripMenuItem_Click);
+            this.colorBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.colorBox3.Location = new System.Drawing.Point(0, 228);
+            this.colorBox3.Name = "colorBox3";
+            this.colorBox3.Size = new System.Drawing.Size(456, 231);
+            this.colorBox3.TabIndex = 5;
+            this.colorBox3.TabStop = false;
             // 
-            // uceniciToolStripMenuItem
+            // linkLabel1
             // 
-            this.uceniciToolStripMenuItem.Name = "uceniciToolStripMenuItem";
-            this.uceniciToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.uceniciToolStripMenuItem.Text = "Ucenici";
-            this.uceniciToolStripMenuItem.Click += new System.EventHandler(this.uceniciToolStripMenuItem_Click);
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.Color.Yellow;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.ForeColor = System.Drawing.Color.White;
+            this.linkLabel1.LinkColor = System.Drawing.Color.White;
+            this.linkLabel1.Location = new System.Drawing.Point(117, 161);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(161, 25);
+            this.linkLabel1.TabIndex = 4;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Pregled korisnika";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // nastavniciToolStripMenuItem
+            // pictureBox1
             // 
-            this.nastavniciToolStripMenuItem.Name = "nastavniciToolStripMenuItem";
-            this.nastavniciToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.nastavniciToolStripMenuItem.Text = "Nastavnici";
-            this.nastavniciToolStripMenuItem.Click += new System.EventHandler(this.nastavniciToolStripMenuItem_Click);
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(138, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(120, 120);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // evidencijaToolStripMenuItem
+            // panel1
             // 
-            this.evidencijaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.smjeroviToolStripMenuItem,
-            this.predmetiToolStripMenuItem,
-            this.razrediToolStripMenuItem});
-            this.evidencijaToolStripMenuItem.Name = "evidencijaToolStripMenuItem";
-            this.evidencijaToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.evidencijaToolStripMenuItem.Text = "Evidencija";
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.pictureBox5);
+            this.panel1.Controls.Add(this.pictureBox4);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.colorBox4);
+            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.colorBox3);
+            this.panel1.Controls.Add(this.colorBox2);
+            this.panel1.Location = new System.Drawing.Point(1, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(912, 462);
+            this.panel1.TabIndex = 6;
             // 
-            // smjeroviToolStripMenuItem
+            // pictureBox2
             // 
-            this.smjeroviToolStripMenuItem.Name = "smjeroviToolStripMenuItem";
-            this.smjeroviToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.smjeroviToolStripMenuItem.Text = "Smjerovi";
-            this.smjeroviToolStripMenuItem.Click += new System.EventHandler(this.smjeroviToolStripMenuItem_Click);
+            this.pictureBox2.BackColor = System.Drawing.Color.Yellow;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(456, 231);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
             // 
-            // predmetiToolStripMenuItem
+            // pictureBox3
             // 
-            this.predmetiToolStripMenuItem.Name = "predmetiToolStripMenuItem";
-            this.predmetiToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.predmetiToolStripMenuItem.Text = "Predmeti";
-            this.predmetiToolStripMenuItem.Click += new System.EventHandler(this.predmetiToolStripMenuItem_Click);
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(635, 36);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(120, 120);
+            this.pictureBox3.TabIndex = 7;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // razrediToolStripMenuItem
+            // pictureBox4
             // 
-            this.razrediToolStripMenuItem.Name = "razrediToolStripMenuItem";
-            this.razrediToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.razrediToolStripMenuItem.Text = "Razredi";
-            this.razrediToolStripMenuItem.Click += new System.EventHandler(this.razrediToolStripMenuItem_Click);
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(138, 261);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(120, 120);
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // contextMenuStrip1
+            // pictureBox5
             // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(635, 261);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(120, 120);
+            this.pictureBox5.TabIndex = 7;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 501);
-            this.Controls.Add(this.menuStrip1);
+            this.ClientSize = new System.Drawing.Size(914, 461);
+            this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
@@ -135,25 +178,32 @@
             this.Text = "Srednje škole";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.colorBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colorBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colorBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem korisniciToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem evidencijaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem smjeroviToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem predmetiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem razrediToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uceniciToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nastavniciToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.PictureBox colorBox4;
+        private System.Windows.Forms.PictureBox colorBox2;
+        private System.Windows.Forms.PictureBox colorBox3;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 

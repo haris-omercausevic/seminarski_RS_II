@@ -160,6 +160,15 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Obavezno unesite adresu !.
+        /// </summary>
+        internal static string adresa_req {
+            get {
+                return ResourceManager.GetString("adresa_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Osobe mlađe od 14 godina se ne mogu upisati u srednju školu..
         /// </summary>
         internal static string datum_err14 {
@@ -251,6 +260,15 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Obavezno unesite ime roditelja !.
+        /// </summary>
+        internal static string imeRoditelja_req {
+            get {
+                return ResourceManager.GetString("imeRoditelja_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to JMBG mora imati 13 karaktera..
         /// </summary>
         internal static string jmbg_err {
@@ -292,6 +310,15 @@ namespace SrednjeSkole_UI {
         internal static string naziv_req {
             get {
                 return ResourceManager.GetString("naziv_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno unesite naziv prethodno zavrsene osnovne škole !.
+        /// </summary>
+        internal static string nazivSkole_req {
+            get {
+                return ResourceManager.GetString("nazivSkole_req", resourceCulture);
             }
         }
         
@@ -355,6 +382,15 @@ namespace SrednjeSkole_UI {
         internal static string predmet_razred_req {
             get {
                 return ResourceManager.GetString("predmet_razred_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno odaberite razred !.
+        /// </summary>
+        internal static string razred_req {
+            get {
+                return ResourceManager.GetString("razred_req", resourceCulture);
             }
         }
         

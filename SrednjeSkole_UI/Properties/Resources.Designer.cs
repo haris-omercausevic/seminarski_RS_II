@@ -63,9 +63,9 @@ namespace SrednjeSkole_UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dodaj_sliku {
+        internal static System.Drawing.Bitmap upravljanjeKorisnicima_icon {
             get {
-                object obj = ResourceManager.GetObject("dodaj_sliku", resourceCulture);
+                object obj = ResourceManager.GetObject("upravljanjeKorisnicima_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

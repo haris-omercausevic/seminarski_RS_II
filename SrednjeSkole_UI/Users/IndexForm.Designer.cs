@@ -139,11 +139,11 @@
             this.Email,
             this.Uloga});
             this.korisniciGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.korisniciGrid.Location = new System.Drawing.Point(0, 86);
+            this.korisniciGrid.Location = new System.Drawing.Point(0, 97);
             this.korisniciGrid.Name = "korisniciGrid";
             this.korisniciGrid.ReadOnly = true;
             this.korisniciGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.korisniciGrid.Size = new System.Drawing.Size(911, 364);
+            this.korisniciGrid.Size = new System.Drawing.Size(914, 364);
             this.korisniciGrid.TabIndex = 7;
             // 
             // Id
@@ -194,7 +194,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(911, 450);
+            this.ClientSize = new System.Drawing.Size(914, 461);
             this.Controls.Add(this.korisniciGrid);
             this.Controls.Add(this.izmijeniBtn);
             this.Controls.Add(this.noviKorisnikBtn);

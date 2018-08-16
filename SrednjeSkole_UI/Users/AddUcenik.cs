@@ -175,19 +175,6 @@ namespace SrednjeSkole_UI.Users
             }
         }
 
-        private void telefonInput_Validating(object sender, CancelEventArgs e)
-        {
-            if (String.IsNullOrEmpty(telefonInput.Text))
-            {
-                e.Cancel = true;
-                errorProvider.SetError(telefonInput, Messages.lname_err);
-            }
-            else
-            {
-                errorProvider.SetError(telefonInput, "");
-            }
-        }
-
         private void datumRodjenjaInput_Validating(object sender, CancelEventArgs e)
         {
             int now = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
@@ -214,7 +201,7 @@ namespace SrednjeSkole_UI.Users
             if (String.IsNullOrEmpty(imeRoditeljaInput.Text))
             {
                 e.Cancel = true;
-                errorProvider.SetError(imeRoditeljaInput, Messages.lname_err);
+                errorProvider.SetError(imeRoditeljaInput, Messages.imeRoditelja_req);
             }
             else
             {
@@ -227,7 +214,7 @@ namespace SrednjeSkole_UI.Users
             if (String.IsNullOrEmpty(adresaInput.Text))
             {
                 e.Cancel = true;
-                errorProvider.SetError(adresaInput, Messages.lname_err);
+                errorProvider.SetError(adresaInput, Messages.adresa_req);
             }
             else
             {
@@ -240,7 +227,7 @@ namespace SrednjeSkole_UI.Users
             if (String.IsNullOrEmpty(nazivSkoleInput.Text))
             {
                 e.Cancel = true;
-                errorProvider.SetError(nazivSkoleInput, Messages.lname_err);
+                errorProvider.SetError(nazivSkoleInput, Messages.nazivSkole_req);
             }
             else
             {
@@ -285,7 +272,7 @@ namespace SrednjeSkole_UI.Users
             if (String.IsNullOrEmpty(smjerCmb.Text))
             {
                 e.Cancel = true;
-                errorProvider.SetError(smjerCmb, Messages.lname_err);
+                errorProvider.SetError(smjerCmb, Messages.smjer_req);
             }
             else
             {
@@ -298,7 +285,7 @@ namespace SrednjeSkole_UI.Users
             if (String.IsNullOrEmpty(razredCmb.Text))
             {
                 e.Cancel = true;
-                errorProvider.SetError(razredCmb, Messages.lname_err);
+                errorProvider.SetError(razredCmb, Messages.razred_req);
             }
             else
             {

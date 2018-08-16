@@ -97,7 +97,6 @@
             this.telefonInput.Name = "telefonInput";
             this.telefonInput.Size = new System.Drawing.Size(140, 20);
             this.telefonInput.TabIndex = 4;
-            this.telefonInput.Validating += new System.ComponentModel.CancelEventHandler(this.telefonInput_Validating);
             // 
             // jmbgInput
             // 

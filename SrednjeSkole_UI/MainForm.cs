@@ -65,5 +65,20 @@ namespace SrednjeSkole_UI
             f.MdiParent = this;
             f.Show();
         }
+
+        private void colorBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }

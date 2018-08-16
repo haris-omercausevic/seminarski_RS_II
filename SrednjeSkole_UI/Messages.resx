@@ -241,4 +241,16 @@
   <data name="picture_war" xml:space="preserve">
     <value>Potrebno je da odaberete sliku dimenzija većih od</value>
   </data>
+  <data name="adresa_req" xml:space="preserve">
+    <value>Obavezno unesite adresu !</value>
+  </data>
+  <data name="imeRoditelja_req" xml:space="preserve">
+    <value>Obavezno unesite ime roditelja !</value>
+  </data>
+  <data name="nazivSkole_req" xml:space="preserve">
+    <value>Obavezno unesite naziv prethodno zavrsene osnovne škole !</value>
+  </data>
+  <data name="razred_req" xml:space="preserve">
+    <value>Obavezno odaberite razred !</value>
+  </data>
 </root>

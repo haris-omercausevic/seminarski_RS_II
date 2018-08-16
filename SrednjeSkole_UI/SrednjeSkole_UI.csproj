@@ -202,5 +202,14 @@
   <ItemGroup>
     <None Include="Resources\dodaj_sliku.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upravljanjeKorisnicima_icon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upravljanjeKorisnicima_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upravljanjeKorisnicima_icon1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
