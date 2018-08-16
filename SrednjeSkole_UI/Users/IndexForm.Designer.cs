@@ -50,7 +50,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 25);
+            this.label1.Location = new System.Drawing.Point(19, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 0;
@@ -58,7 +58,7 @@
             // 
             // imeInput
             // 
-            this.imeInput.Location = new System.Drawing.Point(53, 22);
+            this.imeInput.Location = new System.Drawing.Point(52, 21);
             this.imeInput.Name = "imeInput";
             this.imeInput.Size = new System.Drawing.Size(100, 20);
             this.imeInput.TabIndex = 1;
@@ -66,7 +66,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(159, 25);
+            this.label2.Location = new System.Drawing.Point(158, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 0;
@@ -74,7 +74,7 @@
             // 
             // prezimeInput
             // 
-            this.prezimeInput.Location = new System.Drawing.Point(212, 22);
+            this.prezimeInput.Location = new System.Drawing.Point(211, 21);
             this.prezimeInput.Name = "prezimeInput";
             this.prezimeInput.Size = new System.Drawing.Size(100, 20);
             this.prezimeInput.TabIndex = 2;
@@ -82,7 +82,7 @@
             // ulogaCmb
             // 
             this.ulogaCmb.FormattingEnabled = true;
-            this.ulogaCmb.Location = new System.Drawing.Point(362, 22);
+            this.ulogaCmb.Location = new System.Drawing.Point(361, 21);
             this.ulogaCmb.Name = "ulogaCmb";
             this.ulogaCmb.Size = new System.Drawing.Size(121, 21);
             this.ulogaCmb.TabIndex = 3;
@@ -90,7 +90,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(318, 25);
+            this.label3.Location = new System.Drawing.Point(317, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 3;
@@ -98,7 +98,7 @@
             // 
             // traziBtn
             // 
-            this.traziBtn.Location = new System.Drawing.Point(510, 22);
+            this.traziBtn.Location = new System.Drawing.Point(509, 21);
             this.traziBtn.Name = "traziBtn";
             this.traziBtn.Size = new System.Drawing.Size(75, 23);
             this.traziBtn.TabIndex = 4;
@@ -108,7 +108,7 @@
             // 
             // noviKorisnikBtn
             // 
-            this.noviKorisnikBtn.Location = new System.Drawing.Point(627, 22);
+            this.noviKorisnikBtn.Location = new System.Drawing.Point(626, 21);
             this.noviKorisnikBtn.Name = "noviKorisnikBtn";
             this.noviKorisnikBtn.Size = new System.Drawing.Size(96, 23);
             this.noviKorisnikBtn.TabIndex = 5;
@@ -118,7 +118,7 @@
             // 
             // izmijeniBtn
             // 
-            this.izmijeniBtn.Location = new System.Drawing.Point(769, 22);
+            this.izmijeniBtn.Location = new System.Drawing.Point(768, 21);
             this.izmijeniBtn.Name = "izmijeniBtn";
             this.izmijeniBtn.Size = new System.Drawing.Size(96, 23);
             this.izmijeniBtn.TabIndex = 6;
@@ -139,11 +139,11 @@
             this.Email,
             this.Uloga});
             this.korisniciGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.korisniciGrid.Location = new System.Drawing.Point(0, 97);
+            this.korisniciGrid.Location = new System.Drawing.Point(0, 67);
             this.korisniciGrid.Name = "korisniciGrid";
             this.korisniciGrid.ReadOnly = true;
             this.korisniciGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.korisniciGrid.Size = new System.Drawing.Size(914, 364);
+            this.korisniciGrid.Size = new System.Drawing.Size(891, 348);
             this.korisniciGrid.TabIndex = 7;
             // 
             // Id
@@ -193,8 +193,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(914, 461);
+            this.ClientSize = new System.Drawing.Size(891, 415);
             this.Controls.Add(this.korisniciGrid);
             this.Controls.Add(this.izmijeniBtn);
             this.Controls.Add(this.noviKorisnikBtn);
@@ -206,8 +207,10 @@
             this.Controls.Add(this.imeInput);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "IndexForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Administracija korisnika";
             this.Load += new System.EventHandler(this.IndexForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.korisniciGrid)).EndInit();

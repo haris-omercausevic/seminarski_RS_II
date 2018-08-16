@@ -28,182 +28,157 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.colorBox4 = new System.Windows.Forms.PictureBox();
-            this.colorBox2 = new System.Windows.Forms.PictureBox();
-            this.colorBox3 = new System.Windows.Forms.PictureBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.colorBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.upravljanjeKorisnicimaPictureBox = new System.Windows.Forms.PictureBox();
+            this.dodajUcenikaPictureBox = new System.Windows.Forms.PictureBox();
+            this.dodajNastavnikaPictureBox = new System.Windows.Forms.PictureBox();
+            this.evidencijePictureBox = new System.Windows.Forms.PictureBox();
+            this.upravljanjeKorisnicimaLabel = new System.Windows.Forms.LinkLabel();
+            this.dodajUcenikaLabel = new System.Windows.Forms.LinkLabel();
+            this.dodajNastavnikaLabel = new System.Windows.Forms.LinkLabel();
+            this.evidencijeLabel = new System.Windows.Forms.LinkLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.upravljanjeKorisnicimaPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dodajUcenikaPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dodajNastavnikaPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.evidencijePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // colorBox4
+            // upravljanjeKorisnicimaPictureBox
             // 
-            this.colorBox4.BackColor = System.Drawing.Color.Aqua;
-            this.colorBox4.Location = new System.Drawing.Point(456, 231);
-            this.colorBox4.Name = "colorBox4";
-            this.colorBox4.Size = new System.Drawing.Size(456, 231);
-            this.colorBox4.TabIndex = 6;
-            this.colorBox4.TabStop = false;
-            this.colorBox4.Click += new System.EventHandler(this.colorBox4_Click);
+            this.upravljanjeKorisnicimaPictureBox.Image = global::SrednjeSkole_UI.Properties.Resources.pregledKorisnika;
+            this.upravljanjeKorisnicimaPictureBox.Location = new System.Drawing.Point(2, 2);
+            this.upravljanjeKorisnicimaPictureBox.Name = "upravljanjeKorisnicimaPictureBox";
+            this.upravljanjeKorisnicimaPictureBox.Size = new System.Drawing.Size(456, 231);
+            this.upravljanjeKorisnicimaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.upravljanjeKorisnicimaPictureBox.TabIndex = 8;
+            this.upravljanjeKorisnicimaPictureBox.TabStop = false;
             // 
-            // colorBox2
+            // dodajUcenikaPictureBox
             // 
-            this.colorBox2.BackColor = System.Drawing.Color.Lime;
-            this.colorBox2.Location = new System.Drawing.Point(456, 0);
-            this.colorBox2.Name = "colorBox2";
-            this.colorBox2.Size = new System.Drawing.Size(456, 231);
-            this.colorBox2.TabIndex = 4;
-            this.colorBox2.TabStop = false;
+            this.dodajUcenikaPictureBox.Image = global::SrednjeSkole_UI.Properties.Resources.addUcenik;
+            this.dodajUcenikaPictureBox.Location = new System.Drawing.Point(2, 230);
+            this.dodajUcenikaPictureBox.Name = "dodajUcenikaPictureBox";
+            this.dodajUcenikaPictureBox.Size = new System.Drawing.Size(456, 231);
+            this.dodajUcenikaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.dodajUcenikaPictureBox.TabIndex = 8;
+            this.dodajUcenikaPictureBox.TabStop = false;
             // 
-            // colorBox3
+            // dodajNastavnikaPictureBox
             // 
-            this.colorBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.colorBox3.Location = new System.Drawing.Point(0, 228);
-            this.colorBox3.Name = "colorBox3";
-            this.colorBox3.Size = new System.Drawing.Size(456, 231);
-            this.colorBox3.TabIndex = 5;
-            this.colorBox3.TabStop = false;
+            this.dodajNastavnikaPictureBox.Image = global::SrednjeSkole_UI.Properties.Resources.addNastavnik;
+            this.dodajNastavnikaPictureBox.Location = new System.Drawing.Point(455, 230);
+            this.dodajNastavnikaPictureBox.Name = "dodajNastavnikaPictureBox";
+            this.dodajNastavnikaPictureBox.Size = new System.Drawing.Size(456, 231);
+            this.dodajNastavnikaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.dodajNastavnikaPictureBox.TabIndex = 8;
+            this.dodajNastavnikaPictureBox.TabStop = false;
             // 
-            // linkLabel1
+            // evidencijePictureBox
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.BackColor = System.Drawing.Color.Yellow;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.ForeColor = System.Drawing.Color.White;
-            this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(117, 161);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(161, 25);
-            this.linkLabel1.TabIndex = 4;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Pregled korisnika";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.evidencijePictureBox.Image = global::SrednjeSkole_UI.Properties.Resources.razredi_smjerovi_predmeti;
+            this.evidencijePictureBox.Location = new System.Drawing.Point(455, 2);
+            this.evidencijePictureBox.Name = "evidencijePictureBox";
+            this.evidencijePictureBox.Size = new System.Drawing.Size(456, 231);
+            this.evidencijePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.evidencijePictureBox.TabIndex = 8;
+            this.evidencijePictureBox.TabStop = false;
             // 
-            // pictureBox1
+            // upravljanjeKorisnicimaLabel
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(138, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(120, 120);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.upravljanjeKorisnicimaLabel.AutoSize = true;
+            this.upravljanjeKorisnicimaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(192)))), ((int)(((byte)(60)))));
+            this.upravljanjeKorisnicimaLabel.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upravljanjeKorisnicimaLabel.LinkColor = System.Drawing.Color.White;
+            this.upravljanjeKorisnicimaLabel.Location = new System.Drawing.Point(93, 186);
+            this.upravljanjeKorisnicimaLabel.Name = "upravljanjeKorisnicimaLabel";
+            this.upravljanjeKorisnicimaLabel.Size = new System.Drawing.Size(309, 24);
+            this.upravljanjeKorisnicimaLabel.TabIndex = 9;
+            this.upravljanjeKorisnicimaLabel.TabStop = true;
+            this.upravljanjeKorisnicimaLabel.Text = "Upravljanje korisnicima";
+            this.upravljanjeKorisnicimaLabel.VisitedLinkColor = System.Drawing.Color.White;
+            this.upravljanjeKorisnicimaLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.upravljanjeKorisnicimaLabel_LinkClicked);
             // 
-            // panel1
+            // dodajUcenikaLabel
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.pictureBox5);
-            this.panel1.Controls.Add(this.pictureBox4);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.colorBox4);
-            this.panel1.Controls.Add(this.linkLabel1);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.colorBox3);
-            this.panel1.Controls.Add(this.colorBox2);
-            this.panel1.Location = new System.Drawing.Point(1, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(912, 462);
-            this.panel1.TabIndex = 6;
+            this.dodajUcenikaLabel.AutoSize = true;
+            this.dodajUcenikaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.dodajUcenikaLabel.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dodajUcenikaLabel.LinkColor = System.Drawing.Color.White;
+            this.dodajUcenikaLabel.Location = new System.Drawing.Point(147, 418);
+            this.dodajUcenikaLabel.Name = "dodajUcenikaLabel";
+            this.dodajUcenikaLabel.Size = new System.Drawing.Size(179, 24);
+            this.dodajUcenikaLabel.TabIndex = 9;
+            this.dodajUcenikaLabel.TabStop = true;
+            this.dodajUcenikaLabel.Text = "Dodaj ucenika";
+            this.dodajUcenikaLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.dodajUcenikaLabel_LinkClicked);
             // 
-            // pictureBox2
+            // dodajNastavnikaLabel
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Yellow;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(456, 231);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
+            this.dodajNastavnikaLabel.AutoSize = true;
+            this.dodajNastavnikaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
+            this.dodajNastavnikaLabel.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dodajNastavnikaLabel.LinkColor = System.Drawing.Color.White;
+            this.dodajNastavnikaLabel.Location = new System.Drawing.Point(564, 418);
+            this.dodajNastavnikaLabel.Name = "dodajNastavnikaLabel";
+            this.dodajNastavnikaLabel.Size = new System.Drawing.Size(218, 24);
+            this.dodajNastavnikaLabel.TabIndex = 9;
+            this.dodajNastavnikaLabel.TabStop = true;
+            this.dodajNastavnikaLabel.Text = "Dodaj nastavnika";
+            this.dodajNastavnikaLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.dodajNastavnikaLabel_LinkClicked);
             // 
-            // pictureBox3
+            // evidencijeLabel
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(635, 36);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(120, 120);
-            this.pictureBox3.TabIndex = 7;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(138, 261);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(120, 120);
-            this.pictureBox4.TabIndex = 7;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(635, 261);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(120, 120);
-            this.pictureBox5.TabIndex = 7;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.evidencijeLabel.AutoSize = true;
+            this.evidencijeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(172)))), ((int)(((byte)(192)))));
+            this.evidencijeLabel.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.evidencijeLabel.LinkColor = System.Drawing.Color.White;
+            this.evidencijeLabel.Location = new System.Drawing.Point(598, 186);
+            this.evidencijeLabel.Name = "evidencijeLabel";
+            this.evidencijeLabel.Size = new System.Drawing.Size(140, 24);
+            this.evidencijeLabel.TabIndex = 9;
+            this.evidencijeLabel.TabStop = true;
+            this.evidencijeLabel.Text = "Evidencije";
+            this.evidencijeLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.evidencijeLabel_LinkClicked);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 461);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.evidencijeLabel);
+            this.Controls.Add(this.dodajNastavnikaLabel);
+            this.Controls.Add(this.dodajUcenikaLabel);
+            this.Controls.Add(this.upravljanjeKorisnicimaLabel);
+            this.Controls.Add(this.evidencijePictureBox);
+            this.Controls.Add(this.dodajNastavnikaPictureBox);
+            this.Controls.Add(this.dodajUcenikaPictureBox);
+            this.Controls.Add(this.upravljanjeKorisnicimaPictureBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.ShowIcon = false;
-            this.Text = "Srednje škole";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.colorBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.Text = "Srednje škole :: Admin";
+            ((System.ComponentModel.ISupportInitialize)(this.upravljanjeKorisnicimaPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dodajUcenikaPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dodajNastavnikaPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.evidencijePictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.PictureBox colorBox4;
-        private System.Windows.Forms.PictureBox colorBox2;
-        private System.Windows.Forms.PictureBox colorBox3;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox upravljanjeKorisnicimaPictureBox;
+        private System.Windows.Forms.PictureBox dodajUcenikaPictureBox;
+        private System.Windows.Forms.PictureBox dodajNastavnikaPictureBox;
+        private System.Windows.Forms.PictureBox evidencijePictureBox;
+        private System.Windows.Forms.LinkLabel upravljanjeKorisnicimaLabel;
+        private System.Windows.Forms.LinkLabel dodajUcenikaLabel;
+        private System.Windows.Forms.LinkLabel dodajNastavnikaLabel;
+        private System.Windows.Forms.LinkLabel evidencijeLabel;
     }
 }
 

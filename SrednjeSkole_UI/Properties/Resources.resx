@@ -118,7 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="upravljanjeKorisnicima_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\upravljanjeKorisnicima_icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pregledKorisnika" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pregledKorisnika.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addUcenik" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addUcenik.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addNastavnik" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addNastavnik.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="razredi_smjerovi_predmeti" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\razredi_smjerovi_predmeti.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

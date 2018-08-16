@@ -63,9 +63,39 @@ namespace SrednjeSkole_UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap upravljanjeKorisnicima_icon {
+        internal static System.Drawing.Bitmap addNastavnik {
             get {
-                object obj = ResourceManager.GetObject("upravljanjeKorisnicima_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("addNastavnik", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap addUcenik {
+            get {
+                object obj = ResourceManager.GetObject("addUcenik", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pregledKorisnika {
+            get {
+                object obj = ResourceManager.GetObject("pregledKorisnika", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap razredi_smjerovi_predmeti {
+            get {
+                object obj = ResourceManager.GetObject("razredi_smjerovi_predmeti", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

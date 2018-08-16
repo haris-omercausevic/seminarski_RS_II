@@ -203,13 +203,16 @@
     <None Include="Resources\dodaj_sliku.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\upravljanjeKorisnicima_icon.bmp" />
+    <None Include="Resources\pregledKorisnika.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\upravljanjeKorisnicima_icon.png" />
+    <None Include="Resources\addUcenik.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\upravljanjeKorisnicima_icon1.png" />
+    <None Include="Resources\addNastavnik.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\razredi_smjerovi_predmeti.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

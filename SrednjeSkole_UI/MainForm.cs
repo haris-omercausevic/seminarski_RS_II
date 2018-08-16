@@ -24,61 +24,70 @@ namespace SrednjeSkole_UI
 
         }
 
-        private void korisniciToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SendPicturesToBack()
+        {
+            this.upravljanjeKorisnicimaPictureBox.SendToBack();
+            this.upravljanjeKorisnicimaLabel.SendToBack();
+
+            this.evidencijePictureBox.SendToBack();
+            this.evidencijeLabel.SendToBack();
+
+            this.dodajUcenikaPictureBox.SendToBack();
+            this.dodajUcenikaLabel.SendToBack();
+
+            this.dodajNastavnikaPictureBox.SendToBack();
+            this.dodajNastavnikaLabel.SendToBack();
+
+        }
+        private void BringPicturesToFront()
+        {
+            this.upravljanjeKorisnicimaPictureBox.BringToFront();
+            this.upravljanjeKorisnicimaLabel.BringToFront();
+
+            this.evidencijePictureBox.BringToFront();
+            this.evidencijeLabel.BringToFront();
+
+            this.dodajUcenikaPictureBox.BringToFront();
+            this.dodajUcenikaLabel.BringToFront();
+
+            this.dodajNastavnikaPictureBox.BringToFront();
+            this.dodajNastavnikaLabel.BringToFront();
+        }
+
+        private void upravljanjeKorisnicimaLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Users.IndexForm f = new Users.IndexForm();
+            f.FormClosing += new FormClosingEventHandler(upravljanjeKorisnicima_FormClosing);
+            f.MdiParent = this;
+            SendPicturesToBack();
+            f.BringToFront();
+            f.Show();
+        }
+
+        private void upravljanjeKorisnicima_FormClosing(object sender, EventArgs e)
+        {
+            BringPicturesToFront();
+        }
+
+        private void evidencijeLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Users.IndexForm f = new Users.IndexForm();
             f.MdiParent = this;
             f.Show();
         }
 
-        private void smjeroviToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Evidencije.AddSmjer f = new Evidencije.AddSmjer();
-            f.MdiParent = this;
-            f.Show();
-        }
-
-        private void predmetiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Evidencije.AddPredmet f = new Evidencije.AddPredmet();
-            f.MdiParent = this;
-            f.Show();
-        }
-
-        private void razrediToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Evidencije.AddRazred f = new Evidencije.AddRazred();
-            f.MdiParent = this;
-            f.Show();
-        }
-
-        private void uceniciToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Users.AddUcenik f = new Users.AddUcenik();
-            f.MdiParent = this;
-            f.Show();
-        }
-
-        private void nastavniciToolStripMenuItem_Click(object sender, EventArgs e)
+        private void dodajUcenikaLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Users.AddNastavnik f = new Users.AddNastavnik();
             f.MdiParent = this;
             f.Show();
         }
 
-        private void colorBox4_Click(object sender, EventArgs e)
+        private void dodajNastavnikaLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
+            Users.AddNastavnik f = new Users.AddNastavnik();
+            f.MdiParent = this;
+            f.Show();
         }
     }
 }
