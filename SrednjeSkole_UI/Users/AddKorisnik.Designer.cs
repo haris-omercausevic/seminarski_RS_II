@@ -248,6 +248,7 @@
             this.Controls.Add(this.imeInput);
             this.Controls.Add(this.label1);
             this.Name = "AddKorisnik";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodaj korisnika";
             this.Load += new System.EventHandler(this.AddKorisnik_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

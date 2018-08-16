@@ -454,7 +454,7 @@
             this.Controls.Add(this.imeInput);
             this.Controls.Add(this.label1);
             this.Name = "AddUcenik";
-            this.Text = "AddUcenik";
+            this.Text = "Dodaj učenika";
             this.Load += new System.EventHandler(this.AddUcenik_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

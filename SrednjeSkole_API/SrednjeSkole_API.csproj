@@ -104,6 +104,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\KorisniciController.cs" />
+    <Compile Include="Controllers\NastavniciController.cs" />
     <Compile Include="Controllers\PredmetiController.cs" />
     <Compile Include="Controllers\RazrediController.cs" />
     <Compile Include="Controllers\SkolskeGodineController.cs" />

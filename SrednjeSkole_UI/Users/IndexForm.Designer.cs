@@ -210,8 +210,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "IndexForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Administracija korisnika";
+            this.Text = "Upravljanje korisnicima";
             this.Load += new System.EventHandler(this.IndexForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.korisniciGrid)).EndInit();
             this.ResumeLayout(false);

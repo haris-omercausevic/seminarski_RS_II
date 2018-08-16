@@ -248,7 +248,8 @@
             this.Controls.Add(this.imeInput);
             this.Controls.Add(this.label1);
             this.Name = "EditKorisnik";
-            this.Text = "EditKorisnik";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Uredi korisnika";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

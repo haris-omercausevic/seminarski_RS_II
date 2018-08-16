@@ -273,6 +273,7 @@ namespace SrednjeSkole_UI.Users
             {
                 e.Cancel = true;
                 errorProvider.SetError(smjerCmb, Messages.smjer_req);
+                BindSmjerovi();
             }
             else
             {

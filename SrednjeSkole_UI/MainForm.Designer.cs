@@ -109,7 +109,7 @@
             this.dodajUcenikaLabel.Size = new System.Drawing.Size(179, 24);
             this.dodajUcenikaLabel.TabIndex = 9;
             this.dodajUcenikaLabel.TabStop = true;
-            this.dodajUcenikaLabel.Text = "Dodaj ucenika";
+            this.dodajUcenikaLabel.Text = "Dodaj učenika";
             this.dodajUcenikaLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.dodajUcenikaLabel_LinkClicked);
             // 
             // dodajNastavnikaLabel
@@ -159,6 +159,7 @@
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Srednje škole :: Admin";
             ((System.ComponentModel.ISupportInitialize)(this.upravljanjeKorisnicimaPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dodajUcenikaPictureBox)).EndInit();

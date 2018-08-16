@@ -45,19 +45,25 @@
             this.imeInput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dodajBtn = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.zvanjeInput = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.godinaZaposlenjaInput = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.naucnaOblastInput = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // datumRodjenjaInput
             // 
             this.datumRodjenjaInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datumRodjenjaInput.Location = new System.Drawing.Point(99, 174);
+            this.datumRodjenjaInput.Location = new System.Drawing.Point(111, 188);
             this.datumRodjenjaInput.Name = "datumRodjenjaInput";
             this.datumRodjenjaInput.Size = new System.Drawing.Size(197, 20);
             this.datumRodjenjaInput.TabIndex = 22;
             // 
             // telefonInput
             // 
-            this.telefonInput.Location = new System.Drawing.Point(99, 122);
+            this.telefonInput.Location = new System.Drawing.Point(111, 136);
             this.telefonInput.Mask = "(999) 000-000";
             this.telefonInput.Name = "telefonInput";
             this.telefonInput.Size = new System.Drawing.Size(197, 20);
@@ -65,7 +71,7 @@
             // 
             // jmbgInput
             // 
-            this.jmbgInput.Location = new System.Drawing.Point(98, 148);
+            this.jmbgInput.Location = new System.Drawing.Point(111, 162);
             this.jmbgInput.MaxLength = 13;
             this.jmbgInput.Name = "jmbgInput";
             this.jmbgInput.Size = new System.Drawing.Size(197, 20);
@@ -74,7 +80,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 176);
+            this.label9.Location = new System.Drawing.Point(28, 190);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(80, 13);
             this.label9.TabIndex = 9;
@@ -82,7 +88,7 @@
             // 
             // emailInput
             // 
-            this.emailInput.Location = new System.Drawing.Point(99, 93);
+            this.emailInput.Location = new System.Drawing.Point(112, 110);
             this.emailInput.Name = "emailInput";
             this.emailInput.Size = new System.Drawing.Size(197, 20);
             this.emailInput.TabIndex = 19;
@@ -90,7 +96,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(57, 151);
+            this.label8.Location = new System.Drawing.Point(65, 165);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 13);
             this.label8.TabIndex = 10;
@@ -99,7 +105,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(58, 96);
+            this.label3.Location = new System.Drawing.Point(70, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 11;
@@ -107,7 +113,7 @@
             // 
             // lozinkaInput
             // 
-            this.lozinkaInput.Location = new System.Drawing.Point(98, 246);
+            this.lozinkaInput.Location = new System.Drawing.Point(112, 308);
             this.lozinkaInput.Name = "lozinkaInput";
             this.lozinkaInput.PasswordChar = '*';
             this.lozinkaInput.Size = new System.Drawing.Size(197, 20);
@@ -116,7 +122,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(44, 249);
+            this.label6.Location = new System.Drawing.Point(58, 311);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 13);
             this.label6.TabIndex = 12;
@@ -124,7 +130,7 @@
             // 
             // korisnickoImeInput
             // 
-            this.korisnickoImeInput.Location = new System.Drawing.Point(98, 220);
+            this.korisnickoImeInput.Location = new System.Drawing.Point(112, 282);
             this.korisnickoImeInput.Name = "korisnickoImeInput";
             this.korisnickoImeInput.Size = new System.Drawing.Size(197, 20);
             this.korisnickoImeInput.TabIndex = 23;
@@ -132,7 +138,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 223);
+            this.label5.Location = new System.Drawing.Point(27, 285);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 13);
             this.label5.TabIndex = 13;
@@ -141,7 +147,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 122);
+            this.label4.Location = new System.Drawing.Point(58, 139);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 14;
@@ -149,7 +155,7 @@
             // 
             // prezimeInput
             // 
-            this.prezimeInput.Location = new System.Drawing.Point(99, 67);
+            this.prezimeInput.Location = new System.Drawing.Point(112, 58);
             this.prezimeInput.Name = "prezimeInput";
             this.prezimeInput.Size = new System.Drawing.Size(197, 20);
             this.prezimeInput.TabIndex = 18;
@@ -157,7 +163,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(46, 70);
+            this.label2.Location = new System.Drawing.Point(59, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 15;
@@ -165,7 +171,7 @@
             // 
             // imeInput
             // 
-            this.imeInput.Location = new System.Drawing.Point(99, 41);
+            this.imeInput.Location = new System.Drawing.Point(112, 32);
             this.imeInput.Name = "imeInput";
             this.imeInput.Size = new System.Drawing.Size(197, 20);
             this.imeInput.TabIndex = 17;
@@ -173,7 +179,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(66, 44);
+            this.label1.Location = new System.Drawing.Point(79, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 16;
@@ -181,18 +187,66 @@
             // 
             // dodajBtn
             // 
-            this.dodajBtn.Location = new System.Drawing.Point(343, 392);
+            this.dodajBtn.Location = new System.Drawing.Point(291, 364);
             this.dodajBtn.Name = "dodajBtn";
             this.dodajBtn.Size = new System.Drawing.Size(75, 23);
             this.dodajBtn.TabIndex = 30;
             this.dodajBtn.Text = "Dodaj";
             this.dodajBtn.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(63, 87);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Zvanje:";
+            // 
+            // zvanjeInput
+            // 
+            this.zvanjeInput.Location = new System.Drawing.Point(112, 84);
+            this.zvanjeInput.Name = "zvanjeInput";
+            this.zvanjeInput.Size = new System.Drawing.Size(197, 20);
+            this.zvanjeInput.TabIndex = 23;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 217);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(97, 13);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Godina zaposlenja:";
+            // 
+            // godinaZaposlenjaInput
+            // 
+            this.godinaZaposlenjaInput.Location = new System.Drawing.Point(111, 214);
+            this.godinaZaposlenjaInput.Name = "godinaZaposlenjaInput";
+            this.godinaZaposlenjaInput.Size = new System.Drawing.Size(197, 20);
+            this.godinaZaposlenjaInput.TabIndex = 23;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(25, 243);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(79, 13);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Naučna oblast:";
+            // 
+            // naucnaOblastInput
+            // 
+            this.naucnaOblastInput.Location = new System.Drawing.Point(111, 240);
+            this.naucnaOblastInput.Name = "naucnaOblastInput";
+            this.naucnaOblastInput.Size = new System.Drawing.Size(197, 20);
+            this.naucnaOblastInput.TabIndex = 23;
+            // 
             // AddNastavnik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 450);
+            this.ClientSize = new System.Drawing.Size(405, 411);
             this.Controls.Add(this.dodajBtn);
             this.Controls.Add(this.datumRodjenjaInput);
             this.Controls.Add(this.telefonInput);
@@ -203,6 +257,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lozinkaInput);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.naucnaOblastInput);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.godinaZaposlenjaInput);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.zvanjeInput);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.korisnickoImeInput);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -211,7 +271,7 @@
             this.Controls.Add(this.imeInput);
             this.Controls.Add(this.label1);
             this.Name = "AddNastavnik";
-            this.Text = "AddNastavnik";
+            this.Text = "Dodaj nastavnika";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,5 +296,11 @@
         private System.Windows.Forms.TextBox imeInput;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button dodajBtn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox zvanjeInput;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox godinaZaposlenjaInput;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox naucnaOblastInput;
     }
 }

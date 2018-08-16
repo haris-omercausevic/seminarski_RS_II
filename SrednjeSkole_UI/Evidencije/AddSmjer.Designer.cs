@@ -166,7 +166,7 @@
             this.Controls.Add(this.opisInput);
             this.Controls.Add(this.nazivInput);
             this.Name = "AddSmjer";
-            this.Text = "AddSmjer";
+            this.Text = "Dodaj smjer";
             this.Load += new System.EventHandler(this.AddSmjer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);

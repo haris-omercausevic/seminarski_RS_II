@@ -77,7 +77,7 @@
             this.Controls.Add(this.skolskaGodinaInput);
             this.Controls.Add(this.dodajBtn);
             this.Name = "AddSkolskaGodina";
-            this.Text = "AddSkolskaGodina";
+            this.Text = "Dodaj školsku godinu";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

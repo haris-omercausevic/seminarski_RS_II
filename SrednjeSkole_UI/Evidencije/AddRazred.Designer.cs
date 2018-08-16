@@ -201,7 +201,7 @@
             this.Controls.Add(this.odjeljenjeInput);
             this.Controls.Add(this.razredInput);
             this.Name = "AddRazred";
-            this.Text = "AddRazred";
+            this.Text = "Dodaj razred";
             this.Load += new System.EventHandler(this.AddRazred_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
