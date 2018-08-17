@@ -24,6 +24,9 @@ namespace SrednjeSkole_UI.Users
         private WebAPIHelper smjeroviService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.SmjeroviRoute);
         private WebAPIHelper razrediService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.RazrediRoute);
         private Ucenici k = new Ucenici();
+        bool smjeroviUcitani = false;
+        bool razrediUcitani = false;
+
 
 
         public AddUcenik()
@@ -33,8 +36,6 @@ namespace SrednjeSkole_UI.Users
         }
         private void AddUcenik_Load(object sender, EventArgs e)
         {
-            BindSmjerovi();
-            BindRazredi();
         }
         private void BindSmjerovi()
         {
@@ -367,10 +368,22 @@ namespace SrednjeSkole_UI.Users
             }
         }
 
-        private void nazivSkoleInput_TextChanged(object sender, EventArgs e)
+        private void smjerCmb_MouseClick(object sender, MouseEventArgs e)
         {
-            BindSmjerovi();
-            BindRazredi();
+            if (!smjeroviUcitani)
+            {
+                BindSmjerovi();
+                smjeroviUcitani = true;
+            }
+        }
+
+        private void razredCmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!razrediUcitani)
+            {
+                BindRazredi();
+                razrediUcitani = true;
+            }
         }
     }
 }

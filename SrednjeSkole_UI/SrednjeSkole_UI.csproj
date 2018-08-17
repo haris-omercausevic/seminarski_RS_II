@@ -79,6 +79,12 @@
     <Compile Include="Evidencije\AddSmjer.Designer.cs">
       <DependentUpon>AddSmjer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Evidencije\IndexForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Evidencije\IndexForm.Designer.cs">
+      <DependentUpon>IndexForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

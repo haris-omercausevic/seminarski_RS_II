@@ -295,6 +295,7 @@
             this.smjerCmb.Name = "smjerCmb";
             this.smjerCmb.Size = new System.Drawing.Size(121, 21);
             this.smjerCmb.TabIndex = 16;
+            this.smjerCmb.MouseClick += new System.Windows.Forms.MouseEventHandler(this.smjerCmb_MouseClick);
             this.smjerCmb.Validating += new System.ComponentModel.CancelEventHandler(this.smjerCmb_Validating);
             // 
             // label13
@@ -324,6 +325,7 @@
             this.razredCmb.Name = "razredCmb";
             this.razredCmb.Size = new System.Drawing.Size(121, 21);
             this.razredCmb.TabIndex = 18;
+            this.razredCmb.SelectedIndexChanged += new System.EventHandler(this.razredCmb_SelectedIndexChanged);
             this.razredCmb.Validating += new System.ComponentModel.CancelEventHandler(this.razredCmb_Validating);
             // 
             // pictureBox
