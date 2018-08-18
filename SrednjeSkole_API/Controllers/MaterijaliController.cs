@@ -8,15 +8,22 @@ using System.Web.Http;
 
 namespace SrednjeSkole_API.Controllers
 {
+    [RoutePrefix("api/Materijali")]
     public class MaterijaliController : ApiController
     {
         private SrednjeSkoleEntities db = new SrednjeSkoleEntities();        
 
         [HttpGet]
-        [Route("ByPredmetId/{id}")]
-        public List<Materijali> GetByPredmetId(int id)
+        [Route("ByPredmetId/{predmetId}")]
+        public List<Materijali> GetByPredmetId(int predmetId)
         {
-            return db.ssp_Materijali_GetByPredmetId(id).ToList();
+            return db.ssp_Materijali_GetByPredmetId(predmetId).ToList();
+        }
+
+        [HttpGet]
+        public List<Materijali> GetAll()
+        {
+            return db.Materijali.ToList();
         }
     }
 }
