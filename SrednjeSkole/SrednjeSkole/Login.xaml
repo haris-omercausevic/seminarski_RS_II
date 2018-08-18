@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage NavigationPage.HasNavigationBar="False" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SrednjeSkole.Login">
+        <StackLayout Margin="10" VerticalOptions="CenterAndExpand">
+            
+            <Label Text="Prijava @ Srednje škole"
+                   FontSize="25" HorizontalTextAlignment="Center"
+                />
+        <Entry x:Name="korisnickoImeInput" Placeholder="Korisničko ime..."/>
+        <Entry x:Name="lozinka" Placeholder="*******" IsPassword="True"/>
+        <Label x:Name="resetPasswordLabel" Text="Zaboravili ste lozinku?">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Label.GestureRecognizers>
+        </Label>
+        <Button x:Name="prijavaBtn" Text="Prijava" Clicked="prijavaBtn_Clicked"/>
+
+    </StackLayout>
+</ContentPage>

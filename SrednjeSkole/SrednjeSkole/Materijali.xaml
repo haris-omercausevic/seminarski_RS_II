@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="Materijali" BackgroundColor="White" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SrednjeSkole.Materijali">
+    <Grid x:Name="grid" HorizontalOptions="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Picker Title="Razredi" x:Name="razrediPicker" SelectedIndexChanged="razrediPicker_SelectedIndexChanged" />
+        <Picker Grid.Column="1" Title="Predmeti" x:Name="predmetiPicker" SelectedIndexChanged="predmetiPicker_SelectedIndexChanged"/>
+
+        <ListView x:Name="materijaliList" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Image Source="{Binding ImageUrl}"/>
+                            <StackLayout HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding Name}"/>
+                                <Label Text="{Binding Status}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>        
+       
+</ContentPage>

@@ -92,25 +92,17 @@ namespace SrednjeSkole_UI.Evidencije
         {
             AddPredmet f2 = new AddPredmet();
             f2.Show();
-            f2.FormClosing += new FormClosingEventHandler(AddPredmet_FormClosing);
+            f2.FormClosing += (objSender, args) => { BindPredmeti(); };
         }       
 
         private void skolskaGodinaAddBtn_Click(object sender, EventArgs e)
         {
             AddSkolskaGodina f2 = new AddSkolskaGodina();
             f2.Show();
-            f2.FormClosing += new FormClosingEventHandler(AddSkolskaGodina_FormClosing);
+            f2.FormClosing += (objSender, args) => { BindSkolskeGodine(); };
         }
 
-        private void AddPredmet_FormClosing(object sender, EventArgs e)
-        {
-            BindPredmeti();
-        }
-        private void AddSkolskaGodina_FormClosing(object sender, EventArgs e)
-        {
-            BindSkolskeGodine();
-        }
-
+        #region Validacija
         private void nazivInput_Validating(object sender, CancelEventArgs e)
         {
             if (String.IsNullOrEmpty(nazivInput.Text))
@@ -158,5 +150,6 @@ namespace SrednjeSkole_UI.Evidencije
             else
                 errorProvider.SetError(predmetiList, null);
         }
+        #endregion
     }
 }

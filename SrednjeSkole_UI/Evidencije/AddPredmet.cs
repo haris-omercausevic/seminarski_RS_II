@@ -49,6 +49,7 @@ namespace SrednjeSkole_UI.Evidencije
             }
         }
 
+        #region validacija
         private void nazivInput_Validating(object sender, CancelEventArgs e)
         {
             if (String.IsNullOrEmpty(nazivInput.Text.Trim()))
@@ -83,5 +84,6 @@ namespace SrednjeSkole_UI.Evidencije
             else
                 errorProvider.SetError(razredCmb, null);
         }
+        #endregion
     }
 }

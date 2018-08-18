@@ -304,5 +304,41 @@ namespace SrednjeSkole_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_Ucenici_Insert", idParameter, imeRoditeljaParameter, godinaUpisaParameter, smjerIdParameter, nazivOsnovneSkoleParameter);
         }
+    
+        public virtual ObjectResult<Predmeti_Result> ssp_Predmeti_GetById(Nullable<int> predmetId)
+        {
+            var predmetIdParameter = predmetId.HasValue ?
+                new ObjectParameter("predmetId", predmetId) :
+                new ObjectParameter("predmetId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Predmeti_Result>("ssp_Predmeti_GetById", predmetIdParameter);
+        }
+    
+        public virtual ObjectResult<Predmeti_Result> ssp_Predmeti_GetByRazred(Nullable<int> razred)
+        {
+            var razredParameter = razred.HasValue ?
+                new ObjectParameter("razred", razred) :
+                new ObjectParameter("razred", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Predmeti_Result>("ssp_Predmeti_GetByRazred", razredParameter);
+        }
+    
+        public virtual ObjectResult<Materijali> ssp_Materijali_GetByPredmetId(Nullable<int> predmetId)
+        {
+            var predmetIdParameter = predmetId.HasValue ?
+                new ObjectParameter("predmetId", predmetId) :
+                new ObjectParameter("predmetId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Materijali>("ssp_Materijali_GetByPredmetId", predmetIdParameter);
+        }
+    
+        public virtual ObjectResult<Materijali> ssp_Materijali_GetByPredmetId(Nullable<int> predmetId, MergeOption mergeOption)
+        {
+            var predmetIdParameter = predmetId.HasValue ?
+                new ObjectParameter("predmetId", predmetId) :
+                new ObjectParameter("predmetId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Materijali>("ssp_Materijali_GetByPredmetId", mergeOption, predmetIdParameter);
+        }
     }
 }

@@ -73,6 +73,7 @@ namespace SrednjeSkole_UI.Evidencije
             }
         }
 
+        #region Binds
         public void BindSkolskeGodine()
         {
             HttpResponseMessage response = skolskeGodineService.GetResponse();
@@ -118,6 +119,7 @@ namespace SrednjeSkole_UI.Evidencije
                 //string value = ((KeyValuePair<string, string>)skolskaGodinaCmb.SelectedItem).Value;
             }
         }
+        #endregion
 
         #region PlusButtonsEventHandlers
 
@@ -126,14 +128,14 @@ namespace SrednjeSkole_UI.Evidencije
         {
             AddSkolskaGodina f2 = new AddSkolskaGodina();
             f2.Show();
-            f2.FormClosing += new FormClosingEventHandler(AddSkolskaGodina_FormClosing);
+            f2.FormClosing += (objSender, args) => { BindSkolskeGodine(); }; ;
         }
 
         private void smjerAddBtn_Click(object sender, EventArgs e)
         {
             AddSmjer f2 = new AddSmjer();
             f2.Show();
-            f2.FormClosing += new FormClosingEventHandler(AddSmjer_FormClosing);
+            f2.FormClosing += (objSender, args) => { BindSkolskeGodine(); };
 
         }
 
@@ -141,22 +143,9 @@ namespace SrednjeSkole_UI.Evidencije
         {
             Users.AddNastavnik f2 = new Users.AddNastavnik();
             f2.Show();
-            f2.FormClosing += new FormClosingEventHandler(AddNastavnik_FormClosing);
+            f2.FormClosing += (objSender, args) => { BindNastavnici(); };
         }
-
-        private void AddSkolskaGodina_FormClosing(object sender, EventArgs e)
-        {
-            BindSkolskeGodine();
-        }
-
-        private void AddSmjer_FormClosing(object sender, EventArgs e)
-        {
-            BindSmjerovi();
-        }
-        private void AddNastavnik_FormClosing(object sender, EventArgs e)
-        {
-            BindNastavnici();
-        }
+       
         #endregion
 
         #region Validacija

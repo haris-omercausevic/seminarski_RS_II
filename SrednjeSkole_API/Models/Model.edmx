@@ -577,11 +577,20 @@
         <Function Name="ssp_KorisniciUloge_Remove" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KorisnikId" Type="int" Mode="In" />
         </Function>
+        <Function Name="ssp_Materijali_GetByPredmetId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="predmetId" Type="int" Mode="In" />
+        </Function>
         <Function Name="ssp_Nastavnici_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
           <Parameter Name="Zvanje" Type="nvarchar" Mode="In" />
           <Parameter Name="NaucnaOblast" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="GodinaZaposlenja" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ssp_Predmeti_GetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="predmetId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ssp_Predmeti_GetByRazred" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="razred" Type="int" Mode="In" />
         </Function>
         <Function Name="ssp_Razredi_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RazredBrojcano" Type="int" Mode="In" />
@@ -1476,6 +1485,15 @@
             <Parameter Name="SmjerId" Mode="In" Type="Int32" />
             <Parameter Name="NazivOsnovneSkole" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="ssp_Predmeti_GetById" ReturnType="Collection(SrednjeSkoleModel.Predmeti_Result)">
+          <Parameter Name="predmetId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ssp_Predmeti_GetByRazred" ReturnType="Collection(SrednjeSkoleModel.Predmeti_Result)">
+          <Parameter Name="razred" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ssp_Materijali_GetByPredmetId" EntitySet="Materijali" ReturnType="Collection(SrednjeSkoleModel.Materijali)">
+            <Parameter Name="predmetId" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1495,6 +1513,12 @@
           <Property Type="String" Name="KorisnickoIme" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Uloga" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Predmeti_Result">
+          <Property Type="Int32" Name="PredmetId" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" />
+          <Property Type="String" Name="Oznaka" Nullable="false" />
+          <Property Type="Int32" Name="Razred" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1767,6 +1791,28 @@
           <FunctionImportMapping FunctionImportName="ssp_Razredi_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_Razredi_Insert" />
           <FunctionImportMapping FunctionImportName="ssp_Nastavnici_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_Nastavnici_Insert" />
           <FunctionImportMapping FunctionImportName="ssp_Ucenici_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_Ucenici_Insert" />
+          <FunctionImportMapping FunctionImportName="ssp_Predmeti_GetById" FunctionName="SrednjeSkoleModel.Store.ssp_Predmeti_GetById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.Predmeti_Result">
+                <ScalarProperty Name="PredmetId" ColumnName="PredmetId" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Oznaka" ColumnName="Oznaka" />
+                <ScalarProperty Name="Razred" ColumnName="Razred" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ssp_Predmeti_GetByRazred" FunctionName="SrednjeSkoleModel.Store.ssp_Predmeti_GetByRazred">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.Predmeti_Result">
+                <ScalarProperty Name="PredmetId" ColumnName="PredmetId" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Oznaka" ColumnName="Oznaka" />
+                <ScalarProperty Name="Razred" ColumnName="Razred" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ssp_Materijali_GetByPredmetId" FunctionName="SrednjeSkoleModel.Store.ssp_Materijali_GetByPredmetId">
+          </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

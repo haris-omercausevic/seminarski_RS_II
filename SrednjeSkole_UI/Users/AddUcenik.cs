@@ -300,24 +300,15 @@ namespace SrednjeSkole_UI.Users
         {
             Evidencije.AddSmjer f2 = new Evidencije.AddSmjer();
             f2.Show();
-            f2.FormClosing += new FormClosingEventHandler(AddSmjer_FormClosing);
+            f2.FormClosing += (objSender, args) => { BindSmjerovi(); };
         }
         private void razredAddBtn_Click(object sender, EventArgs e)
         {
             Evidencije.AddRazred f2 = new Evidencije.AddRazred();
             f2.Show();
-            f2.FormClosing += new FormClosingEventHandler(AddRazred_FormClosing);
+            f2.FormClosing += (objSender, args) => { BindRazredi(); };
         }
-
-        private void AddSmjer_FormClosing(object sender, EventArgs e)
-        {
-            BindSmjerovi();
-        }
-        private void AddRazred_FormClosing(object sender, EventArgs e)
-        {
-            BindRazredi();
-        }
-
+               
         private void dodajSlikuBtn_Click(object sender, EventArgs e)
         {
             try

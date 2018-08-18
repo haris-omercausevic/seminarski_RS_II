@@ -14,21 +14,24 @@ using SrednjeSkole_API.Models;
 
 namespace SrednjeSkole_API.Controllers
 {
+    [RoutePrefix("api/Predmeti")]
     public class PredmetiController : ApiController
     {
         private SrednjeSkoleEntities db = new SrednjeSkoleEntities();
 
-        // GET: api/Predmeti
+        //GET: api/Predmeti
         public IQueryable<Predmeti> GetPredmeti()
         {
             return db.Predmeti;
         }
 
         // GET: api/Predmeti/5
-        [ResponseType(typeof(Predmeti))]
-        public IHttpActionResult GetPredmeti(int id)
+        [HttpGet]
+        [ResponseType(typeof(Predmeti_Result))]
+        [Route("ById/{predmetId}")]
+        public IHttpActionResult GetById(int predmetId)
         {
-            Predmeti predmeti = db.Predmeti.Find(id);
+            Predmeti_Result predmeti = db.ssp_Predmeti_GetById(predmetId).FirstOrDefault();
             if (predmeti == null)
             {
                 return NotFound();
@@ -36,6 +39,14 @@ namespace SrednjeSkole_API.Controllers
 
             return Ok(predmeti);
         }
+
+        [HttpGet]
+        [Route("ByRazred/{razred}")]
+        public List<Predmeti_Result> GetByRazred(int razred)
+        {
+            return db.ssp_Predmeti_GetByRazred(razred).ToList();
+        }
+
 
         // PUT: api/Predmeti/5
         [ResponseType(typeof(void))]

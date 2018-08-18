@@ -13,5 +13,10 @@ namespace SrednjeSkole
         {
             InitializeComponent();
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
     }
 }

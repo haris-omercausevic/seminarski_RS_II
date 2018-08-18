@@ -20,7 +20,7 @@ namespace SrednjeSkole_API.Controllers
 
         //GET api/Korisnici/id
         [HttpGet]
-        [Route("ById/{id}")]        
+        [Route("ById/{id}")] 
         public Korisnici_Result GetById(int id)
         {
             return db.ssp_Korisnici_GetById(id).FirstOrDefault();            
