@@ -27,8 +27,8 @@ namespace SrednjeSkole
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Materijali : ContentPage
 	{
-        private WebAPIHelper materijaliService = new WebAPIHelper("http://10.15.15.44", "api/Materijali");
-        private WebAPIHelper predmetiService = new WebAPIHelper("http://10.15.15.44", "api/Predmeti");
+        private WebAPIHelper materijaliService = new WebAPIHelper("https://srednjeskoleapi20180818082926.azurewebsites.net/", "api/Materijali");
+        private WebAPIHelper predmetiService = new WebAPIHelper("https://srednjeskoleapi20180818082926.azurewebsites.net/", "api/Predmeti");
         private List<Predmeti> predmeti = new List<Predmeti>();
         private int razred;
         private int predmetIndex;
