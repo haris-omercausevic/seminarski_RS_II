@@ -30,17 +30,25 @@ namespace SrednjeSkole
         private WebAPIHelper materijaliService = new WebAPIHelper("https://srednjeskoleapi20180818082926.azurewebsites.net/", "api/Materijali");
         private WebAPIHelper predmetiService = new WebAPIHelper("https://srednjeskoleapi20180818082926.azurewebsites.net/", "api/Predmeti");
         private List<Predmeti> predmeti = new List<Predmeti>();
+        private List<Models.Materijali> materijali = new List<Models.Materijali>();
+
         private int razred;
         private int predmetIndex;
 
         public Materijali ()
 		{
 			InitializeComponent ();
+
+
             BindRazredi();
             razrediPicker.On<iOS>().SetUpdateMode(UpdateMode.WhenFinished);
             predmetiPicker.On<iOS>().SetUpdateMode(UpdateMode.WhenFinished);
             razrediPicker.SelectedIndex = 0; //selectedIndex change poziva bindPredmeti
             predmetiPicker.SelectedIndex = 0; // samo za prvo ucitavanje, selectedIndexChange poziva BindMaterijali()
+
+            materijaliList.ItemsSource = predmeti;
+
+
         }
 
         private void BindRazredi()
@@ -75,7 +83,8 @@ namespace SrednjeSkole
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonResult = response.Content.ReadAsStringAsync();
-                    List<Models.Materijali> m = JsonConvert.DeserializeObject<List<Models.Materijali>>(jsonResult.Result);
+                    materijali = JsonConvert.DeserializeObject<List<Models.Materijali>>(jsonResult.Result);
+                    materijaliList.ItemsSource = materijali;
                 }
                 else
                 {

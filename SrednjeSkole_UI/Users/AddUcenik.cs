@@ -346,7 +346,6 @@ namespace SrednjeSkole_UI.Users
                     {
                         MessageBox.Show(Messages.picture_war + " " + resizedImgWidth + "x" + resizedImgHeight + ".", Messages.warning,
                                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        k = null;
                     }
                 }
             }

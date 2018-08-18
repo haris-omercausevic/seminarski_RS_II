@@ -24,7 +24,7 @@ namespace SrednjeSkole_API.Models
         }
     
         public string Zvanje { get; set; }
-        public System.DateTime DatumIzboraUZvanje { get; set; }
+        public Nullable<System.DateTime> DatumIzboraUZvanje { get; set; }
         public string NaucnaOblast { get; set; }
         public int GodinaZaposlenja { get; set; }
     

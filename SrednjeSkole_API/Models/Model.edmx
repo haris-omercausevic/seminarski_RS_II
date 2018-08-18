@@ -64,7 +64,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Zvanje" Type="nvarchar(max)" />
-          <Property Name="DatumIzboraUZvanje" Type="datetime" Nullable="false" />
+          <Property Name="DatumIzboraUZvanje" Type="datetime" />
           <Property Name="NaucnaOblast" Type="nvarchar(max)" />
           <Property Name="GodinaZaposlenja" Type="int" Nullable="false" />
           <Property Name="Id" Type="int" Nullable="false" />
@@ -839,7 +839,7 @@
         </EntityType>
         <EntityType Name="Nastavnici" BaseType="SrednjeSkoleModel.Korisnici">
           <Property Name="Zvanje" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DatumIzboraUZvanje" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DatumIzboraUZvanje" Type="DateTime" Precision="3" />
           <Property Name="NaucnaOblast" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="GodinaZaposlenja" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Casovi" Relationship="Self.FK_dbo_Casovi_dbo_Nastavnici_NastavnikId" FromRole="Nastavnici" ToRole="Casovi" />
@@ -1492,7 +1492,7 @@
           <Parameter Name="razred" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ssp_Materijali_GetByPredmetId" EntitySet="Materijali" ReturnType="Collection(SrednjeSkoleModel.Materijali)">
-            <Parameter Name="predmetId" Mode="In" Type="Int32" />
+          <Parameter Name="predmetId" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
