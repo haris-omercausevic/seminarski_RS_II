@@ -2,34 +2,33 @@
 <ContentPage Title="Materijali" BackgroundColor="White" xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SrednjeSkole.Materijali">
-    <Grid x:Name="grid" HorizontalOptions="Center">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Picker Title="Razredi" x:Name="razrediPicker" SelectedIndexChanged="razrediPicker_SelectedIndexChanged" />
-        <Picker Grid.Column="1" Title="Predmeti" x:Name="predmetiPicker" SelectedIndexChanged="predmetiPicker_SelectedIndexChanged"/>
+    <StackLayout x:Name="layout" HorizontalOptions="Center" BackgroundColor="Yellow">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" BackgroundColor="Red">
+            <Picker Title="Razredi" x:Name="razrediPicker" SelectedIndexChanged="razrediPicker_SelectedIndexChanged" />
+            <Picker Title="Predmeti" x:Name="predmetiPicker" SelectedIndexChanged="predmetiPicker_SelectedIndexChanged"/>
+        </StackLayout>
 
-        <ListView x:Name="materijaliList" HasUnevenRows="True">
+
+        <StackLayout>
+        <ListView x:Name="materijaliList" HasUnevenRows="True" BackgroundColor="Blue">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal" Padding="5">
                             
-                            <StackLayout HorizontalOptions="StartAndExpand">
+                            <StackLayout x:Name="stekItem" HorizontalOptions="StartAndExpand">
                                 <Label Text="{Binding Naziv}"/>
-                                <Label Text="{Binding Status}"/>
+                                <Label Text="{Binding DateCreated}" IsVisible="False"/>
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        </StackLayout>
 
-    </Grid>        
+            <Label Text="Preporučujemo..." FontSize="15"/>
+
+    </StackLayout>        
        
 </ContentPage>

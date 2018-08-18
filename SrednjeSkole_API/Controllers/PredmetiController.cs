@@ -17,7 +17,7 @@ namespace SrednjeSkole_API.Controllers
     [RoutePrefix("api/Predmeti")]
     public class PredmetiController : ApiController
     {
-        private SrednjeSkoleEntities db = new SrednjeSkoleEntities();
+        private SrednjeSkoleEntities db = new SrednjeSkoleEntities(false);
 
         //GET: api/Predmeti
         public IQueryable<Predmeti> GetPredmeti()

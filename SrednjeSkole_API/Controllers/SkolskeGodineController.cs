@@ -14,7 +14,7 @@ namespace SrednjeSkole_API.Controllers
 {
     public class SkolskeGodineController : ApiController
     {
-        private SrednjeSkoleEntities db = new SrednjeSkoleEntities();
+        private SrednjeSkoleEntities db = new SrednjeSkoleEntities(false);
 
         // GET: api/SkolskeGodine
         public IQueryable<SkolskeGodine> GetSkolskeGodine()

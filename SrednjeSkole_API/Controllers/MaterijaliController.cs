@@ -11,7 +11,7 @@ namespace SrednjeSkole_API.Controllers
     [RoutePrefix("api/Materijali")]
     public class MaterijaliController : ApiController
     {
-        private SrednjeSkoleEntities db = new SrednjeSkoleEntities();        
+        private SrednjeSkoleEntities db = new SrednjeSkoleEntities(false);
 
         [HttpGet]
         [Route("ByPredmetId/{predmetId}")]

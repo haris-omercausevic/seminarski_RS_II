@@ -14,7 +14,7 @@ namespace SrednjeSkole_API.Controllers
 {
     public class RazrediController : ApiController
     {
-        private SrednjeSkoleEntities db = new SrednjeSkoleEntities();
+        private SrednjeSkoleEntities db = new SrednjeSkoleEntities(false);
 
         // GET: api/Razredi
         public IQueryable<Razredi> GetRazredi()

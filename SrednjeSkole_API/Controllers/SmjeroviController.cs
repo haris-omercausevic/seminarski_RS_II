@@ -15,7 +15,7 @@ namespace SrednjeSkole_API.Controllers
 {
     public class SmjeroviController : ApiController
     {
-        private SrednjeSkoleEntities db = new SrednjeSkoleEntities();
+        private SrednjeSkoleEntities db = new SrednjeSkoleEntities(false);
 
         // GET: api/Smjerovi
         public IQueryable<Smjerovi> GetSmjerovi()
