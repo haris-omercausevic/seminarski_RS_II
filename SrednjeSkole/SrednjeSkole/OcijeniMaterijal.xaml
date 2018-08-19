@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:SrednjeSkole.Behaviors"
+             xmlns:util="clr-namespace:SrednjeSkole.Util"
+             x:Class="SrednjeSkole.OcijeniMaterijal">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="baseStyle"
+             TargetType="Label">
+                <Setter Property="XAlign" Value="Start" />
+                <Setter Property="YAlign" Value="Center" />
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="FontAttributes" Value="Italic" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+
+
+    <StackLayout>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="1" x:Name="nazivMaterijalaLabel"/>
+                <Label Grid.Row="1" Grid.Column="1" x:Name="nastavnikLabel"/>
+                <Label Grid.Row="2" Grid.Column="1" x:Name="datumLabel"/>
+            </Grid>
+        </StackLayout>
+        
+        
+        
+        <Label Text="Ocijeni materijal"/>
+        <StackLayout Orientation="Horizontal" HeightRequest="70">
+            <Grid>
+                <Grid.Behaviors>
+                    <behaviors:StarBehavior x:Name="starOne" GroupName="myStar"/>
+                </Grid.Behaviors>
+                <Image x:Name="starBlankOne"
+                Source="star_outline.png" />
+
+                <Image x:Name="starSelectedOne"
+                Source="star_selected.png"
+                IsVisible="{Binding Source={x:Reference starOne},
+                                    Path=IsStarred}"/>
+            </Grid>
+            <Grid >
+                <Grid.Behaviors>
+                    <behaviors:StarBehavior x:Name="starTwo" GroupName="myStar"/>
+                </Grid.Behaviors>
+                <Image x:Name="starBlankTwo"
+                Source="star_outline.png" />
+
+                <Image x:Name="starSelectedTwo"
+                Source="star_selected.png"
+                IsVisible="{Binding Source={x:Reference starTwo},
+                                    Path=IsStarred}"/>
+            </Grid>
+            
+            <Grid>
+                <Grid.Behaviors>
+                <behaviors:StarBehavior x:Name="starThree" GroupName="myStar"/>
+            </Grid.Behaviors>
+            <Image x:Name="starBlankThree"
+                Source="star_outline.png" />
+
+            <Image x:Name="starSelectedThree"
+                Source="star_selected.png"
+                IsVisible="{Binding Source={x:Reference starThree},
+                                    Path=IsStarred}"/>
+            </Grid>
+            <Grid >
+                <Grid.Behaviors>
+                    <behaviors:StarBehavior x:Name="starFour" GroupName="myStar"/>
+                </Grid.Behaviors>
+                <Image x:Name="starBlankFour"
+                Source="star_outline.png" />
+
+                <Image x:Name="starSelectedFour"
+                Source="star_selected.png"
+                IsVisible="{Binding Source={x:Reference starFour},
+                                    Path=IsStarred}"/>
+            </Grid>
+            <Grid >
+                <Grid.Behaviors>
+                    <behaviors:StarBehavior x:Name="starFive" GroupName="myStar"/>
+                </Grid.Behaviors>
+                <Image x:Name="starBlankFive"
+                Source="star_outline.png" />
+
+                <Image x:Name="starSelectedFive"
+                Source="star_selected.png"
+                IsVisible="{Binding Source={x:Reference starFive},
+                                    Path=IsStarred}"/>
+            </Grid>
+        </StackLayout>
+        <StackLayout>
+            <StackLayout.Resources>
+                <ResourceDictionary>
+                    <util:RatingConverter x:Key="ratingConverter" />
+                    <Style TargetType="Label" BasedOn="{StaticResource baseStyle}">
+                        <Setter Property="TextColor" Value="#4CAF50" />
+                    </Style>
+                </ResourceDictionary>
+            </StackLayout.Resources>
+            <Label Text="{Binding Source={x:Reference starFive},
+                                    Path=Rating, Converter={StaticResource ratingConverter}}" HorizontalTextAlignment="Center"></Label>
+
+            <Button Text="Ocijeni"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
+    

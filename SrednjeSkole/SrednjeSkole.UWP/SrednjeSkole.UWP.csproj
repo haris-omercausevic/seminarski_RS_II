@@ -103,6 +103,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="add_round_icon.png" />
+    <Content Include="Assets\add_round_icon.png" />
+    <Content Include="Assets\download_icon.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
@@ -130,7 +133,12 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="download_icon.png" />
+    <Content Include="error.png" />
     <Content Include="Properties\Default.rd.xml" />
+    <Content Include="star_outline.png" />
+    <Content Include="star_selected.png" />
+    <Content Include="success.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

@@ -19,8 +19,7 @@ namespace SrednjeSkole
 
         private void prijavaBtn_Clicked(object sender, EventArgs e)
         {
-            this.Navigation.PushAsync(new Materijali());
-            DisplayAlert("Info", "Uskoro", "OK");
+            this.Navigation.PushAsync(new Materijali());            
         }
 
         async private void TapGestureRecognizer_Tapped(object sender, EventArgs e)

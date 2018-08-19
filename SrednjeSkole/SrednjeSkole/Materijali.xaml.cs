@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
 using SrednjeSkole.Models;
 using SrednjeSkole.Util;
+using SrednjeSkole.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -15,7 +17,7 @@ using Xamarin.Forms.Xaml;
 
 namespace SrednjeSkole
 {
- 
+
     //public class Predmeti
     //{
     //    public int PredmetId { get; set; }
@@ -24,32 +26,26 @@ namespace SrednjeSkole
     //    public int Razred { get; set; }
     //}
 
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Materijali : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class Materijali : ContentPage
+    {
         private WebAPIHelper materijaliService = new WebAPIHelper("https://srednjeskoleapi20180818082926.azurewebsites.net/", "api/Materijali");
         private WebAPIHelper predmetiService = new WebAPIHelper("https://srednjeskoleapi20180818082926.azurewebsites.net/", "api/Predmeti");
         private List<Predmeti> predmeti = new List<Predmeti>();
-        private List<Models.Materijali> materijali = new List<Models.Materijali>();
-
-        private int razred;
+        private ObservableCollection<MaterijaliVM> materijali = new ObservableCollection<MaterijaliVM>();
         private int predmetIndex;
+        
 
         public Materijali ()
 		{
 			InitializeComponent ();
 
-
             BindRazredi();
             razrediPicker.On<iOS>().SetUpdateMode(UpdateMode.WhenFinished);
             predmetiPicker.On<iOS>().SetUpdateMode(UpdateMode.WhenFinished);
-            razrediPicker.SelectedIndex = 0; //selectedIndex change poziva bindPredmeti
-            predmetiPicker.SelectedIndex = 0; // samo za prvo ucitavanje, selectedIndexChange poziva BindMaterijali()
-
-            materijaliList.ItemsSource = predmeti;
-
-
-        }
+            razrediPicker.SelectedIndex = 0; //selectedIndexChange poziva bindPredmeti
+            predmetiPicker.SelectedIndex = 0; // samo za prvo ucitavanje, selectedIndexChange poziva BindMaterijali()                
+    }
 
         private void BindRazredi()
         {
@@ -60,7 +56,7 @@ namespace SrednjeSkole
         }                           
         private void BindPredmeti()
         {
-            razred = Convert.ToInt32(razrediPicker.SelectedItem);
+            int razred = Convert.ToInt32(razrediPicker.SelectedItem);
 
             HttpResponseMessage response = predmetiService.GetActionResponse("ByRazred", razred.ToString());
             if (response.IsSuccessStatusCode)
@@ -73,7 +69,6 @@ namespace SrednjeSkole
         }
         private void BindMaterijali()
         {
-            razred = Convert.ToInt32(razrediPicker.SelectedItem);
             int predmetId = 0;
             if (predmetIndex != -1)
             {
@@ -83,18 +78,14 @@ namespace SrednjeSkole
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonResult = response.Content.ReadAsStringAsync();
-                    materijali = JsonConvert.DeserializeObject<List<Models.Materijali>>(jsonResult.Result);
-                    materijaliList.ItemsSource = materijali;
+                    materijali = JsonConvert.DeserializeObject<ObservableCollection<MaterijaliVM>>(jsonResult.Result);
+                    materijaliList.ItemsSource = materijali;                    
                 }
                 else
                 {
                     DisplayAlert("Info", "Nema materijala za odabrani razred", "OK");
                 }
-            }
-            else
-            {
-                DisplayAlert("Info", "Nema predmeta BUG", "OK");
-            }
+            }           
         }        
 
         private void razrediPicker_SelectedIndexChanged(object sender, EventArgs e)
@@ -106,12 +97,34 @@ namespace SrednjeSkole
 
         private void predmetiPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(predmetiPicker.SelectedIndex == -1)
-                predmetIndex = predmetiPicker.SelectedIndex = 0;
-            else
-                predmetIndex = predmetiPicker.SelectedIndex;
-
+            predmetIndex = predmetiPicker.SelectedIndex;
             BindMaterijali();
+        }               
+
+        private void materijaliList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            MaterijaliVM materijal = e.Item as MaterijaliVM;
+        }
+
+        private void preuzmi_Clicked(object sender, EventArgs e)
+        {
+            var preuzmiIcon = sender as MenuItem;
+            var materijalItem = preuzmiIcon.CommandParameter as Models.Materijali;
+
+            DisplayAlert("Call", materijalItem.Url, "OK");
+        }
+        private void addOcjena_Clicked(object sender, EventArgs e)
+        {
+
+            var preuzmiIcon = sender as MenuItem;
+            var materijalItem = preuzmiIcon.CommandParameter as MaterijaliVM;
+            this.Navigation.PushAsync(new OcijeniMaterijal(materijalItem));
+            DisplayAlert("Call", materijalItem.Naziv, "OK");
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
