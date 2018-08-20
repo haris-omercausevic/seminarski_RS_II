@@ -8,7 +8,7 @@
                    FontSize="25" HorizontalTextAlignment="Center"
                 />
         <Entry x:Name="korisnickoImeInput" Placeholder="Korisničko ime..."/>
-        <Entry x:Name="lozinka" Placeholder="*******" IsPassword="True"/>
+        <Entry x:Name="lozinkaInput" Placeholder="*******" IsPassword="True"/>
         <Label x:Name="resetPasswordLabel" Text="Zaboravili ste lozinku?">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>

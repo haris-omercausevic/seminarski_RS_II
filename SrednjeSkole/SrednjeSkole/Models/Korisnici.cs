@@ -25,6 +25,6 @@ namespace SrednjeSkole.Models
         public string Opstina { get; set; }
         public byte[] Slika { get; set; }
         public byte[] SlikaThumb { get; set; }
-        public List<Uloge> uloge{ get; set; }
+        public List<Uloge> Uloge{ get; set; }
     }
 }

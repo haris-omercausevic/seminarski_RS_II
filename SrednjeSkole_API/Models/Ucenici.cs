@@ -21,6 +21,7 @@ namespace SrednjeSkole_API.Models
             this.UceniciCasovi = new HashSet<UceniciCasovi>();
             this.UceniciOcjene = new HashSet<UceniciOcjene>();
             this.UceniciRazredi = new HashSet<UceniciRazredi>();
+            this.MaterijaliOcjene = new HashSet<MaterijaliOcjene>();
         }
     
         public string ImeRoditelja { get; set; }
@@ -38,5 +39,7 @@ namespace SrednjeSkole_API.Models
         public virtual ICollection<UceniciOcjene> UceniciOcjene { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UceniciRazredi> UceniciRazredi { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MaterijaliOcjene> MaterijaliOcjene { get; set; }
     }
 }

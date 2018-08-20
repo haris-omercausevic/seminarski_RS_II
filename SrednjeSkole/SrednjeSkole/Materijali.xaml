@@ -3,26 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SrednjeSkole.Materijali">
     <StackLayout x:Name="layout" HorizontalOptions="Center">
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Picker Title="Razredi" x:Name="razrediPicker" SelectedIndexChanged="razrediPicker_SelectedIndexChanged" />
-            <Picker Title="Predmeti" x:Name="predmetiPicker" SelectedIndexChanged="predmetiPicker_SelectedIndexChanged"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="20">
+            <Picker Title="Odaberite razred" x:Name="razrediPicker" SelectedIndexChanged="razrediPicker_SelectedIndexChanged" />
+            <Picker Title="Odabreite predmet" x:Name="predmetiPicker" SelectedIndexChanged="predmetiPicker_SelectedIndexChanged"/>
         </StackLayout>
 
-        <StackLayout>
-            <SearchBar Placeholder="Traži..." TextChanged="SearchBar_TextChanged"/>
-            <ListView x:Name="materijaliList" HasUnevenRows="True" VerticalOptions="Start" ItemTapped="materijaliList_ItemTapped">
+        <StackLayout Padding="20">
+            <ListView x:Name="materijaliList" VerticalOptions="Start" ItemTapped="materijaliList_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>                            
-                            <ViewCell.ContextActions>                                   
-                                <MenuItem Text="preuzmi" Clicked="preuzmi_Clicked" Icon="download_icon.png" CommandParameter="{Binding .}"/>
-                                <ToolbarItem Text="ocijeni" Clicked="addOcjena_Clicked" Icon="add_round_icon.png" CommandParameter="{Binding .}"/>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Preuzmi" Clicked="preuzmi_Clicked"  CommandParameter="{Binding .}"/>
+                                <ToolbarItem Text="Ocijeni" Clicked="addOcjena_Clicked" CommandParameter="{Binding .}"/>
                             </ViewCell.ContextActions>
+                            <StackLayout Padding="10">
+                                    <Label Text="{Binding Naziv}" FontAttributes="Bold"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Datum}"/>
+                                    <Label Text="{Binding nastavnik}"/>
+                                </StackLayout>
+                            </StackLayout>
+                            
                             <!--<StackLayout Orientation="Horizontal" Padding="5">-->
-                                <StackLayout x:Name="stekItem" HorizontalOptions="Start">
+                                <!--<StackLayout x:Name="stekItem" HorizontalOptions="Start">
                                     <Label Text="{Binding Naziv}"/>
                                     <Label x:Name="ocijeniLabel" Text="{Binding DateCreated}" IsVisible="False"/>
-                                </StackLayout>
+                                </StackLayout>-->
 
                                 <!--<Image x:Name="downloadIcon" Source="download_icon.png">
                                     <Image.GestureRecognizers>
@@ -45,25 +52,20 @@
 
         <StackLayout>
             <Label Text="Preporučujemo..." FontSize="17"/>
-            <ListView x:Name="preporukaList" HasUnevenRows="True" VerticalOptions="Start">
+            <ListView x:Name="preporukaList" VerticalOptions="Start">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal" Padding="5">
-                                <StackLayout x:Name="stekItem" HorizontalOptions="Start">
-                                    <Label Text="{Binding Naziv}"/>
-                                    <Label x:Name="ocijeniLabel" Text="{Binding DateCreated}" IsVisible="False"/>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Preuzmi" Clicked="preuzmi_Clicked"  CommandParameter="{Binding .}"/>
+                                <ToolbarItem Text="Ocijeni" Clicked="addOcjena_Clicked" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Naziv}" FontAttributes="Bold"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Datum}"/>
+                                    <Label Text="{Binding nastavnik}"/>
                                 </StackLayout>
-                                <Image x:Name="downloadIcon" Source="download_icon.png">
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer/>
-                                    </Image.GestureRecognizers>
-                                </Image>
-                                <Image x:Name="addIcon" Source="add_round_icon.png">
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer/>
-                                    </Image.GestureRecognizers>
-                                </Image>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

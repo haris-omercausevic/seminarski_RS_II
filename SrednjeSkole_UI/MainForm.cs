@@ -72,7 +72,7 @@ namespace SrednjeSkole_UI
 
         private void evidencijeLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Users.IndexForm f = new Users.IndexForm();
+            Evidencije.IndexForm f = new Evidencije.IndexForm();
             f.FormClosing += new FormClosingEventHandler(bringToFront_FormClosing);
             f.MdiParent = this;
             f.Dock = DockStyle.Top;

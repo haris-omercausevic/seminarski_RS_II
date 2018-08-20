@@ -15,7 +15,7 @@ namespace SrednjeSkole_API.Controllers
 
         [HttpGet]
         [Route("ByPredmetId/{predmetId}")]
-        public List<Materijali> GetByPredmetId(int predmetId)
+        public List<Materijali_Result> GetByPredmetId(int predmetId)
         {
             return db.ssp_Materijali_GetByPredmetId(predmetId).ToList();
         }

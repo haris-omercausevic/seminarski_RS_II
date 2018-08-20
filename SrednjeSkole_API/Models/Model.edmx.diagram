@@ -51,6 +51,9 @@
         <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_UceniciRazredi_dbo_Ucenici_UcenikId" ManuallyRouted="false" />
         <InheritanceConnector EntityType="SrednjeSkoleModel.Ucenici" />
         <InheritanceConnector EntityType="SrednjeSkoleModel.Nastavnici" />
+        <EntityTypeShape EntityType="SrednjeSkoleModel.MaterijaliOcjene" Width="1.5" PointX="13.25" PointY="20.5" />
+        <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_MaterijaliOcjene_dbo_Ucenici_UcenikId" />
+        <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_MaterijaliOcjene_dbo_Materijali_MaterijalId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

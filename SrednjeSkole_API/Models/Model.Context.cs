@@ -44,6 +44,7 @@ namespace SrednjeSkole_API.Models
         public virtual DbSet<UceniciOcjene> UceniciOcjene { get; set; }
         public virtual DbSet<UceniciRazredi> UceniciRazredi { get; set; }
         public virtual DbSet<Uloge> Uloge { get; set; }
+        public virtual DbSet<MaterijaliOcjene> MaterijaliOcjene { get; set; }
     
         public virtual ObjectResult<Korisnici_Result> ssp_Korisnici_SelectAll()
         {
@@ -323,22 +324,13 @@ namespace SrednjeSkole_API.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Predmeti_Result>("ssp_Predmeti_GetByRazred", razredParameter);
         }
     
-        public virtual ObjectResult<Materijali> ssp_Materijali_GetByPredmetId(Nullable<int> predmetId)
+        public virtual ObjectResult<Materijali_Result> ssp_Materijali_GetByPredmetId(Nullable<int> predmetId)
         {
             var predmetIdParameter = predmetId.HasValue ?
                 new ObjectParameter("predmetId", predmetId) :
                 new ObjectParameter("predmetId", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Materijali>("ssp_Materijali_GetByPredmetId", predmetIdParameter);
-        }
-    
-        public virtual ObjectResult<Materijali> ssp_Materijali_GetByPredmetId(Nullable<int> predmetId, MergeOption mergeOption)
-        {
-            var predmetIdParameter = predmetId.HasValue ?
-                new ObjectParameter("predmetId", predmetId) :
-                new ObjectParameter("predmetId", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Materijali>("ssp_Materijali_GetByPredmetId", mergeOption, predmetIdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Materijali_Result>("ssp_Materijali_GetByPredmetId", predmetIdParameter);
         }
     }
 }

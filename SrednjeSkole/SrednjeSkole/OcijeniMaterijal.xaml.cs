@@ -1,4 +1,4 @@
-﻿using SrednjeSkole.ViewModels;
+﻿using SrednjeSkole.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +13,11 @@ namespace SrednjeSkole
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class OcijeniMaterijal : ContentPage
 	{
-		public OcijeniMaterijal (MaterijaliVM materijal)
+		public OcijeniMaterijal (Materijali_Result materijal)
 		{
 			InitializeComponent ();
             nazivMaterijalaLabel.Text = materijal.Naziv;
-            datumLabel.Text = materijal.DateCreated.ToShortDateString();
+            datumLabel.Text = materijal.Datum;
             nastavnikLabel.Text = materijal.nastavnik;
 
 		}

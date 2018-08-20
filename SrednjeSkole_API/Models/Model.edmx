@@ -99,6 +99,17 @@
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="PredmetId" Type="int" Nullable="false" />
           <Property Name="NastavnikId" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="BrojOcjena" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaterijaliOcjene">
+          <Key>
+            <PropertyRef Name="MaterijaliOcjeneId" />
+          </Key>
+          <Property Name="MaterijaliOcjeneId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaterijalId" Type="int" Nullable="false" />
+          <Property Name="UcenikId" Type="int" Nullable="false" />
+          <Property Name="Ocjena" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Obavijesti">
           <Key>
@@ -300,6 +311,30 @@
             </Principal>
             <Dependent Role="Materijali">
               <PropertyRef Name="PredmetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MaterijaliOcjene_dbo_Materijali_MaterijalId">
+          <End Role="Materijali" Type="Self.Materijali" Multiplicity="1" />
+          <End Role="MaterijaliOcjene" Type="Self.MaterijaliOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materijali">
+              <PropertyRef Name="MaterijalId" />
+            </Principal>
+            <Dependent Role="MaterijaliOcjene">
+              <PropertyRef Name="MaterijalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MaterijaliOcjene_dbo_Ucenici_UcenikId">
+          <End Role="Korisnici_Ucenici" Type="Self.Korisnici_Ucenici" Multiplicity="1" />
+          <End Role="MaterijaliOcjene" Type="Self.MaterijaliOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnici_Ucenici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterijaliOcjene">
+              <PropertyRef Name="UcenikId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -626,6 +661,7 @@
           <EntitySet Name="Korisnici_Ucenici" EntityType="Self.Korisnici_Ucenici" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KorisniciUloge" EntityType="Self.KorisniciUloge" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Materijali" EntityType="Self.Materijali" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterijaliOcjene" EntityType="Self.MaterijaliOcjene" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Obavijesti" EntityType="Self.Obavijesti" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Predaje" EntityType="Self.Predaje" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Predmeti" EntityType="Self.Predmeti" Schema="dbo" store:Type="Tables" />
@@ -668,6 +704,14 @@
           <AssociationSet Name="FK_dbo_Materijali_dbo_Predmeti_PredmetId" Association="Self.FK_dbo_Materijali_dbo_Predmeti_PredmetId">
             <End Role="Predmeti" EntitySet="Predmeti" />
             <End Role="Materijali" EntitySet="Materijali" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MaterijaliOcjene_dbo_Materijali_MaterijalId" Association="Self.FK_dbo_MaterijaliOcjene_dbo_Materijali_MaterijalId">
+            <End Role="Materijali" EntitySet="Materijali" />
+            <End Role="MaterijaliOcjene" EntitySet="MaterijaliOcjene" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MaterijaliOcjene_dbo_Ucenici_UcenikId" Association="Self.FK_dbo_MaterijaliOcjene_dbo_Ucenici_UcenikId">
+            <End Role="Korisnici_Ucenici" EntitySet="Korisnici_Ucenici" />
+            <End Role="MaterijaliOcjene" EntitySet="MaterijaliOcjene" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_Obavijesti_dbo_Korisnici_KorisnikId" Association="Self.FK_dbo_Obavijesti_dbo_Korisnici_KorisnikId">
             <End Role="Korisnici" EntitySet="Korisnici" />
@@ -836,6 +880,9 @@
           <Property Name="NastavnikId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Nastavnici" Relationship="Self.FK_dbo_Materijali_dbo_Nastavnici_NastavnikId" FromRole="Materijali" ToRole="Nastavnici" />
           <NavigationProperty Name="Predmeti" Relationship="Self.FK_dbo_Materijali_dbo_Predmeti_PredmetId" FromRole="Materijali" ToRole="Predmeti" />
+          <Property Name="Rating" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="BrojOcjena" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MaterijaliOcjene" Relationship="SrednjeSkoleModel.FK_dbo_MaterijaliOcjene_dbo_Materijali_MaterijalId" FromRole="Materijali" ToRole="MaterijaliOcjene" />
         </EntityType>
         <EntityType Name="Nastavnici" BaseType="SrednjeSkoleModel.Korisnici">
           <Property Name="Zvanje" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -944,6 +991,7 @@
           <NavigationProperty Name="UceniciCasovi" Relationship="Self.FK_dbo_UceniciCasovi_dbo_Ucenici_UcenikId" FromRole="Ucenici" ToRole="UceniciCasovi" />
           <NavigationProperty Name="UceniciOcjene" Relationship="Self.FK_dbo_UceniciOcjene_dbo_Ucenici_UcenikId" FromRole="Ucenici" ToRole="UceniciOcjene" />
           <NavigationProperty Name="UceniciRazredi" Relationship="Self.FK_dbo_UceniciRazredi_dbo_Ucenici_UcenikId" FromRole="Ucenici" ToRole="UceniciRazredi" />
+          <NavigationProperty Name="MaterijaliOcjene" Relationship="SrednjeSkoleModel.FK_dbo_MaterijaliOcjene_dbo_Ucenici_UcenikId" FromRole="Ucenici" ToRole="MaterijaliOcjene" />
         </EntityType>
         <EntityType Name="UceniciCasovi">
           <Key>
@@ -1491,9 +1539,18 @@
           <FunctionImport Name="ssp_Predmeti_GetByRazred" ReturnType="Collection(SrednjeSkoleModel.Predmeti_Result)">
           <Parameter Name="razred" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="ssp_Materijali_GetByPredmetId" EntitySet="Materijali" ReturnType="Collection(SrednjeSkoleModel.Materijali)">
+          <FunctionImport Name="ssp_Materijali_GetByPredmetId" ReturnType="Collection(SrednjeSkoleModel.Materijali_Result)">
           <Parameter Name="predmetId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="MaterijaliOcjene" EntityType="SrednjeSkoleModel.MaterijaliOcjene" />
+          <AssociationSet Name="FK_dbo_MaterijaliOcjene_dbo_Ucenici_UcenikId" Association="SrednjeSkoleModel.FK_dbo_MaterijaliOcjene_dbo_Ucenici_UcenikId">
+            <End Role="Ucenici" EntitySet="Korisnici" />
+            <End Role="MaterijaliOcjene" EntitySet="MaterijaliOcjene" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MaterijaliOcjene_dbo_Materijali_MaterijalId" Association="SrednjeSkoleModel.FK_dbo_MaterijaliOcjene_dbo_Materijali_MaterijalId">
+            <End Role="Materijali" EntitySet="Materijali" />
+            <End Role="MaterijaliOcjene" EntitySet="MaterijaliOcjene" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1519,6 +1576,53 @@
           <Property Type="String" Name="Naziv" Nullable="false" />
           <Property Type="String" Name="Oznaka" Nullable="false" />
           <Property Type="Int32" Name="Razred" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="MaterijaliOcjene">
+          <Key>
+            <PropertyRef Name="MaterijaliOcjeneId" />
+          </Key>
+          <Property Name="MaterijaliOcjeneId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaterijalId" Type="Int32" Nullable="false" />
+          <Property Name="UcenikId" Type="Int32" Nullable="false" />
+          <Property Name="Ocjena" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Korisnici_Ucenici" Relationship="SrednjeSkoleModel.FK_dbo_MaterijaliOcjene_dbo_Ucenici_UcenikId" FromRole="MaterijaliOcjene" ToRole="Ucenici" />
+          <NavigationProperty Name="Materijali" Relationship="SrednjeSkoleModel.FK_dbo_MaterijaliOcjene_dbo_Materijali_MaterijalId" FromRole="MaterijaliOcjene" ToRole="Materijali" />
+        </EntityType>
+        <Association Name="FK_dbo_MaterijaliOcjene_dbo_Ucenici_UcenikId">
+          <End Type="SrednjeSkoleModel.Ucenici" Role="Ucenici" Multiplicity="1" />
+          <End Type="SrednjeSkoleModel.MaterijaliOcjene" Role="MaterijaliOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ucenici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterijaliOcjene">
+              <PropertyRef Name="UcenikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MaterijaliOcjene_dbo_Materijali_MaterijalId">
+          <End Type="SrednjeSkoleModel.Materijali" Role="Materijali" Multiplicity="1" />
+          <End Type="SrednjeSkoleModel.MaterijaliOcjene" Role="MaterijaliOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materijali">
+              <PropertyRef Name="MaterijalId" />
+            </Principal>
+            <Dependent Role="MaterijaliOcjene">
+              <PropertyRef Name="MaterijalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Materijali_Result">
+          <Property Type="Int32" Name="MaterijalId" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="true" />
+          <Property Type="String" Name="Url" Nullable="true" />
+          <Property Type="String" Name="BlobName" Nullable="true" />
+          <Property Type="String" Name="Datum" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="BrojOcjena" Nullable="false" />
+          <Property Type="Decimal" Name="Rating" Nullable="false" Precision="9" Scale="2" />
+          <Property Type="Int32" Name="PredmetId" Nullable="false" />
+          <Property Type="Int32" Name="NastavnikId" Nullable="false" />
+          <Property Type="String" Name="nastavnik" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1615,7 +1719,9 @@
     <EntitySetMapping Name="Materijali">
       <EntityTypeMapping TypeName="IsTypeOf(SrednjeSkoleModel.Materijali)">
         <MappingFragment StoreEntitySet="Materijali">
-          <ScalarProperty Name="MaterijalId" ColumnName="MaterijalId" />
+          <ScalarProperty Name="BrojOcjena" ColumnName="BrojOcjena" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="MaterijalId" ColumnName="MaterijalId" />
           <ScalarProperty Name="Naziv" ColumnName="Naziv" />
           <ScalarProperty Name="BlobName" ColumnName="BlobName" />
           <ScalarProperty Name="Url" ColumnName="Url" />
@@ -1812,7 +1918,31 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ssp_Materijali_GetByPredmetId" FunctionName="SrednjeSkoleModel.Store.ssp_Materijali_GetByPredmetId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.Materijali_Result">
+                <ScalarProperty Name="MaterijalId" ColumnName="MaterijalId" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="BlobName" ColumnName="BlobName" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="BrojOcjena" ColumnName="BrojOcjena" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="PredmetId" ColumnName="PredmetId" />
+                <ScalarProperty Name="NastavnikId" ColumnName="NastavnikId" />
+                <ScalarProperty Name="nastavnik" ColumnName="nastavnik" />
+              </ComplexTypeMapping>
+            </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="MaterijaliOcjene">
+            <EntityTypeMapping TypeName="SrednjeSkoleModel.MaterijaliOcjene">
+              <MappingFragment StoreEntitySet="MaterijaliOcjene">
+                <ScalarProperty Name="Ocjena" ColumnName="Ocjena" />
+                <ScalarProperty Name="UcenikId" ColumnName="UcenikId" />
+                <ScalarProperty Name="MaterijalId" ColumnName="MaterijalId" />
+                <ScalarProperty Name="MaterijaliOcjeneId" ColumnName="MaterijaliOcjeneId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

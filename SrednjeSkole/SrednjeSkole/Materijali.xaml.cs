@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SrednjeSkole.Models;
 using SrednjeSkole.Util;
-using SrednjeSkole.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,10 +28,10 @@ namespace SrednjeSkole
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Materijali : ContentPage
     {
-        private WebAPIHelper materijaliService = new WebAPIHelper("https://srednjeskoleapi20180818082926.azurewebsites.net/", "api/Materijali");
-        private WebAPIHelper predmetiService = new WebAPIHelper("https://srednjeskoleapi20180818082926.azurewebsites.net/", "api/Predmeti");
+        private WebAPIHelper materijaliService = new WebAPIHelper(Global.APIAddres, "api/Materijali");
+        private WebAPIHelper predmetiService = new WebAPIHelper(Global.APIAddres, "api/Predmeti");
         private List<Predmeti> predmeti = new List<Predmeti>();
-        private ObservableCollection<MaterijaliVM> materijali = new ObservableCollection<MaterijaliVM>();
+        private ObservableCollection<Materijali_Result> materijali = new ObservableCollection<Materijali_Result>();
         private int predmetIndex;
         
 
@@ -65,6 +64,7 @@ namespace SrednjeSkole
                 predmeti = JsonConvert.DeserializeObject<List<Predmeti>>(jsonResult.Result);
                 predmetIndex = predmetiPicker.SelectedIndex =  0; // posto se mijenja razred
                 predmetiPicker.ItemsSource = predmeti;
+                //predmetiPicker.ItemDisplayBinding = new Binding("Naziv"); //preklopljen je opreator ToString u predmetima pa ne treba ovo
             }
         }
         private void BindMaterijali()
@@ -78,7 +78,7 @@ namespace SrednjeSkole
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonResult = response.Content.ReadAsStringAsync();
-                    materijali = JsonConvert.DeserializeObject<ObservableCollection<MaterijaliVM>>(jsonResult.Result);
+                    materijali = JsonConvert.DeserializeObject<ObservableCollection<Materijali_Result>>(jsonResult.Result);
                     materijaliList.ItemsSource = materijali;                    
                 }
                 else
@@ -88,6 +88,10 @@ namespace SrednjeSkole
             }           
         }        
 
+        private void BindPreporuka()
+        {
+
+        }
         private void razrediPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
             predmetIndex = predmetiPicker.SelectedIndex = 0;
@@ -103,13 +107,13 @@ namespace SrednjeSkole
 
         private void materijaliList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            MaterijaliVM materijal = e.Item as MaterijaliVM;
+            Materijali_Result materijal = e.Item as Materijali_Result;
         }
 
         private void preuzmi_Clicked(object sender, EventArgs e)
         {
             var preuzmiIcon = sender as MenuItem;
-            var materijalItem = preuzmiIcon.CommandParameter as Models.Materijali;
+            var materijalItem = preuzmiIcon.CommandParameter as Materijali_Result;
 
             DisplayAlert("Call", materijalItem.Url, "OK");
         }
@@ -117,7 +121,7 @@ namespace SrednjeSkole
         {
 
             var preuzmiIcon = sender as MenuItem;
-            var materijalItem = preuzmiIcon.CommandParameter as MaterijaliVM;
+            var materijalItem = preuzmiIcon.CommandParameter as Materijali_Result;
             this.Navigation.PushAsync(new OcijeniMaterijal(materijalItem));
             DisplayAlert("Call", materijalItem.Naziv, "OK");
         }

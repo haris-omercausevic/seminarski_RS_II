@@ -14,6 +14,12 @@ namespace SrednjeSkole_API.Models
     
     public partial class Materijali
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Materijali()
+        {
+            this.MaterijaliOcjene = new HashSet<MaterijaliOcjene>();
+        }
+    
         public int MaterijalId { get; set; }
         public string Naziv { get; set; }
         public string BlobName { get; set; }
@@ -21,8 +27,12 @@ namespace SrednjeSkole_API.Models
         public System.DateTime DateCreated { get; set; }
         public int PredmetId { get; set; }
         public int NastavnikId { get; set; }
+        public decimal Rating { get; set; }
+        public int BrojOcjena { get; set; }
     
         public virtual Nastavnici Nastavnici { get; set; }
         public virtual Predmeti Predmeti { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MaterijaliOcjene> MaterijaliOcjene { get; set; }
     }
 }
