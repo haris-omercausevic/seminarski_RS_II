@@ -207,6 +207,9 @@
     <Compile Include="Models\UceniciRazredi.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Uloga_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Uloge.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

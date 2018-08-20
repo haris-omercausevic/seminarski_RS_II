@@ -652,6 +652,9 @@
           <Parameter Name="SmjerId" Type="int" Mode="In" />
           <Parameter Name="NazivOsnovneSkole" Type="nvarchar(max)" Mode="In" />
         </Function>
+        <Function Name="ssp_Uloge_GetByKorisnikId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KorisnikId" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="SrednjeSkoleModelStoreContainer">
           <EntitySet Name="AutorizacijskiToken" EntityType="Self.AutorizacijskiToken" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Casovi" EntityType="Self.Casovi" Schema="dbo" store:Type="Tables" />
@@ -1551,6 +1554,9 @@
             <End Role="Materijali" EntitySet="Materijali" />
             <End Role="MaterijaliOcjene" EntitySet="MaterijaliOcjene" />
           </AssociationSet>
+          <FunctionImport Name="ssp_Uloge_GetByKorisnikId" ReturnType="Collection(SrednjeSkoleModel.Uloga_Result)">
+          <Parameter Name="KorisnikId" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1623,6 +1629,10 @@
           <Property Type="Int32" Name="PredmetId" Nullable="false" />
           <Property Type="Int32" Name="NastavnikId" Nullable="false" />
           <Property Type="String" Name="nastavnik" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Uloga_Result">
+          <Property Type="Int32" Name="UlogaId" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1943,6 +1953,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ssp_Uloge_GetByKorisnikId" FunctionName="SrednjeSkoleModel.Store.ssp_Uloge_GetByKorisnikId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.Uloga_Result">
+                <ScalarProperty Name="UlogaId" ColumnName="UlogaId" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

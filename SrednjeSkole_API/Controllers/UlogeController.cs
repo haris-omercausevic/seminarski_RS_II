@@ -25,9 +25,9 @@ namespace SrednjeSkole_API.Controllers
 
         [HttpGet]
         [Route("api/Uloge/GetByKorisnikId/{id}")]
-        public List<Uloge> GetByKorisnikId(int id)
+        public List<Uloga_Result> GetByKorisnikId(int id)
         {
-            return db.KorisniciUloge.Where(x => x.KorisnikID == id).Include(x => x.Uloge).Select(x => x.Uloge).ToList();
+            return db.ssp_Uloge_GetByKorisnikId(id).ToList();
         }
 
         protected override void Dispose(bool disposing)

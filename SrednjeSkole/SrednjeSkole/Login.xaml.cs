@@ -34,28 +34,31 @@ namespace SrednjeSkole
                 {
                     var jsonResult = response.Content.ReadAsStringAsync();
                     Korisnici k = JsonConvert.DeserializeObject<Korisnici>(jsonResult.Result);
-
-                    HttpResponseMessage response2 = ulogeService.GetActionResponse("GetByKorisnikId", k.Id.ToString());
-                    if (response2.IsSuccessStatusCode)
+                    if (k != null)
                     {
-                        var jsonResult2 = response.Content.ReadAsStringAsync();
-                        k.Uloge = JsonConvert.DeserializeObject<List<Uloge>>(jsonResult2.Result);
-
-                        if (k.LozinkaHash == UIHelper.GenerateHash(k.LozinkaSalt, lozinkaInput.Text))
+                        HttpResponseMessage response2 = ulogeService.GetActionResponse("GetByKorisnikId", k.Id.ToString());
+                        if (response2.IsSuccessStatusCode)
                         {
-                            bool ulogeValidne = false;
-                            foreach (var item in k.Uloge)
+                            var jsonResult2 = response.Content.ReadAsStringAsync();
+                            var temp = JsonConvert.DeserializeObject<Uloge>(jsonResult2.Result);
+
+
+                            if (k.LozinkaHash == UIHelper.GenerateHash(k.LozinkaSalt, lozinkaInput.Text))
                             {
-                                if (item.Naziv == "Ucenik")
-                                    ulogeValidne = true;
+                                bool ulogeValidne = false;
+                                foreach (var item in k.Uloge)
+                                {
+                                    if (item.Naziv == "Ucenik")
+                                        ulogeValidne = true;
+                                }
+                                if (ulogeValidne == true)
+                                {
+                                    Navigation.PushAsync(new Materijali());
+                                    Global.prijavljeniKorisnik = k;
+                                }
+                                else
+                                    DisplayAlert("Upozorenje!", "Nemate pravo pristupa ovom dijelu sistema!", "OK");
                             }
-                            if (ulogeValidne == true)
-                            {
-                                Navigation.PushAsync(new Materijali());
-                                Global.prijavljeniKorisnik = k;
-                            }
-                            else
-                                DisplayAlert("Upozorenje!", "Nemate pravo pristupa ovom dijelu sistema!", "OK");
                         }
                     }
                     else
@@ -70,7 +73,7 @@ namespace SrednjeSkole
             }
             catch (Exception ex)
             {
-                DisplayAlert("Greska!", ex.InnerException.Message, "OK"); 
+                DisplayAlert("Greska!", ex.Message, "OK"); 
             }
         }
 
