@@ -36,35 +36,16 @@ namespace SrednjeSkole
                     Korisnici k = JsonConvert.DeserializeObject<Korisnici>(jsonResult.Result);
                     if (k != null)
                     {
-                        HttpResponseMessage response2 = ulogeService.GetActionResponse("GetByKorisnikId", k.Id.ToString());
-                        if (response2.IsSuccessStatusCode)
-                        {
-                            var jsonResult2 = response.Content.ReadAsStringAsync();
-                            var temp = JsonConvert.DeserializeObject<Uloge>(jsonResult2.Result);
-
-
                             if (k.LozinkaHash == UIHelper.GenerateHash(k.LozinkaSalt, lozinkaInput.Text))
-                            {
-                                bool ulogeValidne = false;
-                                foreach (var item in k.Uloge)
-                                {
-                                    if (item.Naziv == "Ucenik")
-                                        ulogeValidne = true;
-                                }
-                                if (ulogeValidne == true)
-                                {
+                            {                              
                                     Navigation.PushAsync(new Materijali());
-                                    Global.prijavljeniKorisnik = k;
-                                }
-                                else
-                                    DisplayAlert("Upozorenje!", "Nemate pravo pristupa ovom dijelu sistema!", "OK");
+                                    Global.prijavljeniKorisnik = k;                               
                             }
-                        }
-                    }
-                    else
-                    {
-                        DisplayAlert("Upozorenje!", "Korisničko ime ili lozinka nisu validni!", "OK");
-                    }
+                        else
+                        {
+                            DisplayAlert("Upozorenje!", "Korisničko ime ili lozinka nisu validni!", "OK");
+                        }                    
+                    }                    
                 }
                 else
                 {

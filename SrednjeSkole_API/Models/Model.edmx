@@ -1629,6 +1629,7 @@
           <Property Type="Int32" Name="PredmetId" Nullable="false" />
           <Property Type="Int32" Name="NastavnikId" Nullable="false" />
           <Property Type="String" Name="nastavnik" Nullable="true" />
+          <Property Type="String" Name="detalji" Nullable="true" />
         </ComplexType>
         <ComplexType Name="Uloga_Result">
           <Property Type="Int32" Name="UlogaId" Nullable="false" />
@@ -1940,6 +1941,7 @@
                 <ScalarProperty Name="PredmetId" ColumnName="PredmetId" />
                 <ScalarProperty Name="NastavnikId" ColumnName="NastavnikId" />
                 <ScalarProperty Name="nastavnik" ColumnName="nastavnik" />
+                <ScalarProperty Name="detalji" ColumnName="detalji" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

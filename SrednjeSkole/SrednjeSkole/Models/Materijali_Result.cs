@@ -16,5 +16,6 @@ namespace SrednjeSkole.Models
         public int PredmetId { get; set; }
         public int NastavnikId { get; set; }
         public string nastavnik { get; set; }
+        public string detalji { get; set; }
     }
 }

@@ -78,7 +78,7 @@ namespace SrednjeSkole
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonResult = response.Content.ReadAsStringAsync();
-                    materijali = JsonConvert.DeserializeObject<ObservableCollection<Materijali_Result>>(jsonResult.Result);
+                    materijali = JsonConvert.DeserializeObject<ObservableCollection<Materijali_Result>>(jsonResult.Result);                    
                     materijaliList.ItemsSource = materijali;                    
                 }
                 else

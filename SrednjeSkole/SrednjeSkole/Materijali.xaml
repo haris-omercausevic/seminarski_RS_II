@@ -8,30 +8,29 @@
             <Picker Title="Odabreite predmet" x:Name="predmetiPicker" SelectedIndexChanged="predmetiPicker_SelectedIndexChanged"/>
         </StackLayout>
 
-        <StackLayout Padding="20">
-            <ListView x:Name="materijaliList" VerticalOptions="Start" ItemTapped="materijaliList_ItemTapped">
+        <StackLayout Margin="20" Padding="10" VerticalOptions="StartAndExpand">
+            <ListView x:Name="materijaliList" ItemTapped="materijaliList_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <ViewCell.ContextActions>
-                                <MenuItem Text="Preuzmi" Clicked="preuzmi_Clicked"  CommandParameter="{Binding .}"/>
+                        <ViewCell.ContextActions>
+                                <ToolbarItem Text="Preuzmi" Clicked="preuzmi_Clicked"  CommandParameter="{Binding .}"/>
                                 <ToolbarItem Text="Ocijeni" Clicked="addOcjena_Clicked" CommandParameter="{Binding .}"/>
                             </ViewCell.ContextActions>
-                            <StackLayout Padding="10">
-                                    <Label Text="{Binding Naziv}" FontAttributes="Bold"/>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding Datum}"/>
-                                    <Label Text="{Binding nastavnik}"/>
-                                </StackLayout>
+
+                            <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+                                <Label Text="{Binding Naziv}" FontAttributes="Bold"/>
+                                <Label Text="{Binding detalji}" HorizontalOptions="Start"/>
+                                <!--<Label Text="{Binding Datum}" HorizontalOptions="StartAndExpand"/>-->
                             </StackLayout>
-                            
+
                             <!--<StackLayout Orientation="Horizontal" Padding="5">-->
-                                <!--<StackLayout x:Name="stekItem" HorizontalOptions="Start">
+                            <!--<StackLayout x:Name="stekItem" HorizontalOptions="Start">
                                     <Label Text="{Binding Naziv}"/>
                                     <Label x:Name="ocijeniLabel" Text="{Binding DateCreated}" IsVisible="False"/>
                                 </StackLayout>-->
 
-                                <!--<Image x:Name="downloadIcon" Source="download_icon.png">
+                            <!--<Image x:Name="downloadIcon" Source="download_icon.png">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="downloadIcon_Tapped"/>
                                     </Image.GestureRecognizers>

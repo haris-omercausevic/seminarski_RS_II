@@ -20,8 +20,8 @@
 
 
 
-    <StackLayout>
-        <StackLayout>
+    <StackLayout Margin="20" >
+        <StackLayout Padding="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -35,15 +35,15 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0" Grid.Column="1" x:Name="nazivMaterijalaLabel"/>
-                <Label Grid.Row="1" Grid.Column="1" x:Name="nastavnikLabel"/>
-                <Label Grid.Row="2" Grid.Column="1" x:Name="datumLabel"/>
+                <Label Grid.Row="0" Grid.Column="1" x:Name="nazivMaterijalaLabel" HorizontalTextAlignment="Center" FontAttributes="Bold"/>                
+                <Label Grid.Row="1" Grid.Column="1" x:Name="nastavnikLabel" HorizontalTextAlignment="Center"/>
+                <Label Grid.Row="2" Grid.Column="1" x:Name="datumLabel" HorizontalTextAlignment="Center"/>
             </Grid>
         </StackLayout>
         
         
         
-        <Label Text="Ocijeni materijal"/>
+        <Label Text="Ocijeni materijal" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"/>
         <StackLayout Orientation="Horizontal" HeightRequest="70">
             <Grid>
                 <Grid.Behaviors>
