@@ -16,8 +16,8 @@ namespace SrednjeSkole
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
-        private WebAPIHelper korisniciService = new WebAPIHelper(Global.APIAddres, "api/Korisnici");
-        private WebAPIHelper ulogeService = new WebAPIHelper(Global.APIAddres, "api/Uloge");
+        private WebAPIHelper korisniciService = new WebAPIHelper(Xamarin.Forms.Application.Current.Resources["APIAddress"].ToString(), "api/Korisnici");
+        private WebAPIHelper ulogeService = new WebAPIHelper(Xamarin.Forms.Application.Current.Resources["APIAddress"].ToString(), "api/Uloge");
 
         public Login()
         {

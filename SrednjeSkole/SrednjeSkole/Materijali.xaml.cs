@@ -28,8 +28,8 @@ namespace SrednjeSkole
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Materijali : ContentPage
     {
-        private WebAPIHelper materijaliService = new WebAPIHelper(Global.APIAddres, "api/Materijali");
-        private WebAPIHelper predmetiService = new WebAPIHelper(Global.APIAddres, "api/Predmeti");
+        private WebAPIHelper materijaliService = new WebAPIHelper(Xamarin.Forms.Application.Current.Resources["APIAddress"].ToString(), "api/Materijali");
+        private WebAPIHelper predmetiService = new WebAPIHelper(Xamarin.Forms.Application.Current.Resources["APIAddress"].ToString(), "api/Predmeti");
         private List<Predmeti> predmeti = new List<Predmeti>();
         private ObservableCollection<Materijali_Result> materijali = new ObservableCollection<Materijali_Result>();
         private int predmetIndex;
@@ -107,7 +107,8 @@ namespace SrednjeSkole
 
         private void materijaliList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            Materijali_Result materijal = e.Item as Materijali_Result;
+            var materijalItem = e.Item as Materijali_Result;
+            this.Navigation.PushAsync(new OcijeniMaterijal(materijalItem));
         }
 
         private void preuzmi_Clicked(object sender, EventArgs e)
@@ -119,11 +120,9 @@ namespace SrednjeSkole
         }
         private void addOcjena_Clicked(object sender, EventArgs e)
         {
-
             var preuzmiIcon = sender as MenuItem;
             var materijalItem = preuzmiIcon.CommandParameter as Materijali_Result;
             this.Navigation.PushAsync(new OcijeniMaterijal(materijalItem));
-            DisplayAlert("Call", materijalItem.Naziv, "OK");
         }
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)

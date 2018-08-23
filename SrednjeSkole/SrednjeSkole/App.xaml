@@ -3,6 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SrednjeSkole.App">
     <Application.Resources>
-
+        <x:String x:Key="APIAddress">https://srednjeskoleapi20180818082926.azurewebsites.net</x:String>
     </Application.Resources>
 </Application>
