@@ -216,6 +216,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\ExceptionFilter.cs" />
     <Compile Include="Util\ExceptionHandler.cs" />
+    <Compile Include="Util\UIHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\Model.edmx">
