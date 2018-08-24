@@ -87,11 +87,11 @@
             // 
             this.upravljanjeKorisnicimaLabel.AutoSize = true;
             this.upravljanjeKorisnicimaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(192)))), ((int)(((byte)(60)))));
-            this.upravljanjeKorisnicimaLabel.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upravljanjeKorisnicimaLabel.Font = new System.Drawing.Font("Forte", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.upravljanjeKorisnicimaLabel.LinkColor = System.Drawing.Color.White;
-            this.upravljanjeKorisnicimaLabel.Location = new System.Drawing.Point(93, 186);
+            this.upravljanjeKorisnicimaLabel.Location = new System.Drawing.Point(87, 179);
             this.upravljanjeKorisnicimaLabel.Name = "upravljanjeKorisnicimaLabel";
-            this.upravljanjeKorisnicimaLabel.Size = new System.Drawing.Size(309, 24);
+            this.upravljanjeKorisnicimaLabel.Size = new System.Drawing.Size(288, 30);
             this.upravljanjeKorisnicimaLabel.TabIndex = 9;
             this.upravljanjeKorisnicimaLabel.TabStop = true;
             this.upravljanjeKorisnicimaLabel.Text = "Upravljanje korisnicima";
@@ -102,11 +102,11 @@
             // 
             this.dodajUcenikaLabel.AutoSize = true;
             this.dodajUcenikaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.dodajUcenikaLabel.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dodajUcenikaLabel.Font = new System.Drawing.Font("Forte", 20.25F);
             this.dodajUcenikaLabel.LinkColor = System.Drawing.Color.White;
             this.dodajUcenikaLabel.Location = new System.Drawing.Point(147, 418);
             this.dodajUcenikaLabel.Name = "dodajUcenikaLabel";
-            this.dodajUcenikaLabel.Size = new System.Drawing.Size(179, 24);
+            this.dodajUcenikaLabel.Size = new System.Drawing.Size(180, 30);
             this.dodajUcenikaLabel.TabIndex = 9;
             this.dodajUcenikaLabel.TabStop = true;
             this.dodajUcenikaLabel.Text = "Dodaj učenika";
@@ -116,11 +116,11 @@
             // 
             this.dodajNastavnikaLabel.AutoSize = true;
             this.dodajNastavnikaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
-            this.dodajNastavnikaLabel.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dodajNastavnikaLabel.Font = new System.Drawing.Font("Forte", 20.25F);
             this.dodajNastavnikaLabel.LinkColor = System.Drawing.Color.White;
-            this.dodajNastavnikaLabel.Location = new System.Drawing.Point(564, 418);
+            this.dodajNastavnikaLabel.Location = new System.Drawing.Point(578, 418);
             this.dodajNastavnikaLabel.Name = "dodajNastavnikaLabel";
-            this.dodajNastavnikaLabel.Size = new System.Drawing.Size(218, 24);
+            this.dodajNastavnikaLabel.Size = new System.Drawing.Size(218, 30);
             this.dodajNastavnikaLabel.TabIndex = 9;
             this.dodajNastavnikaLabel.TabStop = true;
             this.dodajNastavnikaLabel.Text = "Dodaj nastavnika";
@@ -130,11 +130,11 @@
             // 
             this.evidencijeLabel.AutoSize = true;
             this.evidencijeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(172)))), ((int)(((byte)(192)))));
-            this.evidencijeLabel.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.evidencijeLabel.Font = new System.Drawing.Font("Forte", 20.25F);
             this.evidencijeLabel.LinkColor = System.Drawing.Color.White;
             this.evidencijeLabel.Location = new System.Drawing.Point(598, 186);
             this.evidencijeLabel.Name = "evidencijeLabel";
-            this.evidencijeLabel.Size = new System.Drawing.Size(140, 24);
+            this.evidencijeLabel.Size = new System.Drawing.Size(127, 30);
             this.evidencijeLabel.TabIndex = 9;
             this.evidencijeLabel.TabStop = true;
             this.evidencijeLabel.Text = "Evidencije";
@@ -161,6 +161,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Srednje škole :: Admin";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.upravljanjeKorisnicimaPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dodajUcenikaPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dodajNastavnikaPictureBox)).EndInit();

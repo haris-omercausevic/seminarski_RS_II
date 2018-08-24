@@ -81,6 +81,7 @@ namespace SrednjeSkole_UI
             f.Show();
         }
 
+        
         private void dodajUcenikaLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Users.AddUcenik f = new Users.AddUcenik();
@@ -101,6 +102,11 @@ namespace SrednjeSkole_UI
             SendPicturesToBack();
             f.BringToFront();
             f.Show();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

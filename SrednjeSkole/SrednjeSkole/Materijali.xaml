@@ -4,7 +4,7 @@
              x:Class="SrednjeSkole.Materijali">
     <StackLayout x:Name="layout" HorizontalOptions="Center">
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="20">
-            <Picker Title="Odaberite razred" x:Name="razrediPicker" SelectedIndexChanged="razrediPicker_SelectedIndexChanged" />
+            <Picker Title="Odaberite razred" x:Name="razrediPicker" HorizontalOptions="Start" SelectedIndexChanged="razrediPicker_SelectedIndexChanged" />
             <Picker Title="Odabreite predmet" x:Name="predmetiPicker" SelectedIndexChanged="predmetiPicker_SelectedIndexChanged"/>
         </StackLayout>
 

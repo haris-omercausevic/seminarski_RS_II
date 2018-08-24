@@ -225,5 +225,14 @@
   <ItemGroup>
     <None Include="Resources\razredi_smjerovi_predmeti.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\razredi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smjerovi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\predmeti.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

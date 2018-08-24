@@ -31,9 +31,12 @@ namespace SrednjeSkole_UI.Evidencije
         {
             BindSkolskeGodine();
             BindPredmeti();
+
         }
         private void BindSkolskeGodine()
         {
+            Cursor.Current = Cursors.WaitCursor;
+
             HttpResponseMessage response = skolskeGodineService.GetResponse();
 
             if (response.IsSuccessStatusCode)
@@ -43,9 +46,13 @@ namespace SrednjeSkole_UI.Evidencije
                 skolskaGodinaCmb.ValueMember = "SkolskaGodinaId";
                 skolskaGodinaCmb.SelectedValue = "";
             }
+            Cursor.Current = Cursors.Default;
+
         }
         private void BindPredmeti()
         {
+            Cursor.Current = Cursors.WaitCursor;
+
             HttpResponseMessage response = predmetiService.GetResponse();
             if (response.IsSuccessStatusCode)
             {
@@ -54,6 +61,8 @@ namespace SrednjeSkole_UI.Evidencije
                 predmetiList.ValueMember = "PredmetId";
                 predmetiList.ClearSelected();
             }
+            Cursor.Current = Cursors.Default;
+
         }
 
         private void dodajBtn_Click(object sender, EventArgs e)

@@ -31,6 +31,8 @@ namespace SrednjeSkole_UI.Users
 
         private void IndexForm_Load(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
+
             HttpResponseMessage response = ulogeService.GetResponse();
 
             if (response.IsSuccessStatusCode)
@@ -45,6 +47,8 @@ namespace SrednjeSkole_UI.Users
         }
         private void BindGrid()
         {
+            Cursor.Current = Cursors.WaitCursor;
+
             Uloge temp2 = ulogaCmb.SelectedItem as Uloge;
             string uloga = "";
             if (temp2 != null)
@@ -64,7 +68,8 @@ namespace SrednjeSkole_UI.Users
                 MessageBox.Show("Error Code" +
                 response.StatusCode + " : Message - " + response.ReasonPhrase);
             }
-            
+            Cursor.Current = Cursors.Default;
+
         }
 
         private void traziBtn_Click(object sender, EventArgs e)
@@ -90,10 +95,13 @@ namespace SrednjeSkole_UI.Users
             //    temp[i] = temp[i].Replace(" ", "");
             //}
             //List<Uloge> returnList = JsonConvert.DeserializeObject<List<Uloge>>(korisniciGrid.SelectedRows[0].Cells[5].Value.ToString());   
-
-            EditKorisnik frm = new EditKorisnik(Convert.ToInt32(korisniciGrid.SelectedRows[0].Cells[0].Value));
-            frm.ShowDialog();
-            BindGrid();
+            if (korisniciGrid.SelectedRows.Count != 0)
+            {
+                EditKorisnik frm = new EditKorisnik(Convert.ToInt32(korisniciGrid?.SelectedRows[0]?.Cells[0]?.Value));
+                frm.ShowDialog();
+                BindGrid();
+            }
+                
         }
     }
 }

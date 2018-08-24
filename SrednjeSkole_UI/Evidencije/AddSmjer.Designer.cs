@@ -165,7 +165,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.opisInput);
             this.Controls.Add(this.nazivInput);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddSmjer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodaj smjer";
             this.Load += new System.EventHandler(this.AddSmjer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

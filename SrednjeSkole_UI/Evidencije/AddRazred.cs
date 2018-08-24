@@ -76,6 +76,8 @@ namespace SrednjeSkole_UI.Evidencije
         #region Binds
         public void BindSkolskeGodine()
         {
+            Cursor.Current = Cursors.WaitCursor;
+
             HttpResponseMessage response = skolskeGodineService.GetResponse();
 
             if (response.IsSuccessStatusCode)
@@ -85,9 +87,13 @@ namespace SrednjeSkole_UI.Evidencije
                 skolskaGodinaCmb.ValueMember = "SkolskaGodinaId";
                 skolskaGodinaCmb.SelectedValue = "";
             }
+            Cursor.Current = Cursors.Default;
+
         }
         public void BindSmjerovi()
         {
+            Cursor.Current = Cursors.WaitCursor;
+
             HttpResponseMessage response = smjeroviService.GetResponse();
 
             if (response.IsSuccessStatusCode)
@@ -97,9 +103,13 @@ namespace SrednjeSkole_UI.Evidencije
                 smjerCmb.ValueMember = "SmjerId";
                 smjerCmb.SelectedValue = "";
             }
+            Cursor.Current = Cursors.Default;
+
         }
         public void BindNastavnici()
         {
+            Cursor.Current = Cursors.WaitCursor;
+
             HttpResponseMessage response = nastavniciService.GetResponse();
 
             if (response.IsSuccessStatusCode)
@@ -118,6 +128,8 @@ namespace SrednjeSkole_UI.Evidencije
                 // Get combobox selection (in handler)
                 //string value = ((KeyValuePair<string, string>)skolskaGodinaCmb.SelectedItem).Value;
             }
+            Cursor.Current = Cursors.Default;
+
         }
         #endregion
 

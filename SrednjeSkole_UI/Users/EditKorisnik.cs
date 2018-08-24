@@ -26,6 +26,8 @@ namespace SrednjeSkole_UI.Users
         {
             InitializeComponent();
             this.AutoValidate = AutoValidate.Disable;
+            Cursor.Current = Cursors.WaitCursor;
+
             HttpResponseMessage response = korisniciService.GetActionResponse("ById", korisnikId.ToString());
 
 
@@ -66,6 +68,8 @@ namespace SrednjeSkole_UI.Users
 
         private void FillForm()
         {
+            Cursor.Current = Cursors.WaitCursor;
+
             HttpResponseMessage response = ulogeService.GetResponse();
 
             if (response.IsSuccessStatusCode)
@@ -88,6 +92,8 @@ namespace SrednjeSkole_UI.Users
                 if (k.Uloge.Any(x => x.UlogaId == sveUloge[i].UlogaId))
                     ulogeList.SetItemChecked(i, true);
             }
+            Cursor.Current = Cursors.Default;
+
         }
 
 

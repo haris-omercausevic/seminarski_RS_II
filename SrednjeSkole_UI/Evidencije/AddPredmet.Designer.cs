@@ -124,6 +124,7 @@
             this.Controls.Add(this.oznakaInput);
             this.Controls.Add(this.nazivInput);
             this.Name = "AddPredmet";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodaj predmet";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);

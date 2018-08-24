@@ -36,6 +36,11 @@ namespace SrednjeSkole_UI.Users
         }
         private void AddUcenik_Load(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
+            BindSmjerovi();
+            BindRazredi();
+            Cursor.Current = Cursors.Default;
+
         }
         private void BindSmjerovi()
         {

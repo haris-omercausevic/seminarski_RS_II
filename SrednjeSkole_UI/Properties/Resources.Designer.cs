@@ -83,6 +83,16 @@ namespace SrednjeSkole_UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap predmeti {
+            get {
+                object obj = ResourceManager.GetObject("predmeti", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pregledKorisnika {
             get {
                 object obj = ResourceManager.GetObject("pregledKorisnika", resourceCulture);
@@ -93,9 +103,29 @@ namespace SrednjeSkole_UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap razredi {
+            get {
+                object obj = ResourceManager.GetObject("razredi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap razredi_smjerovi_predmeti {
             get {
                 object obj = ResourceManager.GetObject("razredi_smjerovi_predmeti", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap smjerovi {
+            get {
+                object obj = ResourceManager.GetObject("smjerovi", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
