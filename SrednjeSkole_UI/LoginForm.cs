@@ -26,6 +26,7 @@ namespace SrednjeSkole_UI
 
         private void prijavaBtn_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             HttpResponseMessage response = korisniciService.GetActionResponse("ByUsername", korisnickoImeInput.Text);
             if (response.IsSuccessStatusCode)
             {
@@ -58,8 +59,12 @@ namespace SrednjeSkole_UI
                     MessageBox.Show("Korisničko ime ili lozinka nisu validni!", "Upozorenje!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+            else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                MessageBox.Show("Korisničko ime ili lozinka nisu validni!", "Upozorenje!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
                 MessageBox.Show("Error code: " + response.StatusCode + "Message: " + response.ReasonPhrase);
+
+            Cursor.Current = Cursors.Default;
         }
 
         private void odustaniBtn_Click(object sender, EventArgs e)
