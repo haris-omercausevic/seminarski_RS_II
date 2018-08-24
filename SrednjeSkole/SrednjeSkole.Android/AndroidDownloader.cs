@@ -24,17 +24,14 @@ namespace SrednjeSkole.Droid
 
         public void DownloadFile(string url, string fileName)
         {
-            string pathToNewFolder = Path.Combine
-                                 (Android.OS.Environment.GetExternalStoragePublicDirectory
-                                         (Android.OS.Environment.DirectoryDownloads).AbsolutePath, 
-                                                Global.imeFajla);
-            Directory.CreateDirectory(pathToNewFolder);
-
             try
             {
                 WebClient webClient = new WebClient();
                 webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
-                string pathToNewFile = Path.Combine(pathToNewFolder, Path.GetFileName(url));
+                string pathToNewFile = Path.Combine
+                                 (Android.OS.Environment.GetExternalStoragePublicDirectory
+                                         (Android.OS.Environment.DirectoryDownloads).AbsolutePath,
+                                                Global.imeFajla);
                 webClient.DownloadFileAsync(new Uri(url), pathToNewFile);
             }
             catch (Exception ex)

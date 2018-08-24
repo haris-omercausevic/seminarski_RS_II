@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.upravljanjeKorisnicimaPictureBox = new System.Windows.Forms.PictureBox();
             this.dodajUcenikaPictureBox = new System.Windows.Forms.PictureBox();
@@ -154,6 +155,7 @@
             this.Controls.Add(this.dodajUcenikaPictureBox);
             this.Controls.Add(this.upravljanjeKorisnicimaPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

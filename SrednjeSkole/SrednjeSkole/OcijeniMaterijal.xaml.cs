@@ -15,33 +15,47 @@ namespace SrednjeSkole
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OcijeniMaterijal : ContentPage
     {
-        private IDownloadFile _downloadFile;
-        private bool _isDownloading, _downloadigFlag = false;
+        //private IDownloadFile _downloadFile;
+        //private bool _isDownloading, _downloadigFlag = false;
         private Materijali_Result _materijal;
+        IDownloader downloader = DependencyService.Get<IDownloader>();
 
         public OcijeniMaterijal(Materijali_Result materijal)
         {
             InitializeComponent();
+            downloader.OnFileDownloaded += OnFileDownloaded;
 
             _materijal = materijal;
-            CrossDownloadManager.Current.CollectionChanged += (sender, e) =>
-              System.Diagnostics.Debug.WriteLine(
-                  "[DownloadManager] " + e.Action +
-                  " -> New items: " + (e.NewItems?.Count ?? 0) +
-                  " at " + e.NewStartingIndex +
-                  " || Old items: " + (e.OldItems?.Count ?? 0) +
-                  " at " + e.OldStartingIndex
-              );
+            //CrossDownloadManager.Current.CollectionChanged += (sender, e) =>
+            //  System.Diagnostics.Debug.WriteLine(
+            //      "[DownloadManager] " + e.Action +
+            //      " -> New items: " + (e.NewItems?.Count ?? 0) +
+            //      " at " + e.NewStartingIndex +
+            //      " || Old items: " + (e.OldItems?.Count ?? 0) +
+            //      " at " + e.OldStartingIndex
+            //  );
             nazivMaterijalaLabel.Text = materijal.Naziv;
             datumLabel.Text = materijal.Datum;
             nastavnikLabel.Text = materijal.nastavnik;
         }
+        private void OnFileDownloaded(object sender, DownloadEventArgs e)
+        {
+            if (e.FileSaved)
+            {
+                DisplayAlert("XF Downloader", "File Saved Successfully", "Close");
+            }
+            else
+            {
+                DisplayAlert("XF Downloader", "Error while saving the file", "Close");
+            }
+        }
 
         private void downloadImage_Tapped(object sender, EventArgs e)
         {
-            DownloadMaterijal(_materijal.Url, _materijal.Naziv);
+            downloader.DownloadFile(_materijal.Url, _materijal.Naziv);
 
-            //downloader.DownloadFile(item.Url, "SrednjeSkole_Downloads");
+            //DownloadMaterijal(_materijal.Url, _materijal.Naziv);
+            //downloader.DownloadFile(_materijal.Url, _materijal.Naziv);
         }
 
         public void InitializeDownload(string url)
@@ -56,36 +70,35 @@ namespace SrednjeSkole
         }
         public async void DownloadMaterijal(string url, string naziv)
         {
-            await Task.Yield();
-            try
-            {
-                await Task.Run(() =>
-                {
-                        var downloadManager = CrossDownloadManager.Current;
-                        _downloadFile = downloadManager.CreateDownloadFile(url);
-                        Global.imeFajla = naziv;
-                        downloadManager.Start(_downloadFile, true);
+            //await Task.Yield();
+            //try
+            //{
+            //    await Task.Run(() =>
+            //    {
+            //            var downloadManager = CrossDownloadManager.Current;
+            //            _downloadFile = downloadManager.CreateDownloadFile(url);
+            //            Global.imeFajla = naziv;
+            //            downloadManager.Start(_downloadFile, true);
 
-                        while (_isDownloading)
-                            _isDownloading = IsDownloading(_downloadFile);
-                });
+            //            while (_isDownloading)
+            //                _isDownloading = IsDownloading(_downloadFile);
+            //    });
 
-                if (!_isDownloading)
-                {
-                    await DisplayAlert("Info", "Materijal je uspješno preuzet", "OK");
-                    _downloadigFlag = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("greska", ex.Message, "OK");
-            }
-
+            //    if (!_isDownloading)
+            //    {
+            //        await DisplayAlert("Info", "Materijal je uspješno preuzet", "OK");
+            //        _downloadigFlag = false;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    await DisplayAlert("greska", ex.Message, "OK");
+            //}    
         }
 
         public void AbortDownloading()
         {
-            CrossDownloadManager.Current.Abort(_downloadFile);
+            //CrossDownloadManager.Current.Abort(_downloadFile);
         }
 
         public bool IsDownloading(IDownloadFile file)

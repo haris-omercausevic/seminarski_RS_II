@@ -12,6 +12,8 @@ using System.IO;
 using Plugin.DownloadManager.Abstractions;
 using System.Linq;
 
+using Android.Util;
+
 namespace SrednjeSkole.Droid
 {
     [Activity(Label = "SrednjeSkole", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -35,9 +37,14 @@ namespace SrednjeSkole.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
-            InitDownloadManager();
+            //InitDownloadManager();
 
             base.OnCreate(savedInstanceState);
+
+            // This MobileServiceClient has been configured to communicate with the Azure Mobile App and
+            // Azure Gateway using the application url. You're all set to start working with your Mobile App!
+            Microsoft.WindowsAzure.MobileServices.MobileServiceClient SrednjeSkoleAppClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+            "https://srednjeskoleapp.azurewebsites.net");
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }

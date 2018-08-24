@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "983284359595",
+    "firebase_url": "https://srednjeskoleapp.firebaseio.com",
+    "project_id": "srednjeskoleapp",
+    "storage_bucket": "srednjeskoleapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983284359595:android:b8f13898014d8d01",
+        "android_client_info": {
+          "package_name": "com.fit.srednjeskole"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "983284359595-4l3e7un7h4gjncmjc9uevo96322ta8id.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUA8dIlE712kVnbtZwHJlLXmKae5mi268"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
