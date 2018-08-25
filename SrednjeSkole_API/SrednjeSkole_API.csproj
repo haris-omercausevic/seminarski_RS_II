@@ -111,6 +111,7 @@
     <Compile Include="Controllers\KorisniciController.cs" />
     <Compile Include="Controllers\MaterijaliController.cs" />
     <Compile Include="Controllers\NastavniciController.cs" />
+    <Compile Include="Controllers\ObavijestiController.cs" />
     <Compile Include="Controllers\PredmetiController.cs" />
     <Compile Include="Controllers\RazrediController.cs" />
     <Compile Include="Controllers\SkolskeGodineController.cs" />
@@ -170,6 +171,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Obavijesti.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Obavijesti_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Predaje.cs">

@@ -341,5 +341,62 @@ namespace SrednjeSkole_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Uloga_Result>("ssp_Uloge_GetByKorisnikId", korisnikIdParameter);
         }
+    
+        public virtual ObjectResult<Obavijesti_Result> ssp_Obavijesti_GetById(Nullable<int> obavijestId)
+        {
+            var obavijestIdParameter = obavijestId.HasValue ?
+                new ObjectParameter("ObavijestId", obavijestId) :
+                new ObjectParameter("ObavijestId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Obavijesti_Result>("ssp_Obavijesti_GetById", obavijestIdParameter);
+        }
+    
+        public virtual int ssp_Obavijesti_Insert(string naslov, string tekst, Nullable<int> korisnikId)
+        {
+            var naslovParameter = naslov != null ?
+                new ObjectParameter("Naslov", naslov) :
+                new ObjectParameter("Naslov", typeof(string));
+    
+            var tekstParameter = tekst != null ?
+                new ObjectParameter("Tekst", tekst) :
+                new ObjectParameter("Tekst", typeof(string));
+    
+            var korisnikIdParameter = korisnikId.HasValue ?
+                new ObjectParameter("KorisnikId", korisnikId) :
+                new ObjectParameter("KorisnikId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_Obavijesti_Insert", naslovParameter, tekstParameter, korisnikIdParameter);
+        }
+    
+        public virtual ObjectResult<Obavijesti_Result> ssp_Obavijesti_Pretraga(string naslov)
+        {
+            var naslovParameter = naslov != null ?
+                new ObjectParameter("naslov", naslov) :
+                new ObjectParameter("naslov", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Obavijesti_Result>("ssp_Obavijesti_Pretraga", naslovParameter);
+        }
+    
+        public virtual ObjectResult<Obavijesti_Result> ssp_Obavijesti_SelectAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Obavijesti_Result>("ssp_Obavijesti_SelectAll");
+        }
+    
+        public virtual int ssp_Obavijesti_Update(Nullable<int> obavijestId, string naslov, string tekst)
+        {
+            var obavijestIdParameter = obavijestId.HasValue ?
+                new ObjectParameter("ObavijestId", obavijestId) :
+                new ObjectParameter("ObavijestId", typeof(int));
+    
+            var naslovParameter = naslov != null ?
+                new ObjectParameter("Naslov", naslov) :
+                new ObjectParameter("Naslov", typeof(string));
+    
+            var tekstParameter = tekst != null ?
+                new ObjectParameter("Tekst", tekst) :
+                new ObjectParameter("Tekst", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_Obavijesti_Update", obavijestIdParameter, naslovParameter, tekstParameter);
+        }
     }
 }

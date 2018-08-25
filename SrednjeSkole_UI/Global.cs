@@ -12,7 +12,6 @@ namespace SrednjeSkole_UI
         public static Korisnici prijavljeniKorisnik { get; set; }
 
         #region API Routes
-
         public const string KorisniciRoute = "api/Korisnici";
         public const string UceniciRoute = "api/Ucenici";
         public const string NastavniciRoute = "api/Nastavnici";
@@ -21,9 +20,7 @@ namespace SrednjeSkole_UI
         public const string SmjeroviRoute= "api/Smjerovi";
         public const string RazrediRoute = "api/Razredi";
         public const string SkolskeGodineRoute = "api/SkolskeGodine";
-
-
-
+        public const string ObavijestiRoute = "api/Obavijesti";
 
         #endregion
     }

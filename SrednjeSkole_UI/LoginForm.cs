@@ -43,6 +43,8 @@ namespace SrednjeSkole_UI
                             ulogeValidne = true;
                         else if (item.Naziv == "Administrator")
                             ulogeValidne = true;
+                        else if (item.Naziv == "Nastavnik")
+                            ulogeValidne = true;
                     }
                     if (ulogeValidne == true)
                     {
