@@ -43,7 +43,6 @@ namespace SrednjeSkole_UI.Users
                 ulogaCmb.SelectedValue = "";
             }
             BindGrid();
-
         }
         private void BindGrid()
         {

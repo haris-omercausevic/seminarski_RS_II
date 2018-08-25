@@ -13,7 +13,7 @@ using SrednjeSkole_API.Models;
 using SrednjeSkole_UI.Util;
 
 
-namespace SrednjeSkole_UI.Obavjestenja
+namespace SrednjeSkole_UI.ObavijestiNS
 {
     public partial class IndexForm : Form
     {
@@ -35,7 +35,6 @@ namespace SrednjeSkole_UI.Obavjestenja
             Cursor.Current = Cursors.WaitCursor;
 
             HttpResponseMessage response = obavijestiService.GetActionResponse("Pretraga", naslovInput.Text);
-            //client.GetAsync(Global.KorisniciRoute + "/" + "Pretraga" + "?" + "ime=" + k.Ime + "&prezime=" + k.Prezime + "&ulogaId=" + k.UlogaId).Result;
 
             if (response.IsSuccessStatusCode)
             {

@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SrednjeSkole_UI.Obavjestenja
+namespace SrednjeSkole_UI.ObavijestiNS
 {
     public partial class EditObavijest : Form
     {

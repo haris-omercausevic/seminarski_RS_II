@@ -1,4 +1,4 @@
-﻿namespace SrednjeSkole_UI.Razredi
+﻿namespace SrednjeSkole_UI.RazrediNS
 {
     partial class IndexForm
     {

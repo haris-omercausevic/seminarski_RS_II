@@ -40,16 +40,25 @@ namespace SrednjeSkole_UI
                     foreach (var item in k.Uloge)
                     {
                         if (item.Naziv == "SuperAdministrator")
+                        {
                             ulogeValidne = true;
-                        else if (item.Naziv == "Administrator")
+                            Global.brojUloga++;
+                        }
+                        if (item.Naziv == "Administrator")
+                        {
                             ulogeValidne = true;
-                        else if (item.Naziv == "Nastavnik")
+                            Global.brojUloga++;
+                        }
+                        if (item.Naziv == "Nastavnik")
+                        {
                             ulogeValidne = true;
+                            Global.brojUloga++;
+                        }
                     }
                     if (ulogeValidne == true)
                     {
                         MessageBox.Show("Dobrodošli " + k.Ime + " " + k.Prezime);
-                        Global.prijavljeniKorisnik = k;
+                        Global.prijavljeniKorisnik = k;                       
                         DialogResult = DialogResult.OK;
                         Close();
                     }

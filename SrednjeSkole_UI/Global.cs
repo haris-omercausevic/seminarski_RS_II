@@ -10,6 +10,7 @@ namespace SrednjeSkole_UI
     public static class Global
     {
         public static Korisnici prijavljeniKorisnik { get; set; }
+        public static int brojUloga = 0;
 
         #region API Routes
         public const string KorisniciRoute = "api/Korisnici";

@@ -1,4 +1,4 @@
-﻿namespace SrednjeSkole_UI.Obavjestenja
+﻿namespace SrednjeSkole_UI.ObavijestiNS
 {
     partial class EditObavijest
     {
@@ -41,7 +41,7 @@
             // sacuvajBtn
             // 
             this.sacuvajBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sacuvajBtn.Location = new System.Drawing.Point(465, 401);
+            this.sacuvajBtn.Location = new System.Drawing.Point(465, 380);
             this.sacuvajBtn.Name = "sacuvajBtn";
             this.sacuvajBtn.Size = new System.Drawing.Size(75, 23);
             this.sacuvajBtn.TabIndex = 7;
@@ -75,7 +75,7 @@
             this.tekstInput.Location = new System.Drawing.Point(95, 67);
             this.tekstInput.Multiline = true;
             this.tekstInput.Name = "tekstInput";
-            this.tekstInput.Size = new System.Drawing.Size(445, 298);
+            this.tekstInput.Size = new System.Drawing.Size(414, 298);
             this.tekstInput.TabIndex = 3;
             this.tekstInput.Validating += new System.ComponentModel.CancelEventHandler(this.tekstInput_Validating);
             // 
@@ -96,13 +96,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 450);
+            this.ClientSize = new System.Drawing.Size(565, 415);
             this.Controls.Add(this.sacuvajBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tekstInput);
             this.Controls.Add(this.naslovInput);
             this.Name = "EditObavijest";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditObavijest";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);

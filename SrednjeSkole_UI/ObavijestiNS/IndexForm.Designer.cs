@@ -1,4 +1,4 @@
-﻿namespace SrednjeSkole_UI.Obavjestenja
+﻿namespace SrednjeSkole_UI.ObavijestiNS
 {
     partial class IndexForm
     {
@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.obavijestiGrid = new System.Windows.Forms.DataGridView();
+            this.ObavijestId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Naslov = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Objavio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.izmijeniBtn = new System.Windows.Forms.Button();
             this.novaObavijestBtn = new System.Windows.Forms.Button();
             this.traziBtn = new System.Windows.Forms.Button();
             this.naslovInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.ObavijestId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Naslov = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Objavio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.obavijestiGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,16 +52,45 @@
             this.Objavio,
             this.Datum});
             this.obavijestiGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.obavijestiGrid.Location = new System.Drawing.Point(0, 75);
+            this.obavijestiGrid.Location = new System.Drawing.Point(0, 69);
             this.obavijestiGrid.Name = "obavijestiGrid";
             this.obavijestiGrid.ReadOnly = true;
             this.obavijestiGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.obavijestiGrid.Size = new System.Drawing.Size(692, 346);
+            this.obavijestiGrid.Size = new System.Drawing.Size(891, 346);
             this.obavijestiGrid.TabIndex = 17;
+            // 
+            // ObavijestId
+            // 
+            this.ObavijestId.DataPropertyName = "ObavijestId";
+            this.ObavijestId.HeaderText = "Id";
+            this.ObavijestId.Name = "ObavijestId";
+            this.ObavijestId.ReadOnly = true;
+            this.ObavijestId.Visible = false;
+            // 
+            // Naslov
+            // 
+            this.Naslov.DataPropertyName = "Naslov";
+            this.Naslov.HeaderText = "Naslov";
+            this.Naslov.Name = "Naslov";
+            this.Naslov.ReadOnly = true;
+            // 
+            // Objavio
+            // 
+            this.Objavio.DataPropertyName = "Objavio";
+            this.Objavio.HeaderText = "Objavio";
+            this.Objavio.Name = "Objavio";
+            this.Objavio.ReadOnly = true;
+            // 
+            // Datum
+            // 
+            this.Datum.DataPropertyName = "Datum";
+            this.Datum.HeaderText = "Datum";
+            this.Datum.Name = "Datum";
+            this.Datum.ReadOnly = true;
             // 
             // izmijeniBtn
             // 
-            this.izmijeniBtn.Location = new System.Drawing.Point(490, 20);
+            this.izmijeniBtn.Location = new System.Drawing.Point(597, 20);
             this.izmijeniBtn.Name = "izmijeniBtn";
             this.izmijeniBtn.Size = new System.Drawing.Size(96, 23);
             this.izmijeniBtn.TabIndex = 16;
@@ -71,7 +100,7 @@
             // 
             // novaObavijestBtn
             // 
-            this.novaObavijestBtn.Location = new System.Drawing.Point(359, 20);
+            this.novaObavijestBtn.Location = new System.Drawing.Point(405, 19);
             this.novaObavijestBtn.Name = "novaObavijestBtn";
             this.novaObavijestBtn.Size = new System.Drawing.Size(96, 23);
             this.novaObavijestBtn.TabIndex = 15;
@@ -105,46 +134,20 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Naslov:";
             // 
-            // ObavijestId
-            // 
-            this.ObavijestId.DataPropertyName = "ObavijestId";
-            this.ObavijestId.HeaderText = "Id";
-            this.ObavijestId.Name = "ObavijestId";
-            this.ObavijestId.ReadOnly = true;
-            this.ObavijestId.Visible = false;
-            // 
-            // Naslov
-            // 
-            this.Naslov.DataPropertyName = "Naslov";
-            this.Naslov.HeaderText = "Naslov";
-            this.Naslov.Name = "Naslov";
-            this.Naslov.ReadOnly = true;
-            // 
-            // Objavio
-            // 
-            this.Objavio.DataPropertyName = "Objavio";
-            this.Objavio.HeaderText = "Objavio";
-            this.Objavio.Name = "Objavio";
-            this.Objavio.ReadOnly = true;
-            // 
-            // Datum
-            // 
-            this.Datum.DataPropertyName = "Datum";
-            this.Datum.HeaderText = "Datum";
-            this.Datum.Name = "Datum";
-            this.Datum.ReadOnly = true;
-            // 
             // IndexForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 421);
+            this.ClientSize = new System.Drawing.Size(891, 415);
             this.Controls.Add(this.obavijestiGrid);
             this.Controls.Add(this.izmijeniBtn);
             this.Controls.Add(this.novaObavijestBtn);
             this.Controls.Add(this.traziBtn);
             this.Controls.Add(this.naslovInput);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "IndexForm";
             this.Text = "Pregled obavijesti";
             this.Load += new System.EventHandler(this.IndexForm_Load);

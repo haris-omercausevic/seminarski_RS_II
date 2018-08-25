@@ -89,6 +89,12 @@
     <Compile Include="Evidencije\IndexForm.Designer.cs">
       <DependentUpon>IndexForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IzborMenijaUloge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IzborMenijaUloge.Designer.cs">
+      <DependentUpon>IzborMenijaUloge.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,27 +108,33 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="MainFormNast.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormNast.Designer.cs">
+      <DependentUpon>MainFormNast.cs</DependentUpon>
+    </Compile>
     <Compile Include="Messages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Messages.resx</DependentUpon>
     </Compile>
-    <Compile Include="Obavjestenja\AddObavijest.cs">
+    <Compile Include="ObavijestiNS\AddObavijest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Obavjestenja\AddObavijest.Designer.cs">
+    <Compile Include="ObavijestiNS\AddObavijest.Designer.cs">
       <DependentUpon>AddObavijest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Obavjestenja\EditObavijest.cs">
+    <Compile Include="ObavijestiNS\EditObavijest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Obavjestenja\EditObavijest.Designer.cs">
+    <Compile Include="ObavijestiNS\EditObavijest.Designer.cs">
       <DependentUpon>EditObavijest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Obavjestenja\IndexForm.cs">
+    <Compile Include="ObavijestiNS\IndexForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Obavjestenja\IndexForm.Designer.cs">
+    <Compile Include="ObavijestiNS\IndexForm.Designer.cs">
       <DependentUpon>IndexForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -132,10 +144,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Razredi\IndexForm.cs">
+    <Compile Include="RazrediNS\IndexForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Razredi\IndexForm.Designer.cs">
+    <Compile Include="RazrediNS\IndexForm.Designer.cs">
       <DependentUpon>IndexForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\AddKorisnik.cs">
@@ -186,23 +198,29 @@
     <EmbeddedResource Include="Evidencije\IndexForm.resx">
       <DependentUpon>IndexForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IzborMenijaUloge.resx">
+      <DependentUpon>IzborMenijaUloge.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainFormNast.resx">
+      <DependentUpon>MainFormNast.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Messages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Obavjestenja\AddObavijest.resx">
+    <EmbeddedResource Include="ObavijestiNS\AddObavijest.resx">
       <DependentUpon>AddObavijest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Obavjestenja\EditObavijest.resx">
+    <EmbeddedResource Include="ObavijestiNS\EditObavijest.resx">
       <DependentUpon>EditObavijest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Obavjestenja\IndexForm.resx">
+    <EmbeddedResource Include="ObavijestiNS\IndexForm.resx">
       <DependentUpon>IndexForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -210,7 +228,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Razredi\IndexForm.resx">
+    <EmbeddedResource Include="RazrediNS\IndexForm.resx">
       <DependentUpon>IndexForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\AddKorisnik.resx">

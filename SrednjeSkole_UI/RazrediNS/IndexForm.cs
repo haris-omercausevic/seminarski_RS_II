@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SrednjeSkole_UI.Razredi
+namespace SrednjeSkole_UI.RazrediNS
 {
     public partial class IndexForm : Form
     {

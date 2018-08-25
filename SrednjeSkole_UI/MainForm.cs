@@ -57,23 +57,18 @@ namespace SrednjeSkole_UI
         private void upravljanjeKorisnicimaLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Users.IndexForm f = new Users.IndexForm();
-            f.FormClosing += new FormClosingEventHandler(bringToFront_FormClosing);
+            f.FormClosing += (s, arg) => BringPicturesToFront();
             f.MdiParent = this;
             f.Dock = DockStyle.Top;
             SendPicturesToBack();
             f.BringToFront();
             f.Show();
         }
-
-        private void bringToFront_FormClosing(object sender, EventArgs e)
-        {
-            BringPicturesToFront();
-        }
-
+        
         private void evidencijeLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Evidencije.IndexForm f = new Evidencije.IndexForm();
-            f.FormClosing += new FormClosingEventHandler(bringToFront_FormClosing);
+            f.FormClosing += (s, arg) => BringPicturesToFront();
             f.MdiParent = this;
             f.Dock = DockStyle.Top;
             SendPicturesToBack();
@@ -85,7 +80,7 @@ namespace SrednjeSkole_UI
         private void dodajUcenikaLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Users.AddUcenik f = new Users.AddUcenik();
-            f.FormClosing += new FormClosingEventHandler(bringToFront_FormClosing);
+            f.FormClosing += (s, arg) => BringPicturesToFront();
             f.MdiParent = this;
             f.Dock = DockStyle.Top;
             SendPicturesToBack();
@@ -96,7 +91,7 @@ namespace SrednjeSkole_UI
         private void dodajNastavnikaLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Users.AddNastavnik f = new Users.AddNastavnik();
-            f.FormClosing += new FormClosingEventHandler(bringToFront_FormClosing);
+            f.FormClosing += (s, arg) => BringPicturesToFront();
             f.MdiParent = this;
             f.Dock = DockStyle.Top;
             SendPicturesToBack();

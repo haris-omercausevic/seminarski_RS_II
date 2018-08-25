@@ -1,4 +1,4 @@
-﻿namespace SrednjeSkole_UI.Obavjestenja
+﻿namespace SrednjeSkole_UI.ObavijestiNS
 {
     partial class AddObavijest
     {
@@ -63,7 +63,7 @@
             this.tekstInput.Location = new System.Drawing.Point(87, 66);
             this.tekstInput.Multiline = true;
             this.tekstInput.Name = "tekstInput";
-            this.tekstInput.Size = new System.Drawing.Size(445, 298);
+            this.tekstInput.Size = new System.Drawing.Size(430, 280);
             this.tekstInput.TabIndex = 0;
             this.tekstInput.Validating += new System.ComponentModel.CancelEventHandler(this.tekstInput_Validating);
             // 
@@ -80,7 +80,7 @@
             // objaviBtn
             // 
             this.objaviBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.objaviBtn.Location = new System.Drawing.Point(457, 400);
+            this.objaviBtn.Location = new System.Drawing.Point(473, 370);
             this.objaviBtn.Name = "objaviBtn";
             this.objaviBtn.Size = new System.Drawing.Size(75, 23);
             this.objaviBtn.TabIndex = 2;
@@ -96,13 +96,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 447);
+            this.ClientSize = new System.Drawing.Size(573, 415);
             this.Controls.Add(this.objaviBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tekstInput);
             this.Controls.Add(this.naslovInput);
             this.Name = "AddObavijest";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddObavijest";
             this.Load += new System.EventHandler(this.AddObavijest_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
