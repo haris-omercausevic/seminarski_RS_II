@@ -17,11 +17,12 @@ namespace SrednjeSkole_UI.RazrediNS
     public partial class DetaljiForm : Form
     {
         private WebAPIHelper razrediService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.RazrediRoute);
+        private int _razredId;
         public DetaljiForm(int razredId)
         {
             Cursor.Current = Cursors.WaitCursor;
-
             InitializeComponent();
+            _razredId = razredId;
             HttpResponseMessage response = razrediService.GetActionResponse("GetUceniciByRazredId", razredId.ToString());
             if(response.IsSuccessStatusCode)
             {
@@ -46,7 +47,7 @@ namespace SrednjeSkole_UI.RazrediNS
                 {
                     oznaceniUcenici.Add(item.DataBoundItem as UceniciRazredi_Result);
                 }
-                NovaOcjena f = new NovaOcjena(oznaceniUcenici);
+                NovaOcjena f = new NovaOcjena(oznaceniUcenici, _razredId);
                 f.ShowDialog();
             }
         }

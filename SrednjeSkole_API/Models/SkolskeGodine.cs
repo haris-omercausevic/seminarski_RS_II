@@ -17,7 +17,6 @@ namespace SrednjeSkole_API.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SkolskeGodine()
         {
-            this.Predaje = new HashSet<Predaje>();
             this.Razredi = new HashSet<Razredi>();
             this.Smjerovi = new HashSet<Smjerovi>();
         }
@@ -25,8 +24,6 @@ namespace SrednjeSkole_API.Models
         public int SkolskaGodinaId { get; set; }
         public string Naziv { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Predaje> Predaje { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Razredi> Razredi { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

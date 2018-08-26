@@ -127,8 +127,8 @@
           </Key>
           <Property Name="PredajeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NastavnikId" Type="int" Nullable="false" />
-          <Property Name="SkolskaGodinaId" Type="int" Nullable="false" />
-          <Property Name="SmjerPredmetId" Type="int" Nullable="false" />
+          <Property Name="PredmetId" Type="int" Nullable="false" />
+          <Property Name="RazredId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Predmeti">
           <Key>
@@ -362,27 +362,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_dbo_Predaje_dbo_SkolskeGodine_SkolskaGodinaId">
-          <End Role="SkolskeGodine" Type="Self.SkolskeGodine" Multiplicity="1" />
+        <Association Name="FK_dbo_Predaje_dbo_Predmeti_PredmetId">
+          <End Role="Predmeti" Type="Self.Predmeti" Multiplicity="1" />
           <End Role="Predaje" Type="Self.Predaje" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="SkolskeGodine">
-              <PropertyRef Name="SkolskaGodinaId" />
+            <Principal Role="Predmeti">
+              <PropertyRef Name="PredmetId" />
             </Principal>
             <Dependent Role="Predaje">
-              <PropertyRef Name="SkolskaGodinaId" />
+              <PropertyRef Name="PredmetId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_dbo_Predaje_dbo_SmjerPredmet_SmjerPredmetId">
-          <End Role="SmjerPredmet" Type="Self.SmjerPredmet" Multiplicity="1" />
+        <Association Name="FK_dbo_Predaje_dbo_Razredi_RazredId">
+          <End Role="Razredi" Type="Self.Razredi" Multiplicity="1" />
           <End Role="Predaje" Type="Self.Predaje" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="SmjerPredmet">
-              <PropertyRef Name="SmjerPredmetId" />
+            <Principal Role="Razredi">
+              <PropertyRef Name="RazredId" />
             </Principal>
             <Dependent Role="Predaje">
-              <PropertyRef Name="SmjerPredmetId" />
+              <PropertyRef Name="RazredId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -638,6 +638,10 @@
           <Parameter Name="Naslov" Type="nvarchar" Mode="In" />
           <Parameter Name="Tekst" Type="nvarchar(max)" Mode="In" />
         </Function>
+        <Function Name="ssp_Predaje_GetByNastavnikRazred" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NastavnikId" Type="int" Mode="In" />
+          <Parameter Name="RazredId" Type="int" Mode="In" />
+        </Function>
         <Function Name="ssp_Predmeti_GetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="predmetId" Type="int" Mode="In" />
         </Function>
@@ -671,6 +675,13 @@
           <Parameter Name="GodinaUpisa" Type="int" Mode="In" />
           <Parameter Name="SmjerId" Type="int" Mode="In" />
           <Parameter Name="NazivOsnovneSkole" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="ssp_UceniciOcjene_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PredajeId" Type="int" Mode="In" />
+          <Parameter Name="UcenikId" Type="int" Mode="In" />
+          <Parameter Name="Vrijednost" Type="int" Mode="In" />
+          <Parameter Name="Datum" Type="nvarchar" Mode="In" />
+          <Parameter Name="Napomena" Type="nvarchar(max)" Mode="In" />
         </Function>
         <Function Name="ssp_UceniciRazredi_GetByRazredId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RazredId" Type="int" Mode="In" />
@@ -747,12 +758,12 @@
             <End Role="Korisnici_Nastavnici" EntitySet="Korisnici_Nastavnici" />
             <End Role="Predaje" EntitySet="Predaje" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_Predaje_dbo_SkolskeGodine_SkolskaGodinaId" Association="Self.FK_dbo_Predaje_dbo_SkolskeGodine_SkolskaGodinaId">
-            <End Role="SkolskeGodine" EntitySet="SkolskeGodine" />
+          <AssociationSet Name="FK_dbo_Predaje_dbo_Predmeti_PredmetId" Association="Self.FK_dbo_Predaje_dbo_Predmeti_PredmetId">
+            <End Role="Predmeti" EntitySet="Predmeti" />
             <End Role="Predaje" EntitySet="Predaje" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_Predaje_dbo_SmjerPredmet_SmjerPredmetId" Association="Self.FK_dbo_Predaje_dbo_SmjerPredmet_SmjerPredmetId">
-            <End Role="SmjerPredmet" EntitySet="SmjerPredmet" />
+          <AssociationSet Name="FK_dbo_Predaje_dbo_Razredi_RazredId" Association="Self.FK_dbo_Predaje_dbo_Razredi_RazredId">
+            <End Role="Razredi" EntitySet="Razredi" />
             <End Role="Predaje" EntitySet="Predaje" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_Razredi_dbo_Nastavnici_NastavnikId" Association="Self.FK_dbo_Razredi_dbo_Nastavnici_NastavnikId">
@@ -937,12 +948,12 @@
           </Key>
           <Property Name="PredajeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NastavnikId" Type="Int32" Nullable="false" />
-          <Property Name="SkolskaGodinaId" Type="Int32" Nullable="false" />
-          <Property Name="SmjerPredmetId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Nastavnici" Relationship="Self.FK_dbo_Predaje_dbo_Nastavnici_NastavnikId" FromRole="Predaje" ToRole="Nastavnici" />
-          <NavigationProperty Name="SkolskeGodine" Relationship="Self.FK_dbo_Predaje_dbo_SkolskeGodine_SkolskaGodinaId" FromRole="Predaje" ToRole="SkolskeGodine" />
-          <NavigationProperty Name="SmjerPredmet" Relationship="Self.FK_dbo_Predaje_dbo_SmjerPredmet_SmjerPredmetId" FromRole="Predaje" ToRole="SmjerPredmet" />
           <NavigationProperty Name="UceniciOcjene" Relationship="Self.FK_dbo_UceniciOcjene_dbo_Predaje_PredajeId" FromRole="Predaje" ToRole="UceniciOcjene" />
+          <Property Name="PredmetId" Type="Int32" Nullable="false" />
+          <Property Name="RazredId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Predmeti" Relationship="SrednjeSkoleModel.FK_dbo_Predaje_dbo_Predmeti_PredmetId" FromRole="Predaje" ToRole="Predmeti" />
+          <NavigationProperty Name="Razredi" Relationship="SrednjeSkoleModel.FK_dbo_Predaje_dbo_Razredi_RazredId" FromRole="Predaje" ToRole="Razredi" />
         </EntityType>
         <EntityType Name="Predmeti">
           <Key>
@@ -954,6 +965,7 @@
           <NavigationProperty Name="Materijali" Relationship="Self.FK_dbo_Materijali_dbo_Predmeti_PredmetId" FromRole="Predmeti" ToRole="Materijali" />
           <NavigationProperty Name="SmjerPredmet" Relationship="Self.FK_dbo_SmjerPredmet_dbo_Predmeti_PredmetId" FromRole="Predmeti" ToRole="SmjerPredmet" />
           <Property Name="Razred" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Predaje" Relationship="SrednjeSkoleModel.FK_dbo_Predaje_dbo_Predmeti_PredmetId" FromRole="Predmeti" ToRole="Predaje" />
         </EntityType>
         <EntityType Name="Razredi">
           <Key>
@@ -970,6 +982,7 @@
           <NavigationProperty Name="SkolskeGodine" Relationship="Self.FK_dbo_Razredi_dbo_SkolskeGodine_SkolskaGodinaId" FromRole="Razredi" ToRole="SkolskeGodine" />
           <NavigationProperty Name="Smjerovi" Relationship="Self.FK_dbo_Razredi_dbo_Smjerovi_SmjerId" FromRole="Razredi" ToRole="Smjerovi" />
           <NavigationProperty Name="UceniciRazredi" Relationship="Self.FK_dbo_UceniciRazredi_dbo_Razredi_RazredId" FromRole="Razredi" ToRole="UceniciRazredi" />
+          <NavigationProperty Name="Predaje" Relationship="SrednjeSkoleModel.FK_dbo_Predaje_dbo_Razredi_RazredId" FromRole="Razredi" ToRole="Predaje" />
         </EntityType>
         <EntityType Name="SkolskeGodine">
           <Key>
@@ -977,7 +990,6 @@
           </Key>
           <Property Name="SkolskaGodinaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Naziv" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Predaje" Relationship="Self.FK_dbo_Predaje_dbo_SkolskeGodine_SkolskaGodinaId" FromRole="SkolskeGodine" ToRole="Predaje" />
           <NavigationProperty Name="Razredi" Relationship="Self.FK_dbo_Razredi_dbo_SkolskeGodine_SkolskaGodinaId" FromRole="SkolskeGodine" ToRole="Razredi" />
           <NavigationProperty Name="Smjerovi" Relationship="Self.FK_dbo_Smjerovi_dbo_SkolskeGodine_SkolskaGodinaId" FromRole="SkolskeGodine" ToRole="Smjerovi" />
         </EntityType>
@@ -1002,7 +1014,6 @@
           <Property Name="BrojCasova" Type="Int32" Nullable="false" />
           <Property Name="PredmetId" Type="Int32" Nullable="false" />
           <Property Name="SmjerId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Predaje" Relationship="Self.FK_dbo_Predaje_dbo_SmjerPredmet_SmjerPredmetId" FromRole="SmjerPredmet" ToRole="Predaje" />
           <NavigationProperty Name="Predmeti" Relationship="Self.FK_dbo_SmjerPredmet_dbo_Predmeti_PredmetId" FromRole="SmjerPredmet" ToRole="Predmeti" />
           <NavigationProperty Name="Smjerovi" Relationship="Self.FK_dbo_SmjerPredmet_dbo_Smjerovi_SmjerId" FromRole="SmjerPredmet" ToRole="Smjerovi" />
         </EntityType>
@@ -1212,30 +1223,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_dbo_Predaje_dbo_SkolskeGodine_SkolskaGodinaId">
-          <End Role="SkolskeGodine" Type="Self.SkolskeGodine" Multiplicity="1" />
-          <End Role="Predaje" Type="Self.Predaje" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SkolskeGodine">
-              <PropertyRef Name="SkolskaGodinaId" />
-            </Principal>
-            <Dependent Role="Predaje">
-              <PropertyRef Name="SkolskaGodinaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_Predaje_dbo_SmjerPredmet_SmjerPredmetId">
-          <End Role="SmjerPredmet" Type="Self.SmjerPredmet" Multiplicity="1" />
-          <End Role="Predaje" Type="Self.Predaje" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SmjerPredmet">
-              <PropertyRef Name="SmjerPredmetId" />
-            </Principal>
-            <Dependent Role="Predaje">
-              <PropertyRef Name="SmjerPredmetId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_dbo_UceniciOcjene_dbo_Predaje_PredajeId">
           <End Role="Predaje" Type="Self.Predaje" Multiplicity="1" />
           <End Role="UceniciOcjene" Type="Self.UceniciOcjene" Multiplicity="*" />
@@ -1434,14 +1421,6 @@
             <End Role="Nastavnici" EntitySet="Korisnici" />
             <End Role="Razredi" EntitySet="Razredi" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_Predaje_dbo_SkolskeGodine_SkolskaGodinaId" Association="Self.FK_dbo_Predaje_dbo_SkolskeGodine_SkolskaGodinaId">
-            <End Role="SkolskeGodine" EntitySet="SkolskeGodine" />
-            <End Role="Predaje" EntitySet="Predaje" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_Predaje_dbo_SmjerPredmet_SmjerPredmetId" Association="Self.FK_dbo_Predaje_dbo_SmjerPredmet_SmjerPredmetId">
-            <End Role="SmjerPredmet" EntitySet="SmjerPredmet" />
-            <End Role="Predaje" EntitySet="Predaje" />
-          </AssociationSet>
           <AssociationSet Name="FK_dbo_UceniciOcjene_dbo_Predaje_PredajeId" Association="Self.FK_dbo_UceniciOcjene_dbo_Predaje_PredajeId">
             <End Role="Predaje" EntitySet="Predaje" />
             <End Role="UceniciOcjene" EntitySet="UceniciOcjene" />
@@ -1598,10 +1577,29 @@
             <Parameter Name="Tekst" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="ssp_Razredi_Pretraga" ReturnType="Collection(SrednjeSkoleModel.Razredi_Result)">
-            <Parameter Name="oznaka" Mode="In" Type="String" />
+          <Parameter Name="oznaka" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="ssp_UceniciRazredi_GetByRazredId" ReturnType="Collection(SrednjeSkoleModel.UceniciRazredi_Result)">
+          <Parameter Name="RazredId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="FK_dbo_Predaje_dbo_Predmeti_PredmetId" Association="SrednjeSkoleModel.FK_dbo_Predaje_dbo_Predmeti_PredmetId">
+            <End Role="Predmeti" EntitySet="Predmeti" />
+            <End Role="Predaje" EntitySet="Predaje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Predaje_dbo_Razredi_RazredId" Association="SrednjeSkoleModel.FK_dbo_Predaje_dbo_Razredi_RazredId">
+            <End Role="Razredi" EntitySet="Razredi" />
+            <End Role="Predaje" EntitySet="Predaje" />
+          </AssociationSet>
+          <FunctionImport Name="ssp_Predaje_GetByNastavnikRazred" ReturnType="Collection(SrednjeSkoleModel.Predaje_Result)">
+            <Parameter Name="NastavnikId" Mode="In" Type="Int32" />
             <Parameter Name="RazredId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ssp_UceniciOcjene_Insert">
+            <Parameter Name="PredajeId" Mode="In" Type="Int32" />
+            <Parameter Name="UcenikId" Mode="In" Type="Int32" />
+            <Parameter Name="Vrijednost" Mode="In" Type="Int32" />
+            <Parameter Name="Datum" Mode="In" Type="String" />
+            <Parameter Name="Napomena" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
@@ -1702,6 +1700,37 @@
           <Property Type="Int32" Name="UcenikId" Nullable="false" />
           <Property Type="Int32" Name="RedniBroj" Nullable="false" />
           <Property Type="String" Name="Ucenik" Nullable="false" MaxLength="101" />
+        </ComplexType>
+        <Association Name="FK_dbo_Predaje_dbo_Predmeti_PredmetId">
+          <End Type="SrednjeSkoleModel.Predmeti" Role="Predmeti" Multiplicity="1" />
+          <End Type="SrednjeSkoleModel.Predaje" Role="Predaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Predmeti">
+              <PropertyRef Name="PredmetId" />
+            </Principal>
+            <Dependent Role="Predaje">
+              <PropertyRef Name="PredmetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Predaje_dbo_Razredi_RazredId">
+          <End Type="SrednjeSkoleModel.Razredi" Role="Razredi" Multiplicity="1" />
+          <End Type="SrednjeSkoleModel.Predaje" Role="Predaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Razredi">
+              <PropertyRef Name="RazredId" />
+            </Principal>
+            <Dependent Role="Predaje">
+              <PropertyRef Name="RazredId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Predaje_Result">
+          <Property Type="Int32" Name="PredajeId" Nullable="false" />
+          <Property Type="Int32" Name="NastavnikId" Nullable="false" />
+          <Property Type="Int32" Name="RazredId" Nullable="false" />
+          <Property Type="Int32" Name="PredmetId" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1824,11 +1853,11 @@
     <EntitySetMapping Name="Predaje">
       <EntityTypeMapping TypeName="IsTypeOf(SrednjeSkoleModel.Predaje)">
         <MappingFragment StoreEntitySet="Predaje">
-          <ScalarProperty Name="PredajeId" ColumnName="PredajeId" />
+          <ScalarProperty Name="RazredId" ColumnName="RazredId" />
+                <ScalarProperty Name="PredmetId" ColumnName="PredmetId" />
+                <ScalarProperty Name="PredajeId" ColumnName="PredajeId" />
           <ScalarProperty Name="NastavnikId" ColumnName="NastavnikId" />
-          <ScalarProperty Name="SkolskaGodinaId" ColumnName="SkolskaGodinaId" />
-          <ScalarProperty Name="SmjerPredmetId" ColumnName="SmjerPredmetId" />
-        </MappingFragment>
+          </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Predmeti">
@@ -2080,6 +2109,18 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ssp_Predaje_GetByNastavnikRazred" FunctionName="SrednjeSkoleModel.Store.ssp_Predaje_GetByNastavnikRazred">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.Predaje_Result">
+                <ScalarProperty Name="PredajeId" ColumnName="PredajeId" />
+                <ScalarProperty Name="NastavnikId" ColumnName="NastavnikId" />
+                <ScalarProperty Name="RazredId" ColumnName="RazredId" />
+                <ScalarProperty Name="PredmetId" ColumnName="PredmetId" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ssp_UceniciOcjene_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_UceniciOcjene_Insert" />
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

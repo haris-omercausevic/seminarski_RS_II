@@ -20,7 +20,6 @@ namespace SrednjeSkole_UI.Evidencije
         private WebAPIHelper skolskeGodineService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.SkolskeGodineRoute);
         private WebAPIHelper predmetiService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.PredmetiRoute);
 
-
         public AddSmjer()
         {
             InitializeComponent();
@@ -70,9 +69,8 @@ namespace SrednjeSkole_UI.Evidencije
             if (this.ValidateChildren())
             {
                 SkolskeGodine temp2 = skolskaGodinaCmb.SelectedItem as SkolskeGodine;
-                string skolskaGodinaId = "";
-                if (temp2 != null)
-                    skolskaGodinaId = temp2.SkolskaGodinaId.ToString();
+                string skolskaGodinaId = temp2?.SkolskaGodinaId.ToString();
+               
 
                 Smjerovi s = new Smjerovi()
                 {

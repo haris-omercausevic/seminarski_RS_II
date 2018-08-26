@@ -18,6 +18,7 @@ namespace SrednjeSkole_API.Models
         public Razredi()
         {
             this.UceniciRazredi = new HashSet<UceniciRazredi>();
+            this.Predaje = new HashSet<Predaje>();
         }
     
         public int RazredId { get; set; }
@@ -33,5 +34,7 @@ namespace SrednjeSkole_API.Models
         public virtual Smjerovi Smjerovi { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UceniciRazredi> UceniciRazredi { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Predaje> Predaje { get; set; }
     }
 }

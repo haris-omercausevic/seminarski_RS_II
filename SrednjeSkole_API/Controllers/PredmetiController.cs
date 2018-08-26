@@ -47,6 +47,7 @@ namespace SrednjeSkole_API.Controllers
             return db.ssp_Predmeti_GetByRazred(razred).ToList();
         }
 
+      
 
         // PUT: api/Predmeti/5
         [ResponseType(typeof(void))]

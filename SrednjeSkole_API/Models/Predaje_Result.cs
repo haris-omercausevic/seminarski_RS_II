@@ -10,16 +10,13 @@
 namespace SrednjeSkole_API.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class SmjerPredmet
+    public partial class Predaje_Result
     {
-        public int SmjerPredmetId { get; set; }
-        public int BrojCasova { get; set; }
+        public int PredajeId { get; set; }
+        public int NastavnikId { get; set; }
+        public int RazredId { get; set; }
         public int PredmetId { get; set; }
-        public int SmjerId { get; set; }
-    
-        public virtual Predmeti Predmeti { get; set; }
-        public virtual Smjerovi Smjerovi { get; set; }
+        public string Naziv { get; set; }
     }
 }

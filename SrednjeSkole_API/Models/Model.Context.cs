@@ -416,5 +416,43 @@ namespace SrednjeSkole_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UceniciRazredi_Result>("ssp_UceniciRazredi_GetByRazredId", razredIdParameter);
         }
+    
+        public virtual ObjectResult<Predaje_Result> ssp_Predaje_GetByNastavnikRazred(Nullable<int> nastavnikId, Nullable<int> razredId)
+        {
+            var nastavnikIdParameter = nastavnikId.HasValue ?
+                new ObjectParameter("NastavnikId", nastavnikId) :
+                new ObjectParameter("NastavnikId", typeof(int));
+    
+            var razredIdParameter = razredId.HasValue ?
+                new ObjectParameter("RazredId", razredId) :
+                new ObjectParameter("RazredId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Predaje_Result>("ssp_Predaje_GetByNastavnikRazred", nastavnikIdParameter, razredIdParameter);
+        }
+    
+        public virtual int ssp_UceniciOcjene_Insert(Nullable<int> predajeId, Nullable<int> ucenikId, Nullable<int> vrijednost, string datum, string napomena)
+        {
+            var predajeIdParameter = predajeId.HasValue ?
+                new ObjectParameter("PredajeId", predajeId) :
+                new ObjectParameter("PredajeId", typeof(int));
+    
+            var ucenikIdParameter = ucenikId.HasValue ?
+                new ObjectParameter("UcenikId", ucenikId) :
+                new ObjectParameter("UcenikId", typeof(int));
+    
+            var vrijednostParameter = vrijednost.HasValue ?
+                new ObjectParameter("Vrijednost", vrijednost) :
+                new ObjectParameter("Vrijednost", typeof(int));
+    
+            var datumParameter = datum != null ?
+                new ObjectParameter("Datum", datum) :
+                new ObjectParameter("Datum", typeof(string));
+    
+            var napomenaParameter = napomena != null ?
+                new ObjectParameter("Napomena", napomena) :
+                new ObjectParameter("Napomena", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_UceniciOcjene_Insert", predajeIdParameter, ucenikIdParameter, vrijednostParameter, datumParameter, napomenaParameter);
+        }
     }
 }

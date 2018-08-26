@@ -112,11 +112,13 @@
     <Compile Include="Controllers\MaterijaliController.cs" />
     <Compile Include="Controllers\NastavniciController.cs" />
     <Compile Include="Controllers\ObavijestiController.cs" />
+    <Compile Include="Controllers\PredajeController.cs" />
     <Compile Include="Controllers\PredmetiController.cs" />
     <Compile Include="Controllers\RazrediController.cs" />
     <Compile Include="Controllers\SkolskeGodineController.cs" />
     <Compile Include="Controllers\SmjeroviController.cs" />
     <Compile Include="Controllers\UceniciController.cs" />
+    <Compile Include="Controllers\UceniciOcjeneController.cs" />
     <Compile Include="Controllers\UlogeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -177,6 +179,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Predaje.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Predaje_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Predmeti.cs">

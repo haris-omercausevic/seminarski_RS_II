@@ -19,6 +19,7 @@ namespace SrednjeSkole_API.Models
         {
             this.Materijali = new HashSet<Materijali>();
             this.SmjerPredmet = new HashSet<SmjerPredmet>();
+            this.Predaje = new HashSet<Predaje>();
         }
     
         public int PredmetId { get; set; }
@@ -30,5 +31,7 @@ namespace SrednjeSkole_API.Models
         public virtual ICollection<Materijali> Materijali { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SmjerPredmet> SmjerPredmet { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Predaje> Predaje { get; set; }
     }
 }

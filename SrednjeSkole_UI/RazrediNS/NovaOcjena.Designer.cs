@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.uceniciRazrediGrid = new System.Windows.Forms.DataGridView();
+            this.oznaceniUceniciGrid = new System.Windows.Forms.DataGridView();
             this.UcenikId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RedniBroj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ucenik = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.skolskaGodinaCmb = new System.Windows.Forms.ComboBox();
+            this.predmetiCmb = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.opisInput = new System.Windows.Forms.TextBox();
-            this.nazivInput = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.napomenaInput = new System.Windows.Forms.TextBox();
+            this.ocjenaInput = new System.Windows.Forms.TextBox();
+            this.datumPicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.uceniciRazrediGrid)).BeginInit();
+            this.ocijeniBtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.oznaceniUceniciGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -55,22 +55,23 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Odabrani ucenici ce biti ocijenjeni:";
             // 
-            // uceniciRazrediGrid
+            // oznaceniUceniciGrid
             // 
-            this.uceniciRazrediGrid.AllowUserToAddRows = false;
-            this.uceniciRazrediGrid.AllowUserToDeleteRows = false;
-            this.uceniciRazrediGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.uceniciRazrediGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.uceniciRazrediGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.oznaceniUceniciGrid.AllowUserToAddRows = false;
+            this.oznaceniUceniciGrid.AllowUserToDeleteRows = false;
+            this.oznaceniUceniciGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.oznaceniUceniciGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.oznaceniUceniciGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UcenikId,
             this.RedniBroj,
             this.Ucenik});
-            this.uceniciRazrediGrid.Location = new System.Drawing.Point(25, 39);
-            this.uceniciRazrediGrid.Name = "uceniciRazrediGrid";
-            this.uceniciRazrediGrid.ReadOnly = true;
-            this.uceniciRazrediGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.uceniciRazrediGrid.Size = new System.Drawing.Size(308, 360);
-            this.uceniciRazrediGrid.TabIndex = 9;
+            this.oznaceniUceniciGrid.Location = new System.Drawing.Point(25, 39);
+            this.oznaceniUceniciGrid.MultiSelect = false;
+            this.oznaceniUceniciGrid.Name = "oznaceniUceniciGrid";
+            this.oznaceniUceniciGrid.ReadOnly = true;
+            this.oznaceniUceniciGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.oznaceniUceniciGrid.Size = new System.Drawing.Size(308, 360);
+            this.oznaceniUceniciGrid.TabIndex = 9;
             // 
             // UcenikId
             // 
@@ -97,13 +98,13 @@
             this.Ucenik.Name = "Ucenik";
             this.Ucenik.ReadOnly = true;
             // 
-            // skolskaGodinaCmb
+            // predmetiCmb
             // 
-            this.skolskaGodinaCmb.FormattingEnabled = true;
-            this.skolskaGodinaCmb.Location = new System.Drawing.Point(442, 82);
-            this.skolskaGodinaCmb.Name = "skolskaGodinaCmb";
-            this.skolskaGodinaCmb.Size = new System.Drawing.Size(163, 21);
-            this.skolskaGodinaCmb.TabIndex = 15;
+            this.predmetiCmb.FormattingEnabled = true;
+            this.predmetiCmb.Location = new System.Drawing.Point(442, 82);
+            this.predmetiCmb.Name = "predmetiCmb";
+            this.predmetiCmb.Size = new System.Drawing.Size(163, 21);
+            this.predmetiCmb.TabIndex = 15;
             // 
             // label4
             // 
@@ -122,7 +123,6 @@
             this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 13;
             this.label2.Text = "Napomena:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -133,27 +133,27 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Ocjena:";
             // 
-            // opisInput
+            // napomenaInput
             // 
-            this.opisInput.Location = new System.Drawing.Point(442, 161);
-            this.opisInput.Multiline = true;
-            this.opisInput.Name = "opisInput";
-            this.opisInput.Size = new System.Drawing.Size(136, 71);
-            this.opisInput.TabIndex = 10;
+            this.napomenaInput.Location = new System.Drawing.Point(442, 161);
+            this.napomenaInput.Multiline = true;
+            this.napomenaInput.Name = "napomenaInput";
+            this.napomenaInput.Size = new System.Drawing.Size(136, 71);
+            this.napomenaInput.TabIndex = 10;
             // 
-            // nazivInput
+            // ocjenaInput
             // 
-            this.nazivInput.Location = new System.Drawing.Point(442, 120);
-            this.nazivInput.Name = "nazivInput";
-            this.nazivInput.Size = new System.Drawing.Size(136, 20);
-            this.nazivInput.TabIndex = 11;
+            this.ocjenaInput.Location = new System.Drawing.Point(442, 120);
+            this.ocjenaInput.Name = "ocjenaInput";
+            this.ocjenaInput.Size = new System.Drawing.Size(136, 20);
+            this.ocjenaInput.TabIndex = 11;
             // 
-            // dateTimePicker1
+            // datumPicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(442, 45);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 16;
+            this.datumPicker.Location = new System.Drawing.Point(442, 45);
+            this.datumPicker.Name = "datumPicker";
+            this.datumPicker.Size = new System.Drawing.Size(200, 20);
+            this.datumPicker.TabIndex = 16;
             // 
             // label5
             // 
@@ -163,36 +163,37 @@
             this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 13;
             this.label5.Text = "Datum:";
-            this.label5.Click += new System.EventHandler(this.label2_Click);
             // 
-            // button1
+            // ocijeniBtn
             // 
-            this.button1.Location = new System.Drawing.Point(567, 352);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Ocijeni";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ocijeniBtn.Location = new System.Drawing.Point(567, 352);
+            this.ocijeniBtn.Name = "ocijeniBtn";
+            this.ocijeniBtn.Size = new System.Drawing.Size(75, 23);
+            this.ocijeniBtn.TabIndex = 17;
+            this.ocijeniBtn.Text = "Ocijeni";
+            this.ocijeniBtn.UseVisualStyleBackColor = true;
+            this.ocijeniBtn.Click += new System.EventHandler(this.ocijeniBtn_Click);
             // 
             // NovaOcjena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 411);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.skolskaGodinaCmb);
+            this.Controls.Add(this.ocijeniBtn);
+            this.Controls.Add(this.datumPicker);
+            this.Controls.Add(this.predmetiCmb);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.opisInput);
-            this.Controls.Add(this.nazivInput);
-            this.Controls.Add(this.uceniciRazrediGrid);
+            this.Controls.Add(this.napomenaInput);
+            this.Controls.Add(this.ocjenaInput);
+            this.Controls.Add(this.oznaceniUceniciGrid);
             this.Controls.Add(this.label1);
             this.Name = "NovaOcjena";
             this.Text = "Nova ocjena";
-            ((System.ComponentModel.ISupportInitialize)(this.uceniciRazrediGrid)).EndInit();
+            this.Load += new System.EventHandler(this.NovaOcjena_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.oznaceniUceniciGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,18 +201,18 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView uceniciRazrediGrid;
+        private System.Windows.Forms.DataGridView oznaceniUceniciGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn UcenikId;
         private System.Windows.Forms.DataGridViewTextBoxColumn RedniBroj;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ucenik;
-        private System.Windows.Forms.ComboBox skolskaGodinaCmb;
+        private System.Windows.Forms.ComboBox predmetiCmb;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox opisInput;
-        private System.Windows.Forms.TextBox nazivInput;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox napomenaInput;
+        private System.Windows.Forms.TextBox ocjenaInput;
+        private System.Windows.Forms.DateTimePicker datumPicker;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ocijeniBtn;
     }
 }

@@ -22,13 +22,13 @@ namespace SrednjeSkole_API.Models
     
         public int PredajeId { get; set; }
         public int NastavnikId { get; set; }
-        public int SkolskaGodinaId { get; set; }
-        public int SmjerPredmetId { get; set; }
+        public int PredmetId { get; set; }
+        public int RazredId { get; set; }
     
         public virtual Nastavnici Nastavnici { get; set; }
-        public virtual SkolskeGodine SkolskeGodine { get; set; }
-        public virtual SmjerPredmet SmjerPredmet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UceniciOcjene> UceniciOcjene { get; set; }
+        public virtual Predmeti Predmeti { get; set; }
+        public virtual Razredi Razredi { get; set; }
     }
 }

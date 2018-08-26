@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="46d6fe9645a84655bc0ce369a64aedfa" Name="Diagram1" ZoomLevel="86">
+      <Diagram DiagramId="46d6fe9645a84655bc0ce369a64aedfa" Name="Diagram1" ZoomLevel="73">
         <EntityTypeShape EntityType="SrednjeSkoleModel.AutorizacijskiToken" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SrednjeSkoleModel.Casovi" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SrednjeSkoleModel.Izostanci" Width="1.5" PointX="7.5" PointY="21.375" IsExpanded="true" />
@@ -36,8 +36,6 @@
         <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_Materijali_dbo_Predmeti_PredmetId" ManuallyRouted="false" />
         <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_Predaje_dbo_Nastavnici_NastavnikId" ManuallyRouted="false" />
         <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_Razredi_dbo_Nastavnici_NastavnikId" ManuallyRouted="false" />
-        <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_Predaje_dbo_SkolskeGodine_SkolskaGodinaId" ManuallyRouted="false" />
-        <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_Predaje_dbo_SmjerPredmet_SmjerPredmetId" ManuallyRouted="false" />
         <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_UceniciOcjene_dbo_Predaje_PredajeId" ManuallyRouted="false" />
         <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_SmjerPredmet_dbo_Predmeti_PredmetId" ManuallyRouted="false" />
         <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_Razredi_dbo_SkolskeGodine_SkolskaGodinaId" ManuallyRouted="false" />
@@ -54,6 +52,8 @@
         <EntityTypeShape EntityType="SrednjeSkoleModel.MaterijaliOcjene" Width="1.5" PointX="13.25" PointY="20.5" />
         <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_MaterijaliOcjene_dbo_Ucenici_UcenikId" />
         <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_MaterijaliOcjene_dbo_Materijali_MaterijalId" />
+        <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_Predaje_dbo_Predmeti_PredmetId" />
+        <AssociationConnector Association="SrednjeSkoleModel.FK_dbo_Predaje_dbo_Razredi_RazredId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
