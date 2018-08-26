@@ -129,6 +129,7 @@
             // korisniciGrid
             // 
             this.korisniciGrid.AllowUserToAddRows = false;
+            this.korisniciGrid.AllowUserToDeleteRows = false;
             this.korisniciGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.korisniciGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.korisniciGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

@@ -652,6 +652,9 @@
           <Parameter Name="NastavnikId" Type="int" Mode="In" />
           <Parameter Name="SmjerId" Type="int" Mode="In" />
         </Function>
+        <Function Name="ssp_Razredi_Pretraga" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="oznaka" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="ssp_Smjerovi_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Naziv" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="Opis" Type="nvarchar(max)" Mode="In" />
@@ -668,6 +671,9 @@
           <Parameter Name="GodinaUpisa" Type="int" Mode="In" />
           <Parameter Name="SmjerId" Type="int" Mode="In" />
           <Parameter Name="NazivOsnovneSkole" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="ssp_UceniciRazredi_GetByRazredId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RazredId" Type="int" Mode="In" />
         </Function>
         <Function Name="ssp_Uloge_GetByKorisnikId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KorisnikId" Type="int" Mode="In" />
@@ -1591,6 +1597,12 @@
             <Parameter Name="Naslov" Mode="In" Type="String" />
             <Parameter Name="Tekst" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="ssp_Razredi_Pretraga" ReturnType="Collection(SrednjeSkoleModel.Razredi_Result)">
+            <Parameter Name="oznaka" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ssp_UceniciRazredi_GetByRazredId" ReturnType="Collection(SrednjeSkoleModel.UceniciRazredi_Result)">
+            <Parameter Name="RazredId" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1676,6 +1688,20 @@
           <Property Type="String" Name="Datum" Nullable="true" MaxLength="61" />
           <Property Type="Int32" Name="KorisnikId" Nullable="false" />
           <Property Type="String" Name="Objavio" Nullable="false" MaxLength="101" />
+        </ComplexType>
+        <ComplexType Name="Razredi_Result">
+          <Property Type="Int32" Name="RazredId" Nullable="false" />
+          <Property Type="String" Name="SkolskaGodina" Nullable="true" />
+          <Property Type="String" Name="Oznaka" Nullable="true" />
+          <Property Type="String" Name="Razrednik" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="Smjer" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="UceniciRazredi_Result">
+          <Property Type="Int32" Name="UcenikRazrediId" Nullable="false" />
+          <Property Type="Int32" Name="RazredId" Nullable="false" />
+          <Property Type="Int32" Name="UcenikId" Nullable="false" />
+          <Property Type="Int32" Name="RedniBroj" Nullable="false" />
+          <Property Type="String" Name="Ucenik" Nullable="false" MaxLength="101" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2031,6 +2057,28 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ssp_Obavijesti_Update" FunctionName="SrednjeSkoleModel.Store.ssp_Obavijesti_Update" >
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ssp_Razredi_Pretraga" FunctionName="SrednjeSkoleModel.Store.ssp_Razredi_Pretraga">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.Razredi_Result">
+                <ScalarProperty Name="RazredId" ColumnName="RazredId" />
+                <ScalarProperty Name="SkolskaGodina" ColumnName="SkolskaGodina" />
+                <ScalarProperty Name="Oznaka" ColumnName="Oznaka" />
+                <ScalarProperty Name="Razrednik" ColumnName="Razrednik" />
+                <ScalarProperty Name="Smjer" ColumnName="Smjer" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ssp_UceniciRazredi_GetByRazredId" FunctionName="SrednjeSkoleModel.Store.ssp_UceniciRazredi_GetByRazredId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.UceniciRazredi_Result">
+                <ScalarProperty Name="UcenikRazrediId" ColumnName="UcenikRazrediId" />
+                <ScalarProperty Name="RazredId" ColumnName="RazredId" />
+                <ScalarProperty Name="UcenikId" ColumnName="UcenikId" />
+                <ScalarProperty Name="RedniBroj" ColumnName="RedniBroj" />
+                <ScalarProperty Name="Ucenik" ColumnName="Ucenik" />
+              </ComplexTypeMapping>
+            </ResultMapping>
           </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>

@@ -144,11 +144,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RazrediNS\DetaljiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RazrediNS\DetaljiForm.Designer.cs">
+      <DependentUpon>DetaljiForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RazrediNS\IndexForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RazrediNS\IndexForm.Designer.cs">
       <DependentUpon>IndexForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RazrediNS\NovaOcjena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RazrediNS\NovaOcjena.Designer.cs">
+      <DependentUpon>NovaOcjena.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\AddKorisnik.cs">
       <SubType>Form</SubType>
@@ -228,8 +240,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RazrediNS\DetaljiForm.resx">
+      <DependentUpon>DetaljiForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RazrediNS\IndexForm.resx">
       <DependentUpon>IndexForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RazrediNS\NovaOcjena.resx">
+      <DependentUpon>NovaOcjena.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\AddKorisnik.resx">
       <DependentUpon>AddKorisnik.cs</DependentUpon>

@@ -188,6 +188,9 @@
     <Compile Include="Models\Razredi.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Razredi_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SkolskeGodine.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -209,6 +212,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UceniciRazredi.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UceniciRazredi_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Uloga_Result.cs">
