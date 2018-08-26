@@ -83,6 +83,12 @@
     <Compile Include="Evidencije\AddSmjer.Designer.cs">
       <DependentUpon>AddSmjer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Evidencije\AddZaduzenja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Evidencije\AddZaduzenja.Designer.cs">
+      <DependentUpon>AddZaduzenja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Evidencije\IndexForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Evidencije\AddSmjer.resx">
       <DependentUpon>AddSmjer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Evidencije\AddZaduzenja.resx">
+      <DependentUpon>AddZaduzenja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Evidencije\IndexForm.resx">
       <DependentUpon>IndexForm.cs</DependentUpon>

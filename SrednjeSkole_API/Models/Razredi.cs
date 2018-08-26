@@ -28,6 +28,7 @@ namespace SrednjeSkole_API.Models
         public int SkolskaGodinaId { get; set; }
         public int NastavnikId { get; set; }
         public int SmjerId { get; set; }
+        public int Aktivan { get; set; }
     
         public virtual Nastavnici Nastavnici { get; set; }
         public virtual SkolskeGodine SkolskeGodine { get; set; }

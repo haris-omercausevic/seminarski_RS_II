@@ -172,6 +172,9 @@
     <Compile Include="Models\Nastavnici.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Nastavnici_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Obavijesti.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

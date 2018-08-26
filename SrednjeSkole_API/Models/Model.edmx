@@ -150,6 +150,7 @@
           <Property Name="SkolskaGodinaId" Type="int" Nullable="false" />
           <Property Name="NastavnikId" Type="int" Nullable="false" />
           <Property Name="SmjerId" Type="int" Nullable="false" />
+          <Property Name="Aktivan" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="SkolskeGodine">
           <Key>
@@ -621,6 +622,7 @@
           <Parameter Name="NaucnaOblast" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="GodinaZaposlenja" Type="int" Mode="In" />
         </Function>
+        <Function Name="ssp_Nastavnici_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="ssp_Obavijesti_GetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ObavijestId" Type="int" Mode="In" />
         </Function>
@@ -648,6 +650,7 @@
         <Function Name="ssp_Predmeti_GetByRazred" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="razred" Type="int" Mode="In" />
         </Function>
+        <Function Name="ssp_Razredi_GetAktivni" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="ssp_Razredi_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RazredBrojcano" Type="int" Mode="In" />
           <Parameter Name="Odjeljenje" Type="nvarchar(max)" Mode="In" />
@@ -983,6 +986,7 @@
           <NavigationProperty Name="Smjerovi" Relationship="Self.FK_dbo_Razredi_dbo_Smjerovi_SmjerId" FromRole="Razredi" ToRole="Smjerovi" />
           <NavigationProperty Name="UceniciRazredi" Relationship="Self.FK_dbo_UceniciRazredi_dbo_Razredi_RazredId" FromRole="Razredi" ToRole="UceniciRazredi" />
           <NavigationProperty Name="Predaje" Relationship="SrednjeSkoleModel.FK_dbo_Predaje_dbo_Razredi_RazredId" FromRole="Razredi" ToRole="Predaje" />
+          <Property Name="Aktivan" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="SkolskeGodine">
           <Key>
@@ -1601,6 +1605,8 @@
             <Parameter Name="Datum" Mode="In" Type="String" />
             <Parameter Name="Napomena" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="ssp_Nastavnici_SelectAll" ReturnType="Collection(SrednjeSkoleModel.Nastavnici_Result)" />
+          <FunctionImport Name="ssp_Razredi_GetAktivni" ReturnType="Collection(SrednjeSkoleModel.Razredi_Result)" />
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1731,6 +1737,10 @@
           <Property Type="Int32" Name="RazredId" Nullable="false" />
           <Property Type="Int32" Name="PredmetId" Nullable="false" />
           <Property Type="String" Name="Naziv" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Nastavnici_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="nastavnik" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1873,7 +1883,8 @@
     <EntitySetMapping Name="Razredi">
       <EntityTypeMapping TypeName="IsTypeOf(SrednjeSkoleModel.Razredi)">
         <MappingFragment StoreEntitySet="Razredi">
-          <ScalarProperty Name="RazredId" ColumnName="RazredId" />
+          <ScalarProperty Name="Aktivan" ColumnName="Aktivan" />
+                <ScalarProperty Name="RazredId" ColumnName="RazredId" />
           <ScalarProperty Name="RazredBrojcano" ColumnName="RazredBrojcano" />
           <ScalarProperty Name="Odjeljenje" ColumnName="Odjeljenje" />
           <ScalarProperty Name="Oznaka" ColumnName="Oznaka" />
@@ -2121,6 +2132,25 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ssp_UceniciOcjene_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_UceniciOcjene_Insert" />
+          <FunctionImportMapping FunctionImportName="ssp_Nastavnici_SelectAll" FunctionName="SrednjeSkoleModel.Store.ssp_Nastavnici_SelectAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.Nastavnici_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="nastavnik" ColumnName="nastavnik" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ssp_Razredi_GetAktivni" FunctionName="SrednjeSkoleModel.Store.ssp_Razredi_GetAktivni">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.Razredi_Result">
+                <ScalarProperty Name="RazredId" ColumnName="RazredId" />
+                <ScalarProperty Name="SkolskaGodina" ColumnName="SkolskaGodina" />
+                <ScalarProperty Name="Oznaka" ColumnName="Oznaka" />
+                <ScalarProperty Name="Razrednik" ColumnName="Razrednik" />
+                <ScalarProperty Name="Smjer" ColumnName="Smjer" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

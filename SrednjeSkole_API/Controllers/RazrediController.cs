@@ -24,15 +24,23 @@ namespace SrednjeSkole_API.Controllers
 
         // GET: api/Razredi/5
         [ResponseType(typeof(Razredi))]
-        public IHttpActionResult GetRazredi(int id)
+        [Route("ById/{razredId}")]
+        public IHttpActionResult GetById(int razredId)
         {
-            Razredi razredi = db.Razredi.Find(id);
+            Razredi razredi = db.Razredi.Find(razredId);
             if (razredi == null)
             {
                 return NotFound();
             }
 
             return Ok(razredi);
+        }
+
+        [HttpGet]       
+        [Route("Aktivni")]
+        public List<Razredi_Result> GetAktivni()
+        {
+            return db.ssp_Razredi_GetAktivni().ToList();
         }
 
         // PUT: api/Razredi/5

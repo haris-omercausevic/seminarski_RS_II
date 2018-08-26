@@ -35,9 +35,7 @@ namespace SrednjeSkole_API.Util
                 string constraintName = newMessage.Substring(startIndex + 1, endIndex - startIndex - 1);
 
                 if (constraintName == "CS_KorisnickoIme")
-                    newMessage = "username_con";
-                else if (constraintName == "CS_Email")
-                    newMessage = "email_con";
+                    newMessage = "username_con";               
             }
 
             return newMessage;

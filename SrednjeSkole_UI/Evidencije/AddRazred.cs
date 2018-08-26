@@ -38,15 +38,11 @@ namespace SrednjeSkole_UI.Evidencije
             if (this.ValidateChildren())
             {
                 SkolskeGodine skGodTemp = skolskaGodinaCmb.SelectedItem as SkolskeGodine;
-                string skolskaGodinaId = "";
-                if (skGodTemp != null)
-                    skolskaGodinaId = skGodTemp.SkolskaGodinaId.ToString();
+                string skolskaGodinaId = skGodTemp?.SkolskaGodinaId.ToString();
 
                 Smjerovi smjerTemp = smjerCmb.SelectedItem as Smjerovi;
-                string smjerId = "";
-                if (smjerTemp != null)
-                    smjerId = smjerTemp.SmjerId.ToString();
-
+                string smjerId = smjerTemp?.SmjerId.ToString();
+                
                 string razrednikId = ((KeyValuePair<string, string>)razrednikCmb.SelectedItem).Key;
 
                 Razredi r = new Razredi()
@@ -56,7 +52,8 @@ namespace SrednjeSkole_UI.Evidencije
                     Oznaka = razredInput + "-" + odjeljenjeInput.Text,                    
                     SkolskaGodinaId = Convert.ToInt32(skolskaGodinaId),
                     SmjerId = Convert.ToInt32(smjerId),
-                    NastavnikId = Convert.ToInt32(razrednikId)                    
+                    NastavnikId = Convert.ToInt32(razrednikId),
+                    Aktivan = 1
                 };
 
                 HttpResponseMessage response = razrediService.PostResponse(r);

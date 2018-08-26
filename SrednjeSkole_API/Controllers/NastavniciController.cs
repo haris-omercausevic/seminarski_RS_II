@@ -20,6 +20,12 @@ namespace SrednjeSkole_API.Controllers
             return db.ssp_Korisnici_Pretraga(ime, prezime, ulogaId).ToList();
         }
 
+        //GET: api/Nastavnici
+        public List<Nastavnici_Result> GetNastavnici()
+        {
+            return db.ssp_Nastavnici_SelectAll().ToList();
+        }
+
         //GET api/Nastavnici/id
         [HttpGet]
         [Route("ById/{id}")]

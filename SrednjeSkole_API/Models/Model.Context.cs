@@ -454,5 +454,15 @@ namespace SrednjeSkole_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_UceniciOcjene_Insert", predajeIdParameter, ucenikIdParameter, vrijednostParameter, datumParameter, napomenaParameter);
         }
+    
+        public virtual ObjectResult<Nastavnici_Result> ssp_Nastavnici_SelectAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nastavnici_Result>("ssp_Nastavnici_SelectAll");
+        }
+    
+        public virtual ObjectResult<Razredi_Result> ssp_Razredi_GetAktivni()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Razredi_Result>("ssp_Razredi_GetAktivni");
+        }
     }
 }
