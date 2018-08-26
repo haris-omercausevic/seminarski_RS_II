@@ -193,7 +193,7 @@
             this.Controls.Add(this.predmetiDrugiList);
             this.Controls.Add(this.predmetiPrviList);
             this.Name = "AddZaduzenja";
-            this.Text = "Dodjela predmeta i razreda nastavniku";
+            this.Text = "Dodijeli predmete i razrede nastavniku";
             this.Load += new System.EventHandler(this.AddZaduzenja_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

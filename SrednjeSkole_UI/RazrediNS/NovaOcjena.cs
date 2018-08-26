@@ -58,6 +58,11 @@ namespace SrednjeSkole_UI.RazrediNS
             if (this.ValidateChildren())
             {
                 Predaje_Result pTemp = predmetiCmb.SelectedItem as Predaje_Result;
+                //predmetiCmb se zove combobox jer se u njemu bira predmet, 
+                //ali se objekat castuje u Predaje_Result jer su i ostali podaci od Predaje tu
+                // da ne bi 2 puta pozivao API i radio pretragu po svim parametrima da nadjem tacan Predaje objekat
+                
+                 
                 
                 string predmetId = pTemp?.PredmetId.ToString();
                 List<UceniciOcjene> uceniciOcjene = new List<UceniciOcjene>();
