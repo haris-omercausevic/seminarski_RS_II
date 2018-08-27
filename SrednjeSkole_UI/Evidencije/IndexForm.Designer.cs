@@ -31,6 +31,7 @@
             this.predmetiPctureBox = new System.Windows.Forms.PictureBox();
             this.razrediPictureBox = new System.Windows.Forms.PictureBox();
             this.smjeroviPictureBox = new System.Windows.Forms.PictureBox();
+            this.zaduzenjaLabel = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.predmetiPctureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.razrediPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.smjeroviPictureBox)).BeginInit();
@@ -42,7 +43,7 @@
             this.predmetiPctureBox.Image = global::SrednjeSkole_UI.Properties.Resources.predmeti;
             this.predmetiPctureBox.Location = new System.Drawing.Point(0, 276);
             this.predmetiPctureBox.Name = "predmetiPctureBox";
-            this.predmetiPctureBox.Size = new System.Drawing.Size(890, 138);
+            this.predmetiPctureBox.Size = new System.Drawing.Size(701, 138);
             this.predmetiPctureBox.TabIndex = 0;
             this.predmetiPctureBox.TabStop = false;
             this.predmetiPctureBox.Click += new System.EventHandler(this.predmetiPctureBox_Click);
@@ -53,7 +54,7 @@
             this.razrediPictureBox.Image = global::SrednjeSkole_UI.Properties.Resources.razredi;
             this.razrediPictureBox.Location = new System.Drawing.Point(0, 138);
             this.razrediPictureBox.Name = "razrediPictureBox";
-            this.razrediPictureBox.Size = new System.Drawing.Size(890, 138);
+            this.razrediPictureBox.Size = new System.Drawing.Size(701, 138);
             this.razrediPictureBox.TabIndex = 0;
             this.razrediPictureBox.TabStop = false;
             this.razrediPictureBox.Click += new System.EventHandler(this.razrediPictureBox_Click);
@@ -64,16 +65,32 @@
             this.smjeroviPictureBox.Image = global::SrednjeSkole_UI.Properties.Resources.smjerovi;
             this.smjeroviPictureBox.Location = new System.Drawing.Point(0, 0);
             this.smjeroviPictureBox.Name = "smjeroviPictureBox";
-            this.smjeroviPictureBox.Size = new System.Drawing.Size(890, 138);
+            this.smjeroviPictureBox.Size = new System.Drawing.Size(701, 138);
             this.smjeroviPictureBox.TabIndex = 0;
             this.smjeroviPictureBox.TabStop = false;
             this.smjeroviPictureBox.Click += new System.EventHandler(this.smjeroviPictureBox_Click);
+            // 
+            // zaduzenjaLabel
+            // 
+            this.zaduzenjaLabel.AutoSize = true;
+            this.zaduzenjaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(192)))), ((int)(((byte)(60)))));
+            this.zaduzenjaLabel.Font = new System.Drawing.Font("Forte", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.zaduzenjaLabel.LinkColor = System.Drawing.Color.White;
+            this.zaduzenjaLabel.Location = new System.Drawing.Point(732, 204);
+            this.zaduzenjaLabel.Name = "zaduzenjaLabel";
+            this.zaduzenjaLabel.Size = new System.Drawing.Size(135, 30);
+            this.zaduzenjaLabel.TabIndex = 18;
+            this.zaduzenjaLabel.TabStop = true;
+            this.zaduzenjaLabel.Text = "Zaduženja";
+            this.zaduzenjaLabel.VisitedLinkColor = System.Drawing.Color.White;
+            this.zaduzenjaLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.zaduzenjaLabel_LinkClicked);
             // 
             // IndexForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(891, 415);
+            this.Controls.Add(this.zaduzenjaLabel);
             this.Controls.Add(this.predmetiPctureBox);
             this.Controls.Add(this.razrediPictureBox);
             this.Controls.Add(this.smjeroviPictureBox);
@@ -86,6 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.razrediPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.smjeroviPictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -94,5 +112,6 @@
         private System.Windows.Forms.PictureBox smjeroviPictureBox;
         private System.Windows.Forms.PictureBox razrediPictureBox;
         private System.Windows.Forms.PictureBox predmetiPctureBox;
+        private System.Windows.Forms.LinkLabel zaduzenjaLabel;
     }
 }

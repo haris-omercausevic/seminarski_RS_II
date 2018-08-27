@@ -65,10 +65,10 @@
     <Compile Include="Evidencije\AddPredmet.Designer.cs">
       <DependentUpon>AddPredmet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Evidencije\AddRazred.cs">
+    <Compile Include="RazrediNS\AddRazred.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Evidencije\AddRazred.Designer.cs">
+    <Compile Include="RazrediNS\AddRazred.Designer.cs">
       <DependentUpon>AddRazred.cs</DependentUpon>
     </Compile>
     <Compile Include="Evidencije\AddSkolskaGodina.cs">
@@ -204,7 +204,7 @@
     <EmbeddedResource Include="Evidencije\AddPredmet.resx">
       <DependentUpon>AddPredmet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Evidencije\AddRazred.resx">
+    <EmbeddedResource Include="RazrediNS\AddRazred.resx">
       <DependentUpon>AddRazred.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Evidencije\AddSkolskaGodina.resx">

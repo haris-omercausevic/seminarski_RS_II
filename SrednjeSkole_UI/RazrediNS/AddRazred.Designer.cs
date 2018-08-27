@@ -1,4 +1,4 @@
-﻿namespace SrednjeSkole_UI.Evidencije
+﻿namespace SrednjeSkole_UI.RazrediNS
 {
     partial class AddRazred
     {

@@ -70,7 +70,7 @@ namespace SrednjeSkole_UI.RazrediNS
 
         private void noviRazredBtn_Click(object sender, EventArgs e)
         {
-            Evidencije.AddRazred f = new Evidencije.AddRazred();
+            RazrediNS.AddRazred f = new RazrediNS.AddRazred();
             if(f.ShowDialog() == DialogResult.OK)
             {
                 BindGrid();

@@ -622,6 +622,7 @@
           <Parameter Name="NaucnaOblast" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="GodinaZaposlenja" Type="int" Mode="In" />
         </Function>
+        <Function Name="ssp_Nastavnici_NotRazrednici" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="ssp_Nastavnici_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="ssp_Obavijesti_GetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ObavijestId" Type="int" Mode="In" />
@@ -1607,6 +1608,7 @@
           </FunctionImport>
           <FunctionImport Name="ssp_Nastavnici_SelectAll" ReturnType="Collection(SrednjeSkoleModel.Nastavnici_Result)" />
           <FunctionImport Name="ssp_Razredi_GetAktivni" ReturnType="Collection(SrednjeSkoleModel.Razredi_Result)" />
+          <FunctionImport Name="ssp_Nastavnici_NotRazrednici" ReturnType="Collection(SrednjeSkoleModel.Nastavnici_Result)" />
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -2148,6 +2150,14 @@
                 <ScalarProperty Name="Oznaka" ColumnName="Oznaka" />
                 <ScalarProperty Name="Razrednik" ColumnName="Razrednik" />
                 <ScalarProperty Name="Smjer" ColumnName="Smjer" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ssp_Nastavnici_NotRazrednici" FunctionName="SrednjeSkoleModel.Store.ssp_Nastavnici_NotRazrednici">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.Nastavnici_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="nastavnik" ColumnName="nastavnik" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

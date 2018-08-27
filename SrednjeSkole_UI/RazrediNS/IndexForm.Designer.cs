@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.razrediGrid = new System.Windows.Forms.DataGridView();
-            this.RazredId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SkolskaGodina = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Oznaka = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Razrednik = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Smjer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detaljiBtn = new System.Windows.Forms.Button();
             this.traziBtn = new System.Windows.Forms.Button();
             this.oznakaInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.noviRazredBtn = new System.Windows.Forms.Button();
+            this.RazredId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SkolskaGodina = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Oznaka = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Razrednik = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Smjer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.razrediGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,41 +63,6 @@
             this.razrediGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.razrediGrid.Size = new System.Drawing.Size(800, 380);
             this.razrediGrid.TabIndex = 23;
-            // 
-            // RazredId
-            // 
-            this.RazredId.DataPropertyName = "RazredId";
-            this.RazredId.HeaderText = "Id";
-            this.RazredId.Name = "RazredId";
-            this.RazredId.ReadOnly = true;
-            this.RazredId.Visible = false;
-            // 
-            // SkolskaGodina
-            // 
-            this.SkolskaGodina.DataPropertyName = "SkolskaGodina";
-            this.SkolskaGodina.HeaderText = "Školska godina";
-            this.SkolskaGodina.Name = "SkolskaGodina";
-            this.SkolskaGodina.ReadOnly = true;
-            // 
-            // Oznaka
-            // 
-            this.Oznaka.DataPropertyName = "Oznaka";
-            this.Oznaka.HeaderText = "Oznaka";
-            this.Oznaka.Name = "Oznaka";
-            this.Oznaka.ReadOnly = true;
-            // 
-            // Razrednik
-            // 
-            this.Razrednik.DataPropertyName = "Razrednik";
-            this.Razrednik.HeaderText = "Razrednik";
-            this.Razrednik.Name = "Razrednik";
-            this.Razrednik.ReadOnly = true;
-            // 
-            // Smjer
-            // 
-            this.Smjer.HeaderText = "Smjer";
-            this.Smjer.Name = "Smjer";
-            this.Smjer.ReadOnly = true;
             // 
             // detaljiBtn
             // 
@@ -148,6 +113,42 @@
             this.noviRazredBtn.UseVisualStyleBackColor = true;
             this.noviRazredBtn.Click += new System.EventHandler(this.noviRazredBtn_Click);
             // 
+            // RazredId
+            // 
+            this.RazredId.DataPropertyName = "RazredId";
+            this.RazredId.HeaderText = "Id";
+            this.RazredId.Name = "RazredId";
+            this.RazredId.ReadOnly = true;
+            this.RazredId.Visible = false;
+            // 
+            // SkolskaGodina
+            // 
+            this.SkolskaGodina.DataPropertyName = "SkolskaGodina";
+            this.SkolskaGodina.HeaderText = "Školska godina";
+            this.SkolskaGodina.Name = "SkolskaGodina";
+            this.SkolskaGodina.ReadOnly = true;
+            // 
+            // Oznaka
+            // 
+            this.Oznaka.DataPropertyName = "Oznaka";
+            this.Oznaka.HeaderText = "Oznaka";
+            this.Oznaka.Name = "Oznaka";
+            this.Oznaka.ReadOnly = true;
+            // 
+            // Razrednik
+            // 
+            this.Razrednik.DataPropertyName = "Razrednik";
+            this.Razrednik.HeaderText = "Razrednik";
+            this.Razrednik.Name = "Razrednik";
+            this.Razrednik.ReadOnly = true;
+            // 
+            // Smjer
+            // 
+            this.Smjer.DataPropertyName = "Smjer";
+            this.Smjer.HeaderText = "Smjer";
+            this.Smjer.Name = "Smjer";
+            this.Smjer.ReadOnly = true;
+            // 
             // IndexForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,11 +176,11 @@
         private System.Windows.Forms.Button traziBtn;
         private System.Windows.Forms.TextBox oznakaInput;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button noviRazredBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn RazredId;
         private System.Windows.Forms.DataGridViewTextBoxColumn SkolskaGodina;
         private System.Windows.Forms.DataGridViewTextBoxColumn Oznaka;
         private System.Windows.Forms.DataGridViewTextBoxColumn Razrednik;
         private System.Windows.Forms.DataGridViewTextBoxColumn Smjer;
-        private System.Windows.Forms.Button noviRazredBtn;
     }
 }

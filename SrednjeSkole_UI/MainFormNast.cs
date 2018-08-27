@@ -19,10 +19,10 @@ namespace SrednjeSkole_UI
         private void SendPicturesToBack()
         {
             this.upravljanjeKorisnicimaPictureBox.SendToBack();
-            this.upravljanjeKorisnicimaLabel.SendToBack();
+            this.razrediLabel.SendToBack();
 
             this.evidencijePictureBox.SendToBack();
-            this.evidencijeLabel.SendToBack();
+            this.materijaliLabel.SendToBack();
 
             this.dodajUcenikaPictureBox.SendToBack();
             this.dodajUcenikaLabel.SendToBack();
@@ -34,10 +34,10 @@ namespace SrednjeSkole_UI
         private void BringPicturesToFront()
         {
             this.upravljanjeKorisnicimaPictureBox.BringToFront();
-            this.upravljanjeKorisnicimaLabel.BringToFront();
+            this.razrediLabel.BringToFront();
 
             this.evidencijePictureBox.BringToFront();
-            this.evidencijeLabel.BringToFront();
+            this.materijaliLabel.BringToFront();
 
             this.dodajUcenikaPictureBox.BringToFront();
             this.dodajUcenikaLabel.BringToFront();
@@ -54,6 +54,22 @@ namespace SrednjeSkole_UI
             SendPicturesToBack();
             f.BringToFront();
             f.Show();
+        }
+
+        private void razrediLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RazrediNS.IndexForm f = new RazrediNS.IndexForm();
+            f.FormClosing += (s, arg) => BringPicturesToFront();
+            f.MdiParent = this;
+            f.Dock = DockStyle.Top;
+            SendPicturesToBack();
+            f.BringToFront();
+            f.Show();
+        }
+
+        private void materijaliLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

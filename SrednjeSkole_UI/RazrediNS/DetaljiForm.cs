@@ -17,13 +17,15 @@ namespace SrednjeSkole_UI.RazrediNS
     public partial class DetaljiForm : Form
     {
         private WebAPIHelper razrediService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.RazrediRoute);
+        private WebAPIHelper uceniciRazrediService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.UceniciRazrediRoute);
+
         private int _razredId;
         public DetaljiForm(int razredId)
         {
             Cursor.Current = Cursors.WaitCursor;
             InitializeComponent();
             _razredId = razredId;
-            HttpResponseMessage response = razrediService.GetActionResponse("GetUceniciByRazredId", razredId.ToString());
+            HttpResponseMessage response = uceniciRazrediService.GetActionResponse("ByRazredId", razredId.ToString());
             if(response.IsSuccessStatusCode)
             {
                 List<UceniciRazredi_Result> ucenici = response.Content.ReadAsAsync<List<UceniciRazredi_Result>>().Result;

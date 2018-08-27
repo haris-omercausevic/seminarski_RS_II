@@ -11,20 +11,10 @@ using System.Web.Http.Description;
 
 namespace SrednjeSkole_API.Controllers
 {
+    [RoutePrefix("api/Nastavnici")]
     public class NastavniciController : ApiController
     {
         private SrednjeSkoleEntities db = new SrednjeSkoleEntities(false);
-
-        public List<KorisniciPretraga_Result> Pretraga(string ime = "", string prezime = "", int? ulogaId = null)
-        {
-            return db.ssp_Korisnici_Pretraga(ime, prezime, ulogaId).ToList();
-        }
-
-        //GET: api/Nastavnici
-        public List<Nastavnici_Result> GetNastavnici()
-        {
-            return db.ssp_Nastavnici_SelectAll().ToList();
-        }
 
         //GET api/Nastavnici/id
         [HttpGet]
@@ -35,6 +25,8 @@ namespace SrednjeSkole_API.Controllers
         }
 
         // POST api/Nastavnici
+        // POST api/Korisnici
+        [HttpPost]
         [ResponseType(typeof(Nastavnici))]
         [ExceptionFilter]
         public IHttpActionResult PostNastavnici(Nastavnici k)
@@ -47,9 +39,9 @@ namespace SrednjeSkole_API.Controllers
             try
             {
                 k.Id = Convert.ToInt32(db.ssp_Korisnici_Insert(k.Ime, k.Prezime, k.Email,
-                       k.Telefon, k.KorisnickoIme, k.LozinkaSalt, k.LozinkaHash, k.JMBG, k.DatumRodjenja.Value.Date, k.Slika, k.SlikaThumb).FirstOrDefault());
-                db.ssp_Nastavnici_Insert(k.Id, k.Zvanje, k.NaucnaOblast, k.GodinaZaposlenja);
+                       k.Telefon, k.KorisnickoIme, k.LozinkaSalt, k.LozinkaHash, k.JMBG, k.DatumRodjenja.Value.Date, null, null).FirstOrDefault());
 
+                db.ssp_Nastavnici_Insert(k.Id, k.Zvanje, k.NaucnaOblast, k.GodinaZaposlenja);
             }
             catch (EntityException ex)
             {
@@ -65,6 +57,14 @@ namespace SrednjeSkole_API.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = k.Id }, k);
         }
+
+        [HttpGet]
+        [Route("NotRazrednici")]
+        public List<Nastavnici_Result> GetNotRazrednici()
+        {   
+            return db.ssp_Nastavnici_NotRazrednici().ToList();
+        }
+
 
         //PUT api/Korisnici/id
 

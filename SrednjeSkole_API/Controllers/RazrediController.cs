@@ -12,16 +12,12 @@ using System.Web.Http.Description;
 
 namespace SrednjeSkole_API.Controllers
 {
+    [RoutePrefix("api/Razredi")]
     public class RazrediController : ApiController
     {
         private SrednjeSkoleEntities db = new SrednjeSkoleEntities(false);
 
-        // GET: api/Razredi
-        public IQueryable<Razredi> GetRazredi()
-        {
-            return db.Razredi;
-        }
-
+       
         // GET: api/Razredi/5
         [ResponseType(typeof(Razredi))]
         [Route("ById/{razredId}")]
@@ -41,6 +37,13 @@ namespace SrednjeSkole_API.Controllers
         public List<Razredi_Result> GetAktivni()
         {
             return db.ssp_Razredi_GetAktivni().ToList();
+        }
+
+        [HttpGet]
+        [Route("Pretraga/{oznaka?}")]
+        public List<Razredi_Result> Pretraga(string oznaka = "")
+        {
+            return db.ssp_Razredi_Pretraga(oznaka).ToList();
         }
 
         // PUT: api/Razredi/5
@@ -89,7 +92,7 @@ namespace SrednjeSkole_API.Controllers
 
             try
             {
-                r.RazredId = Convert.ToInt32(db.ssp_Razredi_Insert(r.RazredBrojcano,r.Odjeljenje,r.Oznaka,r.SkolskaGodinaId,r.NastavnikId,r.SmjerId ).FirstOrDefault());
+                r.RazredId = Convert.ToInt32(db.ssp_Razredi_Insert(r.RazredBrojcano,r.Odjeljenje,r.Oznaka,r.SkolskaGodinaId,r.NastavnikId,r.SmjerId).FirstOrDefault());
             }
             catch (EntityException ex)
             {
@@ -117,6 +120,8 @@ namespace SrednjeSkole_API.Controllers
 
             return Ok(razredi);
         }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

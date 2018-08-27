@@ -20,10 +20,11 @@ namespace SrednjeSkole_UI
         public const string PredmetiRoute = "api/Predmeti";
         public const string SmjeroviRoute= "api/Smjerovi";
         public const string RazrediRoute = "api/Razredi";
+        public const string UceniciRazrediRoute = "api/UceniciRazredi";
         public const string SkolskeGodineRoute = "api/SkolskeGodine";
         public const string ObavijestiRoute = "api/Obavijesti";
         public const string PredajeRoute = "api/Predaje";
-        public const string UceniciOcjeneRoute = "api/UceniciOcjene"
+        public const string UceniciOcjeneRoute = "api/UceniciOcjene";
 
         #endregion
     }    

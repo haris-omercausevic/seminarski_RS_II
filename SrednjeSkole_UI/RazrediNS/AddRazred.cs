@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SrednjeSkole_UI.Evidencije
+namespace SrednjeSkole_UI.RazrediNS
 {
     public partial class AddRazred : Form
     {
@@ -33,42 +33,7 @@ namespace SrednjeSkole_UI.Evidencije
             BindNastavnici();
         }
 
-        private void dodajBtn_Click(object sender, EventArgs e)
-        {
-            if (this.ValidateChildren())
-            {
-                SkolskeGodine skGodTemp = skolskaGodinaCmb.SelectedItem as SkolskeGodine;
-                string skolskaGodinaId = skGodTemp?.SkolskaGodinaId.ToString();
-
-                Smjerovi smjerTemp = smjerCmb.SelectedItem as Smjerovi;
-                string smjerId = smjerTemp?.SmjerId.ToString();
-                
-                string razrednikId = ((KeyValuePair<string, string>)razrednikCmb.SelectedItem).Key;
-
-                Razredi r = new Razredi()
-                {
-                    Odjeljenje = odjeljenjeInput.Text.Trim(),
-                    RazredBrojcano = Convert.ToInt32(razredInput.Text),
-                    Oznaka = razredInput + "-" + odjeljenjeInput.Text,                    
-                    SkolskaGodinaId = Convert.ToInt32(skolskaGodinaId),
-                    SmjerId = Convert.ToInt32(smjerId),
-                    NastavnikId = Convert.ToInt32(razrednikId),
-                    Aktivan = 1
-                };
-
-                HttpResponseMessage response = razrediService.PostResponse(r);
-                if (response.IsSuccessStatusCode)
-                {
-                    MessageBox.Show(Messages.add_razred_succ, Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DialogResult = DialogResult.OK;
-                    Close();
-                }
-                else
-                {
-                    MessageBox.Show("Error Code" + response.StatusCode + " : Message - " + response.ReasonPhrase);
-                }
-            }
-        }
+       
 
         #region Binds
         public void BindSkolskeGodine()
@@ -107,19 +72,13 @@ namespace SrednjeSkole_UI.Evidencije
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            HttpResponseMessage response = nastavniciService.GetResponse();
+            HttpResponseMessage response = nastavniciService.GetActionResponse("notrazrednici");
 
             if (response.IsSuccessStatusCode)
             {
-                List<Nastavnici> nastavnici = response.Content.ReadAsAsync<List<Nastavnici>>().Result;                
-                Dictionary<string, string> nastavniciCmbList = new Dictionary<string, string>();
-                foreach (var item in nastavnici)
-                {
-                    nastavniciCmbList.Add(item.Id.ToString(), item.Zvanje + " " + item.Ime + " " + item.Prezime);
-                }
-                razrednikCmb.DataSource = new BindingSource(nastavniciCmbList, null);
-                razrednikCmb.DisplayMember= "Value";
-                razrednikCmb.ValueMember = "Key";
+                razrednikCmb.DataSource = response.Content.ReadAsAsync<List<Nastavnici_Result>>().Result;
+                razrednikCmb.DisplayMember= "nastavnik";
+                razrednikCmb.ValueMember = "Id";
                 razrednikCmb.SelectedValue = "";
 
                 // Get combobox selection (in handler)
@@ -129,20 +88,55 @@ namespace SrednjeSkole_UI.Evidencije
 
         }
         #endregion
+        private void dodajBtn_Click(object sender, EventArgs e)
+        {
+            if (this.ValidateChildren())
+            {
+                SkolskeGodine skGodTemp = skolskaGodinaCmb.SelectedItem as SkolskeGodine;
+                string skolskaGodinaId = skGodTemp?.SkolskaGodinaId.ToString();
+
+                Smjerovi smjerTemp = smjerCmb.SelectedItem as Smjerovi;
+                string smjerId = smjerTemp?.SmjerId.ToString();
+
+                Razredi r = new Razredi()
+                {
+                    Odjeljenje = odjeljenjeInput.Text.Trim(),
+                    RazredBrojcano = Convert.ToInt32(razredInput.Text),
+                    Oznaka = razredInput.Text + "-" + odjeljenjeInput.Text,
+                    SkolskaGodinaId = Convert.ToInt32(skolskaGodinaId),
+                    SmjerId = Convert.ToInt32(smjerId),
+                    NastavnikId = Convert.ToInt32(razrednikCmb?.SelectedValue),
+                    Aktivan = 1
+                };
+
+                HttpResponseMessage response = razrediService.PostResponse(r);
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show(Messages.add_razred_succ, Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Error Code" + response.StatusCode + " : Message - " + response.ReasonPhrase);
+                }
+            }
+        }
+
 
         #region PlusButtonsEventHandlers
 
 
         private void skolskaGodinaAddBtn_Click(object sender, EventArgs e)
         {
-            AddSkolskaGodina f2 = new AddSkolskaGodina();
+            Evidencije.AddSkolskaGodina f2 = new Evidencije.AddSkolskaGodina();
             f2.Show();
             f2.FormClosing += (objSender, args) => { BindSkolskeGodine(); }; ;
         }
 
         private void smjerAddBtn_Click(object sender, EventArgs e)
         {
-            AddSmjer f2 = new AddSmjer();
+            Evidencije.AddSmjer f2 = new Evidencije.AddSmjer();
             f2.Show();
             f2.FormClosing += (objSender, args) => { BindSkolskeGodine(); };
 

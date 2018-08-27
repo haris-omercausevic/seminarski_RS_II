@@ -24,11 +24,7 @@ namespace SrednjeSkole_UI.Users
         private WebAPIHelper smjeroviService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.SmjeroviRoute);
         private WebAPIHelper razrediService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.RazrediRoute);
         private Ucenici k = new Ucenici();
-        bool smjeroviUcitani = false;
-        bool razrediUcitani = false;
-
-
-
+       
         public AddUcenik()
         {
             InitializeComponent();
@@ -56,12 +52,12 @@ namespace SrednjeSkole_UI.Users
         }
         private void BindRazredi()
         {
-            HttpResponseMessage response = razrediService.GetResponse();
+            HttpResponseMessage response = razrediService.GetActionResponse("Aktivni");
 
-            smjerCmb.DataSource = response.Content.ReadAsAsync<List<Razredi>>().Result;
-            smjerCmb.DisplayMember = "Oznaka";
-            smjerCmb.ValueMember = "RazredId";
-            smjerCmb.SelectedValue = "";
+            razredCmb.DataSource = response.Content.ReadAsAsync<List<Razredi_Result>>().Result;
+            razredCmb.DisplayMember = "Oznaka";
+            razredCmb.ValueMember = "RazredId";
+            razredCmb.SelectedValue = "";
         }
 
         private void dodajBtn_Click(object sender, EventArgs e)
@@ -309,7 +305,7 @@ namespace SrednjeSkole_UI.Users
         }
         private void razredAddBtn_Click(object sender, EventArgs e)
         {
-            Evidencije.AddRazred f2 = new Evidencije.AddRazred();
+            RazrediNS.AddRazred f2 = new RazrediNS.AddRazred();
             f2.Show();
             f2.FormClosing += (objSender, args) => { BindRazredi(); };
         }
@@ -363,22 +359,6 @@ namespace SrednjeSkole_UI.Users
             }
         }
 
-        private void smjerCmb_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (!smjeroviUcitani)
-            {
-                BindSmjerovi();
-                smjeroviUcitani = true;
-            }
-        }
-
-        private void razredCmb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!razrediUcitani)
-            {
-                BindRazredi();
-                razrediUcitani = true;
-            }
-        }
+        
     }
 }

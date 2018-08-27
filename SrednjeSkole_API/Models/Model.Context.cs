@@ -464,5 +464,10 @@ namespace SrednjeSkole_API.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Razredi_Result>("ssp_Razredi_GetAktivni");
         }
+    
+        public virtual ObjectResult<Nastavnici_Result> ssp_Nastavnici_NotRazrednici()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nastavnici_Result>("ssp_Nastavnici_NotRazrednici");
+        }
     }
 }

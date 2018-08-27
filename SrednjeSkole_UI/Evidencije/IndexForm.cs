@@ -37,7 +37,7 @@ namespace SrednjeSkole_UI.Evidencije
         private void smjeroviPictureBox_Click(object sender, EventArgs e)
         {
             Evidencije.AddSmjer f = new Evidencije.AddSmjer();
-            f.FormClosing += new FormClosingEventHandler(bringToFront_FormClosing);
+            f.FormClosing += (s, arg) => BringPicturesToFront();
             f.Dock = DockStyle.Top;
             f.StartPosition = FormStartPosition.CenterScreen;
             SendPicturesToBack();
@@ -47,8 +47,8 @@ namespace SrednjeSkole_UI.Evidencije
 
         private void razrediPictureBox_Click(object sender, EventArgs e)
         {
-            Evidencije.AddRazred f = new Evidencije.AddRazred();
-            f.FormClosing += new FormClosingEventHandler(bringToFront_FormClosing);
+            RazrediNS.IndexForm f = new RazrediNS.IndexForm();
+            f.FormClosing += (s, arg) => BringPicturesToFront();
             f.StartPosition = FormStartPosition.CenterScreen;
             f.Dock = DockStyle.Top;
             SendPicturesToBack();
@@ -59,7 +59,7 @@ namespace SrednjeSkole_UI.Evidencije
         private void predmetiPctureBox_Click(object sender, EventArgs e)
         {
             Evidencije.AddPredmet f = new Evidencije.AddPredmet();
-            f.FormClosing += new FormClosingEventHandler(bringToFront_FormClosing);
+            f.FormClosing += (s, arg) => BringPicturesToFront();
             f.StartPosition = FormStartPosition.CenterScreen;
             f.Dock = DockStyle.Top;
             SendPicturesToBack();
@@ -67,9 +67,15 @@ namespace SrednjeSkole_UI.Evidencije
             f.Show();
         }
 
-        private void bringToFront_FormClosing(object sender, EventArgs e)
+        private void zaduzenjaLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            BringPicturesToFront();
+            Evidencije.AddZaduzenja f = new Evidencije.AddZaduzenja();
+            f.FormClosing += (s, arg) => BringPicturesToFront();
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.Dock = DockStyle.Top;
+            SendPicturesToBack();
+            f.BringToFront();
+            f.Show();
         }
     }
 }

@@ -39,10 +39,8 @@ namespace SrednjeSkole_UI.Evidencije
             BindPredmeti();
             BindRazredi();
         }
-        async private void BindPredmeti()
+        private void BindPredmeti()
         {
-            await Task.Run(() =>
-                {
                     Cursor.Current = Cursors.WaitCursor;
                     for (int i = 1; i <= 4; i++)
                     {
@@ -79,7 +77,6 @@ namespace SrednjeSkole_UI.Evidencije
                             }
                         }
                     }
-                });
             Cursor.Current = Cursors.Default;
         }
 
@@ -91,8 +88,9 @@ namespace SrednjeSkole_UI.Evidencije
 
             if (response.IsSuccessStatusCode)
             {
-                List<Razredi_Result> razredi = response.Content.ReadAsAsync<List<Razredi_Result>>().Result;
-                razrediList.DataSource = razredi;
+                razrediList.DataSource = response.Content.ReadAsAsync<List<Razredi_Result>>().Result;
+                razrediList.DisplayMember = "Oznaka";
+                razrediList.ValueMember = "RazredId";
                 razrediList.ClearSelected();
             }
             else

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.evidencijeLabel = new System.Windows.Forms.LinkLabel();
+            this.materijaliLabel = new System.Windows.Forms.LinkLabel();
             this.obavijestiLabel = new System.Windows.Forms.LinkLabel();
             this.dodajUcenikaLabel = new System.Windows.Forms.LinkLabel();
-            this.upravljanjeKorisnicimaLabel = new System.Windows.Forms.LinkLabel();
+            this.razrediLabel = new System.Windows.Forms.LinkLabel();
             this.evidencijePictureBox = new System.Windows.Forms.PictureBox();
             this.obavijestiPictureBox = new System.Windows.Forms.PictureBox();
             this.dodajUcenikaPictureBox = new System.Windows.Forms.PictureBox();
@@ -42,18 +42,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.upravljanjeKorisnicimaPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // evidencijeLabel
+            // materijaliLabel
             // 
-            this.evidencijeLabel.AutoSize = true;
-            this.evidencijeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(172)))), ((int)(((byte)(192)))));
-            this.evidencijeLabel.Font = new System.Drawing.Font("Forte", 20.25F);
-            this.evidencijeLabel.LinkColor = System.Drawing.Color.White;
-            this.evidencijeLabel.Location = new System.Drawing.Point(596, 184);
-            this.evidencijeLabel.Name = "evidencijeLabel";
-            this.evidencijeLabel.Size = new System.Drawing.Size(127, 30);
-            this.evidencijeLabel.TabIndex = 14;
-            this.evidencijeLabel.TabStop = true;
-            this.evidencijeLabel.Text = "Evidencije";
+            this.materijaliLabel.AutoSize = true;
+            this.materijaliLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(172)))), ((int)(((byte)(192)))));
+            this.materijaliLabel.Font = new System.Drawing.Font("Forte", 20.25F);
+            this.materijaliLabel.LinkColor = System.Drawing.Color.White;
+            this.materijaliLabel.Location = new System.Drawing.Point(596, 184);
+            this.materijaliLabel.Name = "materijaliLabel";
+            this.materijaliLabel.Size = new System.Drawing.Size(136, 30);
+            this.materijaliLabel.TabIndex = 14;
+            this.materijaliLabel.TabStop = true;
+            this.materijaliLabel.Text = "Materijali";
+            this.materijaliLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.materijaliLabel_LinkClicked);
             // 
             // obavijestiLabel
             // 
@@ -73,28 +74,29 @@
             // 
             this.dodajUcenikaLabel.AutoSize = true;
             this.dodajUcenikaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.dodajUcenikaLabel.Font = new System.Drawing.Font("Forte", 20.25F);
+            this.dodajUcenikaLabel.Font = new System.Drawing.Font("Courier New", 20.25F);
             this.dodajUcenikaLabel.LinkColor = System.Drawing.Color.White;
-            this.dodajUcenikaLabel.Location = new System.Drawing.Point(145, 416);
+            this.dodajUcenikaLabel.Location = new System.Drawing.Point(114, 416);
             this.dodajUcenikaLabel.Name = "dodajUcenikaLabel";
-            this.dodajUcenikaLabel.Size = new System.Drawing.Size(180, 30);
+            this.dodajUcenikaLabel.Size = new System.Drawing.Size(221, 30);
             this.dodajUcenikaLabel.TabIndex = 16;
             this.dodajUcenikaLabel.TabStop = true;
             this.dodajUcenikaLabel.Text = "Dodaj učenika";
             // 
-            // upravljanjeKorisnicimaLabel
+            // razrediLabel
             // 
-            this.upravljanjeKorisnicimaLabel.AutoSize = true;
-            this.upravljanjeKorisnicimaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(192)))), ((int)(((byte)(60)))));
-            this.upravljanjeKorisnicimaLabel.Font = new System.Drawing.Font("Forte", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.upravljanjeKorisnicimaLabel.LinkColor = System.Drawing.Color.White;
-            this.upravljanjeKorisnicimaLabel.Location = new System.Drawing.Point(85, 177);
-            this.upravljanjeKorisnicimaLabel.Name = "upravljanjeKorisnicimaLabel";
-            this.upravljanjeKorisnicimaLabel.Size = new System.Drawing.Size(288, 30);
-            this.upravljanjeKorisnicimaLabel.TabIndex = 17;
-            this.upravljanjeKorisnicimaLabel.TabStop = true;
-            this.upravljanjeKorisnicimaLabel.Text = "Upravljanje korisnicima";
-            this.upravljanjeKorisnicimaLabel.VisitedLinkColor = System.Drawing.Color.White;
+            this.razrediLabel.AutoSize = true;
+            this.razrediLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(192)))), ((int)(((byte)(60)))));
+            this.razrediLabel.Font = new System.Drawing.Font("Forte", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.razrediLabel.LinkColor = System.Drawing.Color.White;
+            this.razrediLabel.Location = new System.Drawing.Point(175, 172);
+            this.razrediLabel.Name = "razrediLabel";
+            this.razrediLabel.Size = new System.Drawing.Size(100, 30);
+            this.razrediLabel.TabIndex = 17;
+            this.razrediLabel.TabStop = true;
+            this.razrediLabel.Text = "Razredi";
+            this.razrediLabel.VisitedLinkColor = System.Drawing.Color.White;
+            this.razrediLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.razrediLabel_LinkClicked);
             // 
             // evidencijePictureBox
             // 
@@ -141,16 +143,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 461);
-            this.Controls.Add(this.evidencijeLabel);
+            this.Controls.Add(this.materijaliLabel);
             this.Controls.Add(this.obavijestiLabel);
             this.Controls.Add(this.dodajUcenikaLabel);
-            this.Controls.Add(this.upravljanjeKorisnicimaLabel);
+            this.Controls.Add(this.razrediLabel);
             this.Controls.Add(this.evidencijePictureBox);
             this.Controls.Add(this.obavijestiPictureBox);
             this.Controls.Add(this.dodajUcenikaPictureBox);
             this.Controls.Add(this.upravljanjeKorisnicimaPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainFormNast";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainFormNast";
@@ -165,10 +169,10 @@
 
         #endregion
 
-        private System.Windows.Forms.LinkLabel evidencijeLabel;
+        private System.Windows.Forms.LinkLabel materijaliLabel;
         private System.Windows.Forms.LinkLabel obavijestiLabel;
         private System.Windows.Forms.LinkLabel dodajUcenikaLabel;
-        private System.Windows.Forms.LinkLabel upravljanjeKorisnicimaLabel;
+        private System.Windows.Forms.LinkLabel razrediLabel;
         private System.Windows.Forms.PictureBox evidencijePictureBox;
         private System.Windows.Forms.PictureBox obavijestiPictureBox;
         private System.Windows.Forms.PictureBox dodajUcenikaPictureBox;
