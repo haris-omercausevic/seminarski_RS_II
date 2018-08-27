@@ -112,6 +112,7 @@
             this.Controls.Add(this.label4);
             this.Name = "AddMaterijal";
             this.Text = "Dodaj materijal";
+            this.Load += new System.EventHandler(this.AddMaterijal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

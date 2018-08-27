@@ -131,13 +131,13 @@ namespace SrednjeSkole_UI.Evidencije
                 predmetiTreci = predmetiTreciList.CheckedItems.Cast<Predmeti_Result>().ToList();
                 predmetiCetvrti = predmetiCetvrtiList.CheckedItems.Cast<Predmeti_Result>().ToList();
 
-                oznaceniRazredi = razrediList.CheckedIndices.Cast<Razredi_Result>().ToList();
+                oznaceniRazredi = razrediList.CheckedItems.Cast<Razredi_Result>().ToList();
 
                 foreach (Razredi_Result razred in oznaceniRazredi)
                 {
                     if(razred.Oznaka[0] == '1')
                     {
-                        foreach (Predmeti_Result predmet in predmetiPrvi.FindAll(x => x.Razred == razred.Oznaka[0]))
+                        foreach (Predmeti_Result predmet in predmetiPrvi.FindAll(x => x.Razred.Equals(1)))
                         {
                             predajeList.Add(new Predaje
                             {
@@ -149,7 +149,7 @@ namespace SrednjeSkole_UI.Evidencije
                     }
                     else if (razred.Oznaka[0] == '2')
                     {
-                        foreach (Predmeti_Result predmet in predmetiDrugi.FindAll(x => x.Razred == razred.Oznaka[0]))
+                        foreach (Predmeti_Result predmet in predmetiDrugi.FindAll(x => x.Razred.Equals(2)))
                         {
                             predajeList.Add(new Predaje
                             {
@@ -161,7 +161,7 @@ namespace SrednjeSkole_UI.Evidencije
                     }
                     else if (razred.Oznaka[0] == '3')
                     {
-                        foreach (Predmeti_Result predmet in predmetiTreci.FindAll(x => x.Razred == razred.Oznaka[0]))
+                        foreach (Predmeti_Result predmet in predmetiTreci.FindAll(x => x.Razred.Equals(3)))
                         {
                             predajeList.Add(new Predaje
                             {
@@ -173,7 +173,7 @@ namespace SrednjeSkole_UI.Evidencije
                     }
                     else if (razred.Oznaka[0] == '4')
                     {
-                        foreach (Predmeti_Result predmet in predmetiCetvrti.FindAll(x => x.Razred == razred.Oznaka[0]))
+                        foreach (Predmeti_Result predmet in predmetiCetvrti.FindAll(x => x.Razred.Equals(4)))
                         {
                             predajeList.Add(new Predaje
                             {
@@ -184,7 +184,17 @@ namespace SrednjeSkole_UI.Evidencije
                         }
                     }                    
                 }
-                
+                HttpResponseMessage response = predajeService.PostResponse(predajeList);
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Zaduzenja na predmetima uspjesno dodijeljena!", Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Error Code" + response.StatusCode + " : Message - " + response.ReasonPhrase);
+                }
             }
 
             Cursor.Current = Cursors.Default;

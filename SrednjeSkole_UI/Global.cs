@@ -12,6 +12,7 @@ namespace SrednjeSkole_UI
         public static Korisnici prijavljeniKorisnik { get; set; }
         public static int brojUloga = 0;
 
+        public const string BlobStorageUrl = "http://srednjeskole.blob.core.windows.net/srednjeskole/";
         #region API Routes
         public const string KorisniciRoute = "api/Korisnici";
         public const string UceniciRoute = "api/Ucenici";
@@ -26,7 +27,7 @@ namespace SrednjeSkole_UI
         public const string PredajeRoute = "api/Predaje";
         public const string UceniciOcjeneRoute = "api/UceniciOcjene";
         public const string MaterijaliRoute = "api/Materijali";
-
+        public const string BlobsRoute = "api/Blobs";
 
         #endregion
     }

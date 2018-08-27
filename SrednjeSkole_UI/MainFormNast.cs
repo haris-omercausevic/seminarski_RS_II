@@ -69,7 +69,13 @@ namespace SrednjeSkole_UI
 
         private void materijaliLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            MaterijaliNS.IndexForm f = new MaterijaliNS.IndexForm();
+            f.FormClosing += (s, arg) => BringPicturesToFront();
+            f.MdiParent = this;
+            f.Dock = DockStyle.Top;
+            SendPicturesToBack();
+            f.BringToFront();
+            f.Show();
         }
     }
 }

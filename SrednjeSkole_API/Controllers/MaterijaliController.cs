@@ -9,6 +9,7 @@ using SrednjeSkole_API.Util.BlobStorage;
 using System.Web.Http;
 using System.IO;
 using System.Threading.Tasks;
+using System.Data.Entity.Core;
 
 namespace SrednjeSkole_API.Controllers
 {
@@ -33,11 +34,35 @@ namespace SrednjeSkole_API.Controllers
         [HttpPost]
         public IHttpActionResult PostMaterijali(Materijali m)
         {
-                   
-            //_context.Materijali.Add(m);
-            //_context.SaveChanges();
 
-            return Ok();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                db.ssp_Materijali_Insert(m.Naziv, m.BlobName, m.Url, DateTime.Now, m.PredmetId, m.NastavnikId, 0, 0);
+            }
+            catch (EntityException ex)
+            {
+                if (ex.InnerException != null)
+                    throw CreateHttpExceptionMessage(Util.ExceptionHandler.HandleException(ex),
+                                                     HttpStatusCode.Conflict);
+            }
+            
+            return CreatedAtRoute("DefaultApi", new { id = m.MaterijalId}, m);
+        }
+        private HttpResponseException CreateHttpExceptionMessage(string reason, HttpStatusCode code)
+        {
+            HttpResponseMessage msg = new HttpResponseMessage()
+            {
+                ReasonPhrase = reason,
+                StatusCode = code,
+                Content = new StringContent(reason)
+            };
+
+            return new HttpResponseException(msg);
         }
     }
 }

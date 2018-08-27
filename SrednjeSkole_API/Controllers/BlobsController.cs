@@ -20,6 +20,7 @@ namespace SrednjeSkole_API.Controllers
     {
         private const string Container = "srednjeskole";
         [HttpPost]
+        [Route("")]
         public async Task<IHttpActionResult> UploadFile()
         {
             var accountName = ConfigurationManager.AppSettings["Blob_StorageAccount"];
@@ -29,10 +30,10 @@ namespace SrednjeSkole_API.Controllers
 
             CloudBlobContainer materijaliContainer = blobClient.GetContainerReference(Container);
             var provider = new AzureStorageMultipartFormDataStreamProvider(materijaliContainer);
-
             try
             {
                 await Request.Content.ReadAsMultipartAsync(provider);
+                //exception: stream not supported for reading
             }
             catch (Exception ex)
             {
@@ -46,7 +47,7 @@ namespace SrednjeSkole_API.Controllers
                 return BadRequest("An error has occured while uploading your file. Please try again.");
             }
 
-            return Ok($"File: {filename} has successfully uploaded");
+            return Ok(filename);
         }
     }
 }

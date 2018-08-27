@@ -16,6 +16,11 @@ namespace SrednjeSkole_API.Controllers
     {
         private SrednjeSkoleEntities db = new SrednjeSkoleEntities(false);
 
+        public List<Nastavnici_Result> GetNastavnici()
+        {
+            return db.ssp_Nastavnici_SelectAll().ToList();
+        }
+
         //GET api/Nastavnici/id
         [HttpGet]
         [Route("ById/{id}")]

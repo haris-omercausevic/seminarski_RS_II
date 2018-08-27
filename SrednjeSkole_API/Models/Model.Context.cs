@@ -469,5 +469,68 @@ namespace SrednjeSkole_API.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nastavnici_Result>("ssp_Nastavnici_NotRazrednici");
         }
+    
+        public virtual int ssp_Materijali_Insert(string naziv, string blobName, string url, Nullable<System.DateTime> dateCreated, Nullable<int> predmetId, Nullable<int> nastavnikId, Nullable<decimal> rating, Nullable<int> brojOcjena)
+        {
+            var nazivParameter = naziv != null ?
+                new ObjectParameter("Naziv", naziv) :
+                new ObjectParameter("Naziv", typeof(string));
+    
+            var blobNameParameter = blobName != null ?
+                new ObjectParameter("BlobName", blobName) :
+                new ObjectParameter("BlobName", typeof(string));
+    
+            var urlParameter = url != null ?
+                new ObjectParameter("Url", url) :
+                new ObjectParameter("Url", typeof(string));
+    
+            var dateCreatedParameter = dateCreated.HasValue ?
+                new ObjectParameter("DateCreated", dateCreated) :
+                new ObjectParameter("DateCreated", typeof(System.DateTime));
+    
+            var predmetIdParameter = predmetId.HasValue ?
+                new ObjectParameter("PredmetId", predmetId) :
+                new ObjectParameter("PredmetId", typeof(int));
+    
+            var nastavnikIdParameter = nastavnikId.HasValue ?
+                new ObjectParameter("NastavnikId", nastavnikId) :
+                new ObjectParameter("NastavnikId", typeof(int));
+    
+            var ratingParameter = rating.HasValue ?
+                new ObjectParameter("Rating", rating) :
+                new ObjectParameter("Rating", typeof(decimal));
+    
+            var brojOcjenaParameter = brojOcjena.HasValue ?
+                new ObjectParameter("BrojOcjena", brojOcjena) :
+                new ObjectParameter("BrojOcjena", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_Materijali_Insert", nazivParameter, blobNameParameter, urlParameter, dateCreatedParameter, predmetIdParameter, nastavnikIdParameter, ratingParameter, brojOcjenaParameter);
+        }
+    
+        public virtual ObjectResult<Predaje_Result> ssp_Predaje_GetByNastavnik(Nullable<int> nastavnikId)
+        {
+            var nastavnikIdParameter = nastavnikId.HasValue ?
+                new ObjectParameter("NastavnikId", nastavnikId) :
+                new ObjectParameter("NastavnikId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Predaje_Result>("ssp_Predaje_GetByNastavnik", nastavnikIdParameter);
+        }
+    
+        public virtual int ssp_Predaje_Insert(Nullable<int> nastavnikId, Nullable<int> predmetId, Nullable<int> razredId)
+        {
+            var nastavnikIdParameter = nastavnikId.HasValue ?
+                new ObjectParameter("NastavnikId", nastavnikId) :
+                new ObjectParameter("NastavnikId", typeof(int));
+    
+            var predmetIdParameter = predmetId.HasValue ?
+                new ObjectParameter("PredmetId", predmetId) :
+                new ObjectParameter("PredmetId", typeof(int));
+    
+            var razredIdParameter = razredId.HasValue ?
+                new ObjectParameter("RazredId", razredId) :
+                new ObjectParameter("RazredId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_Predaje_Insert", nastavnikIdParameter, predmetIdParameter, razredIdParameter);
+        }
     }
 }
