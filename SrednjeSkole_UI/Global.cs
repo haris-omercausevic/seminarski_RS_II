@@ -25,7 +25,9 @@ namespace SrednjeSkole_UI
         public const string ObavijestiRoute = "api/Obavijesti";
         public const string PredajeRoute = "api/Predaje";
         public const string UceniciOcjeneRoute = "api/UceniciOcjene";
+        public const string MaterijaliRoute = "api/Materijali";
+
 
         #endregion
-    }    
+    }
 }

@@ -1,10 +1,14 @@
-﻿using SrednjeSkole_API.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+
+using SrednjeSkole_API.Models;
+using SrednjeSkole_API.Util.BlobStorage;
 using System.Web.Http;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace SrednjeSkole_API.Controllers
 {
@@ -24,6 +28,16 @@ namespace SrednjeSkole_API.Controllers
         public List<Materijali> GetAll()
         {
             return db.Materijali.ToList();
+        }
+
+        [HttpPost]
+        public IHttpActionResult PostMaterijali(Materijali m)
+        {
+                   
+            //_context.Materijali.Add(m);
+            //_context.SaveChanges();
+
+            return Ok();
         }
     }
 }

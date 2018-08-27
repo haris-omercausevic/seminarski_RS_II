@@ -35,8 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.noviRazredBtn = new System.Windows.Forms.Button();
             this.RazredId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SkolskaGodina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Oznaka = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SkolskaGodina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Razrednik = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Smjer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.razrediGrid)).BeginInit();
@@ -51,8 +51,8 @@
             this.razrediGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.razrediGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RazredId,
-            this.SkolskaGodina,
             this.Oznaka,
+            this.SkolskaGodina,
             this.Razrednik,
             this.Smjer});
             this.razrediGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -121,19 +121,19 @@
             this.RazredId.ReadOnly = true;
             this.RazredId.Visible = false;
             // 
-            // SkolskaGodina
-            // 
-            this.SkolskaGodina.DataPropertyName = "SkolskaGodina";
-            this.SkolskaGodina.HeaderText = "Školska godina";
-            this.SkolskaGodina.Name = "SkolskaGodina";
-            this.SkolskaGodina.ReadOnly = true;
-            // 
             // Oznaka
             // 
             this.Oznaka.DataPropertyName = "Oznaka";
             this.Oznaka.HeaderText = "Oznaka";
             this.Oznaka.Name = "Oznaka";
             this.Oznaka.ReadOnly = true;
+            // 
+            // SkolskaGodina
+            // 
+            this.SkolskaGodina.DataPropertyName = "SkolskaGodina";
+            this.SkolskaGodina.HeaderText = "Školska godina";
+            this.SkolskaGodina.Name = "SkolskaGodina";
+            this.SkolskaGodina.ReadOnly = true;
             // 
             // Razrednik
             // 
@@ -148,6 +148,7 @@
             this.Smjer.HeaderText = "Smjer";
             this.Smjer.Name = "Smjer";
             this.Smjer.ReadOnly = true;
+            this.Smjer.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // IndexForm
             // 
@@ -178,8 +179,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button noviRazredBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn RazredId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SkolskaGodina;
         private System.Windows.Forms.DataGridViewTextBoxColumn Oznaka;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SkolskaGodina;
         private System.Windows.Forms.DataGridViewTextBoxColumn Razrednik;
         private System.Windows.Forms.DataGridViewTextBoxColumn Smjer;
     }

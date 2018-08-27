@@ -36,6 +36,12 @@
     </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.3.0.0\lib\net452\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.9.3.1\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
     <Reference Include="ModernHttpClient, Version=2.4.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\modernhttpclient.2.4.2\lib\Portable-Net45+WinRT45+WP8+WPA81\ModernHttpClient.dll</HintPath>
     </Reference>
@@ -64,6 +70,18 @@
     </Compile>
     <Compile Include="Evidencije\AddPredmet.Designer.cs">
       <DependentUpon>AddPredmet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaterijaliNS\AddMaterijal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaterijaliNS\AddMaterijal.Designer.cs">
+      <DependentUpon>AddMaterijal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaterijaliNS\IndexForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaterijaliNS\IndexForm.Designer.cs">
+      <DependentUpon>IndexForm.cs</DependentUpon>
     </Compile>
     <Compile Include="RazrediNS\AddRazred.cs">
       <SubType>Form</SubType>
@@ -198,11 +216,21 @@
     <Compile Include="Users\IndexForm.Designer.cs">
       <DependentUpon>IndexForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Util\BlobStorage\AzureBlobItem.cs" />
+    <Compile Include="Util\BlobStorage\AzureBlobSettings.cs" />
+    <Compile Include="Util\BlobStorage\AzureBlobStorage.cs" />
+    <Compile Include="Util\BlobStorage\IAzureBlobStorage.cs" />
     <Compile Include="Util\ComboBoxItem.cs" />
     <Compile Include="Util\UIHelper.cs" />
     <Compile Include="Util\WebAPIHelper.cs" />
     <EmbeddedResource Include="Evidencije\AddPredmet.resx">
       <DependentUpon>AddPredmet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaterijaliNS\AddMaterijal.resx">
+      <DependentUpon>AddMaterijal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaterijaliNS\IndexForm.resx">
+      <DependentUpon>IndexForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RazrediNS\AddRazred.resx">
       <DependentUpon>AddRazred.cs</DependentUpon>
