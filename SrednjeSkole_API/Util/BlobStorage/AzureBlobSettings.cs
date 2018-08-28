@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SrednjeSkole_UI.Util.BlobStorage
+namespace SrednjeSkole_API.Util.BlobStorage
 {
     public class AzureBlobSettings
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 //https://github.com/TahirNaushad/Fiver.Azure.Blob
 
-namespace SrednjeSkole_UI.Util.BlobStorage
+namespace SrednjeSkole_API.Util.BlobStorage
 {
     public interface IAzureBlobStorage
     {

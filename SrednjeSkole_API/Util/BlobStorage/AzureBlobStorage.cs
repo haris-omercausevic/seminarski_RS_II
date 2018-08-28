@@ -8,7 +8,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 
-namespace SrednjeSkole_UI.Util.BlobStorage
+namespace SrednjeSkole_API.Util.BlobStorage
 {
     public class AzureBlobStorage: IAzureBlobStorage
     {
