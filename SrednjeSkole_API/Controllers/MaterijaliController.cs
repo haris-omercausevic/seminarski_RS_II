@@ -10,6 +10,8 @@ using System.Web.Http;
 using System.IO;
 using System.Threading.Tasks;
 using System.Data.Entity.Core;
+using SrednjeSkole_API.Util;
+using System.Web.Http.Description;
 
 namespace SrednjeSkole_API.Controllers
 {
@@ -31,7 +33,8 @@ namespace SrednjeSkole_API.Controllers
             return db.Materijali.ToList();
         }
 
-        [HttpPost]
+        [ResponseType(typeof(Materijali))]
+        [ExceptionFilter]
         public IHttpActionResult PostMaterijali(Materijali m)
         {
 

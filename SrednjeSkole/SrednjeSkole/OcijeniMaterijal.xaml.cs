@@ -68,33 +68,33 @@ namespace SrednjeSkole
             //    { "Authorization", "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==" }
             //}
         }
-        public async void DownloadMaterijal(string url, string naziv)
-        {
-            //await Task.Yield();
-            //try
-            //{
-            //    await Task.Run(() =>
-            //    {
-            //            var downloadManager = CrossDownloadManager.Current;
-            //            _downloadFile = downloadManager.CreateDownloadFile(url);
-            //            Global.imeFajla = naziv;
-            //            downloadManager.Start(_downloadFile, true);
+        //public async void DownloadMaterijal(string url, string naziv)
+        //{
+        //    //await Task.Yield();
+        //    //try
+        //    //{
+        //    //    await Task.Run(() =>
+        //    //    {
+        //    //            var downloadManager = CrossDownloadManager.Current;
+        //    //            _downloadFile = downloadManager.CreateDownloadFile(url);
+        //    //            Global.imeFajla = naziv;
+        //    //            downloadManager.Start(_downloadFile, true);
 
-            //            while (_isDownloading)
-            //                _isDownloading = IsDownloading(_downloadFile);
-            //    });
+        //    //            while (_isDownloading)
+        //    //                _isDownloading = IsDownloading(_downloadFile);
+        //    //    });
 
-            //    if (!_isDownloading)
-            //    {
-            //        await DisplayAlert("Info", "Materijal je uspješno preuzet", "OK");
-            //        _downloadigFlag = false;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    await DisplayAlert("greska", ex.Message, "OK");
-            //}    
-        }
+        //    //    if (!_isDownloading)
+        //    //    {
+        //    //        await DisplayAlert("Info", "Materijal je uspješno preuzet", "OK");
+        //    //        _downloadigFlag = false;
+        //    //    }
+        //    //}
+        //    //catch (Exception ex)
+        //    //{
+        //    //    await DisplayAlert("greska", ex.Message, "OK");
+        //    //}    
+        //}
 
         public void AbortDownloading()
         {

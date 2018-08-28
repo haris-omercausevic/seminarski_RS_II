@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.materijaliGrid = new System.Windows.Forms.DataGridView();
+            this.noviMaterijalBtn = new System.Windows.Forms.Button();
+            this.predajeCmb = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.Materijalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Predmet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.izbrisiBtn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.noviMaterijalBtn = new System.Windows.Forms.Button();
-            this.predmetiCmb = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.materijaliGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,8 +50,7 @@
             this.Materijalid,
             this.Naziv,
             this.Predmet,
-            this.Datum,
-            this.izbrisiBtn});
+            this.Datum});
             this.materijaliGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.materijaliGrid.Location = new System.Drawing.Point(0, 70);
             this.materijaliGrid.MultiSelect = false;
@@ -61,6 +59,34 @@
             this.materijaliGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.materijaliGrid.Size = new System.Drawing.Size(800, 380);
             this.materijaliGrid.TabIndex = 24;
+            // 
+            // noviMaterijalBtn
+            // 
+            this.noviMaterijalBtn.Location = new System.Drawing.Point(488, 21);
+            this.noviMaterijalBtn.Name = "noviMaterijalBtn";
+            this.noviMaterijalBtn.Size = new System.Drawing.Size(96, 23);
+            this.noviMaterijalBtn.TabIndex = 28;
+            this.noviMaterijalBtn.Text = "Novi materijal";
+            this.noviMaterijalBtn.UseVisualStyleBackColor = true;
+            this.noviMaterijalBtn.Click += new System.EventHandler(this.noviMaterijalBtn_Click);
+            // 
+            // predajeCmb
+            // 
+            this.predajeCmb.FormattingEnabled = true;
+            this.predajeCmb.Location = new System.Drawing.Point(102, 21);
+            this.predajeCmb.Name = "predajeCmb";
+            this.predajeCmb.Size = new System.Drawing.Size(121, 21);
+            this.predajeCmb.TabIndex = 29;
+            this.predajeCmb.SelectionChangeCommitted += new System.EventHandler(this.predmetiCmb_SelectionChangeCommitted);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(47, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "Predmet:";
             // 
             // Materijalid
             // 
@@ -91,50 +117,13 @@
             this.Datum.Name = "Datum";
             this.Datum.ReadOnly = true;
             // 
-            // izbrisiBtn
-            // 
-            this.izbrisiBtn.DataPropertyName = "\"Izbrisi\"";
-            this.izbrisiBtn.HeaderText = "Akcija";
-            this.izbrisiBtn.Name = "izbrisiBtn";
-            this.izbrisiBtn.ReadOnly = true;
-            this.izbrisiBtn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.izbrisiBtn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // noviMaterijalBtn
-            // 
-            this.noviMaterijalBtn.Location = new System.Drawing.Point(488, 21);
-            this.noviMaterijalBtn.Name = "noviMaterijalBtn";
-            this.noviMaterijalBtn.Size = new System.Drawing.Size(96, 23);
-            this.noviMaterijalBtn.TabIndex = 28;
-            this.noviMaterijalBtn.Text = "Novi materijal";
-            this.noviMaterijalBtn.UseVisualStyleBackColor = true;
-            this.noviMaterijalBtn.Click += new System.EventHandler(this.noviMaterijalBtn_Click);
-            // 
-            // predmetiCmb
-            // 
-            this.predmetiCmb.FormattingEnabled = true;
-            this.predmetiCmb.Location = new System.Drawing.Point(102, 21);
-            this.predmetiCmb.Name = "predmetiCmb";
-            this.predmetiCmb.Size = new System.Drawing.Size(121, 21);
-            this.predmetiCmb.TabIndex = 29;
-            this.predmetiCmb.SelectionChangeCommitted += new System.EventHandler(this.predmetiCmb_SelectionChangeCommitted);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 31;
-            this.label3.Text = "Predmet:";
-            // 
             // IndexForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.predmetiCmb);
+            this.Controls.Add(this.predajeCmb);
             this.Controls.Add(this.noviMaterijalBtn);
             this.Controls.Add(this.materijaliGrid);
             this.Name = "IndexForm";
@@ -149,13 +138,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView materijaliGrid;
+        private System.Windows.Forms.Button noviMaterijalBtn;
+        private System.Windows.Forms.ComboBox predajeCmb;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Materijalid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Predmet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
-        private System.Windows.Forms.DataGridViewButtonColumn izbrisiBtn;
-        private System.Windows.Forms.Button noviMaterijalBtn;
-        private System.Windows.Forms.ComboBox predmetiCmb;
-        private System.Windows.Forms.Label label3;
     }
 }

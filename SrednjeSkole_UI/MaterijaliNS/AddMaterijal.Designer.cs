@@ -28,22 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.predmetiCmb = new System.Windows.Forms.ComboBox();
+            this.components = new System.ComponentModel.Container();
+            this.predajeCmb = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.dodajFajlBtn = new System.Windows.Forms.Button();
             this.fajlInput = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.sacuvajBtn = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // predmetiCmb
+            // predajeCmb
             // 
-            this.predmetiCmb.FormattingEnabled = true;
-            this.predmetiCmb.Location = new System.Drawing.Point(75, 29);
-            this.predmetiCmb.Name = "predmetiCmb";
-            this.predmetiCmb.Size = new System.Drawing.Size(163, 21);
-            this.predmetiCmb.TabIndex = 17;
+            this.predajeCmb.FormattingEnabled = true;
+            this.predajeCmb.Location = new System.Drawing.Point(75, 29);
+            this.predajeCmb.Name = "predajeCmb";
+            this.predajeCmb.Size = new System.Drawing.Size(163, 21);
+            this.predajeCmb.TabIndex = 17;
+            this.predajeCmb.Validating += new System.ComponentModel.CancelEventHandler(this.predajeCmb_Validating);
             // 
             // label4
             // 
@@ -99,6 +103,10 @@
             this.sacuvajBtn.UseVisualStyleBackColor = true;
             this.sacuvajBtn.Click += new System.EventHandler(this.sacuvajBtn_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // AddMaterijal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -108,11 +116,12 @@
             this.Controls.Add(this.dodajFajlBtn);
             this.Controls.Add(this.fajlInput);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.predmetiCmb);
+            this.Controls.Add(this.predajeCmb);
             this.Controls.Add(this.label4);
             this.Name = "AddMaterijal";
             this.Text = "Dodaj materijal";
             this.Load += new System.EventHandler(this.AddMaterijal_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,12 +129,13 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox predmetiCmb;
+        private System.Windows.Forms.ComboBox predajeCmb;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button dodajFajlBtn;
         private System.Windows.Forms.TextBox fajlInput;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button sacuvajBtn;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

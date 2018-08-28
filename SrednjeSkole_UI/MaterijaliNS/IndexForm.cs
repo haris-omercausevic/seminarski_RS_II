@@ -35,11 +35,13 @@ namespace SrednjeSkole_UI.MaterijaliNS
             HttpResponseMessage response = predajeService.GetActionResponse("ByNastavnik", Global.prijavljeniKorisnik.Id.ToString());
             if (response.IsSuccessStatusCode)
             {
-                predmetiCmb.DataSource = response.Content.ReadAsAsync<List<Predaje_Result>>().Result;
-                predmetiCmb.DisplayMember = "Naziv";
-                predmetiCmb.ValueMember = "PredajeId";
-                predmetiCmb.SelectedItem = "";
+                predajeCmb.DataSource = response.Content.ReadAsAsync<List<Predaje_Result>>().Result;
+                predajeCmb.DisplayMember = "Naziv";
+                predajeCmb.ValueMember = "PredajeId";
+                predajeCmb.SelectedValue = "";
             }
+
+            Cursor.Current = Cursors.Default;
         }
 
         private void BindGrid(int predmetId)
@@ -52,6 +54,15 @@ namespace SrednjeSkole_UI.MaterijaliNS
             {
                 materijaliGrid.DataSource = response.Content.ReadAsAsync<List<Materijali_Result>>().Result; ;
                 materijaliGrid.ClearSelection();
+
+                DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+                buttonColumn.Name = "Akcija";
+                buttonColumn.HeaderText = "Akcija";
+                buttonColumn.Text = "Izbrisi";
+                // Use the Text property for the button text for all cells rather
+                // than using each cell's value as the text for its own button.
+                buttonColumn.UseColumnTextForButtonValue = true;
+                materijaliGrid.Columns.Insert(4, buttonColumn);
             }
             else
             {
@@ -68,8 +79,8 @@ namespace SrednjeSkole_UI.MaterijaliNS
 
         private void predmetiCmb_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            int predmetId = Convert.ToInt32((sender as ComboBox).SelectedValue);
-            BindGrid(predmetId);
+            Predaje_Result predaje = (sender as ComboBox).SelectedItem as Predaje_Result;
+            BindGrid(predaje.PredmetId);
         }
     }
     }
