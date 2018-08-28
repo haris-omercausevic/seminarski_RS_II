@@ -63,7 +63,7 @@ namespace SrednjeSkole_UI.RazrediNS
             if(razrediGrid.SelectedRows.Count != 0)
             {
                 DetaljiForm f = new DetaljiForm(Convert.ToInt32(razrediGrid.SelectedRows[0].Cells[0].Value));
-                f.Text = "Razred: " + razrediGrid.SelectedRows[0].Cells[2].Value;
+                f.Text = "Razred: " + razrediGrid.SelectedRows[0].Cells[1].Value;
                 f.ShowDialog();
             }
         }

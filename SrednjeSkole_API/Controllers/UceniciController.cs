@@ -12,23 +12,9 @@ using System.Web.Http.Description;
 namespace SrednjeSkole_API.Controllers
 {
     [RoutePrefix("api/Ucenici")]
-
     public class UceniciController : ApiController
     {
         private SrednjeSkoleEntities db = new SrednjeSkoleEntities(false);
-
-        public List<KorisniciPretraga_Result> Pretraga(string ime = "", string prezime = "", int? ulogaId = null)
-        {
-            return db.ssp_Korisnici_Pretraga(ime, prezime, ulogaId).ToList();
-        }
-
-        //GET api/Ucenici/id
-        [HttpGet]
-        [Route("ById/{id}")]
-        public Korisnici_Result GetById(int id)
-        {
-            return db.ssp_Korisnici_GetById(id).FirstOrDefault();
-        }
 
         // POST api/Ucenici
         [ResponseType(typeof(Ucenici))]
@@ -45,6 +31,9 @@ namespace SrednjeSkole_API.Controllers
                 k.Id = Convert.ToInt32(db.ssp_Korisnici_Insert(k.Ime, k.Prezime, k.Email,
                        k.Telefon, k.KorisnickoIme, k.LozinkaSalt, k.LozinkaHash, k.JMBG, k.DatumRodjenja.Value.Date, k.Slika, k.SlikaThumb).FirstOrDefault());
                 db.ssp_Ucenici_Insert(k.Id, k.ImeRoditelja, k.GodinaUpisa, k.SmjerId, k.NazivOsnovneSkole);
+
+                //db.ssp_UceniciRazredi_Insert(0, '2018/19', k.Id, razredId);
+                //dodati u UceniciRazrediController
 
             }
             catch (EntityException ex)

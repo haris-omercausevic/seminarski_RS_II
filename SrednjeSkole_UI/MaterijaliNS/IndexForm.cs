@@ -54,15 +54,6 @@ namespace SrednjeSkole_UI.MaterijaliNS
             {
                 materijaliGrid.DataSource = response.Content.ReadAsAsync<List<Materijali_Result>>().Result; ;
                 materijaliGrid.ClearSelection();
-
-                DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
-                buttonColumn.Name = "Akcija";
-                buttonColumn.HeaderText = "Akcija";
-                buttonColumn.Text = "Izbrisi";
-                // Use the Text property for the button text for all cells rather
-                // than using each cell's value as the text for its own button.
-                buttonColumn.UseColumnTextForButtonValue = true;
-                materijaliGrid.Columns.Insert(4, buttonColumn);
             }
             else
             {
@@ -81,6 +72,24 @@ namespace SrednjeSkole_UI.MaterijaliNS
         {
             Predaje_Result predaje = (sender as ComboBox).SelectedItem as Predaje_Result;
             BindGrid(predaje.PredmetId);
+        }
+
+        private void downloadMaterijalBtn_Click(object sender, EventArgs e)
+        {
+            if (materijaliGrid.SelectedRows.Count != 0)
+            {
+                int materijalId = (Convert.ToInt32(materijaliGrid.SelectedRows[0].Cells[0].Value));
+                //zavrsiti, napraviti ovde sta treba (openSaveDialog itd)
+            }
+        }
+
+        private void izbrisiMaterijalBtn_Click(object sender, EventArgs e)
+        {
+            if (materijaliGrid.SelectedRows.Count != 0)
+            {
+                int materijalId = (Convert.ToInt32(materijaliGrid.SelectedRows[0].Cells[0].Value));
+                //zavrsiti, napraviti na apiju sta treba
+            }
         }
     }
     }

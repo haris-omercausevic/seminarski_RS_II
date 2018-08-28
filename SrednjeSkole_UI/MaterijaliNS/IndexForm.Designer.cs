@@ -32,10 +32,14 @@
             this.noviMaterijalBtn = new System.Windows.Forms.Button();
             this.predajeCmb = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.downloadMaterijalBtn = new System.Windows.Forms.Button();
+            this.izbrisiMaterijalBtn = new System.Windows.Forms.Button();
             this.Materijalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Predmet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nastavnik = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rating = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BrojOcjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.materijaliGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,8 +53,10 @@
             this.materijaliGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Materijalid,
             this.Naziv,
-            this.Predmet,
-            this.Datum});
+            this.Datum,
+            this.nastavnik,
+            this.Rating,
+            this.BrojOcjena});
             this.materijaliGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.materijaliGrid.Location = new System.Drawing.Point(0, 70);
             this.materijaliGrid.MultiSelect = false;
@@ -62,7 +68,7 @@
             // 
             // noviMaterijalBtn
             // 
-            this.noviMaterijalBtn.Location = new System.Drawing.Point(488, 21);
+            this.noviMaterijalBtn.Location = new System.Drawing.Point(321, 19);
             this.noviMaterijalBtn.Name = "noviMaterijalBtn";
             this.noviMaterijalBtn.Size = new System.Drawing.Size(96, 23);
             this.noviMaterijalBtn.TabIndex = 28;
@@ -88,6 +94,26 @@
             this.label3.TabIndex = 31;
             this.label3.Text = "Predmet:";
             // 
+            // downloadMaterijalBtn
+            // 
+            this.downloadMaterijalBtn.Location = new System.Drawing.Point(500, 19);
+            this.downloadMaterijalBtn.Name = "downloadMaterijalBtn";
+            this.downloadMaterijalBtn.Size = new System.Drawing.Size(96, 23);
+            this.downloadMaterijalBtn.TabIndex = 28;
+            this.downloadMaterijalBtn.Text = "Download";
+            this.downloadMaterijalBtn.UseVisualStyleBackColor = true;
+            this.downloadMaterijalBtn.Click += new System.EventHandler(this.downloadMaterijalBtn_Click);
+            // 
+            // izbrisiMaterijalBtn
+            // 
+            this.izbrisiMaterijalBtn.Location = new System.Drawing.Point(646, 19);
+            this.izbrisiMaterijalBtn.Name = "izbrisiMaterijalBtn";
+            this.izbrisiMaterijalBtn.Size = new System.Drawing.Size(96, 23);
+            this.izbrisiMaterijalBtn.TabIndex = 28;
+            this.izbrisiMaterijalBtn.Text = "Izbrisi";
+            this.izbrisiMaterijalBtn.UseVisualStyleBackColor = true;
+            this.izbrisiMaterijalBtn.Click += new System.EventHandler(this.izbrisiMaterijalBtn_Click);
+            // 
             // Materijalid
             // 
             this.Materijalid.DataPropertyName = "MaterijalId";
@@ -103,19 +129,33 @@
             this.Naziv.Name = "Naziv";
             this.Naziv.ReadOnly = true;
             // 
-            // Predmet
-            // 
-            this.Predmet.DataPropertyName = "Predmet";
-            this.Predmet.HeaderText = "Predmet";
-            this.Predmet.Name = "Predmet";
-            this.Predmet.ReadOnly = true;
-            // 
             // Datum
             // 
             this.Datum.DataPropertyName = "Datum";
             this.Datum.HeaderText = "Datum";
             this.Datum.Name = "Datum";
             this.Datum.ReadOnly = true;
+            // 
+            // nastavnik
+            // 
+            this.nastavnik.DataPropertyName = "nastavnik";
+            this.nastavnik.HeaderText = "Nastavnik";
+            this.nastavnik.Name = "nastavnik";
+            this.nastavnik.ReadOnly = true;
+            // 
+            // Rating
+            // 
+            this.Rating.DataPropertyName = "Rating";
+            this.Rating.HeaderText = "Rating";
+            this.Rating.Name = "Rating";
+            this.Rating.ReadOnly = true;
+            // 
+            // BrojOcjena
+            // 
+            this.BrojOcjena.DataPropertyName = "BrojOcjena";
+            this.BrojOcjena.HeaderText = "Broj ocjena";
+            this.BrojOcjena.Name = "BrojOcjena";
+            this.BrojOcjena.ReadOnly = true;
             // 
             // IndexForm
             // 
@@ -124,6 +164,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.predajeCmb);
+            this.Controls.Add(this.izbrisiMaterijalBtn);
+            this.Controls.Add(this.downloadMaterijalBtn);
             this.Controls.Add(this.noviMaterijalBtn);
             this.Controls.Add(this.materijaliGrid);
             this.Name = "IndexForm";
@@ -141,9 +183,13 @@
         private System.Windows.Forms.Button noviMaterijalBtn;
         private System.Windows.Forms.ComboBox predajeCmb;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button downloadMaterijalBtn;
+        private System.Windows.Forms.Button izbrisiMaterijalBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Materijalid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Predmet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nastavnik;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rating;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BrojOcjena;
     }
 }

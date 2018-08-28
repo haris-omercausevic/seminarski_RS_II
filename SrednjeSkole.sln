@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SrednjeSkole.iOS", "Srednje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SrednjeSkole.UWP", "SrednjeSkole\SrednjeSkole.UWP\SrednjeSkole.UWP.csproj", "{F8D428C6-CF4C-4B1D-8D14-576ECD7B05FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SrednjeSkole", "SrednjeSkole\SrednjeSkole\SrednjeSkole.csproj", "{BBB12263-4DD0-4114-B099-974DC31F3CEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SrednjeSkole", "SrednjeSkole\SrednjeSkole\SrednjeSkole.csproj", "{BBB12263-4DD0-4114-B099-974DC31F3CEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

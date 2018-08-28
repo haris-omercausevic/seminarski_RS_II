@@ -532,5 +532,26 @@ namespace SrednjeSkole_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_Predaje_Insert", nastavnikIdParameter, predmetIdParameter, razredIdParameter);
         }
+    
+        public virtual int ssp_UceniciRazredi_Insert(Nullable<int> redniBroj, string skolskaGodina, Nullable<int> ucenikId, Nullable<int> razredID)
+        {
+            var redniBrojParameter = redniBroj.HasValue ?
+                new ObjectParameter("RedniBroj", redniBroj) :
+                new ObjectParameter("RedniBroj", typeof(int));
+    
+            var skolskaGodinaParameter = skolskaGodina != null ?
+                new ObjectParameter("SkolskaGodina", skolskaGodina) :
+                new ObjectParameter("SkolskaGodina", typeof(string));
+    
+            var ucenikIdParameter = ucenikId.HasValue ?
+                new ObjectParameter("UcenikId", ucenikId) :
+                new ObjectParameter("UcenikId", typeof(int));
+    
+            var razredIDParameter = razredID.HasValue ?
+                new ObjectParameter("RazredID", razredID) :
+                new ObjectParameter("RazredID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_UceniciRazredi_Insert", redniBrojParameter, skolskaGodinaParameter, ucenikIdParameter, razredIDParameter);
+        }
     }
 }

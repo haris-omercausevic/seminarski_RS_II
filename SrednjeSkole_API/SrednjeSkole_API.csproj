@@ -288,7 +288,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49967</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49967/</IISUrl>
+          <IISUrl>http://localhost/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>https://srednjeskoleapi20180818082926.azurewebsites.net/</CustomServerUrl>

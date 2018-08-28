@@ -617,9 +617,9 @@
           <Parameter Name="predmetId" Type="int" Mode="In" />
         </Function>
         <Function Name="ssp_Materijali_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Naziv" Type="nvarchar" Mode="In" />
-          <Parameter Name="BlobName" Type="nvarchar" Mode="In" />
-          <Parameter Name="Url" Type="nvarchar" Mode="In" />
+          <Parameter Name="Naziv" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="BlobName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Url" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="DateCreated" Type="datetime" Mode="In" />
           <Parameter Name="PredmetId" Type="int" Mode="In" />
           <Parameter Name="NastavnikId" Type="int" Mode="In" />
@@ -707,6 +707,12 @@
         </Function>
         <Function Name="ssp_UceniciRazredi_GetByRazredId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RazredId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ssp_UceniciRazredi_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RedniBroj" Type="int" Mode="In" />
+          <Parameter Name="SkolskaGodina" Type="nvarchar" Mode="In" />
+          <Parameter Name="UcenikId" Type="int" Mode="In" />
+          <Parameter Name="RazredID" Type="int" Mode="In" />
         </Function>
         <Function Name="ssp_Uloge_GetByKorisnikId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KorisnikId" Type="int" Mode="In" />
@@ -1645,6 +1651,12 @@
             <Parameter Name="PredmetId" Mode="In" Type="Int32" />
             <Parameter Name="RazredId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="ssp_UceniciRazredi_Insert">
+            <Parameter Name="RedniBroj" Mode="In" Type="Int32" />
+            <Parameter Name="SkolskaGodina" Mode="In" Type="String" />
+            <Parameter Name="UcenikId" Mode="In" Type="Int32" />
+            <Parameter Name="RazredID" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -2210,6 +2222,7 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ssp_Predaje_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_Predaje_Insert" />
+          <FunctionImportMapping FunctionImportName="ssp_UceniciRazredi_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_UceniciRazredi_Insert" />
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

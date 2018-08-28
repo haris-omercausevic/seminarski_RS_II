@@ -78,6 +78,7 @@ namespace SrednjeSkole_UI.Users
                 k.Spol = radioButton1.Checked ? "M" : "Z";
                 k.NazivOsnovneSkole = nazivSkoleInput.Text;
 
+                
                 k.LozinkaSalt = UIHelper.GenerateSalt();
                 k.LozinkaHash = UIHelper.GenerateHash(k.LozinkaSalt, lozinkaInput.Text);
 
@@ -86,7 +87,17 @@ namespace SrednjeSkole_UI.Users
                 if (response2.IsSuccessStatusCode)
                     k.Uloge.Add(response2?.Content.ReadAsAsync<List<Uloge>>().Result[0]);
 
-
+                k.SmjerId = Convert.ToInt32(smjerCmb.SelectedValue);
+                
+                Razredi_Result r = razredCmb.SelectedItem as Razredi_Result;
+                UceniciRazredi ur = new UceniciRazredi()
+                {
+                    RazredId = r.RazredId,
+                    SkolskaGodina = r.SkolskaGodina
+                };
+                //nije zavrseno
+                //ZAVRSITI
+                //pogledati implementaciju sa SrednjeSkoleApp
                 HttpResponseMessage response = uceniciService.PostResponse(k);
                 if (response.IsSuccessStatusCode)
                 {
