@@ -31,7 +31,7 @@ namespace SrednjeSkole.Droid
                 string pathToNewFile = Path.Combine
                                  (Android.OS.Environment.GetExternalStoragePublicDirectory
                                          (Android.OS.Environment.DirectoryDownloads).AbsolutePath,
-                                                Global.imeFajla);
+                                                fileName);
                 webClient.DownloadFileAsync(new Uri(url), pathToNewFile);
             }
             catch (Exception ex)
