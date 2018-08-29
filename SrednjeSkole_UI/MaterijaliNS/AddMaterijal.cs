@@ -23,7 +23,6 @@ namespace SrednjeSkole_UI.MaterijaliNS
         private WebAPIHelper materijaliService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.MaterijaliRoute);
         private WebAPIHelper blobsService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.BlobsRoute);
         private WebAPIHelper predajeService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.PredajeRoute);
-        private const string connString = "DefaultEndpointsProtocol=https;AccountName=srednjeskole;AccountKey=9JzTotn+UyfgAW9KVKHm2oDrF1dawMOLkARlYP/vKlfOEpYrZx8hJRF/sPnkz7gYwjS7DLFqgOq1NxcBU+Spkg==;EndpointSuffix=core.windows.net";
         public AddMaterijal()
         {
             InitializeComponent();
@@ -63,7 +62,7 @@ namespace SrednjeSkole_UI.MaterijaliNS
             Cursor.Current = Cursors.WaitCursor;
 
             // Retrieve storage account from connection string.
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connString);
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(Global.connString);
 
             // Create the blob client.
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();

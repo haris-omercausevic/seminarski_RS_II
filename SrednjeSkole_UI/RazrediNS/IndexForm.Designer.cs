@@ -162,7 +162,7 @@
             this.Controls.Add(this.razrediGrid);
             this.Controls.Add(this.detaljiBtn);
             this.Name = "IndexForm";
-            this.Text = "7";
+            this.Text = "Pregled razreda";
             this.Load += new System.EventHandler(this.IndexForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.razrediGrid)).EndInit();
             this.ResumeLayout(false);

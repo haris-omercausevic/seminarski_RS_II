@@ -430,7 +430,7 @@ namespace SrednjeSkole_API.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Predaje_Result>("ssp_Predaje_GetByNastavnikRazred", nastavnikIdParameter, razredIdParameter);
         }
     
-        public virtual int ssp_UceniciOcjene_Insert(Nullable<int> predajeId, Nullable<int> ucenikId, Nullable<int> vrijednost, string datum, string napomena)
+        public virtual int ssp_UceniciOcjene_Insert(Nullable<int> predajeId, Nullable<int> ucenikId, Nullable<int> vrijednost, Nullable<System.DateTime> datum, string napomena)
         {
             var predajeIdParameter = predajeId.HasValue ?
                 new ObjectParameter("PredajeId", predajeId) :
@@ -444,9 +444,9 @@ namespace SrednjeSkole_API.Models
                 new ObjectParameter("Vrijednost", vrijednost) :
                 new ObjectParameter("Vrijednost", typeof(int));
     
-            var datumParameter = datum != null ?
+            var datumParameter = datum.HasValue ?
                 new ObjectParameter("Datum", datum) :
-                new ObjectParameter("Datum", typeof(string));
+                new ObjectParameter("Datum", typeof(System.DateTime));
     
             var napomenaParameter = napomena != null ?
                 new ObjectParameter("Napomena", napomena) :

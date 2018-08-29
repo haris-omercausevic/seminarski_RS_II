@@ -42,5 +42,9 @@ namespace SrednjeSkole_UI.Util
             StringContent jsonObject = new StringContent(JsonConvert.SerializeObject(existingObj), Encoding.UTF8, "application/json");
             return client.PutAsync(route + "/" + id, jsonObject).Result;
         }
+        public HttpResponseMessage DeleteResponse(int id)
+        {
+            return client.DeleteAsync(route + "/" + id).Result;
+        }
     }
 }

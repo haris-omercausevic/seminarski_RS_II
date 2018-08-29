@@ -32,8 +32,10 @@ namespace SrednjeSkole_API.Controllers
                        k.Telefon, k.KorisnickoIme, k.LozinkaSalt, k.LozinkaHash, k.JMBG, k.DatumRodjenja.Value.Date, k.Slika, k.SlikaThumb).FirstOrDefault());
                 db.ssp_Ucenici_Insert(k.Id, k.ImeRoditelja, k.GodinaUpisa, k.SmjerId, k.NazivOsnovneSkole);
 
-                //db.ssp_UceniciRazredi_Insert(0, '2018/19', k.Id, razredId);
-                //dodati u UceniciRazrediController
+                foreach (var item in k.Uloge)
+                {
+                    db.ssp_KorisniciUloge_Insert(k.Id, item.UlogaId);
+                }
 
             }
             catch (EntityException ex)
@@ -43,10 +45,6 @@ namespace SrednjeSkole_API.Controllers
                                                      HttpStatusCode.Conflict);
             }
 
-            foreach (var item in k.Uloge)
-            {
-                db.ssp_KorisniciUloge_Insert(k.Id, item.UlogaId);
-            }
 
             return CreatedAtRoute("DefaultApi", new { id = k.Id }, k);
         }

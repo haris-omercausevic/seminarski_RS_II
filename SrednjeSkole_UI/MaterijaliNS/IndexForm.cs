@@ -1,4 +1,6 @@
-﻿using SrednjeSkole_API.Models;
+﻿using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using SrednjeSkole_API.Models;
 using SrednjeSkole_UI.Util;
 using System;
 using System.Collections.Generic;
@@ -6,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +20,7 @@ namespace SrednjeSkole_UI.MaterijaliNS
     {
         private WebAPIHelper materijaliService = new WebAPIHelper(System.Configuration.ConfigurationManager.AppSettings["APIAddress"], Global.MaterijaliRoute);
         private WebAPIHelper predajeService = new WebAPIHelper(System.Configuration.ConfigurationManager.AppSettings["APIAddress"], Global.PredajeRoute);
+        private int _predmetId;
 
         public IndexForm()
         {
@@ -71,6 +75,7 @@ namespace SrednjeSkole_UI.MaterijaliNS
         private void predmetiCmb_SelectionChangeCommitted(object sender, EventArgs e)
         {
             Predaje_Result predaje = (sender as ComboBox).SelectedItem as Predaje_Result;
+            _predmetId = predaje.PredmetId;
             BindGrid(predaje.PredmetId);
         }
 
@@ -79,7 +84,19 @@ namespace SrednjeSkole_UI.MaterijaliNS
             if (materijaliGrid.SelectedRows.Count != 0)
             {
                 int materijalId = (Convert.ToInt32(materijaliGrid.SelectedRows[0].Cells[0].Value));
-                //zavrsiti, napraviti ovde sta treba (openSaveDialog itd)
+                HttpResponseMessage response = materijaliService.GetActionResponse("ById", materijalId.ToString());
+                if (response.IsSuccessStatusCode)
+                {
+                    Materijali m = response.Content.ReadAsAsync<Materijali>().Result;
+                    SaveFileDialog saveDialog = new SaveFileDialog();
+                    saveDialog.FileName = m.Naziv;
+                    if (saveDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        WebClient client = new WebClient();
+                        client.DownloadFile(m.Url, saveDialog.FileName);
+                       // MessageBox.Show("Materijal pohranjen!", Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
             }
         }
 
@@ -87,9 +104,32 @@ namespace SrednjeSkole_UI.MaterijaliNS
         {
             if (materijaliGrid.SelectedRows.Count != 0)
             {
-                int materijalId = (Convert.ToInt32(materijaliGrid.SelectedRows[0].Cells[0].Value));
-                //zavrsiti, napraviti na apiju sta treba
+                DialogResult upozorenje = MessageBox.Show("Jeste li sigurni?", "Upozorenje!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (upozorenje == DialogResult.Yes)
+                {
+                    int materijalId = (Convert.ToInt32(materijaliGrid.SelectedRows[0].Cells[0].Value));
+                    HttpResponseMessage response = materijaliService.GetActionResponse("ById", materijalId.ToString());
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Materijali m = response.Content.ReadAsAsync<Materijali>().Result;
+                        if(m.NastavnikId == Global.prijavljeniKorisnik.Id)
+                        {
+                            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(Global.connString);
+                            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                            CloudBlobContainer container = blobClient.GetContainerReference(Global.BlobContainer);
+                            CloudBlockBlob blockBlob = container.GetBlockBlobReference(m.BlobName);
+                            blockBlob.DeleteAsync();
+                            response = materijaliService.DeleteResponse(m.MaterijalId);
+                            MessageBox.Show("Materijal izbrisan!", Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            BindGrid(_predmetId);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Možete izbrisati samo materijale koje ste vi objavili!", "Greška!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
             }
         }
     }
-    }
+}

@@ -24,6 +24,8 @@ namespace SrednjeSkole_UI.RazrediNS
         {
             Cursor.Current = Cursors.WaitCursor;
             InitializeComponent();
+            this.AutoValidate = AutoValidate.Disable;
+            uceniciRazrediGrid.AutoGenerateColumns = false;
             _razredId = razredId;
             HttpResponseMessage response = uceniciRazrediService.GetActionResponse("ByRazredId", razredId.ToString());
             if(response.IsSuccessStatusCode)

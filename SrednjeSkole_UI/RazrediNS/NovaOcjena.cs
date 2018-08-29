@@ -25,6 +25,7 @@ namespace SrednjeSkole_UI.RazrediNS
         {
             InitializeComponent();     
             this.AutoValidate = AutoValidate.Disable;
+            oznaceniUceniciGrid.AutoGenerateColumns = false;
             _oznaceniUcenici = oznaceniUcenici;
             _razredId = razredId;
 
@@ -40,7 +41,7 @@ namespace SrednjeSkole_UI.RazrediNS
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            HttpResponseMessage response = predajeService.GetActionResponse("ByNastavnikRazred", _razredId.ToString() + "/" + Global.prijavljeniKorisnik.Id.ToString());
+            HttpResponseMessage response = predajeService.GetActionResponse("ByNastavnikRazred",  Global.prijavljeniKorisnik.Id.ToString() + "/" + _razredId.ToString() );
             if (response.IsSuccessStatusCode)
             {
                 predmetiCmb.DataSource = response.Content.ReadAsAsync<List<Predaje_Result>>().Result;

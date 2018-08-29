@@ -26,7 +26,7 @@ namespace SrednjeSkole_UI.Users
         private WebAPIHelper smjeroviService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.SmjeroviRoute);
         private WebAPIHelper razrediService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.RazrediRoute);
         private Ucenici k = new Ucenici();
-       
+
         public AddUcenik()
         {
             InitializeComponent();
@@ -80,7 +80,7 @@ namespace SrednjeSkole_UI.Users
                 k.Spol = radioButton1.Checked ? "M" : "Z";
                 k.NazivOsnovneSkole = nazivSkoleInput.Text;
 
-                
+
                 k.LozinkaSalt = UIHelper.GenerateSalt();
                 k.LozinkaHash = UIHelper.GenerateHash(k.LozinkaSalt, lozinkaInput.Text);
 
@@ -90,25 +90,36 @@ namespace SrednjeSkole_UI.Users
                     k.Uloge.Add(response2?.Content.ReadAsAsync<List<Uloge>>().Result[0]);
 
                 k.SmjerId = Convert.ToInt32(smjerCmb.SelectedValue);
-                
-                
+
+
                 HttpResponseMessage response = uceniciService.PostResponse(k);
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show(Messages.add_usr_succ, Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Razredi_Result r = razredCmb.SelectedItem as Razredi_Result;
-                    UceniciRazredi ur = new UceniciRazredi()
+                    Ucenici ucenikTemp = response.Content.ReadAsAsync<Ucenici>().Result;
+                    HttpResponseMessage response3 = uceniciRazrediService.GetActionResponse("UceniciCount", r.RazredId.ToString());
+                    var tempo = response3.Content.ReadAsAsync<int>()?.Result;
+                    if (response3.IsSuccessStatusCode)
                     {
-                        RazredId = r.RazredId,
-                        SkolskaGodina = r.SkolskaGodina,
-                        UcenikId = response.Content.ReadAsAsync<Ucenici>().Result.Id
-                    };
-                    HttpResponseMessage response3 = uceniciRazrediService.PostResponse(ur);
+                        UceniciRazredi ur = new UceniciRazredi();
+                        ur.RazredId = r.RazredId;
+                        ur.SkolskaGodina = r.SkolskaGodina;
+                        ur.UcenikId = ucenikTemp.Id;
+                        ur.RedniBroj = Convert.ToInt32(tempo) + 1;
 
-                    DialogResult = DialogResult.OK;
+                        HttpResponseMessage response4 = uceniciRazrediService.PostResponse(ur);
+                        if (response4.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show("Dodan u razred", Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            DialogResult = DialogResult.OK;
+                        }
+                    }
                     Close();
+
                     UIHelper.SendWelcomeMail(k.Email, k.KorisnickoIme, lozinkaInput.Text);
+
                 }
                 else
                 {
@@ -324,7 +335,7 @@ namespace SrednjeSkole_UI.Users
             f2.Show();
             f2.FormClosing += (objSender, args) => { BindRazredi(); };
         }
-               
+
         private void dodajSlikuBtn_Click(object sender, EventArgs e)
         {
             try
@@ -374,6 +385,6 @@ namespace SrednjeSkole_UI.Users
             }
         }
 
-        
+
     }
 }

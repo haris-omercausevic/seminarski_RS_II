@@ -14,6 +14,7 @@ namespace SrednjeSkole_UI
 
         public const string BlobStorageUrl = "http://srednjeskole.blob.core.windows.net/srednjeskole/";
         public const string BlobContainer = "srednjeskole";
+        public const string connString = "DefaultEndpointsProtocol=https;AccountName=srednjeskole;AccountKey=9JzTotn+UyfgAW9KVKHm2oDrF1dawMOLkARlYP/vKlfOEpYrZx8hJRF/sPnkz7gYwjS7DLFqgOq1NxcBU+Spkg==;EndpointSuffix=core.windows.net";
 
         #region API Routes
         public const string KorisniciRoute = "api/Korisnici";

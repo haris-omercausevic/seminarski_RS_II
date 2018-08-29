@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.materijaliGrid = new System.Windows.Forms.DataGridView();
-            this.noviMaterijalBtn = new System.Windows.Forms.Button();
-            this.predajeCmb = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.downloadMaterijalBtn = new System.Windows.Forms.Button();
-            this.izbrisiMaterijalBtn = new System.Windows.Forms.Button();
             this.Materijalid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nastavnik = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rating = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrojOcjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noviMaterijalBtn = new System.Windows.Forms.Button();
+            this.predajeCmb = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.downloadMaterijalBtn = new System.Windows.Forms.Button();
+            this.izbrisiMaterijalBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.materijaliGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +65,49 @@
             this.materijaliGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.materijaliGrid.Size = new System.Drawing.Size(800, 380);
             this.materijaliGrid.TabIndex = 24;
+            // 
+            // Materijalid
+            // 
+            this.Materijalid.DataPropertyName = "MaterijalId";
+            this.Materijalid.HeaderText = "Id";
+            this.Materijalid.Name = "Materijalid";
+            this.Materijalid.ReadOnly = true;
+            this.Materijalid.Visible = false;
+            // 
+            // Naziv
+            // 
+            this.Naziv.DataPropertyName = "Naziv";
+            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.Name = "Naziv";
+            this.Naziv.ReadOnly = true;
+            // 
+            // Datum
+            // 
+            this.Datum.DataPropertyName = "Datum";
+            this.Datum.HeaderText = "Datum";
+            this.Datum.Name = "Datum";
+            this.Datum.ReadOnly = true;
+            // 
+            // nastavnik
+            // 
+            this.nastavnik.DataPropertyName = "nastavnik";
+            this.nastavnik.HeaderText = "Nastavnik";
+            this.nastavnik.Name = "nastavnik";
+            this.nastavnik.ReadOnly = true;
+            // 
+            // Rating
+            // 
+            this.Rating.DataPropertyName = "Rating";
+            this.Rating.HeaderText = "Rating";
+            this.Rating.Name = "Rating";
+            this.Rating.ReadOnly = true;
+            // 
+            // BrojOcjena
+            // 
+            this.BrojOcjena.DataPropertyName = "BrojOcjena";
+            this.BrojOcjena.HeaderText = "Broj ocjena";
+            this.BrojOcjena.Name = "BrojOcjena";
+            this.BrojOcjena.ReadOnly = true;
             // 
             // noviMaterijalBtn
             // 
@@ -113,49 +156,6 @@
             this.izbrisiMaterijalBtn.Text = "Izbrisi";
             this.izbrisiMaterijalBtn.UseVisualStyleBackColor = true;
             this.izbrisiMaterijalBtn.Click += new System.EventHandler(this.izbrisiMaterijalBtn_Click);
-            // 
-            // Materijalid
-            // 
-            this.Materijalid.DataPropertyName = "MaterijalId";
-            this.Materijalid.HeaderText = "Id";
-            this.Materijalid.Name = "Materijalid";
-            this.Materijalid.ReadOnly = true;
-            this.Materijalid.Visible = false;
-            // 
-            // Naziv
-            // 
-            this.Naziv.DataPropertyName = "Naziv";
-            this.Naziv.HeaderText = "Naziv";
-            this.Naziv.Name = "Naziv";
-            this.Naziv.ReadOnly = true;
-            // 
-            // Datum
-            // 
-            this.Datum.DataPropertyName = "Datum";
-            this.Datum.HeaderText = "Datum";
-            this.Datum.Name = "Datum";
-            this.Datum.ReadOnly = true;
-            // 
-            // nastavnik
-            // 
-            this.nastavnik.DataPropertyName = "nastavnik";
-            this.nastavnik.HeaderText = "Nastavnik";
-            this.nastavnik.Name = "nastavnik";
-            this.nastavnik.ReadOnly = true;
-            // 
-            // Rating
-            // 
-            this.Rating.DataPropertyName = "Rating";
-            this.Rating.HeaderText = "Rating";
-            this.Rating.Name = "Rating";
-            this.Rating.ReadOnly = true;
-            // 
-            // BrojOcjena
-            // 
-            this.BrojOcjena.DataPropertyName = "BrojOcjena";
-            this.BrojOcjena.HeaderText = "Broj ocjena";
-            this.BrojOcjena.Name = "BrojOcjena";
-            this.BrojOcjena.ReadOnly = true;
             // 
             // IndexForm
             // 

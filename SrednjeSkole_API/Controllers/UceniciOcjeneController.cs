@@ -28,7 +28,7 @@ namespace SrednjeSkole_API.Controllers
             {
                 foreach (var item in uceniciOcjene)
                 {
-                    db.ssp_UceniciOcjene_Insert(item.PredajeId, item.UcenikId, item.Vrijednost, item.Datum.ToShortDateString(), item.Napomena);
+                    db.ssp_UceniciOcjene_Insert(item.PredajeId, item.UcenikId, item.Vrijednost, item.Datum, item.Napomena);
                 }
                
             }

@@ -32,6 +32,12 @@ namespace SrednjeSkole_API.Controllers
         {
             return db.Materijali.ToList();
         }
+        [HttpGet]
+        [Route("ById/{materijalId}")]
+        public Materijali GetById(int materijalId)
+        {
+            return db.Materijali.Where(x => x.MaterijalId == materijalId).FirstOrDefault();
+        }
 
         [ResponseType(typeof(Materijali))]
         [ExceptionFilter]
@@ -56,6 +62,23 @@ namespace SrednjeSkole_API.Controllers
             
             return CreatedAtRoute("DefaultApi", new { id = m.MaterijalId}, m);
         }
+
+        // DELETE: api/Razredi/5
+        [ResponseType(typeof(Materijali))]
+        public IHttpActionResult DeleteRazredi(int id)
+        {
+            Materijali materijali = db.Materijali.Find(id);
+            if (materijali == null)
+            {
+                return NotFound();
+            }
+
+            db.Materijali.Remove(materijali);
+            db.SaveChanges();
+
+            return Ok(materijali);
+        }
+
         private HttpResponseException CreateHttpExceptionMessage(string reason, HttpStatusCode code)
         {
             HttpResponseMessage msg = new HttpResponseMessage()
@@ -67,5 +90,7 @@ namespace SrednjeSkole_API.Controllers
 
             return new HttpResponseException(msg);
         }
+
+
     }
 }

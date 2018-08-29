@@ -702,7 +702,7 @@
           <Parameter Name="PredajeId" Type="int" Mode="In" />
           <Parameter Name="UcenikId" Type="int" Mode="In" />
           <Parameter Name="Vrijednost" Type="int" Mode="In" />
-          <Parameter Name="Datum" Type="nvarchar" Mode="In" />
+          <Parameter Name="Datum" Type="datetime" Mode="In" />
           <Parameter Name="Napomena" Type="nvarchar(max)" Mode="In" />
         </Function>
         <Function Name="ssp_UceniciRazredi_GetByRazredId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1627,7 +1627,7 @@
             <Parameter Name="PredajeId" Mode="In" Type="Int32" />
             <Parameter Name="UcenikId" Mode="In" Type="Int32" />
             <Parameter Name="Vrijednost" Mode="In" Type="Int32" />
-            <Parameter Name="Datum" Mode="In" Type="String" />
+            <Parameter Name="Datum" Mode="In" Type="DateTime" />
             <Parameter Name="Napomena" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="ssp_Nastavnici_SelectAll" ReturnType="Collection(SrednjeSkoleModel.Nastavnici_Result)" />

@@ -23,6 +23,14 @@ namespace SrednjeSkole_API.Controllers
             return db.ssp_UceniciRazredi_GetByRazredId(razredId).ToList();
         }
 
+        [HttpGet]
+        [Route("UceniciCount/{razredId}")]
+        public int GetUceniciCount(int razredId)
+        {
+            return db.UceniciRazredi.Where(x => x.RazredId == razredId).Count();
+        }
+
+
         [ResponseType(typeof(UceniciRazredi))]
         [ExceptionFilter]
         public IHttpActionResult PostUceniciRazredi(UceniciRazredi k)
@@ -36,14 +44,10 @@ namespace SrednjeSkole_API.Controllers
             {
 
                 db.ssp_UceniciRazredi_Insert(k.RedniBroj, k.SkolskaGodina, k.UcenikId, k.RazredId);
-                //dodati u UceniciRazrediController
-
             }
-            catch (EntityException ex)
+            catch (Exception ex)
             {
-                if (ex.InnerException != null)
-                    throw CreateHttpExceptionMessage(Util.ExceptionHandler.HandleException(ex),
-                                                     HttpStatusCode.Conflict);
+                throw ex;
             }
 
 
