@@ -21,6 +21,8 @@ namespace SrednjeSkole_UI.Users
     {
         private WebAPIHelper ulogeService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.UlogeRoute);
         private WebAPIHelper uceniciService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.UceniciRoute);
+        private WebAPIHelper uceniciRazrediService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.UceniciRazrediRoute);
+
         private WebAPIHelper smjeroviService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.SmjeroviRoute);
         private WebAPIHelper razrediService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.RazrediRoute);
         private Ucenici k = new Ucenici();
@@ -89,19 +91,21 @@ namespace SrednjeSkole_UI.Users
 
                 k.SmjerId = Convert.ToInt32(smjerCmb.SelectedValue);
                 
-                Razredi_Result r = razredCmb.SelectedItem as Razredi_Result;
-                UceniciRazredi ur = new UceniciRazredi()
-                {
-                    RazredId = r.RazredId,
-                    SkolskaGodina = r.SkolskaGodina
-                };
-                //nije zavrseno
-                //ZAVRSITI
-                //pogledati implementaciju sa SrednjeSkoleApp
+                
                 HttpResponseMessage response = uceniciService.PostResponse(k);
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show(Messages.add_usr_succ, Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    Razredi_Result r = razredCmb.SelectedItem as Razredi_Result;
+                    UceniciRazredi ur = new UceniciRazredi()
+                    {
+                        RazredId = r.RazredId,
+                        SkolskaGodina = r.SkolskaGodina,
+                        UcenikId = response.Content.ReadAsAsync<Ucenici>().Result.Id
+                    };
+                    HttpResponseMessage response3 = uceniciRazrediService.PostResponse(ur);
+
                     DialogResult = DialogResult.OK;
                     Close();
                     UIHelper.SendWelcomeMail(k.Email, k.KorisnickoIme, lozinkaInput.Text);

@@ -35,7 +35,7 @@ namespace SrednjeSkole_API.Controllers
             try
             {
 
-                db.ssp_UceniciRazredi_Insert(0, "2018/19", k.UcenikId, k.RazredId);
+                db.ssp_UceniciRazredi_Insert(k.RedniBroj, k.SkolskaGodina, k.UcenikId, k.RazredId);
                 //dodati u UceniciRazrediController
 
             }
@@ -47,7 +47,7 @@ namespace SrednjeSkole_API.Controllers
             }
 
 
-            return CreatedAtRoute("DefaultApi", new { id = k.Id }, k);
+            return CreatedAtRoute("DefaultApi", new { id = k.UcenikRazrediId }, k);
         }
         private HttpResponseException CreateHttpExceptionMessage(string reason, HttpStatusCode code)
         {
