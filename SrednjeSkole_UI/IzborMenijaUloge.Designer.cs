@@ -59,11 +59,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label1.Location = new System.Drawing.Point(36, 38);
+            this.label1.Location = new System.Drawing.Point(126, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(489, 18);
+            this.label1.Size = new System.Drawing.Size(253, 18);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Pošto su Vam dodijeljene obe uloge izaberite modul kojem želite pristupiti";
+            this.label1.Text = "Izaberite modul kojem želite pristupiti:";
             // 
             // IzborMenijaUloge
             // 

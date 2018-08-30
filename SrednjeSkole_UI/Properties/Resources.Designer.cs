@@ -83,6 +83,16 @@ namespace SrednjeSkole_UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap obavjesti {
+            get {
+                object obj = ResourceManager.GetObject("obavjesti", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap predmeti {
             get {
                 object obj = ResourceManager.GetObject("predmeti", resourceCulture);
@@ -113,6 +123,16 @@ namespace SrednjeSkole_UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap razredi_4 {
+            get {
+                object obj = ResourceManager.GetObject("razredi_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap razredi_smjerovi_predmeti {
             get {
                 object obj = ResourceManager.GetObject("razredi_smjerovi_predmeti", resourceCulture);
@@ -126,6 +146,16 @@ namespace SrednjeSkole_UI.Properties {
         internal static System.Drawing.Bitmap smjerovi {
             get {
                 object obj = ResourceManager.GetObject("smjerovi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zaduzenja {
+            get {
+                object obj = ResourceManager.GetObject("zaduzenja", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

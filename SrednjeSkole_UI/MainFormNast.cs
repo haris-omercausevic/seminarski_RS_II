@@ -18,14 +18,14 @@ namespace SrednjeSkole_UI
         }
         private void SendPicturesToBack()
         {
-            this.upravljanjeKorisnicimaPictureBox.SendToBack();
+            this.razrediPictureBox.SendToBack();
             this.razrediLabel.SendToBack();
 
-            this.evidencijePictureBox.SendToBack();
+            this.materijaliPictureBox.SendToBack();
             this.materijaliLabel.SendToBack();
 
-            this.dodajUcenikaPictureBox.SendToBack();
-            this.dodajUcenikaLabel.SendToBack();
+            //this.dodajUcenikaPictureBox.SendToBack();
+            //this.dodajUcenikaLabel.SendToBack();
 
             this.obavijestiPictureBox.SendToBack();
             this.obavijestiLabel.SendToBack();
@@ -33,14 +33,14 @@ namespace SrednjeSkole_UI
         }
         private void BringPicturesToFront()
         {
-            this.upravljanjeKorisnicimaPictureBox.BringToFront();
+            this.razrediPictureBox.BringToFront();
             this.razrediLabel.BringToFront();
 
-            this.evidencijePictureBox.BringToFront();
+            this.materijaliPictureBox.BringToFront();
             this.materijaliLabel.BringToFront();
 
-            this.dodajUcenikaPictureBox.BringToFront();
-            this.dodajUcenikaLabel.BringToFront();
+            //this.dodajUcenikaPictureBox.BringToFront();
+            //this.dodajUcenikaLabel.BringToFront();
 
             this.obavijestiPictureBox.BringToFront();
             this.obavijestiLabel.BringToFront();
@@ -70,6 +70,39 @@ namespace SrednjeSkole_UI
         private void materijaliLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MaterijaliNS.IndexForm f = new MaterijaliNS.IndexForm();
+            f.FormClosing += (s, arg) => BringPicturesToFront();
+            f.MdiParent = this;
+            f.Dock = DockStyle.Top;
+            SendPicturesToBack();
+            f.BringToFront();
+            f.Show();
+        }
+
+        private void razrediPictureBox_Click(object sender, EventArgs e)
+        {
+            RazrediNS.IndexForm f = new RazrediNS.IndexForm();
+            f.FormClosing += (s, arg) => BringPicturesToFront();
+            f.MdiParent = this;
+            f.Dock = DockStyle.Top;
+            SendPicturesToBack();
+            f.BringToFront();
+            f.Show();
+        }
+
+        private void materijaliPictureBox_Click(object sender, EventArgs e)
+        {
+            MaterijaliNS.IndexForm f = new MaterijaliNS.IndexForm();
+            f.FormClosing += (s, arg) => BringPicturesToFront();
+            f.MdiParent = this;
+            f.Dock = DockStyle.Top;
+            SendPicturesToBack();
+            f.BringToFront();
+            f.Show();
+        }
+
+        private void obavijestiPictureBox_Click(object sender, EventArgs e)
+        {
+            ObavijestiNS.IndexForm f = new ObavijestiNS.IndexForm();
             f.FormClosing += (s, arg) => BringPicturesToFront();
             f.MdiParent = this;
             f.Dock = DockStyle.Top;

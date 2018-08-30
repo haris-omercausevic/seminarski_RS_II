@@ -70,8 +70,8 @@ namespace SrednjeSkole_UI
                     MessageBox.Show("Korisničko ime ili lozinka nisu validni!", "Upozorenje!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                MessageBox.Show("Korisničko ime ili lozinka nisu validni!", "Upozorenje!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            //    MessageBox.Show("Korisničko ime ili lozinka nisu validni!", "Upozorenje!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
                 MessageBox.Show("Error code: " + response.StatusCode + "Message: " + response.ReasonPhrase);
 

@@ -38,7 +38,7 @@
             // 
             // lozinkaInput
             // 
-            this.lozinkaInput.Location = new System.Drawing.Point(106, 47);
+            this.lozinkaInput.Location = new System.Drawing.Point(121, 52);
             this.lozinkaInput.Name = "lozinkaInput";
             this.lozinkaInput.PasswordChar = '*';
             this.lozinkaInput.Size = new System.Drawing.Size(197, 20);
@@ -47,7 +47,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(52, 50);
+            this.label6.Location = new System.Drawing.Point(67, 55);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 13);
             this.label6.TabIndex = 9;
@@ -55,7 +55,7 @@
             // 
             // korisnickoImeInput
             // 
-            this.korisnickoImeInput.Location = new System.Drawing.Point(106, 21);
+            this.korisnickoImeInput.Location = new System.Drawing.Point(121, 26);
             this.korisnickoImeInput.Name = "korisnickoImeInput";
             this.korisnickoImeInput.Size = new System.Drawing.Size(197, 20);
             this.korisnickoImeInput.TabIndex = 11;
@@ -63,7 +63,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 24);
+            this.label5.Location = new System.Drawing.Point(36, 29);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 13);
             this.label5.TabIndex = 10;
@@ -71,7 +71,7 @@
             // 
             // prijavaBtn
             // 
-            this.prijavaBtn.Location = new System.Drawing.Point(228, 83);
+            this.prijavaBtn.Location = new System.Drawing.Point(243, 88);
             this.prijavaBtn.Name = "prijavaBtn";
             this.prijavaBtn.Size = new System.Drawing.Size(75, 23);
             this.prijavaBtn.TabIndex = 13;
@@ -81,7 +81,7 @@
             // 
             // odustaniBtn
             // 
-            this.odustaniBtn.Location = new System.Drawing.Point(147, 83);
+            this.odustaniBtn.Location = new System.Drawing.Point(162, 88);
             this.odustaniBtn.Name = "odustaniBtn";
             this.odustaniBtn.Size = new System.Drawing.Size(75, 23);
             this.odustaniBtn.TabIndex = 13;
@@ -93,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 128);
+            this.ClientSize = new System.Drawing.Size(349, 143);
             this.Controls.Add(this.odustaniBtn);
             this.Controls.Add(this.prijavaBtn);
             this.Controls.Add(this.lozinkaInput);
@@ -103,7 +103,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Prijava :: Admin Modul";
+            this.Text = "Srednje škole :: Prijava";
             this.ResumeLayout(false);
             this.PerformLayout();
 

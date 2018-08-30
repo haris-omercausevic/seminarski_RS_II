@@ -54,7 +54,9 @@ namespace SrednjeSkole_UI
             this.dodajNastavnikaLabel.BringToFront();
         }
 
-        private void upravljanjeKorisnicimaLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+       
+
+        private void upravljanjeKorisnicimaLabel_Click(object sender, EventArgs e)
         {
             Users.IndexForm f = new Users.IndexForm();
             f.FormClosing += (s, arg) => BringPicturesToFront();
@@ -64,8 +66,8 @@ namespace SrednjeSkole_UI
             f.BringToFront();
             f.Show();
         }
-        
-        private void evidencijeLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void evidencijeLabel_Click(object sender, EventArgs e)
         {
             Evidencije.IndexForm f = new Evidencije.IndexForm();
             f.FormClosing += (s, arg) => BringPicturesToFront();
@@ -76,8 +78,7 @@ namespace SrednjeSkole_UI
             f.Show();
         }
 
-        
-        private void dodajUcenikaLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void dodajUcenikaLabel_Click(object sender, EventArgs e)
         {
             Users.AddUcenik f = new Users.AddUcenik();
             f.FormClosing += (s, arg) => BringPicturesToFront();
@@ -88,7 +89,7 @@ namespace SrednjeSkole_UI
             f.Show();
         }
 
-        private void dodajNastavnikaLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void dodajNastavnikaLabel_Click(object sender, EventArgs e)
         {
             Users.AddNastavnik f = new Users.AddNastavnik();
             f.FormClosing += (s, arg) => BringPicturesToFront();
@@ -99,9 +100,48 @@ namespace SrednjeSkole_UI
             f.Show();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void upravljanjeKorisnicimaPictureBox_Click(object sender, EventArgs e)
         {
+            Users.IndexForm f = new Users.IndexForm();
+            f.FormClosing += (s, arg) => BringPicturesToFront();
+            f.MdiParent = this;
+            f.Dock = DockStyle.Top;
+            SendPicturesToBack();
+            f.BringToFront();
+            f.Show();
+        }
 
+        private void evidencijePictureBox_Click(object sender, EventArgs e)
+        {
+            Evidencije.IndexForm f = new Evidencije.IndexForm();
+            f.FormClosing += (s, arg) => BringPicturesToFront();
+            f.MdiParent = this;
+            f.Dock = DockStyle.Top;
+            SendPicturesToBack();
+            f.BringToFront();
+            f.Show();
+        }
+
+        private void dodajUcenikaPictureBox_Click(object sender, EventArgs e)
+        {
+            Users.AddUcenik f = new Users.AddUcenik();
+            f.FormClosing += (s, arg) => BringPicturesToFront();
+            f.MdiParent = this;
+            f.Dock = DockStyle.Top;
+            SendPicturesToBack();
+            f.BringToFront();
+            f.Show();
+        }
+
+        private void dodajNastavnikaPictureBox_Click(object sender, EventArgs e)
+        {
+            Users.AddNastavnik f = new Users.AddNastavnik();
+            f.FormClosing += (s, arg) => BringPicturesToFront();
+            f.MdiParent = this;
+            f.Dock = DockStyle.Top;
+            SendPicturesToBack();
+            f.BringToFront();
+            f.Show();
         }
     }
 }

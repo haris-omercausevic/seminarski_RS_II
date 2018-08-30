@@ -339,14 +339,22 @@
     <None Include="Resources\razredi_smjerovi_predmeti.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\razredi.png" />
+    <None Include="Resources\rayredi 4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obavjesti.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zaduzenja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\predmeti.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\smjerovi.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\predmeti.png" />
+    <None Include="Resources\razredi.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
