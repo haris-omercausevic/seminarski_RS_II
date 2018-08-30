@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.oznaceniUceniciGrid = new System.Windows.Forms.DataGridView();
             this.UcenikId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RedniBroj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ucenik = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.predmetiCmb = new System.Windows.Forms.ComboBox();
+            this.predajeCmb = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,7 +43,9 @@
             this.datumPicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.ocijeniBtn = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.oznaceniUceniciGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -98,13 +101,14 @@
             this.Ucenik.Name = "Ucenik";
             this.Ucenik.ReadOnly = true;
             // 
-            // predmetiCmb
+            // predajeCmb
             // 
-            this.predmetiCmb.FormattingEnabled = true;
-            this.predmetiCmb.Location = new System.Drawing.Point(442, 82);
-            this.predmetiCmb.Name = "predmetiCmb";
-            this.predmetiCmb.Size = new System.Drawing.Size(163, 21);
-            this.predmetiCmb.TabIndex = 15;
+            this.predajeCmb.FormattingEnabled = true;
+            this.predajeCmb.Location = new System.Drawing.Point(442, 82);
+            this.predajeCmb.Name = "predajeCmb";
+            this.predajeCmb.Size = new System.Drawing.Size(163, 21);
+            this.predajeCmb.TabIndex = 15;
+            this.predajeCmb.Validating += new System.ComponentModel.CancelEventHandler(this.predajeCmb_Validating);
             // 
             // label4
             // 
@@ -147,6 +151,7 @@
             this.ocjenaInput.Name = "ocjenaInput";
             this.ocjenaInput.Size = new System.Drawing.Size(136, 20);
             this.ocjenaInput.TabIndex = 11;
+            this.ocjenaInput.Validating += new System.ComponentModel.CancelEventHandler(this.ocjenaInput_Validating);
             // 
             // datumPicker
             // 
@@ -174,6 +179,10 @@
             this.ocijeniBtn.UseVisualStyleBackColor = true;
             this.ocijeniBtn.Click += new System.EventHandler(this.ocijeniBtn_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // NovaOcjena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,7 +190,7 @@
             this.ClientSize = new System.Drawing.Size(694, 411);
             this.Controls.Add(this.ocijeniBtn);
             this.Controls.Add(this.datumPicker);
-            this.Controls.Add(this.predmetiCmb);
+            this.Controls.Add(this.predajeCmb);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
@@ -194,6 +203,7 @@
             this.Text = "Nova ocjena";
             this.Load += new System.EventHandler(this.NovaOcjena_Load);
             ((System.ComponentModel.ISupportInitialize)(this.oznaceniUceniciGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,7 +215,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UcenikId;
         private System.Windows.Forms.DataGridViewTextBoxColumn RedniBroj;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ucenik;
-        private System.Windows.Forms.ComboBox predmetiCmb;
+        private System.Windows.Forms.ComboBox predajeCmb;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -214,5 +224,6 @@
         private System.Windows.Forms.DateTimePicker datumPicker;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button ocijeniBtn;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

@@ -80,6 +80,7 @@
             this.fajlInput.Size = new System.Drawing.Size(195, 20);
             this.fajlInput.TabIndex = 40;
             this.fajlInput.TabStop = false;
+            this.fajlInput.Validating += new System.ComponentModel.CancelEventHandler(this.fajlInput_Validating);
             // 
             // label15
             // 
@@ -119,6 +120,7 @@
             this.Controls.Add(this.predajeCmb);
             this.Controls.Add(this.label4);
             this.Name = "AddMaterijal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj materijal";
             this.Load += new System.EventHandler(this.AddMaterijal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

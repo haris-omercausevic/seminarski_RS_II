@@ -641,6 +641,7 @@
           <Parameter Name="Naslov" Type="nvarchar" Mode="In" />
           <Parameter Name="Tekst" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="KorisnikId" Type="int" Mode="In" />
+          <Parameter Name="Datum" Type="datetime" Mode="In" />
         </Function>
         <Function Name="ssp_Obavijesti_Pretraga" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="naslov" Type="nvarchar" Mode="In" />
@@ -1595,6 +1596,7 @@
             <Parameter Name="Naslov" Mode="In" Type="String" />
             <Parameter Name="Tekst" Mode="In" Type="String" />
             <Parameter Name="KorisnikId" Mode="In" Type="Int32" />
+            <Parameter Name="Datum" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="ssp_Obavijesti_Pretraga" ReturnType="Collection(SrednjeSkoleModel.Obavijesti_Result)">
           <Parameter Name="naslov" Mode="In" Type="String" />

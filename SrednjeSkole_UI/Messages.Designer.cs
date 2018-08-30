@@ -251,6 +251,15 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Obavezno odaberite fajl!.
+        /// </summary>
+        internal static string fajl_req {
+            get {
+                return ResourceManager.GetString("fajl_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Obavezno unesite ime!.
         /// </summary>
         internal static string fname_err {
@@ -323,6 +332,24 @@ namespace SrednjeSkole_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ocjena mora biti od 1 do 5!.
+        /// </summary>
+        internal static string ocjena_1do5 {
+            get {
+                return ResourceManager.GetString("ocjena_1do5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno unesite ocjenu!.
+        /// </summary>
+        internal static string ocjena_req {
+            get {
+                return ResourceManager.GetString("ocjena_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Obavezno unesite opis !.
         /// </summary>
         internal static string opis_req {
@@ -382,6 +409,15 @@ namespace SrednjeSkole_UI {
         internal static string predmet_razred_req {
             get {
                 return ResourceManager.GetString("predmet_razred_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno odaberite predmet!.
+        /// </summary>
+        internal static string predmet_req {
+            get {
+                return ResourceManager.GetString("predmet_req", resourceCulture);
             }
         }
         

@@ -70,6 +70,7 @@ namespace SrednjeSkole_UI.MaterijaliNS
         {
             AddMaterijal f = new AddMaterijal();
             f.Show();
+            f.FormClosing += (s, arg) => BindGrid(_predmetId);
         }
 
         private void predmetiCmb_SelectionChangeCommitted(object sender, EventArgs e)

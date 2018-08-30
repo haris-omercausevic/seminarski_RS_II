@@ -351,7 +351,7 @@ namespace SrednjeSkole_API.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Obavijesti_Result>("ssp_Obavijesti_GetById", obavijestIdParameter);
         }
     
-        public virtual int ssp_Obavijesti_Insert(string naslov, string tekst, Nullable<int> korisnikId)
+        public virtual int ssp_Obavijesti_Insert(string naslov, string tekst, Nullable<int> korisnikId, Nullable<System.DateTime> datum)
         {
             var naslovParameter = naslov != null ?
                 new ObjectParameter("Naslov", naslov) :
@@ -365,7 +365,11 @@ namespace SrednjeSkole_API.Models
                 new ObjectParameter("KorisnikId", korisnikId) :
                 new ObjectParameter("KorisnikId", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_Obavijesti_Insert", naslovParameter, tekstParameter, korisnikIdParameter);
+            var datumParameter = datum.HasValue ?
+                new ObjectParameter("Datum", datum) :
+                new ObjectParameter("Datum", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_Obavijesti_Insert", naslovParameter, tekstParameter, korisnikIdParameter, datumParameter);
         }
     
         public virtual ObjectResult<Obavijesti_Result> ssp_Obavijesti_Pretraga(string naslov)

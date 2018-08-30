@@ -26,6 +26,7 @@ namespace SrednjeSkole_UI.MaterijaliNS
         public AddMaterijal()
         {
             InitializeComponent();
+            this.AutoValidate = AutoValidate.Disable;
         }
         private void AddMaterijal_Load(object sender, EventArgs e)
         {
@@ -122,7 +123,18 @@ namespace SrednjeSkole_UI.MaterijaliNS
             if (String.IsNullOrEmpty(predajeCmb.Text))
             {
                 e.Cancel = true;
-                errorProvider.SetError(predajeCmb, Messages.skGod_req);
+                errorProvider.SetError(predajeCmb, Messages.predmet_req);
+            }
+            else
+                errorProvider.SetError(predajeCmb, null);
+        }
+
+        private void fajlInput_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(predajeCmb.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(predajeCmb, Messages.fajl_req);
             }
             else
                 errorProvider.SetError(predajeCmb, null);

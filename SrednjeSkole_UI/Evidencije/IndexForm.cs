@@ -17,83 +17,43 @@ namespace SrednjeSkole_UI.Evidencije
             InitializeComponent();
         }
 
-        private void SendPicturesToBack()
-        {
-            this.smjeroviPictureBox.SendToBack();
-
-            this.zaduzenjaPictureBox.SendToBack();
-
-            this.predmetiPctureBox.SendToBack();
-        }
-        private void BringPicturesToFront()
-        {
-            this.smjeroviPictureBox.BringToFront();
-
-            this.zaduzenjaPictureBox.BringToFront();
-
-            this.predmetiPctureBox.BringToFront();
-        }
-        private void smjeroviLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Evidencije.AddSmjer f = new Evidencije.AddSmjer();
-            f.FormClosing += (s, arg) => BringPicturesToFront();
-            f.Dock = DockStyle.Top;
-            f.StartPosition = FormStartPosition.CenterScreen;
-            SendPicturesToBack();
-            f.BringToFront();
-            f.Show();
-        }
-
-        private void zaduzenjaLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Evidencije.AddZaduzenja f = new Evidencije.AddZaduzenja();
-            f.FormClosing += (s, arg) => BringPicturesToFront();
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.Dock = DockStyle.Top;
-            SendPicturesToBack();
-            f.BringToFront();
-            f.Show();
-        }      
-
-        private void predmetiLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Evidencije.AddPredmet f = new Evidencije.AddPredmet();
-            f.FormClosing += (s, arg) => BringPicturesToFront();
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.Dock = DockStyle.Top;
-            SendPicturesToBack();
-            f.BringToFront();
-            f.Show();
-        }
-
-        private void razrediLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            RazrediNS.IndexForm f = new RazrediNS.IndexForm();
-            f.FormClosing += (s, arg) => BringPicturesToFront();
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.Dock = DockStyle.Top;
-            SendPicturesToBack();
-            f.BringToFront();
-            f.Show();
-        }
-       
+        //private void SendPicturesToBack()
+        //{
+        //    this.smjeroviPictureBox.SendToBack();
+        //    this.zaduzenjaPictureBox.SendToBack();
+        //    this.predmetiPctureBox.SendToBack();
+        //    this.razrediPictureBox.SendToBack();
+        //    this.smjeroviLabel.SendToBack();
+        //    this.zaduzenjaLabel.SendToBack();
+        //    this.predmetiLabel.SendToBack();
+        //    this.razrediLabel.BringToFront();
+        //}
+        //private void BringPicturesToFront()
+        //{
+        //    this.smjeroviPictureBox.BringToFront();
+        //    this.zaduzenjaPictureBox.BringToFront();
+        //    this.predmetiPctureBox.BringToFront();
+        //    this.razrediPictureBox.BringToFront();
+        //    this.smjeroviLabel.BringToFront();
+        //    this.zaduzenjaLabel.BringToFront();
+        //    this.predmetiLabel.BringToFront();
+        //    this.razrediLabel.BringToFront();
+        //}
+              
         private void smjeroviPictureBox_Click(object sender, EventArgs e)
         {
             Evidencije.AddSmjer f = new Evidencije.AddSmjer();
-            f.FormClosing += (s, arg) => BringPicturesToFront();
             f.Dock = DockStyle.Top;
             f.StartPosition = FormStartPosition.CenterScreen;
-            SendPicturesToBack();
             f.BringToFront();
             f.Show();
         }
         private void zaduzenjaPictureBox_Click(object sender, EventArgs e)
         {
             Evidencije.AddZaduzenja f = new Evidencije.AddZaduzenja();
-            f.FormClosing += (s, arg) => BringPicturesToFront();
             f.StartPosition = FormStartPosition.CenterScreen;
-            f.Dock = DockStyle.Top;
-            SendPicturesToBack();
+            this.SendToBack();
+            f.Dock = DockStyle.Top;            
             f.BringToFront();
             f.Show();
         }
@@ -102,10 +62,8 @@ namespace SrednjeSkole_UI.Evidencije
         private void predmetiPctureBox_Click(object sender, EventArgs e)
         {
             Evidencije.AddPredmet f = new Evidencije.AddPredmet();
-            f.FormClosing += (s, arg) => BringPicturesToFront();
             f.StartPosition = FormStartPosition.CenterScreen;
             f.Dock = DockStyle.Top;
-            SendPicturesToBack();
             f.BringToFront();
             f.Show();
         }
@@ -113,12 +71,12 @@ namespace SrednjeSkole_UI.Evidencije
         private void razrediPictureBox_Click(object sender, EventArgs e)
         {
             RazrediNS.IndexForm f = new RazrediNS.IndexForm();
-            f.FormClosing += (s, arg) => BringPicturesToFront();
             f.StartPosition = FormStartPosition.CenterScreen;
             f.Dock = DockStyle.Top;
-            SendPicturesToBack();
             f.BringToFront();
             f.Show();
         }
+
+      
     }
 }

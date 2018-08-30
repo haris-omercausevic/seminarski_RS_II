@@ -40,7 +40,7 @@ namespace SrednjeSkole_API.Controllers
 
             try
             {
-                o.ObavijestId = Convert.ToInt32(db.ssp_Obavijesti_Insert(o.Naslov, o.Tekst, o.KorisnikId));
+                o.ObavijestId = Convert.ToInt32(db.ssp_Obavijesti_Insert(o.Naslov, o.Tekst, o.KorisnikId, DateTime.Now));
             }
             catch (Exception)
             {

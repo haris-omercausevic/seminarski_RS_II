@@ -35,6 +35,7 @@ namespace SrednjeSkole_UI.RazrediNS
         private void NovaOcjena_Load(object sender, EventArgs e)
         {
             BindPredmeti();
+            oznaceniUceniciGrid.ClearSelection();
         }
 
         private void BindPredmeti()
@@ -44,10 +45,10 @@ namespace SrednjeSkole_UI.RazrediNS
             HttpResponseMessage response = predajeService.GetActionResponse("ByNastavnikRazred",  Global.prijavljeniKorisnik.Id.ToString() + "/" + _razredId.ToString() );
             if (response.IsSuccessStatusCode)
             {
-                predmetiCmb.DataSource = response.Content.ReadAsAsync<List<Predaje_Result>>().Result;
-                predmetiCmb.DisplayMember = "Naziv";
-                predmetiCmb.ValueMember = "PredajeId";
-                predmetiCmb.SelectedValue = "";                    
+                predajeCmb.DataSource = response.Content.ReadAsAsync<List<Predaje_Result>>().Result;
+                predajeCmb.DisplayMember = "Naziv";
+                predajeCmb.ValueMember = "PredajeId";
+                predajeCmb.SelectedValue = "";                    
             }
 
             Cursor.Current = Cursors.WaitCursor;
@@ -58,12 +59,7 @@ namespace SrednjeSkole_UI.RazrediNS
             Cursor.Current = Cursors.WaitCursor;
             if (this.ValidateChildren())
             {
-                Predaje_Result pTemp = predmetiCmb.SelectedItem as Predaje_Result;
-                //predmetiCmb se zove combobox jer se u njemu bira predmet, 
-                //ali se objekat castuje u Predaje_Result jer su i ostali podaci od Predaje tu
-                // da ne bi 2 puta pozivao API i radio pretragu po svim parametrima da nadjem tacan Predaje objekat
-                
-                 
+                Predaje_Result pTemp = predajeCmb.SelectedItem as Predaje_Result;
                 
                 string predmetId = pTemp?.PredmetId.ToString();
                 List<UceniciOcjene> uceniciOcjene = new List<UceniciOcjene>();
@@ -94,6 +90,35 @@ namespace SrednjeSkole_UI.RazrediNS
             Cursor.Current = Cursors.Default;
         }
 
-       
+        private void predajeCmb_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(predajeCmb.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(predajeCmb, Messages.predmet_req);
+            }
+            else
+            {
+                errorProvider.SetError(predajeCmb, null);
+            }
+        }
+
+        private void ocjenaInput_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(ocjenaInput.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(ocjenaInput, Messages.ocjena_req);
+            }
+            if(!int.TryParse(ocjenaInput.Text, out int n) || n > 5 || n < 1)
+            {                
+                e.Cancel = true;
+                errorProvider.SetError(ocjenaInput, Messages.ocjena_1do5);
+            }
+            else
+            {
+                errorProvider.SetError(ocjenaInput, null);
+            }
+        }
     }
 }

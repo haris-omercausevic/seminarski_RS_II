@@ -253,4 +253,16 @@
   <data name="razred_req" xml:space="preserve">
     <value>Obavezno odaberite razred !</value>
   </data>
+  <data name="ocjena_req" xml:space="preserve">
+    <value>Obavezno unesite ocjenu!</value>
+  </data>
+  <data name="predmet_req" xml:space="preserve">
+    <value>Obavezno odaberite predmet!</value>
+  </data>
+  <data name="ocjena_1do5" xml:space="preserve">
+    <value>Ocjena mora biti od 1 do 5!</value>
+  </data>
+  <data name="fajl_req" xml:space="preserve">
+    <value>Obavezno odaberite fajl!</value>
+  </data>
 </root>
