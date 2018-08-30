@@ -37,7 +37,8 @@ namespace SrednjeSkole_UI.ObavijestiNS
                 {
                     Naslov = naslovInput.Text,
                     Tekst = tekstInput.Text,
-                    KorisnikId = Global.prijavljeniKorisnik.Id
+                    KorisnikId = Global.prijavljeniKorisnik.Id,
+                    Datum = DateTime.Now
                 };
                 HttpResponseMessage response = obavijestiService.PostResponse(o);
                 if (response.IsSuccessStatusCode)

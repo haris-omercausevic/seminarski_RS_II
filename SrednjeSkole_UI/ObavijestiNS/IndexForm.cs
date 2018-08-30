@@ -68,10 +68,52 @@ namespace SrednjeSkole_UI.ObavijestiNS
         {
             if (obavijestiGrid.SelectedRows.Count != 0)
             {
-                EditObavijest frm = new EditObavijest(Convert.ToInt32(obavijestiGrid.SelectedRows[0].Cells[0].Value));
-                if (frm.ShowDialog() == DialogResult.OK)
+                int obavijestId = (Convert.ToInt32(obavijestiGrid.SelectedRows[0].Cells[0].Value));
+                HttpResponseMessage response = obavijestiService.GetActionResponse("ById", obavijestId.ToString());
+                if (response.IsSuccessStatusCode)
                 {
-                    BindGrid();
+                    Obavijesti_Result o = response.Content.ReadAsAsync<Obavijesti_Result>().Result;
+                    if (o.KorisnikId == Global.prijavljeniKorisnik.Id)
+                    {
+                        EditObavijest frm = new EditObavijest(o);
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            BindGrid();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Možete urediti samo obavijesti koje ste vi objavili!", "Greška!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                }
+                
+            }
+        }
+
+        private void izbrisiBtn_Click(object sender, EventArgs e)
+        {
+            if (obavijestiGrid.SelectedRows.Count != 0)
+            {
+                DialogResult upozorenje = MessageBox.Show("Jeste li sigurni?", "Upozorenje!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (upozorenje == DialogResult.Yes)
+                {
+                    int obavijestId = (Convert.ToInt32(obavijestiGrid.SelectedRows[0].Cells[0].Value));
+                    HttpResponseMessage response = obavijestiService.GetActionResponse("ById", obavijestId.ToString());
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Obavijesti_Result o = response.Content.ReadAsAsync<Obavijesti_Result>().Result;
+                        if (o.KorisnikId == Global.prijavljeniKorisnik.Id)
+                        {
+                            response = obavijestiService.DeleteResponse(o.ObavijestId);
+                            MessageBox.Show("Obavijest izbrisana!", Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            BindGrid();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Možete izbrisati samo obavijesti koje ste vi objavili!", "Greška!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
                 }
             }
         }

@@ -18,49 +18,41 @@ namespace SrednjeSkole_UI.ObavijestiNS
     {
         private WebAPIHelper obavijestiService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.ObavijestiRoute);
         private Obavijesti o { get; set; }
-        public EditObavijest(int obavijestId)
+        public EditObavijest(Obavijesti_Result temp)
         {
             InitializeComponent();
 
             this.AutoValidate = AutoValidate.Disable;
             Cursor.Current = Cursors.WaitCursor;
-
-            HttpResponseMessage response = obavijestiService.GetActionResponse("ById", obavijestId.ToString());
-
-
-            if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                o = null;
-            else if (response.IsSuccessStatusCode)
+            o = new Obavijesti()
             {
-                Obavijesti_Result temp = response.Content.ReadAsAsync<Obavijesti_Result>().Result;
-                o = new Obavijesti()
-                {
-                    ObavijestId = temp.ObavijestId,
-                    KorisnikId = temp.KorisnikId,
-                    Naslov = temp.Naslov,
-                    Tekst = temp.Tekst                    
-                };               
+                ObavijestId = temp.ObavijestId,
+                KorisnikId = temp.KorisnikId,
+                Naslov = temp.Naslov,
+                Tekst = temp.Tekst
+            };
 
-                FillForm();
-            }
+            FillForm();
         }
 
         private void FillForm()
         {
             Cursor.Current = Cursors.WaitCursor;
             naslovInput.Text = o.Naslov;
-            tekstInput.Text = o.Tekst;   
+            tekstInput.Text = o.Tekst;
             Cursor.Current = Cursors.Default;
         }
 
         private void sacuvajBtn_Click(object sender, EventArgs e)
         {
-            if(o != null)
+            if (o != null)
             {
                 if (this.ValidateChildren())
                 {
                     o.Naslov = naslovInput.Text;
                     o.Tekst = tekstInput.Text;
+                    o.KorisnikId = Global.prijavljeniKorisnik.Id;
+                    o.Datum = DateTime.Now;
 
                     HttpResponseMessage response = obavijestiService.PutResponse(o.ObavijestId, o);
 

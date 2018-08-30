@@ -651,6 +651,7 @@
           <Parameter Name="ObavijestId" Type="int" Mode="In" />
           <Parameter Name="Naslov" Type="nvarchar" Mode="In" />
           <Parameter Name="Tekst" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Datum" Type="datetime" Mode="In" />
         </Function>
         <Function Name="ssp_Predaje_GetByNastavnik" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NastavnikId" Type="int" Mode="In" />
@@ -1606,6 +1607,7 @@
             <Parameter Name="ObavijestId" Mode="In" Type="Int32" />
             <Parameter Name="Naslov" Mode="In" Type="String" />
             <Parameter Name="Tekst" Mode="In" Type="String" />
+            <Parameter Name="Datum" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="ssp_Razredi_Pretraga" ReturnType="Collection(SrednjeSkoleModel.Razredi_Result)">
           <Parameter Name="oznaka" Mode="In" Type="String" />

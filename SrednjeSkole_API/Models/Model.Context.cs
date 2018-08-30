@@ -386,7 +386,7 @@ namespace SrednjeSkole_API.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Obavijesti_Result>("ssp_Obavijesti_SelectAll");
         }
     
-        public virtual int ssp_Obavijesti_Update(Nullable<int> obavijestId, string naslov, string tekst)
+        public virtual int ssp_Obavijesti_Update(Nullable<int> obavijestId, string naslov, string tekst, Nullable<System.DateTime> datum)
         {
             var obavijestIdParameter = obavijestId.HasValue ?
                 new ObjectParameter("ObavijestId", obavijestId) :
@@ -400,7 +400,11 @@ namespace SrednjeSkole_API.Models
                 new ObjectParameter("Tekst", tekst) :
                 new ObjectParameter("Tekst", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_Obavijesti_Update", obavijestIdParameter, naslovParameter, tekstParameter);
+            var datumParameter = datum.HasValue ?
+                new ObjectParameter("Datum", datum) :
+                new ObjectParameter("Datum", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_Obavijesti_Update", obavijestIdParameter, naslovParameter, tekstParameter, datumParameter);
         }
     
         public virtual ObjectResult<Razredi_Result> ssp_Razredi_Pretraga(string oznaka)

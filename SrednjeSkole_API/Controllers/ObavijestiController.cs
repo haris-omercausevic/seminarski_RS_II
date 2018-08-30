@@ -40,11 +40,11 @@ namespace SrednjeSkole_API.Controllers
 
             try
             {
-                o.ObavijestId = Convert.ToInt32(db.ssp_Obavijesti_Insert(o.Naslov, o.Tekst, o.KorisnikId, DateTime.Now));
+                o.ObavijestId = Convert.ToInt32(db.ssp_Obavijesti_Insert(o.Naslov, o.Tekst, o.KorisnikId, o.Datum));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }           
 
             return CreatedAtRoute("DefaultApi", new { id = o.ObavijestId }, o);
@@ -61,17 +61,32 @@ namespace SrednjeSkole_API.Controllers
 
             try
             {
-                db.ssp_Obavijesti_Update(id, k.Naslov, k.Tekst);       
+                db.ssp_Obavijesti_Update(id, k.Naslov, k.Tekst, k.Datum);
             }
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
 
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        // DELETE: api/Razredi/5
+        [ResponseType(typeof(Obavijesti))]
+        public IHttpActionResult DeleteObavijesti(int id)
+        {
+            Obavijesti obavijesti = db.Obavijesti.Find(id);
+            if (obavijesti == null)
+            {
+                return NotFound();
+            }
+
+            db.Obavijesti.Remove(obavijesti);
+            db.SaveChanges();
+
+            return Ok(obavijesti);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

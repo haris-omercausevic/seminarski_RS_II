@@ -38,6 +38,7 @@
             this.traziBtn = new System.Windows.Forms.Button();
             this.naslovInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.izbrisiBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.obavijestiGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,12 +135,23 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Naslov:";
             // 
+            // izbrisiBtn
+            // 
+            this.izbrisiBtn.Location = new System.Drawing.Point(736, 19);
+            this.izbrisiBtn.Name = "izbrisiBtn";
+            this.izbrisiBtn.Size = new System.Drawing.Size(96, 23);
+            this.izbrisiBtn.TabIndex = 16;
+            this.izbrisiBtn.Text = "Izbriši obavijest";
+            this.izbrisiBtn.UseVisualStyleBackColor = true;
+            this.izbrisiBtn.Click += new System.EventHandler(this.izbrisiBtn_Click);
+            // 
             // IndexForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(891, 415);
             this.Controls.Add(this.obavijestiGrid);
+            this.Controls.Add(this.izbrisiBtn);
             this.Controls.Add(this.izmijeniBtn);
             this.Controls.Add(this.novaObavijestBtn);
             this.Controls.Add(this.traziBtn);
@@ -169,5 +181,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Naslov;
         private System.Windows.Forms.DataGridViewTextBoxColumn Objavio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
+        private System.Windows.Forms.Button izbrisiBtn;
     }
 }
