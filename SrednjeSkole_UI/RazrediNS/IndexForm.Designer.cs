@@ -56,12 +56,12 @@
             this.Razrednik,
             this.Smjer});
             this.razrediGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.razrediGrid.Location = new System.Drawing.Point(0, 70);
+            this.razrediGrid.Location = new System.Drawing.Point(0, 78);
             this.razrediGrid.MultiSelect = false;
             this.razrediGrid.Name = "razrediGrid";
             this.razrediGrid.ReadOnly = true;
             this.razrediGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.razrediGrid.Size = new System.Drawing.Size(800, 380);
+            this.razrediGrid.Size = new System.Drawing.Size(800, 337);
             this.razrediGrid.TabIndex = 23;
             // 
             // RazredId
@@ -154,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 415);
             this.Controls.Add(this.noviRazredBtn);
             this.Controls.Add(this.traziBtn);
             this.Controls.Add(this.oznakaInput);

@@ -58,12 +58,12 @@
             this.Rating,
             this.BrojOcjena});
             this.materijaliGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.materijaliGrid.Location = new System.Drawing.Point(0, 70);
+            this.materijaliGrid.Location = new System.Drawing.Point(0, 68);
             this.materijaliGrid.MultiSelect = false;
             this.materijaliGrid.Name = "materijaliGrid";
             this.materijaliGrid.ReadOnly = true;
             this.materijaliGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.materijaliGrid.Size = new System.Drawing.Size(800, 380);
+            this.materijaliGrid.Size = new System.Drawing.Size(800, 347);
             this.materijaliGrid.TabIndex = 24;
             // 
             // Materijalid
@@ -161,7 +161,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 415);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.predajeCmb);
             this.Controls.Add(this.izbrisiMaterijalBtn);

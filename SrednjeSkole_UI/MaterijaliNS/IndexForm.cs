@@ -94,7 +94,6 @@ namespace SrednjeSkole_UI.MaterijaliNS
                     {
                         WebClient client = new WebClient();
                         client.DownloadFile(m.Url, saveDialog.FileName);
-                       // MessageBox.Show("Materijal pohranjen!", Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
