@@ -200,6 +200,7 @@
             this.Controls.Add(this.oznaceniUceniciGrid);
             this.Controls.Add(this.label1);
             this.Name = "NovaOcjena";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nova ocjena";
             this.Load += new System.EventHandler(this.NovaOcjena_Load);
             ((System.ComponentModel.ISupportInitialize)(this.oznaceniUceniciGrid)).EndInit();

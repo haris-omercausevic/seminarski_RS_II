@@ -44,7 +44,7 @@
             this.sacuvajBtn.Location = new System.Drawing.Point(465, 380);
             this.sacuvajBtn.Name = "sacuvajBtn";
             this.sacuvajBtn.Size = new System.Drawing.Size(75, 23);
-            this.sacuvajBtn.TabIndex = 7;
+            this.sacuvajBtn.TabIndex = 3;
             this.sacuvajBtn.Text = "Sacuvaj";
             this.sacuvajBtn.UseVisualStyleBackColor = true;
             this.sacuvajBtn.Click += new System.EventHandler(this.sacuvajBtn_Click);
@@ -76,7 +76,7 @@
             this.tekstInput.Multiline = true;
             this.tekstInput.Name = "tekstInput";
             this.tekstInput.Size = new System.Drawing.Size(414, 298);
-            this.tekstInput.TabIndex = 3;
+            this.tekstInput.TabIndex = 2;
             this.tekstInput.Validating += new System.ComponentModel.CancelEventHandler(this.tekstInput_Validating);
             // 
             // naslovInput
@@ -85,7 +85,7 @@
             this.naslovInput.Location = new System.Drawing.Point(95, 26);
             this.naslovInput.Name = "naslovInput";
             this.naslovInput.Size = new System.Drawing.Size(255, 26);
-            this.naslovInput.TabIndex = 4;
+            this.naslovInput.TabIndex = 1;
             this.naslovInput.Validating += new System.ComponentModel.CancelEventHandler(this.naslovInput_Validating);
             // 
             // errorProvider

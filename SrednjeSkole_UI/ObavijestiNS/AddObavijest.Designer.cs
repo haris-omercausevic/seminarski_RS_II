@@ -44,7 +44,7 @@
             this.naslovInput.Location = new System.Drawing.Point(87, 25);
             this.naslovInput.Name = "naslovInput";
             this.naslovInput.Size = new System.Drawing.Size(255, 26);
-            this.naslovInput.TabIndex = 0;
+            this.naslovInput.TabIndex = 1;
             this.naslovInput.Validating += new System.ComponentModel.CancelEventHandler(this.naslovInput_Validating);
             // 
             // label1
@@ -64,7 +64,7 @@
             this.tekstInput.Multiline = true;
             this.tekstInput.Name = "tekstInput";
             this.tekstInput.Size = new System.Drawing.Size(430, 280);
-            this.tekstInput.TabIndex = 0;
+            this.tekstInput.TabIndex = 2;
             this.tekstInput.Validating += new System.ComponentModel.CancelEventHandler(this.tekstInput_Validating);
             // 
             // label2
@@ -83,7 +83,7 @@
             this.objaviBtn.Location = new System.Drawing.Point(473, 370);
             this.objaviBtn.Name = "objaviBtn";
             this.objaviBtn.Size = new System.Drawing.Size(75, 23);
-            this.objaviBtn.TabIndex = 2;
+            this.objaviBtn.TabIndex = 3;
             this.objaviBtn.Text = "Objavi";
             this.objaviBtn.UseVisualStyleBackColor = true;
             this.objaviBtn.Click += new System.EventHandler(this.objaviBtn_Click);

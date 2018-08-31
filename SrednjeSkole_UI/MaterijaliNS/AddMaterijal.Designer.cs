@@ -46,7 +46,7 @@
             this.predajeCmb.Location = new System.Drawing.Point(75, 29);
             this.predajeCmb.Name = "predajeCmb";
             this.predajeCmb.Size = new System.Drawing.Size(163, 21);
-            this.predajeCmb.TabIndex = 17;
+            this.predajeCmb.TabIndex = 1;
             this.predajeCmb.Validating += new System.ComponentModel.CancelEventHandler(this.predajeCmb_Validating);
             // 
             // label4
@@ -68,7 +68,7 @@
             this.dodajFajlBtn.Location = new System.Drawing.Point(276, 74);
             this.dodajFajlBtn.Name = "dodajFajlBtn";
             this.dodajFajlBtn.Size = new System.Drawing.Size(56, 23);
-            this.dodajFajlBtn.TabIndex = 41;
+            this.dodajFajlBtn.TabIndex = 3;
             this.dodajFajlBtn.Text = "Browse";
             this.dodajFajlBtn.UseVisualStyleBackColor = true;
             this.dodajFajlBtn.Click += new System.EventHandler(this.dodajFajlBtn_Click);
@@ -78,7 +78,7 @@
             this.fajlInput.Location = new System.Drawing.Point(75, 76);
             this.fajlInput.Name = "fajlInput";
             this.fajlInput.Size = new System.Drawing.Size(195, 20);
-            this.fajlInput.TabIndex = 40;
+            this.fajlInput.TabIndex = 2;
             this.fajlInput.TabStop = false;
             this.fajlInput.Validating += new System.ComponentModel.CancelEventHandler(this.fajlInput_Validating);
             // 
@@ -99,7 +99,7 @@
             this.sacuvajBtn.Location = new System.Drawing.Point(261, 143);
             this.sacuvajBtn.Name = "sacuvajBtn";
             this.sacuvajBtn.Size = new System.Drawing.Size(71, 29);
-            this.sacuvajBtn.TabIndex = 41;
+            this.sacuvajBtn.TabIndex = 4;
             this.sacuvajBtn.Text = "Sačuvaj";
             this.sacuvajBtn.UseVisualStyleBackColor = true;
             this.sacuvajBtn.Click += new System.EventHandler(this.sacuvajBtn_Click);

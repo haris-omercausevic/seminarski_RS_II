@@ -14,7 +14,7 @@ using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
 
-namespace SrednjeSkole
+namespace SrednjeSkole.MaterijaliNS
 {
 
     //public class Predmeti

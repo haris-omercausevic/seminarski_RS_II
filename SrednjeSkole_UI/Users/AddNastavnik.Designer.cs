@@ -71,7 +71,7 @@
             this.datumRodjenjaInput.Location = new System.Drawing.Point(102, 184);
             this.datumRodjenjaInput.Name = "datumRodjenjaInput";
             this.datumRodjenjaInput.Size = new System.Drawing.Size(197, 20);
-            this.datumRodjenjaInput.TabIndex = 22;
+            this.datumRodjenjaInput.TabIndex = 7;
             // 
             // telefonInput
             // 
@@ -79,7 +79,7 @@
             this.telefonInput.Mask = "(999) 000-000";
             this.telefonInput.Name = "telefonInput";
             this.telefonInput.Size = new System.Drawing.Size(197, 20);
-            this.telefonInput.TabIndex = 20;
+            this.telefonInput.TabIndex = 5;
             // 
             // jmbgInput
             // 
@@ -87,7 +87,7 @@
             this.jmbgInput.MaxLength = 13;
             this.jmbgInput.Name = "jmbgInput";
             this.jmbgInput.Size = new System.Drawing.Size(197, 20);
-            this.jmbgInput.TabIndex = 21;
+            this.jmbgInput.TabIndex = 6;
             // 
             // label9
             // 
@@ -103,7 +103,7 @@
             this.emailInput.Location = new System.Drawing.Point(103, 106);
             this.emailInput.Name = "emailInput";
             this.emailInput.Size = new System.Drawing.Size(197, 20);
-            this.emailInput.TabIndex = 19;
+            this.emailInput.TabIndex = 4;
             // 
             // label8
             // 
@@ -129,7 +129,7 @@
             this.lozinkaInput.Name = "lozinkaInput";
             this.lozinkaInput.PasswordChar = '*';
             this.lozinkaInput.Size = new System.Drawing.Size(197, 20);
-            this.lozinkaInput.TabIndex = 24;
+            this.lozinkaInput.TabIndex = 11;
             // 
             // label6
             // 
@@ -145,7 +145,7 @@
             this.korisnickoImeInput.Location = new System.Drawing.Point(103, 278);
             this.korisnickoImeInput.Name = "korisnickoImeInput";
             this.korisnickoImeInput.Size = new System.Drawing.Size(197, 20);
-            this.korisnickoImeInput.TabIndex = 23;
+            this.korisnickoImeInput.TabIndex = 10;
             // 
             // label5
             // 
@@ -170,7 +170,7 @@
             this.prezimeInput.Location = new System.Drawing.Point(103, 54);
             this.prezimeInput.Name = "prezimeInput";
             this.prezimeInput.Size = new System.Drawing.Size(197, 20);
-            this.prezimeInput.TabIndex = 18;
+            this.prezimeInput.TabIndex = 2;
             // 
             // label2
             // 
@@ -186,7 +186,7 @@
             this.imeInput.Location = new System.Drawing.Point(103, 28);
             this.imeInput.Name = "imeInput";
             this.imeInput.Size = new System.Drawing.Size(197, 20);
-            this.imeInput.TabIndex = 17;
+            this.imeInput.TabIndex = 1;
             // 
             // label1
             // 
@@ -202,7 +202,7 @@
             this.dodajBtn.Location = new System.Drawing.Point(540, 357);
             this.dodajBtn.Name = "dodajBtn";
             this.dodajBtn.Size = new System.Drawing.Size(75, 23);
-            this.dodajBtn.TabIndex = 30;
+            this.dodajBtn.TabIndex = 16;
             this.dodajBtn.Text = "Sačuvaj";
             this.dodajBtn.UseVisualStyleBackColor = true;
             this.dodajBtn.Click += new System.EventHandler(this.dodajBtn_Click);
@@ -221,7 +221,7 @@
             this.zvanjeInput.Location = new System.Drawing.Point(103, 80);
             this.zvanjeInput.Name = "zvanjeInput";
             this.zvanjeInput.Size = new System.Drawing.Size(197, 20);
-            this.zvanjeInput.TabIndex = 23;
+            this.zvanjeInput.TabIndex = 3;
             this.zvanjeInput.Validating += new System.ComponentModel.CancelEventHandler(this.zvanjeInput_Validating);
             // 
             // label10
@@ -238,7 +238,7 @@
             this.godinaZaposlenjaInput.Location = new System.Drawing.Point(102, 210);
             this.godinaZaposlenjaInput.Name = "godinaZaposlenjaInput";
             this.godinaZaposlenjaInput.Size = new System.Drawing.Size(197, 20);
-            this.godinaZaposlenjaInput.TabIndex = 23;
+            this.godinaZaposlenjaInput.TabIndex = 8;
             // 
             // label11
             // 
@@ -254,7 +254,7 @@
             this.naucnaOblastInput.Location = new System.Drawing.Point(102, 236);
             this.naucnaOblastInput.Name = "naucnaOblastInput";
             this.naucnaOblastInput.Size = new System.Drawing.Size(197, 20);
-            this.naucnaOblastInput.TabIndex = 23;
+            this.naucnaOblastInput.TabIndex = 9;
             // 
             // errorProvider
             // 
@@ -277,7 +277,7 @@
             this.radioButton2.Location = new System.Drawing.Point(489, 213);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(61, 17);
-            this.radioButton2.TabIndex = 37;
+            this.radioButton2.TabIndex = 15;
             this.radioButton2.Text = "Žensko";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
@@ -288,7 +288,7 @@
             this.radioButton1.Location = new System.Drawing.Point(426, 213);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(57, 17);
-            this.radioButton1.TabIndex = 36;
+            this.radioButton1.TabIndex = 14;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Muško";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -298,7 +298,7 @@
             this.dodajSlikuBtn.Location = new System.Drawing.Point(588, 30);
             this.dodajSlikuBtn.Name = "dodajSlikuBtn";
             this.dodajSlikuBtn.Size = new System.Drawing.Size(49, 23);
-            this.dodajSlikuBtn.TabIndex = 35;
+            this.dodajSlikuBtn.TabIndex = 13;
             this.dodajSlikuBtn.Text = "Dodaj";
             this.dodajSlikuBtn.UseVisualStyleBackColor = true;
             this.dodajSlikuBtn.Click += new System.EventHandler(this.dodajSlikuBtn_Click);
@@ -308,7 +308,7 @@
             this.slikaInput.Location = new System.Drawing.Point(391, 32);
             this.slikaInput.Name = "slikaInput";
             this.slikaInput.Size = new System.Drawing.Size(191, 20);
-            this.slikaInput.TabIndex = 34;
+            this.slikaInput.TabIndex = 12;
             this.slikaInput.TabStop = false;
             // 
             // label12

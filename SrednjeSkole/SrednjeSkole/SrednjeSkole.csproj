@@ -50,11 +50,16 @@
     <EmbeddedResource Update="Login.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Materijali.xaml">
+    <EmbeddedResource Update="MaterijaliNS\Materijali.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="OcijeniMaterijal.xaml">
+    <EmbeddedResource Update="MaterijaliNS\OcijeniMaterijal.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ObavijestiNS\" />
+    <Folder Include="OcjeneNS\" />
   </ItemGroup>
 </Project>

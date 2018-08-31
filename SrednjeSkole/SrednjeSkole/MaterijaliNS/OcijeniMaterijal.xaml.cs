@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace SrednjeSkole
+namespace SrednjeSkole.MaterijaliNS
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OcijeniMaterijal : ContentPage
     {
-        //private IDownloadFile _downloadFile;
-        //private bool _isDownloading, _downloadigFlag = false;
+        private IDownloadFile _downloadFile;
+        private bool _isDownloading, _downloadigFlag = false;
         private Materijali_Result _materijal;
         IDownloader downloader = DependencyService.Get<IDownloader>();
 
@@ -52,9 +52,14 @@ namespace SrednjeSkole
 
         private void downloadImage_Tapped(object sender, EventArgs e)
         {
+#if __IOS__
+            DownloadMaterijal(_materijal.Url, _materijal.Naziv);
+#elif __ANDROID__
+            DownloadMaterijal(_materijal.Url, _materijal.Naziv);
+#else
             downloader.DownloadFile(_materijal.Url, _materijal.Naziv);
+#endif
 
-            //DownloadMaterijal(_materijal.Url, _materijal.Naziv);
             //downloader.DownloadFile(_materijal.Url, _materijal.Naziv);
         }
 
@@ -68,33 +73,33 @@ namespace SrednjeSkole
             //    { "Authorization", "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==" }
             //}
         }
-        //public async void DownloadMaterijal(string url, string naziv)
-        //{
-        //    //await Task.Yield();
-        //    //try
-        //    //{
-        //    //    await Task.Run(() =>
-        //    //    {
-        //    //            var downloadManager = CrossDownloadManager.Current;
-        //    //            _downloadFile = downloadManager.CreateDownloadFile(url);
-        //    //            Global.imeFajla = naziv;
-        //    //            downloadManager.Start(_downloadFile, true);
+        public async void DownloadMaterijal(string url, string naziv)
+        {
+            await Task.Yield();
+            try
+            {
+                await Task.Run(() =>
+                {
+                    var downloadManager = CrossDownloadManager.Current;
+                    _downloadFile = downloadManager.CreateDownloadFile(url);
+                    Global.imeFajla = naziv;
+                    downloadManager.Start(_downloadFile, true);
 
-        //    //            while (_isDownloading)
-        //    //                _isDownloading = IsDownloading(_downloadFile);
-        //    //    });
+                    while (_isDownloading)
+                        _isDownloading = IsDownloading(_downloadFile);
+                });
 
-        //    //    if (!_isDownloading)
-        //    //    {
-        //    //        await DisplayAlert("Info", "Materijal je uspješno preuzet", "OK");
-        //    //        _downloadigFlag = false;
-        //    //    }
-        //    //}
-        //    //catch (Exception ex)
-        //    //{
-        //    //    await DisplayAlert("greska", ex.Message, "OK");
-        //    //}    
-        //}
+                if (!_isDownloading)
+                {
+                    await DisplayAlert("Info", "Materijal je uspješno preuzet", "OK");
+                    _downloadigFlag = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("greska", ex.Message, "OK");
+            }
+        }
 
         public void AbortDownloading()
         {

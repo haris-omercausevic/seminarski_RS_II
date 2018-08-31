@@ -82,5 +82,10 @@ namespace SrednjeSkole_UI
         {
             Close();
         }
+
+        private void lozinkaInput_Enter(object sender, EventArgs e)
+        {
+            prijavaBtn_Click(sender, e);
+        }
     }
 }

@@ -246,6 +246,12 @@ namespace SrednjeSkole_UI.Users
                         k = null;
                     }
                 }
+                else
+                {
+                    MessageBox.Show(Messages.picture_war + " " + resizedImgWidth + "x" + resizedImgHeight + ".", Messages.warning,
+                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    k = null;
+                }
             }
             catch (Exception)
             {
