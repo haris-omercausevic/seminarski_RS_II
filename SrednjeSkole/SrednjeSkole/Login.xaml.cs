@@ -38,7 +38,7 @@ namespace SrednjeSkole
                     {
                             if (k.LozinkaHash == UIHelper.GenerateHash(k.LozinkaSalt, lozinkaInput.Text))
                             {                              
-                                    Navigation.PushAsync(new Materijali());
+                                    Navigation.PushAsync(new MaterijaliNS.Materijali());
                                     Global.prijavljeniKorisnik = k;                               
                             }
                         else
