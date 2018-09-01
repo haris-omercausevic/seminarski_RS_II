@@ -31,6 +31,22 @@ namespace SrednjeSkole
         {
             Navigation.PushAsync(new Views.Ocjene.OcjenePage());
         }
+        private void logoutGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            if (Xamarin.Forms.Application.Current.Resources.ContainsKey("IsLoggedIn") && Xamarin.Forms.Application.Current.Resources.ContainsKey("UserDetails"))
+            {
+
+                Xamarin.Forms.Application.Current.Resources["IsLoggedIn"] = Boolean.FalseString;
+                Xamarin.Forms.Application.Current.Resources["UserDetails"] = null;
+                Navigation.PopToRootAsync();
+                //foreach (var page in Navigation.NavigationStack.ToList())
+                //{
+                    
+                //}
+                Navigation.PushAsync(new SrednjeSkole.Login());
+            }
+        }
+        
 
     }
 }

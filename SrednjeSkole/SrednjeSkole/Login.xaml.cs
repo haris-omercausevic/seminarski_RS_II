@@ -62,6 +62,12 @@ namespace SrednjeSkole
                                     activityBusy.IsEnabled = false;
                                     Navigation.PushAsync(new MainPage());
                                     Global.prijavljeniKorisnik = k;
+
+                                    if (Xamarin.Forms.Application.Current.Resources.ContainsKey("IsLoggedIn") && Xamarin.Forms.Application.Current.Resources.ContainsKey("UserDetails"))
+                                    {
+                                        Xamarin.Forms.Application.Current.Resources["IsLoggedIn"] = Boolean.TrueString;
+                                        Xamarin.Forms.Application.Current.Resources["UserDetails"] = JsonConvert.SerializeObject(k);
+                                    }                                        
                                 }
                                 else
                                 {

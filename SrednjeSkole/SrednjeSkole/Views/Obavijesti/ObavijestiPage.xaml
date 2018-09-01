@@ -1,12 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SrednjeSkole.Util"
              x:Class="SrednjeSkole.Views.Obavijesti.ObavijestiPage">
+   
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="30">
+            <Label Text="Welcome to eProdaja" 
+           VerticalOptions="Center" 
+           HorizontalOptions="Center" FontSize="Medium" />
+            <ListView x:Name="proizvodiList" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image x:Name="image" Grid.Column="0" 
+                                       Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}" Margin="5"></Image>
+                                <StackLayout Grid.Column="1" Padding="10">
+                                    <Label Text="{Binding Naziv}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Sifra}"  />
+                                    <Label Text="{Binding Cijena}" />
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

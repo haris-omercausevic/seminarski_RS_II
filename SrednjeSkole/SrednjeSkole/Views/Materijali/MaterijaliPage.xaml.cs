@@ -41,15 +41,18 @@ namespace SrednjeSkole.Views.Materijali
 
         public MaterijaliPage()
         {
-            InitializeComponent();
+            InitializeComponent();                 
+        }
 
+        protected override void OnAppearing()
+        {
             BindRazredi();
             razrediPicker.On<iOS>().SetUpdateMode(UpdateMode.WhenFinished);
             predmetiPicker.On<iOS>().SetUpdateMode(UpdateMode.WhenFinished);
             razrediPicker.SelectedIndex = 0; //selectedIndexChange poziva bindPredmeti
-            predmetiPicker.SelectedIndex = 0; // samo za prvo ucitavanje, selectedIndexChange poziva BindMaterijali()                
+            predmetiPicker.SelectedIndex = 0; // samo za prvo ucitavanje, selectedIndexChange poziva BindMaterijali()       
+            base.OnAppearing();
         }
-
         private void BindRazredi()
         {
             razrediPicker.Items.Add("1");

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using SrednjeSkole.Models;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,8 +12,21 @@ namespace SrednjeSkole
         public App()
         {
             InitializeComponent();
+            bool isLoggedIn = Xamarin.Forms.Application.Current.Resources.ContainsKey("IsLoggedIn") ? Convert.ToBoolean(Xamarin.Forms.Application.Current.Resources["IsLoggedIn"]) : false;
+            if (!isLoggedIn)
+            {
+                MainPage = new NavigationPage(new SrednjeSkole.Login());
+            }
+            else
+            {
+                if (Xamarin.Forms.Application.Current.Resources.ContainsKey("UserDetail"))
+                {
+                    Global.prijavljeniKorisnik = JsonConvert.DeserializeObject<Korisnici>(Xamarin.Forms.Application.Current.Resources["UserDetail"].ToString());
+                    MainPage = new NavigationPage(new SrednjeSkole.MainPage());
+                }
 
-            MainPage = new NavigationPage(new SrednjeSkole.Login());            
+            }            
+            
         }
 
         protected override void OnStart()

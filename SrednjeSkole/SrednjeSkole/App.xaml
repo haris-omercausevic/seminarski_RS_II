@@ -5,5 +5,8 @@
     <Application.Resources>
         <x:String x:Key="APIAddressAzure">https://srednjeskoleapi20180818082926.azurewebsites.net/</x:String>
         <x:String x:Key="APIAddress">http://10.15.15.44/</x:String>
+        <x:Boolean x:Key="IsLoggedIn">false</x:Boolean>
+        <x:Object x:Key="UserDetails"></x:Object>
     </Application.Resources>
+  
 </Application>
