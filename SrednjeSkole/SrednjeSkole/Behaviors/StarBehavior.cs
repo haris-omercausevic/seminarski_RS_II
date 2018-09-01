@@ -10,6 +10,7 @@ namespace SrednjeSkole.Behaviors
         TapGestureRecognizer tapRecognizer;
         static List<StarBehavior> defaultBehaviors = new List<StarBehavior>();
         static Dictionary<string, List<StarBehavior>> starGroups = new Dictionary<string, List<StarBehavior>>();
+        public static bool ResetCounter = false;
 
         public static readonly BindableProperty GroupNameProperty =
             BindableProperty.Create("GroupName",
@@ -40,21 +41,21 @@ namespace SrednjeSkole.Behaviors
             StarBehavior behavior = (StarBehavior)bindable;
             string oldGroupName = (string)oldValue;
             string newGroupName = (string)newValue;
-            
+
             // Remove existing behavior from Group
             if (String.IsNullOrEmpty(oldGroupName))
             {
-                defaultBehaviors.Remove(behavior);
+                //defaultBehaviors.Remove(behavior);
             }
             else
             {
                 List<StarBehavior> behaviors = starGroups[oldGroupName];
-                behaviors.Remove(behavior);
+                //behaviors.Remove(behavior);
 
-                if (behaviors.Count == 0)
-                {
-                    starGroups.Remove(oldGroupName);
-                }
+                //if (behaviors.Count == 0)
+                //{
+                //    starGroups.Remove(oldGroupName);
+                //}
             }
 
             // Add New Behavior to the group
@@ -66,17 +67,32 @@ namespace SrednjeSkole.Behaviors
             {
                 List<StarBehavior> behaviors = null;
 
-                if (starGroups.ContainsKey(newGroupName))
+                if (starGroups.ContainsKey("myStar"))
                 {
-                    behaviors = starGroups[newGroupName];
+                    if (starGroups["myStar"].Count < 5)
+                    {
+                        behaviors = new List<StarBehavior>();
+                        starGroups["myStar"].Add(behavior);
+                    }
+                    else
+                    {
+                        starGroups["myStar"].RemoveRange(0, starGroups["myStar"].Count);
+                        starGroups["myStar"].Add(behavior);
+                    }
                 }
                 else
                 {
                     behaviors = new List<StarBehavior>();
+                    behaviors.Add(behavior);
                     starGroups.Add(newGroupName, behaviors);
                 }
 
-                behaviors.Add(behavior);
+                //if (behaviors.Count < 5)
+                //    behaviors.Add(behavior);
+                //else
+                //{
+                //    behaviors.RemoveRange(0, behaviors.Count);
+                //}
             }
 
         }
@@ -147,10 +163,12 @@ namespace SrednjeSkole.Behaviors
 
         protected override void OnAttachedTo(View view)
         {
+
+            //starGroups["myStar"] = defaultBehaviors;
+            //ResetCounter = false;
             tapRecognizer = new TapGestureRecognizer();
             tapRecognizer.Tapped += OnTapRecognizerTapped;
             view.GestureRecognizers.Add(tapRecognizer);
-            
         }
 
         protected override void OnDetachingFrom(View view)
@@ -165,11 +183,7 @@ namespace SrednjeSkole.Behaviors
             //HACK: PropertyChange does not fire, if the value is not changed :-(
             IsStarred = false;
             IsStarred = true;
-            
-        }
-        ~StarBehavior()
-        {
-            OnDetachingFrom(this);
+
         }
     }
 }

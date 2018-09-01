@@ -18,6 +18,7 @@ namespace SrednjeSkole
     {
         private WebAPIHelper korisniciService = new WebAPIHelper(Xamarin.Forms.Application.Current.Resources["APIAddress"].ToString(), "api/Korisnici");
         private WebAPIHelper ulogeService = new WebAPIHelper(Xamarin.Forms.Application.Current.Resources["APIAddress"].ToString(), "api/Uloge");
+        IHash hasher = DependencyService.Get<IHash>();
 
         public Login()
         {
@@ -33,18 +34,36 @@ namespace SrednjeSkole
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonResult = response.Content.ReadAsStringAsync();
-                    Korisnici k = JsonConvert.DeserializeObject<Korisnici>(jsonResult.Result);
+                    Korisnici k = JsonConvert.DeserializeObject<Korisnici>(jsonResult.Result);                    
                     if (k != null)
                     {
-                            if (k.LozinkaHash == UIHelper.GenerateHash(k.LozinkaSalt, lozinkaInput.Text))
-                            {                              
+                        HttpResponseMessage response2 = ulogeService.GetActionResponse("GetByKorisnikId", k.Id.ToString());
+                        if (response2.IsSuccessStatusCode)
+                        {
+                            var jsonResult2 = response2.Content.ReadAsStringAsync();
+                            List<Uloge> u = JsonConvert.DeserializeObject<List<Uloge>>(jsonResult2.Result);
+                            k.Uloge = u;
+                            if(k.Uloge.Exists(x => x.Naziv == "Ucenik" || x.Naziv == "SuperAdministrator"))
+                            {
+                                if (k.LozinkaHash == hasher.GenerateHash(k.LozinkaSalt, lozinkaInput.Text))
+                                {
                                     Navigation.PushAsync(new MainPage());
-                                    Global.prijavljeniKorisnik = k;                               
+                                    Global.prijavljeniKorisnik = k;
+                                }
+                                else
+                                {
+                                    DisplayAlert("Upozorenje!", "Korisničko ime ili lozinka nisu validni!", "OK");
+                                }
                             }
+                            else
+                            {
+                                DisplayAlert("Upozorenje!", "Vaša uloga nije podržana!", "OK");
+                            }
+                        }
                         else
                         {
-                            DisplayAlert("Upozorenje!", "Korisničko ime ili lozinka nisu validni!", "OK");
-                        }                    
+                            DisplayAlert("Greska", "Error code: " + response.StatusCode + "Message: " + response.ReasonPhrase, "OK");
+                        }
                     }                    
                 }
                 else

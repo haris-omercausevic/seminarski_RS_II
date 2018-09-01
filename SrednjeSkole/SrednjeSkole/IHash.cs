@@ -7,5 +7,6 @@ namespace SrednjeSkole
     public interface IHash
     {
         // login dependency injection
+        string GenerateHash(string salt, string password);
     }
 }
