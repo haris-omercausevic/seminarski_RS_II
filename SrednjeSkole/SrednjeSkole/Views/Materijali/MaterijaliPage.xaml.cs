@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using Plugin.DownloadManager;
+using Plugin.DownloadManager.Abstractions;
 using SrednjeSkole.Models;
 using SrednjeSkole.Util;
 using System;
@@ -33,7 +35,9 @@ namespace SrednjeSkole.Views.Materijali
         private List<Predmeti> predmeti = new List<Predmeti>();
         private ObservableCollection<Materijali_Result> materijali = new ObservableCollection<Materijali_Result>();
         private int predmetIndex;
-
+        private IDownloadFile _downloadFile;
+        private bool _isDownloading = false, _downloadigFlag;
+        IDownloader downloader = DependencyService.Get<IDownloader>();
 
         public MaterijaliPage()
         {
@@ -109,11 +113,7 @@ namespace SrednjeSkole.Views.Materijali
         {
             var materijalItem = e.Item as Materijali_Result;
             var ocijeniMaterijalPage = new OcijeniMaterijal(materijalItem);
-            ocijeniMaterijalPage.Disappearing += (s, arg) =>
-            {
-                BindMaterijali();
-                SrednjeSkole.Behaviors.StarBehavior.ResetCounter = true;
-            };
+            ocijeniMaterijalPage.Disappearing += (s, arg) => BindMaterijali();
             this.Navigation.PushAsync(ocijeniMaterijalPage);
         }
 
@@ -122,20 +122,100 @@ namespace SrednjeSkole.Views.Materijali
         private void preuzmi_Clicked(object sender, EventArgs e)
         {
             var preuzmiIcon = sender as MenuItem;
-            var materijalItem = preuzmiIcon.CommandParameter as Materijali_Result;
+            Materijali_Result materijalItem = preuzmiIcon.CommandParameter as Materijali_Result;
 
-            DisplayAlert("Call", materijalItem.Url, "OK");
+            switch (Device.RuntimePlatform)
+            {
+                case Device.Android:
+                    DownloadMaterijal(materijalItem.Url, materijalItem.Naziv); break;
+                case Device.iOS:
+                    DownloadMaterijal(materijalItem.Url, materijalItem.Naziv); break;
+                case Device.UWP:
+                    downloader.DownloadFile(materijalItem.Url, materijalItem.Naziv); break;
+                default:
+                    DownloadMaterijal(materijalItem.Url, materijalItem.Naziv); break;
+            }
         }
         private void addOcjena_Clicked(object sender, EventArgs e)
         {
             var preuzmiIcon = sender as MenuItem;
             var materijalItem = preuzmiIcon.CommandParameter as Materijali_Result;
-            this.Navigation.PushAsync(new OcijeniMaterijal(materijalItem));
+            var ocijeniMaterijalPage = new OcijeniMaterijal(materijalItem);
+            ocijeniMaterijalPage.Disappearing += (s, arg) => BindMaterijali();
+            this.Navigation.PushAsync(ocijeniMaterijalPage);
         }
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
+
+
+        #region download
+        private void OnFileDownloaded(object sender, DownloadEventArgs e)
+        {
+            if (e.FileSaved)
+            {
+                DisplayAlert("XF Downloader", "File Saved Successfully", "Close");
+            }
+            else
+            {
+                DisplayAlert("XF Downloader", "Error while saving the file", "Close");
+            }
+        }
+      
+        public async void DownloadMaterijal(string url, string naziv)
+        {
+            try
+            {
+                var downloadManager = CrossDownloadManager.Current;
+                _downloadFile = downloadManager.CreateDownloadFile(url);
+                Global.imeFajla = naziv;
+                downloadManager.Start(_downloadFile, true);
+
+                while (_isDownloading)
+                    _isDownloading = IsDownloading(_downloadFile);
+
+                if (!_isDownloading)
+                {
+                    await DisplayAlert("Info", "Materijal je uspješno preuzet", "OK");
+                    _downloadigFlag = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("greska", ex.Message, "OK");
+            }
+        }
+
+        public void AbortDownloading()
+        {
+            CrossDownloadManager.Current.Abort(_downloadFile);
+        }
+
+
+
+        public bool IsDownloading(IDownloadFile file)
+        {
+            if (file == null) return false;
+
+            switch (file.Status)
+            {
+                case DownloadFileStatus.INITIALIZED:
+                case DownloadFileStatus.PAUSED:
+                case DownloadFileStatus.PENDING:
+                case DownloadFileStatus.RUNNING:
+                    return true;
+
+                case DownloadFileStatus.COMPLETED:
+                case DownloadFileStatus.CANCELED:
+                case DownloadFileStatus.FAILED:
+                    return false;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+        #endregion
+
     }
 }

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SrednjeSkole.Login">
         <StackLayout Margin="10" VerticalOptions="CenterAndExpand">
+       
             
             <Label Text="Prijava @ Srednje škole"
                    FontSize="25" HorizontalTextAlignment="Center"
@@ -15,6 +16,14 @@
             </Label.GestureRecognizers>
         </Label>
         <Button x:Name="prijavaBtn" Text="Prijava" Clicked="prijavaBtn_Clicked"/>
+        <ActivityIndicator x:Name="activityBusy"
+                           IsRunning="False"
+                           IsEnabled="False"
+                           IsVisible="False"
+                           Margin="30"
+                           Color="Blue"
+                           BackgroundColor="Transparent"                           
+                           />
 
     </StackLayout>
 </ContentPage>

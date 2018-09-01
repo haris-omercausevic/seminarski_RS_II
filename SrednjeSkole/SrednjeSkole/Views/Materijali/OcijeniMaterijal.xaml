@@ -33,24 +33,24 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>                                          
+                </Grid.ColumnDefinitions>
             </Grid>
-          <Label Grid.Row="0" Grid.Column="1" x:Name="nazivMaterijalaLabel" FontAttributes="Bold"/>
-          <Label Grid.Row="1" Grid.Column="1" x:Name="nastavnikLabel" />
-          <Label Grid.Row="2" Grid.Column="1" x:Name="datumLabel" />
-          <Label Grid.Row="2" Grid.Column="1" x:Name="ratingLabel" />
-          <Label Grid.Row="2" Grid.Column="1" x:Name="brojOcjena" />
-          <Image x:Name="downloadImage" Source="download_icon.png">
-            <Image.GestureRecognizers>
-              <TapGestureRecognizer Tapped="downloadImage_Tapped"></TapGestureRecognizer>
-            </Image.GestureRecognizers>
-          </Image>
+            <Label Grid.Row="0" Grid.Column="1" x:Name="nazivMaterijalaLabel" FontAttributes="Bold" FontSize="Small"/>
+            <Label Grid.Row="1" Grid.Column="1" x:Name="nastavnikLabel" FontSize="Small" />
+            <Label Grid.Row="2" Grid.Column="1" x:Name="datumLabel" FontSize="Small"/>
+            <Label Grid.Row="3" Grid.Column="0" x:Name="ratingLabel" FontSize="Small"/>
+            <Label Grid.Row="3" Grid.Column="1" x:Name="brojOcjena" FontSize="Small"/>
+            <Image x:Name="downloadImage" Source="download_icon.png" Margin="20">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="downloadImage_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
         </StackLayout>
-      
-      
-        
-        
-        
+
+
+
+
+
         <Label Text="Ocijeni materijal" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" x:Name="ocijeniMaterijalLabel"/>
         <StackLayout Orientation="Horizontal" HeightRequest="70" x:Name="zvijezdeStack">
             <Grid>
@@ -77,15 +77,15 @@
                 IsVisible="{Binding Source={x:Reference starTwo},
                                     Path=IsStarred}"/>
             </Grid>
-            
+
             <Grid>
                 <Grid.Behaviors>
-                <behaviors:StarBehavior x:Name="starThree" GroupName="myStar"/>
-            </Grid.Behaviors>
-            <Image x:Name="starBlankThree"
+                    <behaviors:StarBehavior x:Name="starThree" GroupName="myStar"/>
+                </Grid.Behaviors>
+                <Image x:Name="starBlankThree"
                 Source="star_outline.png" />
 
-            <Image x:Name="starSelectedThree"
+                <Image x:Name="starSelectedThree"
                 Source="star_selected.png"
                 IsVisible="{Binding Source={x:Reference starThree},
                                     Path=IsStarred}"/>

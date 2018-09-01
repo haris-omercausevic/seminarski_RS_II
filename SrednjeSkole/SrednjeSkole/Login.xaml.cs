@@ -19,7 +19,6 @@ namespace SrednjeSkole
         private WebAPIHelper korisniciService = new WebAPIHelper(Xamarin.Forms.Application.Current.Resources["APIAddress"].ToString(), "api/Korisnici");
         private WebAPIHelper ulogeService = new WebAPIHelper(Xamarin.Forms.Application.Current.Resources["APIAddress"].ToString(), "api/Uloge");
         IHash hasher = DependencyService.Get<IHash>();
-
         public Login()
         {
             InitializeComponent();
@@ -27,8 +26,19 @@ namespace SrednjeSkole
 
         private void prijavaBtn_Clicked(object sender, EventArgs e)
         {
+            activityBusy.IsEnabled = true;
+            activityBusy.IsVisible = true;
+            activityBusy.IsRunning = true;
             try
-            {
+            {   
+                if(String.IsNullOrEmpty(korisnickoImeInput.Text) || String.IsNullOrEmpty(lozinkaInput.Text))
+                {
+                    DisplayAlert("Greška","Korisničko ime ili lozinka nisu uneseni!", "OK");
+                    activityBusy.IsEnabled = false;
+                    activityBusy.IsVisible = false;
+                    activityBusy.IsRunning = false;
+                    return;
+                }
                 HttpResponseMessage response = korisniciService.GetActionResponse("ByUsername", korisnickoImeInput.Text);
                 
                 if (response.IsSuccessStatusCode)
@@ -47,6 +57,9 @@ namespace SrednjeSkole
                             {
                                 if (k.LozinkaHash == hasher.GenerateHash(k.LozinkaSalt, lozinkaInput.Text))
                                 {
+                                    activityBusy.IsVisible = false;
+                                    activityBusy.IsRunning = false;
+                                    activityBusy.IsEnabled = false;
                                     Navigation.PushAsync(new MainPage());
                                     Global.prijavljeniKorisnik = k;
                                 }
@@ -75,6 +88,9 @@ namespace SrednjeSkole
             {
                 DisplayAlert("Greska!", ex.Message, "OK"); 
             }
+            activityBusy.IsEnabled = false;
+            activityBusy.IsVisible = false;
+            activityBusy.IsRunning = false;
         }
 
         async private void TapGestureRecognizer_Tapped(object sender, EventArgs e)

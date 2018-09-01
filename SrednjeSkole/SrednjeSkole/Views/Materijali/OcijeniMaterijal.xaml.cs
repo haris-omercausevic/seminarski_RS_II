@@ -22,9 +22,10 @@ namespace SrednjeSkole.Views.Materijali
         
         private IDownloadFile _downloadFile;
         private bool _isDownloading = false, _downloadigFlag;
-        private Materijali_Result _materijal;
         IDownloader downloader = DependencyService.Get<IDownloader>();
 
+        private Materijali_Result _materijal;
+        FormattedString datumFormatted = new FormattedString();
 
         public OcijeniMaterijal(Materijali_Result materijal)
         {
@@ -41,8 +42,10 @@ namespace SrednjeSkole.Views.Materijali
             //      " at " + e.OldStartingIndex
             //  );
             nazivMaterijalaLabel.Text = materijal.Naziv;
-            datumLabel.Text = materijal.Datum;
-            nastavnikLabel.Text = materijal.nastavnik;
+            datumLabel.Text += "Datum objave: " + materijal.Datum;
+            nastavnikLabel.Text = "Objavio: " + materijal.nastavnik;
+            ratingLabel.Text = "Rating: " + materijal.Rating.ToString() + "/5.00";
+            brojOcjena.Text = "Broj ocjena: " + materijal.BrojOcjena.ToString();
             BindIsOcijenjeno();
         }
 
@@ -108,7 +111,6 @@ namespace SrednjeSkole.Views.Materijali
                     DisplayAlert("Ocjena uspješno pohranjena", "", "OK");
                     ocijeniBtnStackLayout.IsEnabled = false;
                     HideOcijeniMaterijal();
-                    Navigation.PopAsync();
                     //predmetiPicker.ItemDisplayBinding = new Binding("Naziv"); //preklopljen je opreator ToString u predmetima pa ne treba ovo
                 }
             }
