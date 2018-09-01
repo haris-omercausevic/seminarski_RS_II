@@ -14,7 +14,7 @@ using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
 
-namespace SrednjeSkole.MaterijaliNS
+namespace SrednjeSkole.Views.Materijali
 {
 
     //public class Predmeti
@@ -26,7 +26,7 @@ namespace SrednjeSkole.MaterijaliNS
     //}
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Materijali : ContentPage
+    public partial class MaterijaliPage : ContentPage
     {
         private WebAPIHelper materijaliService = new WebAPIHelper(Xamarin.Forms.Application.Current.Resources["APIAddress"].ToString(), "api/Materijali");
         private WebAPIHelper predmetiService = new WebAPIHelper(Xamarin.Forms.Application.Current.Resources["APIAddress"].ToString(), "api/Predmeti");
@@ -35,7 +35,7 @@ namespace SrednjeSkole.MaterijaliNS
         private int predmetIndex;
         
 
-        public Materijali ()
+        public MaterijaliPage()
 		{
 			InitializeComponent ();
 

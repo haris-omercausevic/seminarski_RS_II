@@ -626,6 +626,14 @@
           <Parameter Name="Rating" Type="decimal" Mode="In" />
           <Parameter Name="BrojOcjena" Type="int" Mode="In" />
         </Function>
+        <Function Name="ssp_Materijali_UpdateOcjene" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaterijalId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ssp_MaterijaliOcjene_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaterijalId" Type="int" Mode="In" />
+          <Parameter Name="UcenikId" Type="int" Mode="In" />
+          <Parameter Name="Ocjena" Type="int" Mode="In" />
+        </Function>
         <Function Name="ssp_Nastavnici_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
           <Parameter Name="Zvanje" Type="nvarchar" Mode="In" />
@@ -1661,6 +1669,14 @@
             <Parameter Name="UcenikId" Mode="In" Type="Int32" />
             <Parameter Name="RazredID" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="ssp_MaterijaliOcjene_Insert" ReturnType="Collection(Decimal)">
+            <Parameter Name="MaterijalId" Mode="In" Type="Int32" />
+            <Parameter Name="UcenikId" Mode="In" Type="Int32" />
+            <Parameter Name="Ocjena" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ssp_Materijali_UpdateOcjene">
+            <Parameter Name="MaterijalId" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -2227,6 +2243,8 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ssp_Predaje_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_Predaje_Insert" />
           <FunctionImportMapping FunctionImportName="ssp_UceniciRazredi_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_UceniciRazredi_Insert" />
+          <FunctionImportMapping FunctionImportName="ssp_MaterijaliOcjene_Insert" FunctionName="SrednjeSkoleModel.Store.ssp_MaterijaliOcjene_Insert" />
+          <FunctionImportMapping FunctionImportName="ssp_Materijali_UpdateOcjene" FunctionName="SrednjeSkoleModel.Store.ssp_Materijali_UpdateOcjene" />
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

@@ -40,7 +40,7 @@ namespace SrednjeSkole.Behaviors
             StarBehavior behavior = (StarBehavior)bindable;
             string oldGroupName = (string)oldValue;
             string newGroupName = (string)newValue;
-
+            
             // Remove existing behavior from Group
             if (String.IsNullOrEmpty(oldGroupName))
             {
@@ -150,12 +150,14 @@ namespace SrednjeSkole.Behaviors
             tapRecognizer = new TapGestureRecognizer();
             tapRecognizer.Tapped += OnTapRecognizerTapped;
             view.GestureRecognizers.Add(tapRecognizer);
+            
         }
 
         protected override void OnDetachingFrom(View view)
         {
             view.GestureRecognizers.Remove(tapRecognizer);
             tapRecognizer.Tapped -= OnTapRecognizerTapped;
+
         }
 
         void OnTapRecognizerTapped(object sender, EventArgs args)
@@ -163,6 +165,11 @@ namespace SrednjeSkole.Behaviors
             //HACK: PropertyChange does not fire, if the value is not changed :-(
             IsStarred = false;
             IsStarred = true;
+            
+        }
+        ~StarBehavior()
+        {
+            OnDetachingFrom(this);
         }
     }
 }

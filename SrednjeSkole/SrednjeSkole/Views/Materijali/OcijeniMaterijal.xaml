@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:behaviors="clr-namespace:SrednjeSkole.Behaviors"
              xmlns:util="clr-namespace:SrednjeSkole.Util"
-             x:Class="SrednjeSkole.MaterijaliNS.OcijeniMaterijal">
+             x:Class="SrednjeSkole.Views.Materijali.OcijeniMaterijal">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -51,8 +51,8 @@
         
         
         
-        <Label Text="Ocijeni materijal" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"/>
-        <StackLayout Orientation="Horizontal" HeightRequest="70">
+        <Label Text="Ocijeni materijal" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" x:Name="ocijeniMaterijalLabel"/>
+        <StackLayout Orientation="Horizontal" HeightRequest="70" x:Name="zvijezdeStack">
             <Grid>
                 <Grid.Behaviors>
                     <behaviors:StarBehavior x:Name="starOne" GroupName="myStar"/>
@@ -115,7 +115,7 @@
                                     Path=IsStarred}"/>
             </Grid>
         </StackLayout>
-        <StackLayout>
+        <StackLayout x:Name="ocijeniBtnStackLayout">
             <StackLayout.Resources>
                 <ResourceDictionary>
                     <util:RatingConverter x:Key="ratingConverter" />
@@ -125,10 +125,12 @@
                 </ResourceDictionary>
             </StackLayout.Resources>
             <Label Text="{Binding Source={x:Reference starFive},
-                                    Path=Rating, Converter={StaticResource ratingConverter}}" HorizontalTextAlignment="Center"></Label>
+                                    Path=Rating, Converter={StaticResource ratingConverter}}" FontSize="Large" HorizontalTextAlignment="Center" x:Name="ratingText" IsVisible="True"/>
 
-            <Button Text="Ocijeni"/>
+            <Button Text="Ocijeni" Clicked="ocijeniButton_Clicked"/>
         </StackLayout>
+
+        <Label Text="Materijal već ocijenjen! " x:Name="vecOcijenjenLabel" IsVisible="False" FontSize="Large" Margin="10" HorizontalTextAlignment="Center"/>
     </StackLayout>
 </ContentPage>
     

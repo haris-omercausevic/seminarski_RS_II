@@ -561,5 +561,31 @@ namespace SrednjeSkole_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_UceniciRazredi_Insert", redniBrojParameter, skolskaGodinaParameter, ucenikIdParameter, razredIDParameter);
         }
+    
+        public virtual ObjectResult<Nullable<decimal>> ssp_MaterijaliOcjene_Insert(Nullable<int> materijalId, Nullable<int> ucenikId, Nullable<int> ocjena)
+        {
+            var materijalIdParameter = materijalId.HasValue ?
+                new ObjectParameter("MaterijalId", materijalId) :
+                new ObjectParameter("MaterijalId", typeof(int));
+    
+            var ucenikIdParameter = ucenikId.HasValue ?
+                new ObjectParameter("UcenikId", ucenikId) :
+                new ObjectParameter("UcenikId", typeof(int));
+    
+            var ocjenaParameter = ocjena.HasValue ?
+                new ObjectParameter("Ocjena", ocjena) :
+                new ObjectParameter("Ocjena", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("ssp_MaterijaliOcjene_Insert", materijalIdParameter, ucenikIdParameter, ocjenaParameter);
+        }
+    
+        public virtual int ssp_Materijali_UpdateOcjene(Nullable<int> materijalId)
+        {
+            var materijalIdParameter = materijalId.HasValue ?
+                new ObjectParameter("MaterijalId", materijalId) :
+                new ObjectParameter("MaterijalId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ssp_Materijali_UpdateOcjene", materijalIdParameter);
+        }
     }
 }

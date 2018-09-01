@@ -18,5 +18,19 @@ namespace SrednjeSkole
         {
             return true;
         }
+
+        private void obavijestiGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Views.Obavijesti.ObavijestiPage());
+        }
+        private void materijaliGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Views.Materijali.MaterijaliPage());
+        }
+        private void ocjeneGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Views.Ocjene.OcjenePage());
+        }
+
     }
 }

@@ -39,7 +39,7 @@ namespace SrednjeSkole.UWP
                     downloadOperation = backgroundDownloader.CreateDownload(durl, file);
                     await downloadOperation.StartAsync();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     if (OnFileDownloaded != null)
                         OnFileDownloaded.Invoke(this, new DownloadEventArgs(false));

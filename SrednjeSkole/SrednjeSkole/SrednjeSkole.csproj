@@ -37,6 +37,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Views\Materijali\MaterijaliPage.xaml.cs">
+      <DependentUpon>MaterijaliPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -50,16 +53,17 @@
     <EmbeddedResource Update="Login.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="MaterijaliNS\Materijali.xaml">
+    <EmbeddedResource Update="Views\Ocjene\OcjenePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="MaterijaliNS\OcijeniMaterijal.xaml">
+    <EmbeddedResource Update="Views\Obavijesti\ObavijestiPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ObavijestiNS\" />
-    <Folder Include="OcjeneNS\" />
+    <EmbeddedResource Update="Views\Materijali\MaterijaliPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Materijali\OcijeniMaterijal.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

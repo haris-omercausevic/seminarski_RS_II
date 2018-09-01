@@ -11,7 +11,7 @@ namespace SrednjeSkole
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new SrednjeSkole.Login());            
+            MainPage = new NavigationPage(new SrednjeSkole.MainPage());            
         }
 
         protected override void OnStart()

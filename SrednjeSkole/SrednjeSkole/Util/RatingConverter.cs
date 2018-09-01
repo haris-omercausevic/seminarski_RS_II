@@ -12,7 +12,7 @@ namespace SrednjeSkole.Util
         {
             var rating = (int)value;
             if (rating == 1)
-                return "Loše";
+                return "Loše!";
             if (rating == 2)
                 return "Nako!";
             if (rating == 3)
