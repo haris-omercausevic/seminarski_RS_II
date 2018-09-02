@@ -34,8 +34,8 @@ namespace SrednjeSkole.Views.Materijali
             downloader.OnFileDownloaded += OnFileDownloaded;
             _razredId = razredId;
             _predmetId = predmetId;
-
             _materijal = materijal;
+
             //CrossDownloadManager.Current.CollectionChanged += (sender, e) =>
             //  System.Diagnostics.Debug.WriteLine(
             //      "[DownloadManager] " + e.Action +

@@ -17,6 +17,7 @@ namespace SrednjeSkole_UI
         public const string connString = "DefaultEndpointsProtocol=https;AccountName=srednjeskole;AccountKey=9JzTotn+UyfgAW9KVKHm2oDrF1dawMOLkARlYP/vKlfOEpYrZx8hJRF/sPnkz7gYwjS7DLFqgOq1NxcBU+Spkg==;EndpointSuffix=core.windows.net";
 
         #region API Routes
+        public const string AutentifikacijaRoute = "api/Autentifikacija";
         public const string KorisniciRoute = "api/Korisnici";
         public const string UceniciRoute = "api/Ucenici";
         public const string NastavniciRoute = "api/Nastavnici";

@@ -2,11 +2,28 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SrednjeSkole.Views.Ocjene.OcjenePage">
+   
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="30">
+            <SearchBar Placeholder="Traži..." x:Name="pretragaText" TextChanged="pretragaText_TextChanged"/>            
+            <ListView x:Name="ocjeneList" RowHeight="100" ItemTapped="obavijestiList_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0" Padding="10">
+                                    <Label Text="{Binding Naziv}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Prosjek}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Ocjene}" />
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

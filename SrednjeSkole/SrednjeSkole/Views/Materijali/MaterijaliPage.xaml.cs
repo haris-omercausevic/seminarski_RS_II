@@ -50,7 +50,8 @@ namespace SrednjeSkole.Views.Materijali
             razrediPicker.SelectedIndex = 0; //selectedIndexChange poziva bindPredmeti
             predmetiPicker.SelectedIndex = 0; // samo za prvo ucitavanje, selectedIndexChange poziva BindMaterijali()  
         }
-     
+
+        #region Binds
         private void BindRazredi()
         {
             razrediPicker.Items.Add("1");
@@ -97,6 +98,9 @@ namespace SrednjeSkole.Views.Materijali
         {
 
         }
+
+        #endregion
+        #region pickers
         private void razrediPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
             predmetIndex = predmetiPicker.SelectedIndex = 0;
@@ -109,6 +113,8 @@ namespace SrednjeSkole.Views.Materijali
             predmetIndex = predmetiPicker.SelectedIndex;
             BindMaterijali();
         }
+        #endregion
+
 
         private void materijaliList_ItemTapped(object sender, ItemTappedEventArgs e)
         {

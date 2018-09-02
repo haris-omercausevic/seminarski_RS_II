@@ -7,19 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace SrednjeSkole.Views.Ocjene
+namespace SrednjeSkole.Views.Obavijesti
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class OcjenePage : ContentPage
+	public partial class PregledObavijestiPage : ContentPage
 	{
-		public OcjenePage ()
+		public PregledObavijestiPage (Models.Obavijesti obavijest)
 		{
 			InitializeComponent ();
 		}
-
-        private void pretragaText_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-    }
+	}
 }

@@ -119,7 +119,7 @@ namespace SrednjeSkole
 
         async private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ForgotPassword());
+            await Navigation.PushAsync(new ForgotPassword(korisnickoImeInput.Text));
         }
     }
 }

@@ -43,7 +43,7 @@ namespace SrednjeSkole.Util
 
                 return responseMessage;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

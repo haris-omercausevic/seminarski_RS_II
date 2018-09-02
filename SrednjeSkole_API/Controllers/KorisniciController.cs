@@ -25,6 +25,7 @@ namespace SrednjeSkole_API.Controllers
         {
             return db.ssp_Korisnici_GetById(id).FirstOrDefault();            
         }
+
         [HttpGet]
         [Route("ByUsername/{username}")]
         public IHttpActionResult GetByUserName(string username)
@@ -35,33 +36,7 @@ namespace SrednjeSkole_API.Controllers
 
             return Ok(k);
         }
-
-        [HttpGet]
-        [Route("ResetPassword/{username}")]
-        [ResponseType(typeof(void))]
-        public IHttpActionResult ResetPassword(string username)
-        {
-            Korisnici k = db.Korisnici.Where(x => x.KorisnickoIme == username).FirstOrDefault();
-            if (k == null)
-                return NotFound();
-
-            try
-            {
-                var novaLozinka = System.Web.Security.Membership.GeneratePassword(10, 3);
-                k.LozinkaSalt = UIHelper.GenerateSalt();
-                k.LozinkaHash = UIHelper.GenerateHash(k.LozinkaSalt, novaLozinka);
-                db.ssp_Korisnici_Update(k.Id, k.Ime, k.Prezime, k.Email,
-                       k.Telefon, k.KorisnickoIme, k.LozinkaSalt, k.LozinkaHash, k.Aktivan, k.JMBG, k.DatumRodjenja.Value.Date);
-                UIHelper.SendMail(k.Email, k.KorisnickoIme, novaLozinka, true);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        
 
         //GET api/korisnici/pretraga?ime=haris&prezime=omercausevic&ulogaId=4
         [HttpGet]
