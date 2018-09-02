@@ -33,6 +33,22 @@ namespace SrednjeSkole.Util
             return client.PostAsync(route, jsonObject).Result;
         }
 
+        public HttpResponseMessage PostActionResponse(string action, Object newObject)
+        {
+            try
+            {
+                StringContent jsonObject = new StringContent(JsonConvert.SerializeObject(newObject), Encoding.UTF8, "application/json");
+
+                HttpResponseMessage responseMessage = client.PostAsync(route + "/" + action, jsonObject).Result;
+
+                return responseMessage;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public HttpResponseMessage PutResponse(int id, Object existingObj)
         {
             StringContent jsonObject = new StringContent(JsonConvert.SerializeObject(existingObj), Encoding.UTF8, "application/json");

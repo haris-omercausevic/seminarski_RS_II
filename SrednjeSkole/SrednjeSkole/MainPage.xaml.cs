@@ -1,6 +1,8 @@
-﻿using System;
+﻿using SrednjeSkole.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -9,6 +11,8 @@ namespace SrednjeSkole
 {
     public partial class MainPage : ContentPage
     {
+        private WebAPIHelper autentifikacijaService = new WebAPIHelper(Xamarin.Forms.Application.Current.Resources["APIAddress"].ToString(), "api/Autentifikacija");
+
         public MainPage()
         {
             InitializeComponent();
@@ -33,20 +37,15 @@ namespace SrednjeSkole
         }
         private void logoutGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            if (Xamarin.Forms.Application.Current.Resources.ContainsKey("IsLoggedIn") && Xamarin.Forms.Application.Current.Resources.ContainsKey("UserDetails"))
-            {
-
-                Xamarin.Forms.Application.Current.Resources["IsLoggedIn"] = Boolean.FalseString;
-                Xamarin.Forms.Application.Current.Resources["UserDetails"] = null;
-                Navigation.PopToRootAsync();
-                //foreach (var page in Navigation.NavigationStack.ToList())
-                //{
-                    
-                //}
-                Navigation.PushAsync(new SrednjeSkole.Login());
-            }
+            HttpResponseMessage response = autentifikacijaService.GetActionResponse("logout", Global.AuthToken);
+            Global.AuthToken = "";
+            Navigation.PopToRootAsync();
+            Navigation.PushAsync(new SrednjeSkole.Login());
         }
-        
 
+        private void ToolbarItem_Activated(object sender, EventArgs e)
+        {
+            DisplayAlert("Title", "Message", "OK");
+        }
     }
 }

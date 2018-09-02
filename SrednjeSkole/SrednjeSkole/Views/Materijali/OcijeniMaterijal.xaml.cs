@@ -25,12 +25,15 @@ namespace SrednjeSkole.Views.Materijali
         IDownloader downloader = DependencyService.Get<IDownloader>();
 
         private Materijali_Result _materijal;
-        FormattedString datumFormatted = new FormattedString();
+        private int _razredId;
+        private int _predmetId;
 
-        public OcijeniMaterijal(Materijali_Result materijal)
+        public OcijeniMaterijal(Materijali_Result materijal, int razredId, int predmetId)
         {
             InitializeComponent();
             downloader.OnFileDownloaded += OnFileDownloaded;
+            _razredId = razredId;
+            _predmetId = predmetId;
 
             _materijal = materijal;
             //CrossDownloadManager.Current.CollectionChanged += (sender, e) =>
@@ -59,7 +62,7 @@ namespace SrednjeSkole.Views.Materijali
        
         private void BindIsOcijenjeno()
         {
-            HttpResponseMessage response = materijaliOcjeneService.GetActionResponse("IsOcijenjeno", _materijal.MaterijalId.ToString() + "/" + Global.prijavljeniKorisnik.Id.ToString());
+            HttpResponseMessage response = materijaliOcjeneService.GetActionResponse("IsOcijenjeno", _materijal.MaterijalId.ToString() + "/" + Global.prijavljeniKorisnik.KorisnikId.ToString());
             if (response.IsSuccessStatusCode)
             {
                 var ocijenjenoVec = Convert.ToString(response.Content.ReadAsStringAsync().Result);
@@ -102,7 +105,7 @@ namespace SrednjeSkole.Views.Materijali
                 MaterijaliOcjene mo = new MaterijaliOcjene()
                 {
                     Ocjena = ocjena,
-                    UcenikId = Global.prijavljeniKorisnik.Id,
+                    UcenikId = Global.prijavljeniKorisnik.KorisnikId,
                     MaterijalId = _materijal.MaterijalId
                 };
                 HttpResponseMessage response = materijaliOcjeneService.PostResponse(mo);

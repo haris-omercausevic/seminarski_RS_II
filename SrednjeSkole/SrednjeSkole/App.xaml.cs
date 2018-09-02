@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using SrednjeSkole.Models;
+using SrednjeSkole.Util;
 using System;
+using System.Net.Http;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,24 +11,38 @@ namespace SrednjeSkole
 {
     public partial class App : Application
     {
+        WebAPIHelper autentifikacijaService = new WebAPIHelper("http://10.15.15.44/", "api/Autentifikacija");
         public App()
         {
             InitializeComponent();
-            bool isLoggedIn = Xamarin.Forms.Application.Current.Resources.ContainsKey("IsLoggedIn") ? Convert.ToBoolean(Xamarin.Forms.Application.Current.Resources["IsLoggedIn"]) : false;
-            if (!isLoggedIn)
+            MainPage = new NavigationPage(GetMainPage());
+        }
+             
+
+        private Page GetMainPage()
+        {
+            if (!string.IsNullOrEmpty(Global.AuthToken))
+                return LoginWithToken();
+
+            return new Login();
+        }
+
+        private Page LoginWithToken()
+        {
+            HttpResponseMessage response = autentifikacijaService.PostActionResponse("loginwithtoken", Global.AuthToken);
+
+            if (response != null && response.IsSuccessStatusCode)
             {
-                MainPage = new NavigationPage(new SrednjeSkole.Login());
+                var jsonObject = response?.Content.ReadAsStringAsync();
+                UIKorisnik result = JsonConvert.DeserializeObject<UIKorisnik>(jsonObject.Result);
+
+                Global.prijavljeniKorisnik = result;
+                Global.AuthToken = result.AuthToken;
+
+                return new MainPage();
             }
             else
-            {
-                if (Xamarin.Forms.Application.Current.Resources.ContainsKey("UserDetail"))
-                {
-                    Global.prijavljeniKorisnik = JsonConvert.DeserializeObject<Korisnici>(Xamarin.Forms.Application.Current.Resources["UserDetail"].ToString());
-                    MainPage = new NavigationPage(new SrednjeSkole.MainPage());
-                }
-
-            }            
-            
+                return new Login();
         }
 
         protected override void OnStart()

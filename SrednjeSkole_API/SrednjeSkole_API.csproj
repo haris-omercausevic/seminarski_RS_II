@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AutentifikacijaController.cs" />
     <Compile Include="Controllers\BlobsController.cs" />
     <Compile Include="Controllers\KorisniciController.cs" />
     <Compile Include="Controllers\MaterijaliController.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="Models\Korisnici_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginVM.cs" />
     <Compile Include="Models\Materijali.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -234,6 +236,7 @@
     <Compile Include="Models\UceniciRazredi_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UIKorisnik.cs" />
     <Compile Include="Models\Uloga_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

@@ -34,6 +34,8 @@ namespace SrednjeSkole.Views.Materijali
         private WebAPIHelper predmetiService = new WebAPIHelper(Xamarin.Forms.Application.Current.Resources["APIAddress"].ToString(), "api/Predmeti");
         private List<Predmeti> predmeti = new List<Predmeti>();
         private ObservableCollection<Materijali_Result> materijali = new ObservableCollection<Materijali_Result>();
+        private int _predmetId;
+        private int _razredId;
         private int predmetIndex;
         private IDownloadFile _downloadFile;
         private bool _isDownloading = false, _downloadigFlag;
@@ -41,18 +43,14 @@ namespace SrednjeSkole.Views.Materijali
 
         public MaterijaliPage()
         {
-            InitializeComponent();                 
-        }
-
-        protected override void OnAppearing()
-        {
+            InitializeComponent();
             BindRazredi();
             razrediPicker.On<iOS>().SetUpdateMode(UpdateMode.WhenFinished);
             predmetiPicker.On<iOS>().SetUpdateMode(UpdateMode.WhenFinished);
             razrediPicker.SelectedIndex = 0; //selectedIndexChange poziva bindPredmeti
-            predmetiPicker.SelectedIndex = 0; // samo za prvo ucitavanje, selectedIndexChange poziva BindMaterijali()       
-            base.OnAppearing();
+            predmetiPicker.SelectedIndex = 0; // samo za prvo ucitavanje, selectedIndexChange poziva BindMaterijali()  
         }
+     
         private void BindRazredi()
         {
             razrediPicker.Items.Add("1");
@@ -60,11 +58,12 @@ namespace SrednjeSkole.Views.Materijali
             razrediPicker.Items.Add("3");
             razrediPicker.Items.Add("4");
         }
+
         private void BindPredmeti()
         {
-            int razred = Convert.ToInt32(razrediPicker.SelectedItem);
+            _razredId = Convert.ToInt32(razrediPicker.SelectedItem);
 
-            HttpResponseMessage response = predmetiService.GetActionResponse("ByRazred", razred.ToString());
+            HttpResponseMessage response = predmetiService.GetActionResponse("ByRazred", _razredId.ToString());
             if (response.IsSuccessStatusCode)
             {
                 var jsonResult = response.Content.ReadAsStringAsync();
@@ -74,13 +73,12 @@ namespace SrednjeSkole.Views.Materijali
                 //predmetiPicker.ItemDisplayBinding = new Binding("Naziv"); //preklopljen je opreator ToString u predmetima pa ne treba ovo
             }
         }
-        private void BindMaterijali()
+        private void BindMaterijali(bool reload = false)
         {
-            int predmetId = 0;
             if (predmetIndex != -1)
             {
-                predmetId = predmeti[predmetIndex].PredmetId;
-                HttpResponseMessage response = materijaliService.GetActionResponse("ByPredmetId", predmetId.ToString());
+                _predmetId = predmeti[predmetIndex].PredmetId;
+                HttpResponseMessage response = materijaliService.GetActionResponse("ByPredmetId", _predmetId.ToString());
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -115,13 +113,13 @@ namespace SrednjeSkole.Views.Materijali
         private void materijaliList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var materijalItem = e.Item as Materijali_Result;
-            var ocijeniMaterijalPage = new OcijeniMaterijal(materijalItem);
+            var ocijeniMaterijalPage = new OcijeniMaterijal(materijalItem, _razredId, _predmetId);
             ocijeniMaterijalPage.Disappearing += (s, arg) => BindMaterijali();
             this.Navigation.PushAsync(ocijeniMaterijalPage);
         }
 
 
-
+        #region toolbar
         private void preuzmi_Clicked(object sender, EventArgs e)
         {
             var preuzmiIcon = sender as MenuItem;
@@ -143,15 +141,11 @@ namespace SrednjeSkole.Views.Materijali
         {
             var preuzmiIcon = sender as MenuItem;
             var materijalItem = preuzmiIcon.CommandParameter as Materijali_Result;
-            var ocijeniMaterijalPage = new OcijeniMaterijal(materijalItem);
+            var ocijeniMaterijalPage = new OcijeniMaterijal(materijalItem, _razredId, _predmetId);
             ocijeniMaterijalPage.Disappearing += (s, arg) => BindMaterijali();
             this.Navigation.PushAsync(ocijeniMaterijalPage);
         }
-
-        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+        #endregion
 
 
         #region download
