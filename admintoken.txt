@@ -1,0 +1,21 @@
+Header: X-API-Token faaa3806f3a006141fd39f9e1c779b94ce02b4c4
+
+https://appcenter.ms/api/v0.1/apps/RSII_FIT/SrednjeSkole.Android/push/notifications
+
+{
+    "notification_content": {
+    "name": "ime",
+    "title": "naslov",
+    "body": "bodi",
+    "custom_data": {
+      "additionalProp1": "string",
+      "additionalProp2": "string",
+      "additionalProp3": "string"
+    }
+  }
+}
+
+vraca {
+ "notification_id": "20180903185436:c56885bcfeba44d188165eae64189d64"
+}
+

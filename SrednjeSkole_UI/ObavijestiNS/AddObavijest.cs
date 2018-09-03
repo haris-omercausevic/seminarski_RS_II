@@ -17,6 +17,7 @@ namespace SrednjeSkole_UI.ObavijestiNS
     public partial class AddObavijest : Form
     {
         private WebAPIHelper obavijestiService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.ObavijestiRoute);
+        private WebAPIHelper notifikacijeService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.NotifikacijeRoute);
 
         public AddObavijest()
         {
@@ -44,13 +45,30 @@ namespace SrednjeSkole_UI.ObavijestiNS
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Obavijest uspješno objavljena!", Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    NotificationDefinition notifikacija = new NotificationDefinition()
+                    {
+                        notification_content = new NotificationContent
+                        {
+                            title = "Nova obavijest",
+                            body = o.Naslov,
+                            name = "Obavijest: " + o.Naslov
+                        }
+                    };
+                    HttpResponseMessage response2 = notifikacijeService.PostResponse(notifikacija);
+                    if (response2.IsSuccessStatusCode)
+                    {
+                        string notifikacijaId = response2.Content.ReadAsStringAsync().Result;
+                        if (String.IsNullOrEmpty(notifikacijaId))
+                            MessageBox.Show("Push notifikacija nije poslana ucenicima!", Messages.error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     DialogResult = DialogResult.OK;
                     Close();
                 }
                 else
-                {                    
-                        MessageBox.Show("Error Code" +
-                        response.StatusCode + " : Message - " + response.ReasonPhrase);
+                {
+                    MessageBox.Show("Error Code" +
+                    response.StatusCode + " : Message - " + response.ReasonPhrase);
                 }
             }
         }

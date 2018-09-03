@@ -120,6 +120,7 @@
     <Compile Include="Controllers\MaterijaliController.cs" />
     <Compile Include="Controllers\MaterijaliOcjeneController.cs" />
     <Compile Include="Controllers\NastavniciController.cs" />
+    <Compile Include="Controllers\NotifikacijeController.cs" />
     <Compile Include="Controllers\ObavijestiController.cs" />
     <Compile Include="Controllers\PredajeController.cs" />
     <Compile Include="Controllers\PredmetiController.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Models\Nastavnici_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NotificationDefinition.cs" />
     <Compile Include="Models\Obavijesti.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -291,13 +293,13 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49967</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://10.15.15.44</IISUrl>
+          <IISUrl>http://localhost/SrednjeSkole_API</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>True</UseCustomServer>
+          <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>https://srednjeskoleapi20180818082926.azurewebsites.net/</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>

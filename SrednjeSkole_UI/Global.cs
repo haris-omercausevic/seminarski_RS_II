@@ -32,7 +32,7 @@ namespace SrednjeSkole_UI
         public const string UceniciOcjeneRoute = "api/UceniciOcjene";
         public const string MaterijaliRoute = "api/Materijali";
         public const string BlobsRoute = "api/Blobs";
-
+        public const string NotifikacijeRoute = "api/Notifikacije";
         #endregion
     }
 }

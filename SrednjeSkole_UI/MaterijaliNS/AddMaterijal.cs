@@ -23,6 +23,8 @@ namespace SrednjeSkole_UI.MaterijaliNS
         private WebAPIHelper materijaliService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.MaterijaliRoute);
         private WebAPIHelper blobsService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.BlobsRoute);
         private WebAPIHelper predajeService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.PredajeRoute);
+        private WebAPIHelper notifikacijeService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.NotifikacijeRoute);
+
         public AddMaterijal()
         {
             InitializeComponent();
@@ -104,8 +106,25 @@ namespace SrednjeSkole_UI.MaterijaliNS
                 if (response2.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Materijal uspjesno dodan!", Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    NotificationDefinition notifikacija = new NotificationDefinition()
+                    {
+                        notification_content = new NotificationContent
+                        {
+                            title = "Novi materijal iz: " + predaje.Naziv,
+                            body = m.Naziv,
+                            name = "Predmet: " + predaje.Naziv + " Materijal: " + m.Naziv
+                        }
+                    };
+                    HttpResponseMessage response3 = notifikacijeService.PostResponse(notifikacija);
+                    if (response2.IsSuccessStatusCode)
+                    {
+                        string notifikacijaId = response3.Content.ReadAsStringAsync().Result;
+                        if (String.IsNullOrEmpty(notifikacijaId))
+                            MessageBox.Show("Push notifikacija nije poslana ucenicima!", Messages.error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     this.DialogResult = DialogResult.OK;
                     Close();
+                    
                 }
                 else
                 {
