@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SrednjeSkole.Views.Profil.ProfilPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Umjesto ovog page-a sam implementirao push notifikacije za obavijesti :)" 
-                    FontSize="Medium" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        <StackLayout Margin="20">
+            <Label Text="Umjesto ovog običnog SELECT page-a sam implementirao push notifikacije ;)" 
+                    FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
         </StackLayout>        
     </ContentPage.Content>
 </ContentPage>
