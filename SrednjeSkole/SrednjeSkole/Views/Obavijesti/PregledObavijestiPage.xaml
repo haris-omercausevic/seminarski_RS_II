@@ -3,10 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SrednjeSkole.Views.Obavijesti.PregledObavijestiPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="20" >
+            <StackLayout Padding="10">
+                <Label x:Name="naslovLabel" FontAttributes="Bold" FontSize="Medium"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="objavioLabel" FontSize="Small" TextColor="Gray" />
+                    <Label x:Name="datumLabel" FontSize="Small" TextColor="Gray"/>
+                </StackLayout>                
+                <Label x:Name="tekstLabel" FontSize="Small"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

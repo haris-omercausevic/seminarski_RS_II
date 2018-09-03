@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SrednjeSkole.Views.Ocjene.OcjeneGenericPage">
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <Label x:Name="ukupanProsjek" FontAttributes="Bold" TextColor="Green" FontSize="Medium"/>
+            <ListView x:Name="ocjeneList" RowHeight="100" ItemTapped="ocjeneList_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0" Padding="10">
+                                    <Label Text="{Binding Predmet}" FontAttributes="Bold" FontSize="Medium"/>
+                                    <Label Text="{Binding ProsjecnaOcjena, StringFormat='Prosjecna ocjena: {0}'}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Ocjene, StringFormat='Ocjene: {0}'}" />
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

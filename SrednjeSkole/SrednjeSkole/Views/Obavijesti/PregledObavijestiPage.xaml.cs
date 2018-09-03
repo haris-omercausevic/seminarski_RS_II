@@ -15,6 +15,10 @@ namespace SrednjeSkole.Views.Obavijesti
 		public PregledObavijestiPage (Models.Obavijesti obavijest)
 		{
 			InitializeComponent ();
+            naslovLabel.Text = obavijest.Naslov;
+            datumLabel.Text = obavijest.Datum;
+            objavioLabel.Text = obavijest.Objavio;
+            tekstLabel.Text = obavijest.Tekst;
 		}
 	}
 }

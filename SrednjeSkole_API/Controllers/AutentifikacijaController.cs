@@ -40,7 +40,13 @@ namespace SrednjeSkole_API.Controllers
             db.AutorizacijskiToken.Add(autorizacijskiToken);
             db.SaveChanges();
 
-
+            var razredi = db.ssp_UceniciRazredi_GetRazrediUcenika(k.Id).ToList();
+            //string razredi = "";
+            //foreach (var item in razrediList)
+            //{
+            //    razredi += item;
+            //    razredi += ",";
+            //}
             UIKorisnik result = new UIKorisnik()
             {
                 KorisnikId = k.Id,
@@ -50,7 +56,8 @@ namespace SrednjeSkole_API.Controllers
                 Ime = k.Ime,
                 Prezime = k.Prezime,
                 KorisnickoIme = k.KorisnickoIme,
-                Slika = k.SlikaThumb
+                Slika = k.SlikaThumb,
+                razredi = razredi
             };
 
             return Ok(result);
@@ -69,6 +76,14 @@ namespace SrednjeSkole_API.Controllers
             if (!k.Aktivan)
                 return Unauthorized();
 
+            var razredi = db.ssp_UceniciRazredi_GetRazrediUcenika(k.Id).ToList();
+            //string razredi = "";
+            //foreach (var item in razrediList)
+            //{
+            //    razredi += item;
+            //    razredi += ",";
+            //}
+
             UIKorisnik result = new UIKorisnik()
             {
                 KorisnikId = k.Id,
@@ -78,7 +93,8 @@ namespace SrednjeSkole_API.Controllers
                 Ime = k.Ime,
                 Prezime = k.Prezime,
                 KorisnickoIme = k.KorisnickoIme,
-                Slika = k.SlikaThumb
+                Slika = k.SlikaThumb,
+                razredi = razredi
             };
 
             return Ok(result);

@@ -15,7 +15,7 @@ namespace SrednjeSkole.Views.Obavijesti
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ObavijestiPage : ContentPage
 	{
-        private WebAPIHelper obavijestiService = new WebAPIHelper(Xamarin.Forms.Application.Current.Resources["APIAddress"].ToString(), "api/Obavijesti");
+        private WebAPIHelper obavijestiService = new WebAPIHelper(Xamarin.Forms.Application.Current.Resources["APIAddress"].ToString(), Global.ObavijestiRoute);
         private string _pretragaText;
         public ObavijestiPage ()
 		{

@@ -141,6 +141,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="download_icon.png" />
     <Content Include="error.png" />
+    <Content Include="ocjene.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="star_outline.png" />
     <Content Include="star_selected.png" />

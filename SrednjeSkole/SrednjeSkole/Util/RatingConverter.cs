@@ -22,7 +22,7 @@ namespace SrednjeSkole.Util
             if (rating == 5)
                 return "Odličan!";
 
-            return "Nako! " + value.ToString();
+            return "";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

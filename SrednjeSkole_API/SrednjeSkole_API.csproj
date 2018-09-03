@@ -230,6 +230,9 @@
     <Compile Include="Models\UceniciOcjene.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UceniciOcjene_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UceniciRazredi.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

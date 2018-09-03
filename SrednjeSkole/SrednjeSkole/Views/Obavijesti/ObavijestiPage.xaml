@@ -10,8 +10,9 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Padding="30">
-            <SearchBar Placeholder="Traži..." x:Name="pretragaText" TextChanged="SearchBar_TextChanged"/>
+        <StackLayout Padding="5">        
+        <SearchBar Placeholder="Traži..." x:Name="pretragaText" TextChanged="SearchBar_TextChanged"/>        
+        <StackLayout Padding="20">
             <ListView x:Name="obavijestiList" RowHeight="100" ItemTapped="obavijestiList_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -34,5 +35,6 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
+    </StackLayout>
     </ContentPage.Content>
 </ContentPage>
