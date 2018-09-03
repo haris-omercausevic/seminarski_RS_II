@@ -55,13 +55,9 @@ namespace SrednjeSkole_UI.ObavijestiNS
                             name = "Obavijest: " + o.Naslov
                         }
                     };
+                   
                     HttpResponseMessage response2 = notifikacijeService.PostResponse(notifikacija);
-                    if (response2.IsSuccessStatusCode)
-                    {
-                        string notifikacijaId = response2.Content.ReadAsStringAsync().Result;
-                        if (String.IsNullOrEmpty(notifikacijaId))
-                            MessageBox.Show("Push notifikacija nije poslana ucenicima!", Messages.error, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                   
                     DialogResult = DialogResult.OK;
                     Close();
                 }

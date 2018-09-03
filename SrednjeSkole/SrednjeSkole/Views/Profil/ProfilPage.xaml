@@ -4,8 +4,8 @@
              x:Class="SrednjeSkole.Views.Profil.ProfilPage">
     <ContentPage.Content>
         <StackLayout>
-            
-            
+            <Label Text="Umjesto ovog page-a sam implementirao push notifikacije za obavijesti :)" 
+                    FontSize="Medium" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
         </StackLayout>        
     </ContentPage.Content>
 </ContentPage>
