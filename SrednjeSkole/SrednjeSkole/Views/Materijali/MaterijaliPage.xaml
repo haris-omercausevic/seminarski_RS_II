@@ -8,7 +8,7 @@
             <Picker Title="Odabreite predmet" x:Name="predmetiPicker" SelectedIndexChanged="predmetiPicker_SelectedIndexChanged"/>
         </StackLayout>
 
-        <StackLayout Margin="20" Padding="10" VerticalOptions="StartAndExpand">
+        <StackLayout Padding="20" VerticalOptions="StartAndExpand">
             <ListView x:Name="materijaliList" ItemTapped="materijaliList_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -48,8 +48,7 @@
         </StackLayout>
 
         <Label HorizontalOptions="StartAndExpand" Opacity="0.5"/>
-
-        <StackLayout>
+    <StackLayout>
             <Label Text="Preporučujemo..." FontSize="17"/>
             <ListView x:Name="preporukaList" VerticalOptions="Start">
                 <ListView.ItemTemplate>
@@ -71,9 +70,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-
-
-
     </StackLayout>
-
 </ContentPage>

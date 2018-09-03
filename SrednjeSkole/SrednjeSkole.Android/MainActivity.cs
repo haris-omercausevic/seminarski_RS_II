@@ -14,6 +14,7 @@ using System.Linq;
 
 using Android.Util;
 
+
 namespace SrednjeSkole.Droid
 {
     [Activity(Label = "SrednjeSkole", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -36,8 +37,9 @@ namespace SrednjeSkole.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
             //InitDownloadManager();
+            //senderID, firebase = 983284359595
+            //serverkey, fierbase = AAAA5PBQoas:APA91bELHuoz4Pc6pYu1WEHtaDlY3W1NZEDfLZTPHlh3sh6Kw-8KFH5GPK3a64_sY1nclFF2_Z54Jg0HUY7YlxTu0ernzfvZiBv-sOTvk9SI7mnSkZ2wXafGW_LaUZXCkHiGNA8G647a
 
             base.OnCreate(savedInstanceState);
 

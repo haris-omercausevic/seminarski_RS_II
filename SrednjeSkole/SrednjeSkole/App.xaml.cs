@@ -5,6 +5,10 @@ using System;
 using System.Net.Http;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Push;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace SrednjeSkole
@@ -48,6 +52,10 @@ namespace SrednjeSkole
         protected override void OnStart()
         {
             // Handle when your app starts
+            AppCenter.Start("android=22888782-67d7-46b1-b94f-d442beb452f9;" +
+                  "uwp=a861dddf-1315-45dc-b65e-c99d175bb48f;" +
+                  "ios=cb9eed20-6755-40f3-a9c9-dfa2468b20e9", typeof(Push),
+                  typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()

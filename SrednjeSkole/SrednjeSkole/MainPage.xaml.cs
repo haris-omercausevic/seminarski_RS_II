@@ -37,7 +37,8 @@ namespace SrednjeSkole
         }
         private void userProfileGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            DisplayAlert("Uskoro","user profile uskoro", "OK");
+            Navigation.PushAsync(new Views.Profil.ProfilPage());
+
         }
 
         private void ToolbarItem_Activated(object sender, EventArgs e)

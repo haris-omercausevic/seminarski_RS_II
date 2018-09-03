@@ -15,6 +15,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Push;
+
 namespace SrednjeSkole.UWP
 {
     /// <summary>
@@ -58,9 +61,9 @@ namespace SrednjeSkole.UWP
                 {
                     //TODO: Load state from previously suspended application
                 }
-
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
+
             }
 
             if (rootFrame.Content == null)
@@ -72,6 +75,10 @@ namespace SrednjeSkole.UWP
             }
             // Ensure the current window is active
             Window.Current.Activate();
+
+
+            AppCenter.Start("a861dddf-1315-45dc-b65e-c99d175bb48f", typeof(Push));
+            Push.CheckLaunchedFromNotification(e);
         }
 
         /// <summary>

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 namespace SrednjeSkole.Views.Obavijesti
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -21,6 +22,7 @@ namespace SrednjeSkole.Views.Obavijesti
 		{
 			InitializeComponent ();
             BindList();
+
         }
 
         private void BindList(string pretragaInput = "")
