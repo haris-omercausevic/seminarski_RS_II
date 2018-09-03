@@ -35,17 +35,17 @@ namespace SrednjeSkole
         {
             Navigation.PushAsync(new Views.Ocjene.OcjenePage());
         }
-        private void logoutGestureRecognizer_Tapped(object sender, EventArgs e)
+        private void userProfileGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            DisplayAlert("Uskoro","user profile uskoro", "OK");
+        }
+
+        private void ToolbarItem_Activated(object sender, EventArgs e)
         {
             HttpResponseMessage response = autentifikacijaService.GetActionResponse("logout", Global.AuthToken);
             Global.AuthToken = "";
             Navigation.PopToRootAsync();
             Navigation.PushAsync(new SrednjeSkole.Login());
-        }
-
-        private void ToolbarItem_Activated(object sender, EventArgs e)
-        {
-            DisplayAlert("Title", "Message", "OK");
         }
     }
 }

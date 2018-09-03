@@ -6,11 +6,11 @@
              x:Class="SrednjeSkole.MainPage"             
              >
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="user.png" Text="Profil" Activated="ToolbarItem_Activated"/>
+        <ToolbarItem Icon="logout.png" Text="Profil" Activated="ToolbarItem_Activated"/>
     </ContentPage.ToolbarItems>
 
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <Grid VerticalOptions="FillAndExpand" Margin="8" RowSpacing="0" ColumnSpacing="0">
+        <Grid VerticalOptions="FillAndExpand" Margin="8" RowSpacing="3" ColumnSpacing="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -36,9 +36,9 @@
                     <TapGestureRecognizer Tapped="ocjeneGestureRecognizer_Tapped"/>
                 </Image.GestureRecognizers>
             </Image>
-            <Image Source="obavijesti.png" Aspect="Fill"  Grid.Row="1" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image Source="mojiPodaci.png" Aspect="Fill"  Grid.Row="1" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="logoutGestureRecognizer_Tapped"/>
+                    <TapGestureRecognizer Tapped="userProfileGestureRecognizer_Tapped"/>
                 </Image.GestureRecognizers>
             </Image>
                 
