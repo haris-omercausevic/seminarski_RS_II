@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:behaviors="clr-namespace:SrednjeSkole.Behaviors"
              xmlns:util="clr-namespace:SrednjeSkole.Util"
-             x:Class="SrednjeSkole.Views.Materijali.OcijeniMaterijal">
+             x:Class="SrednjeSkole.Views.Materijali.OcijeniMaterijal"
+             Title="Ocijeni materijal">
 
     <ContentPage.Resources>
         <ResourceDictionary>

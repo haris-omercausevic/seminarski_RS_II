@@ -609,5 +609,40 @@ namespace SrednjeSkole_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("ssp_UceniciRazredi_GetRazrediUcenika", ucenikIdParameter);
         }
+    
+        public virtual ObjectResult<Materijali_Result> ssp_Materijali_GetByRazredPreporuka(Nullable<int> razred)
+        {
+            var razredParameter = razred.HasValue ?
+                new ObjectParameter("razred", razred) :
+                new ObjectParameter("razred", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Materijali_Result>("ssp_Materijali_GetByRazredPreporuka", razredParameter);
+        }
+    
+        public virtual ObjectResult<ssp_UceniciOcjene_GetRazredIzvjestaj_Result> ssp_UceniciOcjene_GetRazredIzvjestaj(Nullable<int> razredId)
+        {
+            var razredIdParameter = razredId.HasValue ?
+                new ObjectParameter("RazredId", razredId) :
+                new ObjectParameter("RazredId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ssp_UceniciOcjene_GetRazredIzvjestaj_Result>("ssp_UceniciOcjene_GetRazredIzvjestaj", razredIdParameter);
+        }
+    
+        public virtual ObjectResult<Materijali_Result> ssp_Materijali_GetByRazredPreporukaKonfigurabilna(Nullable<int> razred, Nullable<decimal> brojOcjenaFaktor, Nullable<decimal> ratingFaktor)
+        {
+            var razredParameter = razred.HasValue ?
+                new ObjectParameter("razred", razred) :
+                new ObjectParameter("razred", typeof(int));
+    
+            var brojOcjenaFaktorParameter = brojOcjenaFaktor.HasValue ?
+                new ObjectParameter("brojOcjenaFaktor", brojOcjenaFaktor) :
+                new ObjectParameter("brojOcjenaFaktor", typeof(decimal));
+    
+            var ratingFaktorParameter = ratingFaktor.HasValue ?
+                new ObjectParameter("ratingFaktor", ratingFaktor) :
+                new ObjectParameter("ratingFaktor", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Materijali_Result>("ssp_Materijali_GetByRazredPreporukaKonfigurabilna", razredParameter, brojOcjenaFaktorParameter, ratingFaktorParameter);
+        }
     }
 }

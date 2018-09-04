@@ -72,7 +72,7 @@ namespace SrednjeSkole
                                     UIKorisnik result = JsonConvert.DeserializeObject<UIKorisnik>(jsonResult3.Result);
                                     Global.prijavljeniKorisnik = result;
                                     Global.AuthToken = result.AuthToken;
-
+                                    Application.Current.SavePropertiesAsync();
                                     Application.Current.MainPage = new NavigationPage(new MainPage());
 
                                     //if (k.LozinkaHash == hasher.GenerateHash(k.LozinkaSalt, lozinkaInput.Text))

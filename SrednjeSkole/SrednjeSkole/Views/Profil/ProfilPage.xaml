@@ -4,7 +4,7 @@
              x:Class="SrednjeSkole.Views.Profil.ProfilPage">
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Label Text="Umjesto ovog običnog SELECT page-a sam implementirao push notifikacije ;)" 
+            <Label Text="Bilo mi je dosadno praviti ovo pa sam implementirao push notifikacije za obavijesti:)" 
                     FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
         </StackLayout>        
     </ContentPage.Content>

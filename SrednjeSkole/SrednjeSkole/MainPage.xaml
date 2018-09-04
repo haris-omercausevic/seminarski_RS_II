@@ -6,7 +6,7 @@
              x:Class="SrednjeSkole.MainPage"             
              >
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="logout.png" Text="Profil" Activated="ToolbarItem_Activated"/>
+        <ToolbarItem Icon="logout.png" Text="Odjava" Activated="ToolbarItem_Activated"/>
     </ContentPage.ToolbarItems>
 
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
