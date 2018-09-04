@@ -4,5 +4,4 @@
             xmlns:local="clr-namespace:SrednjeSkole.Views.Ocjene"
              x:Class="SrednjeSkole.Views.Ocjene.OcjenePage"
             Title="Ocjene">
-
 </TabbedPage>

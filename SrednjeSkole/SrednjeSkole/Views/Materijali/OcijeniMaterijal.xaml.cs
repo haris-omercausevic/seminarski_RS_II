@@ -25,15 +25,11 @@ namespace SrednjeSkole.Views.Materijali
         IDownloader downloader = DependencyService.Get<IDownloader>();
 
         private Materijali_Result _materijal;
-        private int _razredId;
-        private int _predmetId;
 
-        public OcijeniMaterijal(Materijali_Result materijal, int razredId, int predmetId)
+        public OcijeniMaterijal(Materijali_Result materijal)
         {
             InitializeComponent();
             downloader.OnFileDownloaded += OnFileDownloaded;
-            _razredId = razredId;
-            _predmetId = predmetId;
             _materijal = materijal;
 
             //CrossDownloadManager.Current.CollectionChanged += (sender, e) =>

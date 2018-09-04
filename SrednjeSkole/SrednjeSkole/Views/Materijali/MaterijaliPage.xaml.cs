@@ -34,6 +34,7 @@ namespace SrednjeSkole.Views.Materijali
         private WebAPIHelper predmetiService = new WebAPIHelper(Xamarin.Forms.Application.Current.Resources["APIAddress"].ToString(), "api/Predmeti");
         private List<Predmeti> predmeti = new List<Predmeti>();
         private ObservableCollection<Materijali_Result> materijali = new ObservableCollection<Materijali_Result>();
+        private ObservableCollection<Materijali_Result> materijaliPreporuka = new ObservableCollection<Materijali_Result>();
         private int _predmetId;
         private int _razredId;
         private int predmetIndex;
@@ -48,7 +49,8 @@ namespace SrednjeSkole.Views.Materijali
             razrediPicker.On<iOS>().SetUpdateMode(UpdateMode.WhenFinished);
             predmetiPicker.On<iOS>().SetUpdateMode(UpdateMode.WhenFinished);
             razrediPicker.SelectedIndex = 0; //selectedIndexChange poziva bindPredmeti
-            predmetiPicker.SelectedIndex = 0; // samo za prvo ucitavanje, selectedIndexChange poziva BindMaterijali()  
+            predmetiPicker.SelectedIndex = 0; // samo za prvo ucitavanje, selectedIndexChange poziva BindMaterijali() 
+            BindPreporuka();
         }
 
         #region Binds
@@ -96,7 +98,19 @@ namespace SrednjeSkole.Views.Materijali
 
         private void BindPreporuka()
         {
+            string razred = Global.prijavljeniKorisnik.razrediBrojcano.Last();
+            HttpResponseMessage response = materijaliService.GetActionResponse("ByRazredPreporukaKonfigurabilna", razred);
 
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonResult = response.Content.ReadAsStringAsync();
+                materijaliPreporuka = JsonConvert.DeserializeObject<ObservableCollection<Materijali_Result>>(jsonResult.Result);
+                preporukaList.ItemsSource = materijali;
+            }
+            else
+            {
+                DisplayAlert("Info", "Nema materijala za preporučiti", "OK");
+            }
         }
 
         #endregion
@@ -115,11 +129,18 @@ namespace SrednjeSkole.Views.Materijali
         }
         #endregion
 
+        private void preporukaList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var materijalItem = e.Item as Materijali_Result;
+            var ocijeniMaterijalPage = new OcijeniMaterijal(materijalItem);
+            ocijeniMaterijalPage.Disappearing += (s, arg) => BindPreporuka();
+            this.Navigation.PushAsync(ocijeniMaterijalPage);
+        }
 
         private void materijaliList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var materijalItem = e.Item as Materijali_Result;
-            var ocijeniMaterijalPage = new OcijeniMaterijal(materijalItem, _razredId, _predmetId);
+            var ocijeniMaterijalPage = new OcijeniMaterijal(materijalItem);
             ocijeniMaterijalPage.Disappearing += (s, arg) => BindMaterijali();
             this.Navigation.PushAsync(ocijeniMaterijalPage);
         }
@@ -147,7 +168,7 @@ namespace SrednjeSkole.Views.Materijali
         {
             var preuzmiIcon = sender as MenuItem;
             var materijalItem = preuzmiIcon.CommandParameter as Materijali_Result;
-            var ocijeniMaterijalPage = new OcijeniMaterijal(materijalItem, _razredId, _predmetId);
+            var ocijeniMaterijalPage = new OcijeniMaterijal(materijalItem);
             ocijeniMaterijalPage.Disappearing += (s, arg) => BindMaterijali();
             this.Navigation.PushAsync(ocijeniMaterijalPage);
         }
@@ -166,7 +187,7 @@ namespace SrednjeSkole.Views.Materijali
                 DisplayAlert("XF Downloader", "Error while saving the file", "Close");
             }
         }
-      
+
         public async void DownloadMaterijal(string url, string naziv)
         {
             try
@@ -195,7 +216,6 @@ namespace SrednjeSkole.Views.Materijali
         {
             CrossDownloadManager.Current.Abort(_downloadFile);
         }
-
 
 
         public bool IsDownloading(IDownloadFile file)

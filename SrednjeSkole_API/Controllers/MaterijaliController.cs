@@ -39,6 +39,18 @@ namespace SrednjeSkole_API.Controllers
             return db.Materijali.Where(x => x.MaterijalId == materijalId).FirstOrDefault();
         }
 
+        [HttpGet]
+        [Route("ByRazredPreporukaKonfigurabilna/{razred}/{brojOcjenaFaktor?}/{ratingFaktor?}")]
+        public List<Materijali_Result> GetByRazredPreporukaKonfigurabilna(int razred, double brojOcjenaFaktor = 0.1, double ratingFaktor = 1)
+        {
+            if (brojOcjenaFaktor == 0)
+                brojOcjenaFaktor = 0.1;
+            if (ratingFaktor == 0)
+                ratingFaktor = 1;
+
+            return db.ssp_Materijali_GetByRazredPreporukaKonfigurabilna(razred, Convert.ToDecimal(brojOcjenaFaktor), Convert.ToDecimal(ratingFaktor)).ToList();
+        }
+
         [ResponseType(typeof(Materijali))]
         [ExceptionFilter]
         public IHttpActionResult PostMaterijali(Materijali m)

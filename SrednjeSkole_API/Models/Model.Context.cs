@@ -644,5 +644,14 @@ namespace SrednjeSkole_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Materijali_Result>("ssp_Materijali_GetByRazredPreporukaKonfigurabilna", razredParameter, brojOcjenaFaktorParameter, ratingFaktorParameter);
         }
+    
+        public virtual ObjectResult<string> ssp_UceniciRazredi_GetRazrediBrojcanoUcenika(Nullable<int> ucenikId)
+        {
+            var ucenikIdParameter = ucenikId.HasValue ?
+                new ObjectParameter("UcenikId", ucenikId) :
+                new ObjectParameter("UcenikId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("ssp_UceniciRazredi_GetRazrediBrojcanoUcenika", ucenikIdParameter);
+        }
     }
 }

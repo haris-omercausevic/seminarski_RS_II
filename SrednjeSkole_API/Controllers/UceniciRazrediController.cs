@@ -26,6 +26,13 @@ namespace SrednjeSkole_API.Controllers
         }
 
         [HttpGet]
+        [Route("RazrediBrojcanoUcenika/{ucenikId}")]
+        public List<string> GetRazrediBrojcanoUcenika(int ucenikId)
+        {
+            return db.ssp_UceniciRazredi_GetRazrediBrojcanoUcenika(ucenikId).ToList();
+        }
+
+        [HttpGet]
         [Route("ByRazredId/{razredId}")]
         public List<UceniciRazredi_Result> GetByRazredId(int razredId)
         {

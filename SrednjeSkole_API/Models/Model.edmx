@@ -733,6 +733,9 @@
         <Function Name="ssp_UceniciRazredi_GetByRazredId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RazredId" Type="int" Mode="In" />
         </Function>
+        <Function Name="ssp_UceniciRazredi_GetRazrediBrojcanoUcenika" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UcenikId" Type="int" Mode="In" />
+        </Function>
         <Function Name="ssp_UceniciRazredi_GetRazrediUcenika" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UcenikId" Type="int" Mode="In" />
         </Function>
@@ -1713,6 +1716,9 @@
             <Parameter Name="brojOcjenaFaktor" Mode="In" Type="Decimal" />
             <Parameter Name="ratingFaktor" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <FunctionImport Name="ssp_UceniciRazredi_GetRazrediBrojcanoUcenika" ReturnType="Collection(String)">
+            <Parameter Name="UcenikId" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -2370,6 +2376,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ssp_UceniciRazredi_GetRazrediBrojcanoUcenika" FunctionName="SrednjeSkoleModel.Store.ssp_UceniciRazredi_GetRazrediBrojcanoUcenika" />
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

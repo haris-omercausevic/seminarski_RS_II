@@ -51,7 +51,7 @@
         <Label HorizontalOptions="StartAndExpand" Opacity="0.5"/>
     <StackLayout>
             <Label Text="Preporučujemo..." FontSize="17"/>
-            <ListView x:Name="preporukaList" VerticalOptions="Start">
+            <ListView x:Name="preporukaList" VerticalOptions="Start" ItemTapped="preporukaList_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
