@@ -39,6 +39,7 @@
             this.oznakaInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.noviRazredBtn = new System.Windows.Forms.Button();
+            this.izvjestajBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.razrediGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,7 +107,7 @@
             this.detaljiBtn.BackColor = System.Drawing.SystemColors.Control;
             this.detaljiBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.detaljiBtn.ForeColor = System.Drawing.Color.Black;
-            this.detaljiBtn.Location = new System.Drawing.Point(562, 12);
+            this.detaljiBtn.Location = new System.Drawing.Point(590, 12);
             this.detaljiBtn.Name = "detaljiBtn";
             this.detaljiBtn.Size = new System.Drawing.Size(174, 43);
             this.detaljiBtn.TabIndex = 22;
@@ -116,7 +117,7 @@
             // 
             // traziBtn
             // 
-            this.traziBtn.Location = new System.Drawing.Point(253, 23);
+            this.traziBtn.Location = new System.Drawing.Point(199, 23);
             this.traziBtn.Name = "traziBtn";
             this.traziBtn.Size = new System.Drawing.Size(75, 23);
             this.traziBtn.TabIndex = 26;
@@ -126,15 +127,15 @@
             // 
             // oznakaInput
             // 
-            this.oznakaInput.Location = new System.Drawing.Point(81, 25);
+            this.oznakaInput.Location = new System.Drawing.Point(72, 25);
             this.oznakaInput.Name = "oznakaInput";
-            this.oznakaInput.Size = new System.Drawing.Size(146, 20);
+            this.oznakaInput.Size = new System.Drawing.Size(96, 20);
             this.oznakaInput.TabIndex = 25;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 28);
+            this.label2.Location = new System.Drawing.Point(15, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 24;
@@ -142,7 +143,7 @@
             // 
             // noviRazredBtn
             // 
-            this.noviRazredBtn.Location = new System.Drawing.Point(388, 23);
+            this.noviRazredBtn.Location = new System.Drawing.Point(312, 23);
             this.noviRazredBtn.Name = "noviRazredBtn";
             this.noviRazredBtn.Size = new System.Drawing.Size(96, 23);
             this.noviRazredBtn.TabIndex = 27;
@@ -150,11 +151,22 @@
             this.noviRazredBtn.UseVisualStyleBackColor = true;
             this.noviRazredBtn.Click += new System.EventHandler(this.noviRazredBtn_Click);
             // 
+            // izvjestajBtn
+            // 
+            this.izvjestajBtn.Location = new System.Drawing.Point(447, 22);
+            this.izvjestajBtn.Name = "izvjestajBtn";
+            this.izvjestajBtn.Size = new System.Drawing.Size(96, 23);
+            this.izvjestajBtn.TabIndex = 27;
+            this.izvjestajBtn.Text = "Izvještaj";
+            this.izvjestajBtn.UseVisualStyleBackColor = true;
+            this.izvjestajBtn.Click += new System.EventHandler(this.izvjestajBtn_Click);
+            // 
             // IndexForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 415);
+            this.Controls.Add(this.izvjestajBtn);
             this.Controls.Add(this.noviRazredBtn);
             this.Controls.Add(this.traziBtn);
             this.Controls.Add(this.oznakaInput);
@@ -183,5 +195,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SkolskaGodina;
         private System.Windows.Forms.DataGridViewTextBoxColumn Razrednik;
         private System.Windows.Forms.DataGridViewTextBoxColumn Smjer;
+        private System.Windows.Forms.Button izvjestajBtn;
     }
 }

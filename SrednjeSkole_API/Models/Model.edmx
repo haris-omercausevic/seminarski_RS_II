@@ -1708,7 +1708,7 @@
           <FunctionImport Name="ssp_Materijali_GetByRazredPreporuka" ReturnType="Collection(SrednjeSkoleModel.Materijali_Result)">
           <Parameter Name="razred" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="ssp_UceniciOcjene_GetRazredIzvjestaj" ReturnType="Collection(SrednjeSkoleModel.ssp_UceniciOcjene_GetRazredIzvjestaj_Result)">
+          <FunctionImport Name="ssp_UceniciOcjene_GetRazredIzvjestaj" ReturnType="Collection(SrednjeSkoleModel.RazredIzvjestaj_Result)">
           <Parameter Name="RazredId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ssp_Materijali_GetByRazredPreporukaKonfigurabilna" ReturnType="Collection(SrednjeSkoleModel.Materijali_Result)">
@@ -1861,36 +1861,10 @@
           <Property Type="String" Name="Ocjene" Nullable="true" MaxLength="4000" />
           <Property Type="Decimal" Name="ProsjecnaOcjena" Nullable="true" Precision="9" Scale="2" />
         </ComplexType>
-        <ComplexType Name="ssp_Materijali_GetByRazredPreporuka_Result">
-          <Property Type="Int32" Name="MaterijalId" Nullable="false" />
-          <Property Type="String" Name="Naziv" Nullable="true" />
-          <Property Type="String" Name="Url" Nullable="true" />
-          <Property Type="String" Name="BlobName" Nullable="true" />
-          <Property Type="String" Name="Datum" Nullable="true" MaxLength="30" />
-          <Property Type="Int32" Name="BrojOcjena" Nullable="false" />
-          <Property Type="Decimal" Name="Rating" Nullable="false" Precision="9" Scale="2" />
-          <Property Type="Int32" Name="PredmetId" Nullable="false" />
-          <Property Type="Int32" Name="NastavnikId" Nullable="false" />
-          <Property Type="String" Name="nastavnik" Nullable="true" />
-          <Property Type="String" Name="detalji" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="ssp_UceniciOcjene_GetRazredIzvjestaj_Result">
+        <ComplexType Name="RazredIzvjestaj_Result">
           <Property Type="String" Name="Predmet" Nullable="false" />
           <Property Type="String" Name="Ucenik" Nullable="false" MaxLength="101" />
           <Property Type="Decimal" Name="ProsjecnaOcjena" Nullable="true" Precision="9" Scale="2" />
-        </ComplexType>
-        <ComplexType Name="ssp_Materijali_GetByRazredPreporukaKonfigurabilna_Result">
-          <Property Type="Int32" Name="MaterijalId" Nullable="false" />
-          <Property Type="String" Name="Naziv" Nullable="true" />
-          <Property Type="String" Name="Url" Nullable="true" />
-          <Property Type="String" Name="BlobName" Nullable="true" />
-          <Property Type="String" Name="Datum" Nullable="true" MaxLength="30" />
-          <Property Type="Int32" Name="BrojOcjena" Nullable="false" />
-          <Property Type="Decimal" Name="Rating" Nullable="false" Precision="9" Scale="2" />
-          <Property Type="Int32" Name="PredmetId" Nullable="false" />
-          <Property Type="Int32" Name="NastavnikId" Nullable="false" />
-          <Property Type="String" Name="nastavnik" Nullable="true" />
-          <Property Type="String" Name="detalji" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2355,8 +2329,8 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ssp_UceniciOcjene_GetRazredIzvjestaj" FunctionName="SrednjeSkoleModel.Store.ssp_UceniciOcjene_GetRazredIzvjestaj">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SrednjeSkoleModel.ssp_UceniciOcjene_GetRazredIzvjestaj_Result">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.RazredIzvjestaj_Result">
                 <ScalarProperty Name="Predmet" ColumnName="Predmet" />
                 <ScalarProperty Name="Ucenik" ColumnName="Ucenik" />
                 <ScalarProperty Name="ProsjecnaOcjena" ColumnName="ProsjecnaOcjena" />

@@ -16,6 +16,7 @@ namespace SrednjeSkole_UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
 
             LoginForm login = new LoginForm();
             if (login.ShowDialog() == DialogResult.OK)

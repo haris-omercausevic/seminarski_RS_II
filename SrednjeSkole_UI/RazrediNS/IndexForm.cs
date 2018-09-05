@@ -76,5 +76,10 @@ namespace SrednjeSkole_UI.RazrediNS
                 BindGrid();
             }
         }
+
+        private void izvjestajBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -209,6 +209,9 @@
     <Compile Include="Models\Razredi.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RazredIzvjestaj_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Razredi_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -223,15 +226,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SrednjeSkoleEntitiesExtension.cs" />
-    <Compile Include="Models\ssp_Materijali_GetByRazredPreporukaKonfigurabilna_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ssp_Materijali_GetByRazredPreporuka_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ssp_UceniciOcjene_GetRazredIzvjestaj_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Ucenici.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

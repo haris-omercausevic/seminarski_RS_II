@@ -4,7 +4,9 @@
              x:Class="SrednjeSkole.Views.Profil.ProfilPage">
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Label Text="Bilo mi je dosadno praviti ovo pa sam implementirao push notifikacije za obavijesti:)" 
+            <Label Text="Umjesto ovog page-a sam implementirao push notifikacije za obavijesti :) 
+                   (nakon sto se kroz desktop aplikaciju doda obavijest, 
+                   salje se push notifikacija korisnicima koji su instalirali aplikaciju (ANDROID))" 
                     FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
         </StackLayout>        
     </ContentPage.Content>
