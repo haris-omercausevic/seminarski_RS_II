@@ -105,7 +105,7 @@ namespace SrednjeSkole.Views.Materijali
             {
                 var jsonResult = response.Content.ReadAsStringAsync();
                 materijaliPreporuka = JsonConvert.DeserializeObject<ObservableCollection<Materijali_Result>>(jsonResult.Result);
-                preporukaList.ItemsSource = materijali;
+                preporukaList.ItemsSource = materijaliPreporuka;
             }
             else
             {

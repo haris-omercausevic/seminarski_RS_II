@@ -41,6 +41,8 @@ namespace SrednjeSkole.Views.Materijali
             //      " at " + e.OldStartingIndex
             //  );
             nazivMaterijalaLabel.Text = materijal.Naziv;
+            predmetLabel.Text = materijal.Predmet;
+            razredLabel.Text = " - " +materijal.Razred.ToString() + " razred";
             datumLabel.Text += "Datum objave: " + materijal.Datum;
             nastavnikLabel.Text = "Objavio: " + materijal.nastavnik;
             ratingLabel.Text = "Rating: " + materijal.Rating.ToString() + "/5.00";

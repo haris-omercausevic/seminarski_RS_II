@@ -9,7 +9,7 @@
             <Picker Title="Odabreite predmet" x:Name="predmetiPicker" SelectedIndexChanged="predmetiPicker_SelectedIndexChanged"/>
         </StackLayout>
 
-        <StackLayout Padding="20" VerticalOptions="StartAndExpand">
+        <StackLayout Padding="20">
             <ListView x:Name="materijaliList" ItemTapped="materijaliList_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -47,10 +47,9 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-
-        <Label HorizontalOptions="StartAndExpand" Opacity="0.5"/>
-    <StackLayout>
-            <Label Text="Preporučujemo..." FontSize="17"/>
+        
+    <StackLayout Padding="20">
+            <Label Text="Preporučujemo..." FontSize="17" TextColor="Green"/>
             <ListView x:Name="preporukaList" VerticalOptions="Start" ItemTapped="preporukaList_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -59,12 +58,10 @@
                                 <MenuItem Text="Preuzmi" Clicked="preuzmi_Clicked"  CommandParameter="{Binding .}"/>
                                 <ToolbarItem Text="Ocijeni" Clicked="addOcjena_Clicked" CommandParameter="{Binding .}"/>
                             </ViewCell.ContextActions>
-                            <StackLayout Padding="10">
+                            <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
                                 <Label Text="{Binding Naziv}" FontAttributes="Bold"/>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding Datum}"/>
-                                    <Label Text="{Binding nastavnik}"/>
-                                </StackLayout>
+                                <Label Text="{Binding detalji}" HorizontalOptions="Start"/>
+                                <!--<Label Text="{Binding Datum}" HorizontalOptions="StartAndExpand"/>-->
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

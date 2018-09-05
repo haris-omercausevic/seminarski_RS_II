@@ -24,5 +24,7 @@ namespace SrednjeSkole_API.Models
         public int NastavnikId { get; set; }
         public string nastavnik { get; set; }
         public string detalji { get; set; }
+        public string Predmet { get; set; }
+        public int Razred { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace SrednjeSkole
 {
     public partial class App : Application
     {
-        WebAPIHelper autentifikacijaService = new WebAPIHelper("http://10.15.15.44", Global.AutentifikacijaRoute);
+        WebAPIHelper autentifikacijaService = new WebAPIHelper("http://10.10.10.50/", Global.AutentifikacijaRoute);
         public App()
         {
             InitializeComponent();

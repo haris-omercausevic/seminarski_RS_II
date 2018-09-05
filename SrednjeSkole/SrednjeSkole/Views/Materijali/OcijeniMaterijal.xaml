@@ -36,7 +36,11 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
             </Grid>
-            <Label Grid.Row="0" Grid.Column="1" x:Name="nazivMaterijalaLabel" FontAttributes="Bold" FontSize="Small"/>
+            <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Horizontal">                            
+            <Label x:Name="predmetLabel" FontAttributes="Bold" FontSize="Small"/>
+            <Label x:Name="razredLabel" FontAttributes="Bold" FontSize="Small"/>
+            </StackLayout>
+            <Label Grid.Row="1" Grid.Column="1" x:Name="nazivMaterijalaLabel" FontAttributes="Bold" FontSize="Small"/>
             <Label Grid.Row="1" Grid.Column="1" x:Name="nastavnikLabel" FontSize="Small" />
             <Label Grid.Row="2" Grid.Column="1" x:Name="datumLabel" FontSize="Small"/>
             <Label Grid.Row="3" Grid.Column="0" x:Name="ratingLabel" FontSize="Small"/>

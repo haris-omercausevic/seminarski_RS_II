@@ -1717,7 +1717,7 @@
             <Parameter Name="ratingFaktor" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="ssp_UceniciRazredi_GetRazrediBrojcanoUcenika" ReturnType="Collection(String)">
-            <Parameter Name="UcenikId" Mode="In" Type="Int32" />
+          <Parameter Name="UcenikId" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
@@ -1792,6 +1792,8 @@
           <Property Type="Int32" Name="NastavnikId" Nullable="false" />
           <Property Type="String" Name="nastavnik" Nullable="true" />
           <Property Type="String" Name="detalji" Nullable="true" />
+          <Property Type="String" Name="Predmet" Nullable="false" />
+          <Property Type="Int32" Name="Razred" Nullable="false" />
         </ComplexType>
         <ComplexType Name="Uloga_Result">
           <Property Type="Int32" Name="UlogaId" Nullable="false" />
@@ -2198,6 +2200,8 @@
                 <ScalarProperty Name="NastavnikId" ColumnName="NastavnikId" />
                 <ScalarProperty Name="nastavnik" ColumnName="nastavnik" />
                 <ScalarProperty Name="detalji" ColumnName="detalji" />
+                <ScalarProperty Name="Predmet" ColumnName="Predmet" />
+                <ScalarProperty Name="Razred" ColumnName="Razred" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
