@@ -21,6 +21,13 @@ namespace SrednjeSkole_API.Controllers
             return db.ssp_UceniciOcjene_GetByUcenikRazred(ucenikId, razredId).ToList();
         }
 
+        [HttpGet]
+        [Route("RazredIzvjestajStavke/{razredId}")]
+        public List<RazredIzvjestajStavke_Result> GetRazredIzvjestajStavke(int razredId)
+        {
+            return db.ssp_UceniciOcjene_GetRazredIzvjestaj(razredId).ToList();
+        }
+
         // POST api/UceniciOcjene
         [ResponseType(typeof(void))]
         public IHttpActionResult PostUceniciOcjene(List<UceniciOcjene> uceniciOcjene)

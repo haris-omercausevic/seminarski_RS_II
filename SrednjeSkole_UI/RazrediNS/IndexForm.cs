@@ -17,7 +17,9 @@ namespace SrednjeSkole_UI.RazrediNS
     public partial class IndexForm : Form
     {
         private WebAPIHelper razrediService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.RazrediRoute);
+        private WebAPIHelper uceniciOcjeneService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.UceniciOcjeneRoute);
 
+        private Razredi_Result oznaceniRazred = null;
         public IndexForm()
         {
             InitializeComponent();
@@ -79,7 +81,18 @@ namespace SrednjeSkole_UI.RazrediNS
 
         private void izvjestajBtn_Click(object sender, EventArgs e)
         {
-
+            if (razrediGrid.SelectedRows.Count != 0)
+            {
+                oznaceniRazred = razrediGrid.SelectedRows[0].DataBoundItem as Razredi_Result;
+                HttpResponseMessage response = uceniciOcjeneService.GetActionResponse("RazredIzvjestajStavke", oznaceniRazred.RazredId.ToString());
+                if (response.IsSuccessStatusCode)
+                {
+                    Izvjestaji.ReportViewForm frm = new Izvjestaji.ReportViewForm();
+                    oznaceniRazred.razredIzvjestajStavke = response.Content.ReadAsAsync<List<RazredIzvjestajStavke_Result>>().Result;
+                    frm.razredIzvjestaj = oznaceniRazred;
+                    frm.Show();
+                }
+            }
         }
     }
 }

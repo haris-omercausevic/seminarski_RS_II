@@ -1708,7 +1708,7 @@
           <FunctionImport Name="ssp_Materijali_GetByRazredPreporuka" ReturnType="Collection(SrednjeSkoleModel.Materijali_Result)">
           <Parameter Name="razred" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="ssp_UceniciOcjene_GetRazredIzvjestaj" ReturnType="Collection(SrednjeSkoleModel.RazredIzvjestaj_Result)">
+          <FunctionImport Name="ssp_UceniciOcjene_GetRazredIzvjestaj" ReturnType="Collection(SrednjeSkoleModel.RazredIzvjestajStavke_Result)">
           <Parameter Name="RazredId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ssp_Materijali_GetByRazredPreporukaKonfigurabilna" ReturnType="Collection(SrednjeSkoleModel.Materijali_Result)">
@@ -1861,7 +1861,7 @@
           <Property Type="String" Name="Ocjene" Nullable="true" MaxLength="4000" />
           <Property Type="Decimal" Name="ProsjecnaOcjena" Nullable="true" Precision="9" Scale="2" />
         </ComplexType>
-        <ComplexType Name="RazredIzvjestaj_Result">
+        <ComplexType Name="RazredIzvjestajStavke_Result">
           <Property Type="String" Name="Predmet" Nullable="false" />
           <Property Type="String" Name="Ucenik" Nullable="false" MaxLength="101" />
           <Property Type="Decimal" Name="ProsjecnaOcjena" Nullable="true" Precision="9" Scale="2" />
@@ -2330,7 +2330,7 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ssp_UceniciOcjene_GetRazredIzvjestaj" FunctionName="SrednjeSkoleModel.Store.ssp_UceniciOcjene_GetRazredIzvjestaj">
           <ResultMapping>
-              <ComplexTypeMapping TypeName="SrednjeSkoleModel.RazredIzvjestaj_Result">
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.RazredIzvjestajStavke_Result">
                 <ScalarProperty Name="Predmet" ColumnName="Predmet" />
                 <ScalarProperty Name="Ucenik" ColumnName="Ucenik" />
                 <ScalarProperty Name="ProsjecnaOcjena" ColumnName="ProsjecnaOcjena" />

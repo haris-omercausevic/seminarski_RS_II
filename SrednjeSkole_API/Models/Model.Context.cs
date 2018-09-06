@@ -619,13 +619,13 @@ namespace SrednjeSkole_API.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Materijali_Result>("ssp_Materijali_GetByRazredPreporuka", razredParameter);
         }
     
-        public virtual ObjectResult<RazredIzvjestaj_Result> ssp_UceniciOcjene_GetRazredIzvjestaj(Nullable<int> razredId)
+        public virtual ObjectResult<RazredIzvjestajStavke_Result> ssp_UceniciOcjene_GetRazredIzvjestaj(Nullable<int> razredId)
         {
             var razredIdParameter = razredId.HasValue ?
                 new ObjectParameter("RazredId", razredId) :
                 new ObjectParameter("RazredId", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RazredIzvjestaj_Result>("ssp_UceniciOcjene_GetRazredIzvjestaj", razredIdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RazredIzvjestajStavke_Result>("ssp_UceniciOcjene_GetRazredIzvjestaj", razredIdParameter);
         }
     
         public virtual ObjectResult<Materijali_Result> ssp_Materijali_GetByRazredPreporukaKonfigurabilna(Nullable<int> razred, Nullable<decimal> brojOcjenaFaktor, Nullable<decimal> ratingFaktor)

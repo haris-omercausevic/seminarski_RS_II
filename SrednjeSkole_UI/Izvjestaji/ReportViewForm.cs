@@ -14,7 +14,7 @@ namespace SrednjeSkole_UI.Izvjestaji
 {
     public partial class ReportViewForm : Form
     {
-        public RazredIzvjestaj_Result razredIzvjestaj { get; set; }
+        public Razredi_Result razredIzvjestaj { get; set; }
         public ReportViewForm()
         {
             InitializeComponent();
@@ -22,13 +22,42 @@ namespace SrednjeSkole_UI.Izvjestaji
 
         private void ReportViewForm_Load(object sender, EventArgs e)
         {
-            ReportDataSource rds = new ReportDataSource("dsRazredIzvjestaj", razredIzvjestaj);
-            this.reportViewer1.LocalReport.DataSources.Add(rds);
-            this.reportViewer1.LocalReport.SetParameters(new ReportParameter("Razred", razredIzvjestaj.Razred));
-            this.reportViewer1.LocalReport.SetParameters(new ReportParameter("Razred", razredIzvjestaj.SkolskaGodina));
-
+            ReportDataSource rds = new ReportDataSource("dsRazredIzvjestaj", razredIzvjestaj.razredIzvjestajStavke);
+            this.reportViewer1.LocalReport.DataSources.Add(rds);            
+            this.reportViewer1.LocalReport.SetParameters(new ReportParameter("Razred", razredIzvjestaj.Oznaka));
+            this.reportViewer1.LocalReport.SetParameters(new ReportParameter("SkolskaGodina", razredIzvjestaj.SkolskaGodina));
+            this.reportViewer1.LocalReport.SetParameters(new ReportParameter("Razrednik", razredIzvjestaj.Razrednik));
 
             this.reportViewer1.RefreshReport();
+        }
+
+        public class ReportCell
+        {
+            public int RowId { get; set; }
+            public string ColumnName { get; set; }
+            public string Value { get; set; }
+
+            public static List<ReportCell> ConvertTableToCells(DataTable table)
+            {
+                List<ReportCell> cells = new List<ReportCell>();
+
+                foreach (DataRow row in table.Rows)
+                {
+                    foreach (DataColumn col in table.Columns)
+                    {
+                        ReportCell cell = new ReportCell
+                        {
+                            ColumnName = col.Caption,
+                            RowId = table.Rows.IndexOf(row),
+                            Value = row[col.ColumnName].ToString()
+                        };
+
+                        cells.Add(cell);
+                    }
+                }
+
+                return cells;
+            }
         }
     }
 }

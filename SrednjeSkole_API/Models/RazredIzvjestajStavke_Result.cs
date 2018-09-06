@@ -11,7 +11,7 @@ namespace SrednjeSkole_API.Models
 {
     using System;
     
-    public partial class RazredIzvjestaj_Result
+    public partial class RazredIzvjestajStavke_Result
     {
         public string Predmet { get; set; }
         public string Ucenik { get; set; }

@@ -209,12 +209,13 @@
     <Compile Include="Models\Razredi.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\RazredIzvjestaj_Result.cs">
+    <Compile Include="Models\RazredIzvjestajStavke_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Razredi_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Razredi_ResultExtension.cs" />
     <Compile Include="Models\SkolskeGodine.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
