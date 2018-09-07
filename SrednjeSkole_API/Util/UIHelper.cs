@@ -58,7 +58,7 @@ namespace SrednjeSkole_API.Util
             else
             {
                 mailMessage.Body = $"<h3>Poštovani {korisnickoIme},</h3>" +
-                               $"vaša nova lozinka je {lozinka}: " +
+                               $"vaša nova lozinka je: {lozinka} " +
                                $"<p>========================</p>" +
                                $"<p>SrednjeSkoleApp</p>";
             }
