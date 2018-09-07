@@ -41,7 +41,7 @@ namespace SrednjeSkole_API.Controllers
 
         [HttpGet]
         [Route("ByRazredPreporukaKonfigurabilna/{razred}/{brojOcjenaFaktor?}/{ratingFaktor?}")]
-        public List<Materijali_Result> GetByRazredPreporukaKonfigurabilna(int razred, double brojOcjenaFaktor = 0.1, double ratingFaktor = 1)
+        public List<Materijali_Result> GetByRazredPreporukaKonfigurabilna(int razred, double brojOcjenaFaktor = 0.05, double ratingFaktor = 3)
         {
             if (brojOcjenaFaktor == 0)
                 brojOcjenaFaktor = 0.1;
