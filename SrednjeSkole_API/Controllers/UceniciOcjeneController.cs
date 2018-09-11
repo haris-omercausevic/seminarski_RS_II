@@ -37,7 +37,7 @@ namespace SrednjeSkole_API.Controllers
 
         [HttpGet]
         [Route("UceniciByPredmetProsjek/{predmetId}")]
-        public List<Korisnici_Result> GetUceniciByPredmetProsjek(int predmetId)
+        public List<KorisniciSimple_Result> GetUceniciByPredmetProsjek(int predmetId)
         {
             return db.ssp_UceniciOcjene_GetUceniciByPredmetProsjek(predmetId).ToList();
         }

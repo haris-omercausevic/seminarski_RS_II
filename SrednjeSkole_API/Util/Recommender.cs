@@ -12,21 +12,103 @@ namespace SrednjeSkole_API.Util
 
         public List<Materijali_Result> GetMaterijaliPreporuka(int ucenikId, int razred)
         {
-            List<Materijali_Result> najboljiMaterijaliRazreda = GetNajboljiMaterjialiRazreda(razred);
-            List<Predmeti_Result> predmetiLosProsjek = db.ssp_UceniciOcjene_GetPredmetiByUcenikLosProsjek(razred, ucenikId).ToList();
 
-            List<List<Korisnici_Result>> uceniciDobarProsjek = new List<List<Korisnici_Result>>();
+            List<Predmeti_Result> predmetiLosProsjek = db.ssp_UceniciOcjene_GetPredmetiByUcenikLosProsjek(razred, ucenikId).ToList(); // top 3 predmeta gdje ima najlosiji prosjek
+
+            if (predmetiLosProsjek.Count == 0) // ako nema ocjena
+                return GetNajboljiMaterjialiRazreda(razred); // najbolji materijali u razredu koji je ucenik trenutno
+
+            List<List<KorisniciSimple_Result>> uceniciDobarProsjek = new List<List<KorisniciSimple_Result>>(); // top 10 najboljih ucenika po prosjeku, za svaki predmet iz predmetiLosProsjek
             foreach (var item in predmetiLosProsjek)
                 uceniciDobarProsjek.Add(db.ssp_UceniciOcjene_GetUceniciByPredmetProsjek(item.PredmetId).ToList());
 
-            foreach (var item in uceniciDobarProsjek)
+
+            Dictionary<int, OcjenaPredmet> materijaliOcjene = new Dictionary<int, OcjenaPredmet>(); // key = MaterijalId, value = OcjenaPredmet (cuva se predmetId i zbir ocjena)
+
+
+            foreach (var predmet in predmetiLosProsjek)
             {
-                
+                foreach (var listaUcenika in uceniciDobarProsjek)
+                {
+                    foreach (var ucenik in listaUcenika)
+                    {
+                        foreach (var ucenikMaterijalOcjena in db.ssp_MaterijaliOcjene_NajboljeOcijenjeniByUcenikPredmet(ucenik.Id, predmet.PredmetId).ToList())
+                        {//vraca top 5 ocijenjenih materijala za ucenika i predmet koji su na redu sortirani po ocjeni pa po koeficijentu ((brojOcjena *0.05) + (rating * 3))
+                            if (materijaliOcjene.ContainsKey(ucenikMaterijalOcjena.MaterijalId))
+                                materijaliOcjene[ucenikMaterijalOcjena.MaterijalId]._ocjena += ucenikMaterijalOcjena.Ocjena; //ako je materijal vec u listi dodaj ocjenu u zbir
+                            else
+                            {
+                                materijaliOcjene.Add(ucenikMaterijalOcjena.MaterijalId, new OcjenaPredmet()
+                                {
+                                    _materijalId = ucenikMaterijalOcjena.MaterijalId,
+                                    _ocjena = ucenikMaterijalOcjena.Ocjena,
+                                    _predmetId = predmet.PredmetId
+                                }); // ako nije dodaj ga u dictionary
+                            }
+                        }
+                    }
+                }
             }
 
+            List<Materijali_Result> materijaliZaPreporuku = new List<Materijali_Result>(); // za vratiti
+            var materijaliPreporuka1 = new List<OcjenaPredmet>(); // najlosiji
+            var materijaliPreporuka2 = new List<OcjenaPredmet>(); // 2. najlosiji 
+            var materijaliPreporuka3 = new List<OcjenaPredmet>(); // 3. najlosiji
 
 
-            return null;
+            for (int i = 0; i < predmetiLosProsjek.Count; i++)
+            {
+                foreach (var item in materijaliOcjene)
+                {
+                    if (i == 0 && item.Value._predmetId == predmetiLosProsjek[i].PredmetId)
+                    {
+                        materijaliPreporuka1.Add(new OcjenaPredmet()
+                        {
+                            _materijalId = item.Value._materijalId,
+                            _ocjena = item.Value._ocjena,
+                            _predmetId = item.Value._predmetId
+                        });
+                    }
+                    else if (i == 1 && item.Value._predmetId == predmetiLosProsjek[i].PredmetId)
+                    {
+                        materijaliPreporuka2.Add(new OcjenaPredmet()
+                        {
+                            _materijalId = item.Value._materijalId,
+                            _ocjena = item.Value._ocjena,
+                            _predmetId = item.Value._predmetId
+                        });
+                    }
+                    else if (i == 2 && item.Value._predmetId == predmetiLosProsjek[i].PredmetId)
+                    {
+                        materijaliPreporuka3.Add(new OcjenaPredmet()
+                        {
+                            _materijalId = item.Value._materijalId,
+                            _ocjena = item.Value._ocjena,
+                            _predmetId = item.Value._predmetId
+                        });
+                    }
+                }
+            }
+
+            materijaliPreporuka1 = materijaliPreporuka1.OrderByDescending(x => x._ocjena).Take(3).ToList();//preuzmi prva 3 najbolje ocijenjena
+            materijaliPreporuka2 = materijaliPreporuka2.OrderByDescending(x => x._ocjena).Take(3).ToList();
+            materijaliPreporuka3 = materijaliPreporuka3.OrderByDescending(x => x._ocjena).Take(3).ToList();
+
+            foreach (var item in materijaliPreporuka1)
+                materijaliZaPreporuku.Add(db.ssp_Materijali_GetById(item._materijalId).FirstOrDefault());
+            foreach (var item in materijaliPreporuka2)
+                materijaliZaPreporuku.Add(db.ssp_Materijali_GetById(item._materijalId).FirstOrDefault());
+            foreach (var item in materijaliPreporuka3)
+                materijaliZaPreporuku.Add(db.ssp_Materijali_GetById(item._materijalId).FirstOrDefault());
+
+            return materijaliZaPreporuku;
+        }
+
+        class OcjenaPredmet
+        {
+            public int _materijalId { get; set; }
+            public int _predmetId { get; set; }
+            public int _ocjena { get; set; }
         }
 
         public List<Materijali_Result> GetNajboljiMaterjialiRazreda(int razred, double brojOcjenaFaktor = 0.05, double ratingFaktor = 3)

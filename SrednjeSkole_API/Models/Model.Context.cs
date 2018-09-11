@@ -654,26 +654,61 @@ namespace SrednjeSkole_API.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("ssp_UceniciRazredi_GetRazrediBrojcanoUcenika", ucenikIdParameter);
         }
     
-        public virtual ObjectResult<Predmeti_Result> ssp_UceniciOcjene_GetPredmetiByUcenikLosProsjek(Nullable<int> razredId, Nullable<int> ucenikId)
+        public virtual ObjectResult<Predmeti_Result> ssp_UceniciOcjene_GetPredmetiByUcenikLosProsjek(Nullable<int> razred, Nullable<int> ucenikId)
         {
-            var razredIdParameter = razredId.HasValue ?
-                new ObjectParameter("RazredId", razredId) :
-                new ObjectParameter("RazredId", typeof(int));
+            var razredParameter = razred.HasValue ?
+                new ObjectParameter("Razred", razred) :
+                new ObjectParameter("Razred", typeof(int));
     
             var ucenikIdParameter = ucenikId.HasValue ?
                 new ObjectParameter("UcenikId", ucenikId) :
                 new ObjectParameter("UcenikId", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Predmeti_Result>("ssp_UceniciOcjene_GetPredmetiByUcenikLosProsjek", razredIdParameter, ucenikIdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Predmeti_Result>("ssp_UceniciOcjene_GetPredmetiByUcenikLosProsjek", razredParameter, ucenikIdParameter);
         }
     
-        public virtual ObjectResult<Korisnici_Result> ssp_UceniciOcjene_GetUceniciByPredmetProsjek(Nullable<int> predmetId)
+        public virtual ObjectResult<KorisniciSimple_Result> ssp_UceniciOcjene_GetUceniciByPredmetProsjek(Nullable<int> predmetId)
         {
             var predmetIdParameter = predmetId.HasValue ?
                 new ObjectParameter("PredmetId", predmetId) :
                 new ObjectParameter("PredmetId", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Korisnici_Result>("ssp_UceniciOcjene_GetUceniciByPredmetProsjek", predmetIdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KorisniciSimple_Result>("ssp_UceniciOcjene_GetUceniciByPredmetProsjek", predmetIdParameter);
+        }
+    
+        public virtual ObjectResult<Materijali_Result> ssp_Materijali_GetById(Nullable<int> materijalId)
+        {
+            var materijalIdParameter = materijalId.HasValue ?
+                new ObjectParameter("MaterijalId", materijalId) :
+                new ObjectParameter("MaterijalId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Materijali_Result>("ssp_Materijali_GetById", materijalIdParameter);
+        }
+    
+        public virtual ObjectResult<MaterijaliOcjene> ssp_MaterijaliOcjene_NajboljeOcijenjeniByUcenikPredmet(Nullable<int> ucenikId, Nullable<int> predmetId)
+        {
+            var ucenikIdParameter = ucenikId.HasValue ?
+                new ObjectParameter("UcenikId", ucenikId) :
+                new ObjectParameter("UcenikId", typeof(int));
+    
+            var predmetIdParameter = predmetId.HasValue ?
+                new ObjectParameter("PredmetId", predmetId) :
+                new ObjectParameter("PredmetId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MaterijaliOcjene>("ssp_MaterijaliOcjene_NajboljeOcijenjeniByUcenikPredmet", ucenikIdParameter, predmetIdParameter);
+        }
+    
+        public virtual ObjectResult<MaterijaliOcjene> ssp_MaterijaliOcjene_NajboljeOcijenjeniByUcenikPredmet(Nullable<int> ucenikId, Nullable<int> predmetId, MergeOption mergeOption)
+        {
+            var ucenikIdParameter = ucenikId.HasValue ?
+                new ObjectParameter("UcenikId", ucenikId) :
+                new ObjectParameter("UcenikId", typeof(int));
+    
+            var predmetIdParameter = predmetId.HasValue ?
+                new ObjectParameter("PredmetId", predmetId) :
+                new ObjectParameter("PredmetId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MaterijaliOcjene>("ssp_MaterijaliOcjene_NajboljeOcijenjeniByUcenikPredmet", mergeOption, ucenikIdParameter, predmetIdParameter);
         }
     }
 }

@@ -99,8 +99,8 @@ namespace SrednjeSkole.Views.Materijali
         private void BindPreporuka()
         {
             string razred = Global.prijavljeniKorisnik.razrediBrojcano.Last();
-            HttpResponseMessage response = materijaliService.GetActionResponse("ByRazredPreporukaKonfigurabilna", razred);
-
+            //HttpResponseMessage response = materijaliService.GetActionResponse("ByRazredPreporukaKonfigurabilna", razred);
+            HttpResponseMessage response = materijaliService.GetActionResponse("PreporuciMaterijale", Global.prijavljeniKorisnik.KorisnikId.ToString() + "/" + razred);
             if (response.IsSuccessStatusCode)
             {
                 var jsonResult = response.Content.ReadAsStringAsync();
@@ -133,7 +133,7 @@ namespace SrednjeSkole.Views.Materijali
         {
             var materijalItem = e.Item as Materijali_Result;
             var ocijeniMaterijalPage = new OcijeniMaterijal(materijalItem);
-            ocijeniMaterijalPage.Disappearing += (s, arg) => BindPreporuka();
+            //ocijeniMaterijalPage.Disappearing += (s, arg) => BindPreporuka();
             this.Navigation.PushAsync(ocijeniMaterijalPage);
         }
 
