@@ -12,6 +12,8 @@ namespace SrednjeSkole_API.Util
 
         public List<Materijali_Result> GetMaterijaliPreporuka(int ucenikId, int razred)
         {
+            //ukratko: za 3 najlosija predmeta (za logiranog ucenika) se uzima 10 najboljih ucenika po prosjeku iz
+                //  tih predmeta i onda se gledaju njihove ocjene za materijale za te predmete i na osnovu toga se vrsi preporuka
 
             List<Predmeti_Result> predmetiLosProsjek = db.ssp_UceniciOcjene_GetPredmetiByUcenikLosProsjek(razred, ucenikId).ToList(); // top 3 predmeta gdje ima najlosiji prosjek
 
@@ -24,7 +26,7 @@ namespace SrednjeSkole_API.Util
 
 
             Dictionary<int, OcjenaPredmet> materijaliOcjene = new Dictionary<int, OcjenaPredmet>(); // key = MaterijalId, value = OcjenaPredmet (cuva se predmetId i zbir ocjena)
-                       
+
 
             foreach (var predmet in predmetiLosProsjek)
             {
@@ -56,36 +58,40 @@ namespace SrednjeSkole_API.Util
             var materijaliPreporuka3 = new List<OcjenaPredmet>(); // 3. najlosiji predmet
 
 
-            for (int i = 0; i < predmetiLosProsjek.Count; i++) 
+            //grupisanje po predmetima
+            for (int i = 0; i < predmetiLosProsjek.Count; i++)
             {
-                foreach (var item in materijaliOcjene) 
+                foreach (var item in materijaliOcjene)
                 {
-                    if (i == 0 && item.Value._predmetId == predmetiLosProsjek[i].PredmetId)
+                    if (item.Value._predmetId == predmetiLosProsjek[i].PredmetId)
                     {
-                        materijaliPreporuka1.Add(new OcjenaPredmet()
+                        if (i == 0)
                         {
-                            _materijalId = item.Value._materijalId,
-                            _ocjena = item.Value._ocjena,
-                            _predmetId = item.Value._predmetId
-                        });
-                    }
-                    else if (i == 1 && item.Value._predmetId == predmetiLosProsjek[i].PredmetId)
-                    {
-                        materijaliPreporuka2.Add(new OcjenaPredmet()
+                            materijaliPreporuka1.Add(new OcjenaPredmet()
+                            {
+                                _materijalId = item.Value._materijalId,
+                                _ocjena = item.Value._ocjena,
+                                _predmetId = item.Value._predmetId
+                            });
+                        }
+                        else if (i == 1)
                         {
-                            _materijalId = item.Value._materijalId,
-                            _ocjena = item.Value._ocjena,
-                            _predmetId = item.Value._predmetId
-                        });
-                    }
-                    else if (i == 2 && item.Value._predmetId == predmetiLosProsjek[i].PredmetId)
-                    {
-                        materijaliPreporuka3.Add(new OcjenaPredmet()
+                            materijaliPreporuka2.Add(new OcjenaPredmet()
+                            {
+                                _materijalId = item.Value._materijalId,
+                                _ocjena = item.Value._ocjena,
+                                _predmetId = item.Value._predmetId
+                            });
+                        }
+                        else if(i == 2)
                         {
-                            _materijalId = item.Value._materijalId,
-                            _ocjena = item.Value._ocjena,
-                            _predmetId = item.Value._predmetId
-                        });
+                            materijaliPreporuka3.Add(new OcjenaPredmet()
+                            {
+                                _materijalId = item.Value._materijalId,
+                                _ocjena = item.Value._ocjena,
+                                _predmetId = item.Value._predmetId
+                            });
+                        }
                     }
                 }
             }
@@ -101,12 +107,45 @@ namespace SrednjeSkole_API.Util
             foreach (var item in materijaliPreporuka3)
                 materijaliZaPreporuku.Add(db.ssp_Materijali_GetById(item._materijalId).FirstOrDefault());
 
+
             //prosjecan execution time je 2.7s :(
             //To Do: 
-                //  optimizovati kod,  smanjiti broj petlji i poziva na bazu
-                //  ako to ne pomogne puno:
-                //  napraviti da se preporuka ucitava samo prvi put, i pohraniti listu materijala na disk, 
-                //  i onda tek kada se uceniku unese ocjena iz nekog predmeta osjveziti preporuku
+            //  optimizovati kod,  smanjiti broj petlji i poziva na bazu
+            //  ako to ne pomogne puno:
+            //  napraviti da se preporuka ucitava samo prvi put, i pohraniti listu materijala na disk, 
+            //  i onda tek kada se uceniku unese ocjena iz nekog predmeta osjveziti preporuku
+
+
+
+
+            /*
+             **Za razmisliti**
+             Tek sada, kada sam "zavrsio" sam shvatio da mozda ovakvo rjesenje i nije bas najbolje:
+             posebno ovaj dio kada se ocjene gledaju samo od ucenika koji imaju dobar prosjek iz odredjenog predmeta (TOP 10)
+             JER postoje ucenici kojima  npr. Matematika ide slabo i imaju slabiji prosjek iz MAT
+             ali im je taj neki materijal pomogao i njihova ocjena za taj materijal, mozda cak i vise vrijedi 
+             nego ocjena nekog ko je talentovan za matematiku i ko ima dobar prosjek iz nje
+
+             iz tog razloga, mozda je bolje gledati ocjene u odnosu na sve ucenike 
+             i na osnovu toga vrsiti preporuku koje materijale da uci
+
+            Code example ispod:
+             */
+
+
+            // ako probali, komentariasti sve iznad, 
+            //PS: CORE preporuke bi "opet" bio SQL upit => nije to to :)
+
+            //List<Predmeti_Result> predmetiLosProsjekAlternative = db.ssp_UceniciOcjene_GetPredmetiByUcenikLosProsjek(razred, ucenikId).ToList(); // top 3 predmeta gdje ima najlosiji prosjek
+
+            //if (predmetiLosProsjekAlternative.Count == 0) // ako ucenik nema ocjena
+            //    return GetNajboljiMaterjialiRazreda(razred); // najbolji materijali u razredu koji je ucenik trenutno
+
+            //List<Materijali_Result> zaVratiti = new List<Materijali_Result>();
+            //foreach (var predmet in predmetiLosProsjekAlternative)
+            //    zaVratiti.AddRange(GetNajboljiMaterijaliPredmeta(razred, predmet.PredmetId).ToList());
+
+            //return zaVratiti;
 
             return materijaliZaPreporuku;
         }
@@ -122,6 +161,12 @@ namespace SrednjeSkole_API.Util
         {
             return db.ssp_Materijali_GetByRazredPreporukaKonfigurabilna(razred, Convert.ToDecimal(brojOcjenaFaktor), Convert.ToDecimal(ratingFaktor)).ToList();
         }
+
+        public List<Materijali_Result> GetNajboljiMaterijaliPredmeta(int razred, int predmetId, double brojOcjenaFaktor = 0.05, double ratingFaktor = 3)
+        {
+            return db.ssp_Materijali_GetByRazredPredmetPreporukaKonfigurabilna(razred, predmetId,Convert.ToDecimal(brojOcjenaFaktor), Convert.ToDecimal(ratingFaktor)).ToList();
+        }
+
 
     }
 }

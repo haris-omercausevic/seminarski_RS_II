@@ -710,5 +710,26 @@ namespace SrednjeSkole_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MaterijaliOcjene>("ssp_MaterijaliOcjene_NajboljeOcijenjeniByUcenikPredmet", mergeOption, ucenikIdParameter, predmetIdParameter);
         }
+    
+        public virtual ObjectResult<Materijali_Result> ssp_Materijali_GetByRazredPredmetPreporukaKonfigurabilna(Nullable<int> razred, Nullable<int> predmetId, Nullable<decimal> brojOcjenaFaktor, Nullable<decimal> ratingFaktor)
+        {
+            var razredParameter = razred.HasValue ?
+                new ObjectParameter("razred", razred) :
+                new ObjectParameter("razred", typeof(int));
+    
+            var predmetIdParameter = predmetId.HasValue ?
+                new ObjectParameter("predmetId", predmetId) :
+                new ObjectParameter("predmetId", typeof(int));
+    
+            var brojOcjenaFaktorParameter = brojOcjenaFaktor.HasValue ?
+                new ObjectParameter("brojOcjenaFaktor", brojOcjenaFaktor) :
+                new ObjectParameter("brojOcjenaFaktor", typeof(decimal));
+    
+            var ratingFaktorParameter = ratingFaktor.HasValue ?
+                new ObjectParameter("ratingFaktor", ratingFaktor) :
+                new ObjectParameter("ratingFaktor", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Materijali_Result>("ssp_Materijali_GetByRazredPredmetPreporukaKonfigurabilna", razredParameter, predmetIdParameter, brojOcjenaFaktorParameter, ratingFaktorParameter);
+        }
     }
 }

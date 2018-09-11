@@ -619,6 +619,12 @@
         <Function Name="ssp_Materijali_GetByPredmetId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="predmetId" Type="int" Mode="In" />
         </Function>
+        <Function Name="ssp_Materijali_GetByRazredPredmetPreporukaKonfigurabilna" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="razred" Type="int" Mode="In" />
+          <Parameter Name="predmetId" Type="int" Mode="In" />
+          <Parameter Name="brojOcjenaFaktor" Type="decimal" Mode="In" />
+          <Parameter Name="ratingFaktor" Type="decimal" Mode="In" />
+        </Function>
         <Function Name="ssp_Materijali_GetByRazredPreporuka" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="razred" Type="int" Mode="In" />
         </Function>
@@ -1747,6 +1753,12 @@
             <Parameter Name="UcenikId" Mode="In" Type="Int32" />
             <Parameter Name="PredmetId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="ssp_Materijali_GetByRazredPredmetPreporukaKonfigurabilna" ReturnType="Collection(SrednjeSkoleModel.Materijali_Result)">
+            <Parameter Name="razred" Mode="In" Type="Int32" />
+            <Parameter Name="predmetId" Mode="In" Type="Int32" />
+            <Parameter Name="brojOcjenaFaktor" Mode="In" Type="Decimal" />
+            <Parameter Name="ratingFaktor" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -2427,6 +2439,25 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ssp_MaterijaliOcjene_NajboljeOcijenjeniByUcenikPredmet" FunctionName="SrednjeSkoleModel.Store.ssp_MaterijaliOcjene_NajboljeOcijenjeniByUcenikPredmet">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ssp_Materijali_GetByRazredPredmetPreporukaKonfigurabilna" FunctionName="SrednjeSkoleModel.Store.ssp_Materijali_GetByRazredPredmetPreporukaKonfigurabilna">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.Materijali_Result">
+                <ScalarProperty Name="MaterijalId" ColumnName="MaterijalId" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="BlobName" ColumnName="BlobName" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="BrojOcjena" ColumnName="BrojOcjena" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="PredmetId" ColumnName="PredmetId" />
+                <ScalarProperty Name="NastavnikId" ColumnName="NastavnikId" />
+                <ScalarProperty Name="nastavnik" ColumnName="nastavnik" />
+                <ScalarProperty Name="detalji" ColumnName="detalji" />
+                <ScalarProperty Name="Predmet" ColumnName="Predmet" />
+                <ScalarProperty Name="Razred" ColumnName="Razred" />
+              </ComplexTypeMapping>
+            </ResultMapping>
           </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
