@@ -15,7 +15,7 @@
                                 </Grid.ColumnDefinitions>
                                 <StackLayout Grid.Column="0" Padding="10">
                                     <Label Text="{Binding Predmet}" FontAttributes="Bold" FontSize="Medium"/>
-                                    <Label Text="{Binding ProsjecnaOcjena, StringFormat='Prosjecna ocjena: {0}'}" FontAttributes="Bold" />
+                                    <Label Text="{Binding ProsjecnaOcjena, StringFormat='Prosjecna ocjena: {0:0.00}'}" FontAttributes="Bold" />
                                     <Label Text="{Binding Ocjene, StringFormat='Ocjene: {0}'}" />
                                 </StackLayout>
                             </Grid>

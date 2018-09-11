@@ -35,7 +35,7 @@ namespace SrednjeSkole.Views.Ocjene
                 var jsonResult = response.Content.ReadAsStringAsync();
                 ocjene = JsonConvert.DeserializeObject<List<UceniciOcjene_Result>>(jsonResult.Result);
                 ocjeneList.ItemsSource = ocjene;
-                ukupanProsjek.Text = "Ukupan prosjek: " + ocjene.Average(x => x.ProsjecnaOcjena).ToString();
+                ukupanProsjek.Text = "Ukupan prosjek: " + String.Format("{0:0.00}", ocjene.Average(x => x.ProsjecnaOcjena));
             }
             else
             {
