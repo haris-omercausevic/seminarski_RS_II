@@ -40,15 +40,11 @@ namespace SrednjeSkole_API.Controllers
         }
 
         [HttpGet]
-        [Route("ByRazredPreporukaKonfigurabilna/{razred}/{brojOcjenaFaktor?}/{ratingFaktor?}")]
-        public List<Materijali_Result> GetByRazredPreporukaKonfigurabilna(int razred, double brojOcjenaFaktor = 0.05, double ratingFaktor = 3)
+        [Route("PreporuciMaterijale/{ucenikId}/{razredId}")]
+        public List<Materijali_Result> PreporuciMaterijale(int ucenikId, int razred)
         {
-            if (brojOcjenaFaktor == 0)
-                brojOcjenaFaktor = 0.1;
-            if (ratingFaktor == 0)
-                ratingFaktor = 1;
-
-            return db.ssp_Materijali_GetByRazredPreporukaKonfigurabilna(razred, Convert.ToDecimal(brojOcjenaFaktor), Convert.ToDecimal(ratingFaktor)).ToList();
+            Recommender r = new Recommender();
+            return r.GetMaterijaliPreporuka(ucenikId, razred);
         }
 
         [ResponseType(typeof(Materijali))]

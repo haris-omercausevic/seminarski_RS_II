@@ -720,8 +720,15 @@
           <Parameter Name="UcenikId" Type="int" Mode="In" />
           <Parameter Name="RazredId" Type="int" Mode="In" />
         </Function>
+        <Function Name="ssp_UceniciOcjene_GetPredmetiByUcenikLosProsjek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RazredId" Type="int" Mode="In" />
+          <Parameter Name="UcenikId" Type="int" Mode="In" />
+        </Function>
         <Function Name="ssp_UceniciOcjene_GetRazredIzvjestaj" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RazredId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ssp_UceniciOcjene_GetUceniciByPredmetProsjek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PredmetId" Type="int" Mode="In" />
         </Function>
         <Function Name="ssp_UceniciOcjene_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="PredajeId" Type="int" Mode="In" />
@@ -1719,6 +1726,13 @@
           <FunctionImport Name="ssp_UceniciRazredi_GetRazrediBrojcanoUcenika" ReturnType="Collection(String)">
           <Parameter Name="UcenikId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="ssp_UceniciOcjene_GetPredmetiByUcenikLosProsjek" ReturnType="Collection(SrednjeSkoleModel.Predmeti_Result)">
+            <Parameter Name="RazredId" Mode="In" Type="Int32" />
+            <Parameter Name="UcenikId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ssp_UceniciOcjene_GetUceniciByPredmetProsjek" ReturnType="Collection(SrednjeSkoleModel.Korisnici_Result)">
+            <Parameter Name="PredmetId" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Korisnici_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -2355,6 +2369,31 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ssp_UceniciRazredi_GetRazrediBrojcanoUcenika" FunctionName="SrednjeSkoleModel.Store.ssp_UceniciRazredi_GetRazrediBrojcanoUcenika" />
+          <FunctionImportMapping FunctionImportName="ssp_UceniciOcjene_GetPredmetiByUcenikLosProsjek" FunctionName="SrednjeSkoleModel.Store.ssp_UceniciOcjene_GetPredmetiByUcenikLosProsjek">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.Predmeti_Result">
+                <ScalarProperty Name="PredmetId" ColumnName="PredmetId" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Oznaka" ColumnName="Oznaka" />
+                <ScalarProperty Name="Razred" ColumnName="Razred" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ssp_UceniciOcjene_GetUceniciByPredmetProsjek" FunctionName="SrednjeSkoleModel.Store.ssp_UceniciOcjene_GetUceniciByPredmetProsjek">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="SrednjeSkoleModel.Korisnici_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Uloga" ColumnName="Uloga" />
+                <ScalarProperty Name="DatumRodjenja" ColumnName="DatumRodjenja" />
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

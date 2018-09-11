@@ -653,5 +653,27 @@ namespace SrednjeSkole_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("ssp_UceniciRazredi_GetRazrediBrojcanoUcenika", ucenikIdParameter);
         }
+    
+        public virtual ObjectResult<Predmeti_Result> ssp_UceniciOcjene_GetPredmetiByUcenikLosProsjek(Nullable<int> razredId, Nullable<int> ucenikId)
+        {
+            var razredIdParameter = razredId.HasValue ?
+                new ObjectParameter("RazredId", razredId) :
+                new ObjectParameter("RazredId", typeof(int));
+    
+            var ucenikIdParameter = ucenikId.HasValue ?
+                new ObjectParameter("UcenikId", ucenikId) :
+                new ObjectParameter("UcenikId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Predmeti_Result>("ssp_UceniciOcjene_GetPredmetiByUcenikLosProsjek", razredIdParameter, ucenikIdParameter);
+        }
+    
+        public virtual ObjectResult<Korisnici_Result> ssp_UceniciOcjene_GetUceniciByPredmetProsjek(Nullable<int> predmetId)
+        {
+            var predmetIdParameter = predmetId.HasValue ?
+                new ObjectParameter("PredmetId", predmetId) :
+                new ObjectParameter("PredmetId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Korisnici_Result>("ssp_UceniciOcjene_GetUceniciByPredmetProsjek", predmetIdParameter);
+        }
     }
 }

@@ -260,6 +260,7 @@
     <Compile Include="Util\BlobStorage\IAzureBlobStorage.cs" />
     <Compile Include="Util\ExceptionFilter.cs" />
     <Compile Include="Util\ExceptionHandler.cs" />
+    <Compile Include="Util\Recommender.cs" />
     <Compile Include="Util\UIHelper.cs" />
   </ItemGroup>
   <ItemGroup>
